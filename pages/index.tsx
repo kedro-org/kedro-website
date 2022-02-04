@@ -1,15 +1,15 @@
-import Head from 'next/head'
-import Container from '../components/container'
+import Head from 'next/head';
+import Container from '../components/container';
 
 const Home = () => {
   return (
-    <div >
+    <div>
       <Head>
         <title>Kedro</title>
       </Head>
-      <Container/>
+      <Container />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
