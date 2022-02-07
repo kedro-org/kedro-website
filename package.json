@@ -2,10 +2,11 @@
   "name": "kedro-website",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "format": "prettier --write .",
     "lint": "next lint",
+    "start": "next start",
     "test": "jest --watch"
   },
   "dependencies": {
@@ -33,7 +34,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,css,scss,md}": [
+    "*/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write"
+    ],
+    "*/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   }
