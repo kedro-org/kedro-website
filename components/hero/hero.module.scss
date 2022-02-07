@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.hero {
+  background: $color-bg-1;
+  color: $color-font;
+  display: flex;
+}
+
+.hero-info {
+  width: 60%;
+  padding: 5% 1% 1% 10%;
+}
+
+.hero-title {
+  padding: 1%;
+}
+
+.hero_subtitle {
+  padding: 2%;
+}
+
+.hero_buttons {
+  padding: 1%;
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.hero_button_started {
+  width: 171px;
+  height: 48px;
+  background: $color-accent;
+  color: $color-font-dark;
+  border: 0;
+  border-radius: 1px;
+  font-size: 1rem;
+}
+
+.hero_button_tutorial {
+  width: 171px;
+  height: 48px;
+  color: $color-font;
+  background: none;
+  border: 1px solid $color-font;
+  border-radius: 1px;
+  font-size: 1rem;
+}
+
+.hero_image {
+  width: 40%;
+}
