@@ -2,6 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-size: 16px;
+  font-family: Helvetica Neue;
 }
 
 a {
@@ -11,4 +13,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+  font-size: 4.5rem;
+  font-weight: bold;
+  letter-spacing: 1.89px;
+  line-height: 93px;
+}
+
+h2 {
+  font-size: 1.5 rem;
+  font-weight: 400;
+  letter-spacing: 0.26px;
+  line-height: 34px;
 }

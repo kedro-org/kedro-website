@@ -1,5 +1,8 @@
 import Head from 'next/head';
-import Container from '../components/container';
+import Menu from '../components/menu';
+import Hero from '../components/hero';
+import WhyKedro from '../components/why-kedro';
+import Link from 'next/link';
 
 const Home = () => {
   return (
@@ -7,7 +10,10 @@ const Home = () => {
       <Head>
         <title>Kedro</title>
       </Head>
-      <Container />
+      <div>
+        <Menu />
+        <Hero />
+      </div>
     </div>
   );
 };
