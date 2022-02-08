@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/extends';
 
 .hero {
   background: $color-bg-1;
@@ -8,26 +9,28 @@
 
 .hero-info {
   width: 60%;
-  padding: 5% 1% 1% 10%;
+  margin: 4% 5% 1% 8%;
 }
 
-.hero-title {
-  padding: 1%;
+.hero-info-title {
+  @extend %type--heading-1;
+  margin: 1%;
 }
 
-.hero_subtitle {
-  padding: 2%;
+.hero-info-subtitle {
+  @extend %type--heading-3;
+  margin: 3% 1% 6% 1%;
 }
 
-.hero_buttons {
-  padding: 1%;
+.hero-info-buttons {
+  margin: 1%;
   display: flex;
-  column-gap: 1.5rem;
 }
 
-.hero_button_started {
+.hero-info-buttons-started {
   width: 171px;
   height: 48px;
+  margin-right: 2%;
   background: $color-accent;
   color: $color-font-dark;
   border: 0;
@@ -35,9 +38,10 @@
   font-size: 1rem;
 }
 
-.hero_button_tutorial {
+.hero-info-buttons-tutorial {
   width: 171px;
   height: 48px;
+  margin-left: 2%;
   color: $color-font;
   background: none;
   border: 1px solid $color-font;
@@ -45,6 +49,7 @@
   font-size: 1rem;
 }
 
-.hero_image {
+.hero-media {
   width: 40%;
+  margin: 3% 5% 1% 4%;
 }

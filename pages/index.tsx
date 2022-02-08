@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Menu from '../components/menu';
 import Hero from '../components/hero';
-import WhyKedro from '../components/why-kedro';
-import Link from 'next/link';
 
 const Home = () => {
   return (
