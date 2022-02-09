@@ -4,6 +4,11 @@
 .hero {
   background: $color-bg-1;
   color: $color-font;
+}
+
+.hero-container {
+  margin: auto;
+  max-width: 1500px;
   display: flex;
 }
 
@@ -14,34 +19,32 @@
 
 .hero-info-title {
   @extend %type--heading-1;
-  margin: 1%;
 }
 
 .hero-info-subtitle {
   @extend %type--heading-3;
-  margin: 3% 1% 6% 1%;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .hero-info-buttons {
-  margin: 1%;
   display: flex;
 }
 
 .hero-info-buttons-started {
   width: 171px;
   height: 48px;
-  margin-right: 2%;
+  margin-right: 30px;
   background: $color-accent;
   color: $color-font-dark;
   border: 0;
-  border-radius: 1px;
+  border-radius: 2px;
   font-size: 1rem;
 }
 
 .hero-info-buttons-tutorial {
   width: 171px;
   height: 48px;
-  margin-left: 2%;
   color: $color-font;
   background: none;
   border: 1px solid $color-font;
