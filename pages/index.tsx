@@ -12,7 +12,6 @@ const Home = () => {
         <Menu />
         <Hero />
       </div>
-      <Container />
     </div>
   );
 };
