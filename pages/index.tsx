@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Container from '../components/container';
+import WhyKedro from '../components/why-kedro';
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       <Head>
         <title>Kedro</title>
       </Head>
-      <Container />
+      <WhyKedro />
     </div>
   );
 };

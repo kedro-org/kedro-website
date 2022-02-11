@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+@import '../../../styles/extends';
+
+
+
+.tab-list-item, .tab-list-item--active  {
+    @extend %type--heading-3;
+    list-style: none;
+    margin: 10px;
+    padding:20px;
+    color: $color-font-grey;
+}
+
+.tab-list-item--active {
+    color: $color-light;
+    padding:20px;
+    border-bottom: 2px solid $color-light;
+
+}
+
+

@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+
+.why {
+    background: $color-bg-1;
+    color: $color-font;
+    text-align: center;
+  }
+
+.why-container {
+    margin: auto;
+    max-width: 1500px;
+  }
+
+.why-title {
+    @extend %type--heading-1;
+  }
+
