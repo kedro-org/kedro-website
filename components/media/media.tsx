@@ -10,11 +10,15 @@ type Props = {
 };
 
 export default function Media({ alt, image, poster, video }: Props) {
-  if (image?.src?.includes('webp')) {
+  if (
+    image?.src?.includes('webp') ||
+    image?.src?.includes('jpg') ||
+    image?.src?.includes('png')
+  ) {
     return <Image alt={alt} src={image}></Image>;
   }
 
-  if (video) {
+  if (!!video?.length) {
     return (
       <video className={style.video} controls poster={poster} src={video}>
         Sorry, your browser doesn&#39;t support embedded videos.
