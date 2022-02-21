@@ -1,13 +1,12 @@
 import Media from '../media';
-
 import hero from '../../public/images/hero.webp';
 
 import style from './hero.module.scss';
 
 export default function Hero() {
   return (
-    <>
-      <div className={style.container}>
+    <div className={style.container}>
+      <div className={style.row}>
         <div className={style.info}>
           <h1 className={style.title}>Maintainable data science solved</h1>
           <h2 className={style.subtitle}>
@@ -42,6 +41,6 @@ export default function Hero() {
           video="/kedro.mp4"
         />
       </div>
-    </>
+    </div>
   );
 }

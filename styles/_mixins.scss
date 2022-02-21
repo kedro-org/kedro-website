@@ -1,3 +1,7 @@
+/**
+*** Buttons
+**/
+
 @mixin button($size: normal, $style: primary) {
   border-radius: 2px;
   cursor: pointer;
@@ -18,12 +22,20 @@
   }
 }
 
+/**
+*** Breakpoints
+**/
+
 @mixin breakpoint($point) {
   @if $point == large {
     @media (min-width: 1280px) {
       @content;
     }
-  } @else if $point == medium {
+  } @else if $point == medium-up {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == medium-only {
     @media (min-width: 768px) and (max-width: 1279px) {
       @content;
     }
@@ -33,6 +45,10 @@
     }
   }
 }
+
+/**
+*** Headings
+**/
 
 @mixin h1 {
   font-size: 4.5rem;

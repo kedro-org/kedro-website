@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import style from './media.module.scss';
+
 type Props = {
   alt?: string;
   image?: StaticImageData;
@@ -9,12 +11,12 @@ type Props = {
 
 export default function Media({ alt, image, poster, video }: Props) {
   if (image?.src?.includes('webp')) {
-    return <Image alt={alt} src={image} layout="intrinsic"></Image>;
+    return <Image alt={alt} src={image}></Image>;
   }
 
   if (video) {
     return (
-      <video controls poster={poster} src={video} style={{ width: '100%' }}>
+      <video className={style.video} controls poster={poster} src={video}>
         Sorry, your browser doesn&#39;t support embedded videos.
       </video>
     );

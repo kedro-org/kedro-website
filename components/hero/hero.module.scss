@@ -1,32 +1,37 @@
 @import '../../styles/variables';
-@import '../../styles/extends';
 @import '../../styles/mixins';
 
 .container {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   margin: 100px auto;
-  max-width: 1285px;
+  max-width: $max-content;
   overflow: hidden;
   position: relative;
+
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
 
   @include breakpoint(small) {
     align-items: flex-start;
     flex-direction: column;
-    // height: 100vh;
     margin: 0;
     padding: 100px 1rem;
     text-align: center;
   }
 }
 
+.row {
+  display: flex;
+}
+
 .info {
-  margin-right: 175px;
   width: 60%;
   z-index: 2;
 
   @include breakpoint(small) {
-    margin-right: 0;
     width: 100%;
   }
 }
@@ -52,7 +57,7 @@
 .getStarted {
   @include button;
 
-  @include breakpoint(large) {
+  @include breakpoint(medium-up) {
     margin-right: 30px;
   }
 
@@ -66,11 +71,13 @@
 }
 
 .image {
-  width: 40%;
+  position: absolute;
+  right: 1rem;
+  width: 470px;
 
   @include breakpoint(small) {
     left: 170px;
-    position: absolute;
+    right: unset;
     top: 350px;
     width: 100%;
   }
@@ -81,4 +88,12 @@
   max-width: 1024px;
   width: 100%;
   z-index: 2;
+
+  @include breakpoint(large) {
+    margin: 300px auto;
+  }
+
+  @include breakpoint(medium-only) {
+    margin: 220px auto;
+  }
 }
