@@ -1,58 +1,84 @@
 @import '../../styles/variables';
 @import '../../styles/extends';
+@import '../../styles/mixins';
 
-.hero {
-  background: $color-bg-1;
-  color: $color-font;
-}
-
-.hero-container {
-  margin: auto;
-  max-width: 1500px;
+.container {
+  align-items: center;
   display: flex;
+  margin: 100px auto;
+  max-width: 1285px;
+  overflow: hidden;
+  position: relative;
+
+  @include breakpoint(small) {
+    align-items: flex-start;
+    flex-direction: column;
+    // height: 100vh;
+    margin: 0;
+    padding: 100px 1rem;
+    text-align: center;
+  }
 }
 
-.hero-info {
+.info {
+  margin-right: 175px;
   width: 60%;
-  margin: 4% 5% 1% 8%;
+  z-index: 2;
+
+  @include breakpoint(small) {
+    margin-right: 0;
+    width: 100%;
+  }
 }
 
-.hero-info-title {
-  @extend %type--heading-1;
+.title {
+  @include h1;
 }
 
-.hero-info-subtitle {
-  @extend %type--heading-3;
-  margin-top: 20px;
-  margin-bottom: 50px;
+.subtitle {
+  @include h3;
+
+  margin: 20px 0 50px;
 }
 
-.hero-info-buttons {
+.buttons {
   display: flex;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
 }
 
-.hero-info-buttons-started {
-  width: 171px;
-  height: 48px;
-  margin-right: 30px;
-  background: $color-accent;
-  color: $color-font-dark;
-  border: 0;
-  border-radius: 2px;
-  font-size: 1rem;
+.getStarted {
+  @include button;
+
+  @include breakpoint(large) {
+    margin-right: 30px;
+  }
+
+  @include breakpoint(small) {
+    margin-bottom: 20px;
+  }
 }
 
-.hero-info-buttons-tutorial {
-  width: 171px;
-  height: 48px;
-  color: $color-font;
-  background: none;
-  border: 1px solid $color-font;
-  border-radius: 1px;
-  font-size: 1rem;
+.tutorial {
+  @include button($style: outline);
 }
 
-.hero-media {
+.image {
   width: 40%;
-  margin: 3% 5% 1% 4%;
+
+  @include breakpoint(small) {
+    left: 170px;
+    position: absolute;
+    top: 350px;
+    width: 100%;
+  }
+}
+
+.video {
+  margin: 140px auto;
+  max-width: 1024px;
+  width: 100%;
+  z-index: 2;
 }

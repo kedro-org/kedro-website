@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Menu from '../components/menu';
 import Hero from '../components/hero';
 
 const Home = () => {
@@ -9,7 +8,6 @@ const Home = () => {
         <title>Kedro</title>
       </Head>
       <div>
-        <Menu />
         <Hero />
       </div>
     </div>
