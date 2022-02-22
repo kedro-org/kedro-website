@@ -35,11 +35,7 @@ export default function Hero() {
         </div>
       </div>
       <div className={style.video}>
-        <Media
-          alt="Kedro logo"
-          poster="/images/intro-poster.jpg"
-          video="/kedro.mp4"
-        />
+        <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
       </div>
     </div>
   );
