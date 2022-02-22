@@ -46,7 +46,9 @@ export default function Tabs({ children }: Props) {
       </div>
       <div className={style['tab-content']}>
         {children.map((child) => {
-          if (child.props['data-label'] !== activeTab) {return undefined;}
+          if (child.props['data-label'] !== activeTab) {
+            return undefined;
+          }
           return child.props.children;
         })}
       </div>
