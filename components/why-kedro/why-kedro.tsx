@@ -27,7 +27,7 @@ export default function WhyKedro() {
             >
               {item.label}
               {item === selectedTab ? (
-                <motion.div className={style.underline} layoutId="underline" />
+                <motion.div className={style.underline} layoutId="tab" />
               ) : null}
             </li>
           ))}
@@ -35,27 +35,19 @@ export default function WhyKedro() {
       </div>
       <div className={style.main}>
         <AnimatePresence exitBeforeEnter>
-          <React.Fragment key={selectedTab ? selectedTab.label : null}>
-            <motion.p
-              animate={{ opacity: 1, y: 0 }}
-              className={style.conceptContent}
-              exit={{ opacity: 0, y: -20 }}
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.1 }}
-            >
-              {selectedTab.description}
-            </motion.p>
-            <motion.div
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.15 }}
-            >
-              {selectedTab ? selectedTab.icon : null}
-            </motion.div>
-          </React.Fragment>
+          <motion.p
+            animate={{ opacity: 1, y: 0 }}
+            className={style.conceptContent}
+            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
+            key={selectedTab ? selectedTab.label : null}
+            transition={{ duration: 0.1 }}
+          >
+            {selectedTab.description}
+          </motion.p>
         </AnimatePresence>
       </div>
+      <Media source={image} />
     </div>
   );
 }
