@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.window {
+.container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -9,6 +9,14 @@
   overflow: hidden;
   text-align: center;
   width: 100%;
+
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
 }
 
 .title {
@@ -17,45 +25,35 @@
   margin-bottom: 3rem;
 }
 
-.nav {
+.tabsWrapper {
   border-bottom: 1px solid $color-font-grey;
   margin: 0 auto 2.625rem;
-}
-
-.tabs {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-wrap: nowrap;
   width: 100%;
+
+  @include breakpoint(small) {
+    margin: 0 auto 1.375rem;
+  }
 }
 
-.main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  user-select: none;
-}
-
-.ul,
-.li {
-  font-size: 14px;
-  font-weight: 500;
+.list,
+.listItem {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.ul {
+.list {
   align-items: center;
   display: flex;
   width: 100%;
+
+  @include breakpoint(small) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 }
 
-.li {
+.listItem {
   @include h3;
 
   align-items: flex-end;
@@ -64,10 +62,18 @@
   display: flex;
   height: 88px;
   justify-content: center;
-  padding: 0.25rem 1rem;
+  padding: 0 1rem 0.35rem;
   position: relative;
-  user-select: none;
   width: 100%;
+
+  &.selected {
+    color: $color-light;
+  }
+
+  @include breakpoint(small) {
+    height: 40px;
+    white-space: nowrap;
+  }
 }
 
 .underline {
@@ -77,13 +83,13 @@
   left: 0;
   position: absolute;
   right: 0;
+
+  @include breakpoint(small) {
+    bottom: -0.5px;
+  }
 }
 
-.li.selected {
-  color: $color-light;
-}
-
-.conceptContent {
+.tabContent {
   @include h3;
 
   margin-bottom: 5.75rem;
