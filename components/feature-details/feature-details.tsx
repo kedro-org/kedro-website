@@ -2,22 +2,24 @@ import style from './feature-details.module.scss';
 
 type Props = {
   assetPosition?: 'center' | 'left' | 'right';
+  buttonLink?: string;
   buttonText?: string;
-  linkDestination?: string;
+  iframeLink?: string;
   subtitle: string | JSX.Element;
   title: string;
 };
 
 export default function FeatureDetails({
   assetPosition = 'center',
+  buttonLink,
   buttonText = undefined,
-  linkDestination,
+  iframeLink = undefined,
   subtitle,
   title,
 }: Props) {
   const buttonMarkup = (
     <div className={style.buttonWrapper}>
-      <a href={linkDestination} target="_blank" rel="noopener noreferrer">
+      <a href={buttonLink} target="_blank" rel="noopener noreferrer">
         <button className={style.button}>{buttonText}</button>
       </a>
     </div>
@@ -33,11 +35,20 @@ export default function FeatureDetails({
           : null}
       </div>
       <div className={style.asset}>
-        <img
-          src="https://tynandebold.com/assets/photo/people/1.jpg"
-          style={{ width: '100%' }}
-          alt="central p"
-        />
+        {iframeLink !== undefined ? (
+          <iframe
+            className={style.iframe}
+            frameBorder="0"
+            src={iframeLink}
+            width="100%"
+          />
+        ) : (
+          <img
+            src="https://tynandebold.com/assets/photo/people/1.jpg"
+            style={{ width: '100%' }}
+            alt="central p"
+          />
+        )}
       </div>
       {buttonText !== undefined ? buttonMarkup : null}
     </div>

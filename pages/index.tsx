@@ -12,8 +12,9 @@ const Home = () => {
       <section className={style.features}>
         <h3 className={style.sectionTitle}>Features</h3>
         <FeatureDetails
+          buttonLink="https://demo.kedro.org/"
           buttonText="Explore Live Demo"
-          linkDestination="https://demo.kedro.org/"
+          iframeLink="https://demo.kedro.org/"
           subtitle={
             <>
               <a
@@ -33,8 +34,8 @@ const Home = () => {
         />
         <FeatureDetails
           assetPosition="right"
+          buttonLink="https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure"
           buttonText="Learn more"
-          linkDestination="https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure"
           subtitle={
             <>
               You can standardise how configuration, source code, tests,
