@@ -1,0 +1,108 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  margin: 0 auto;
+  max-width: $max-content;
+  margin-bottom: 20rem;
+
+  @include breakpoint(small) {
+    margin-bottom: 8.75rem;
+  }
+
+  &.center {
+    text-align: center;
+
+    .subtitle {
+      margin-bottom: 6.75rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .asset {
+      margin-bottom: 5.25rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.left {
+    flex-direction: row-reverse;
+  }
+
+  &.left,
+  &.right {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(small) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text {
+      max-width: 37%;
+
+      @include breakpoint(small) {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    .asset {
+      max-width: 57%;
+
+      @include breakpoint(small) {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    .subtitle {
+      margin-bottom: 4.75rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .text .button {
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+  }
+}
+
+.title {
+  @include h2;
+
+  margin-top: 0;
+}
+
+.subtitle {
+  @include h3;
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
+
+.asset {
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
+
+.button {
+  @include button($style: outline);
+
+  @include breakpoint(small) {
+    margin-top: 3.375rem;
+  }
+}
