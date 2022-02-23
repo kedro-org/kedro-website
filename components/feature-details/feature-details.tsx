@@ -15,16 +15,22 @@ export default function FeatureDetails({
   subtitle,
   title,
 }: Props) {
+  const buttonMarkup = (
+    <div className={style.buttonWrapper}>
+      <a href={linkDestination} target="_blank" rel="noopener noreferrer">
+        <button className={style.button}>{buttonText}</button>
+      </a>
+    </div>
+  );
+
   return (
     <div className={`${style.container} ${style[assetPosition]}`}>
       <div className={style.text}>
         <h4 className={style.title}>{title}</h4>
         <p className={style.subtitle}>{subtitle}</p>
-        {buttonText !== undefined && assetPosition !== 'center' ? (
-          <a href={linkDestination} target="_blank" rel="noopener noreferrer">
-            <button className={style.button}>{buttonText}</button>
-          </a>
-        ) : null}
+        {buttonText !== undefined && assetPosition !== 'center'
+          ? buttonMarkup
+          : null}
       </div>
       <div className={style.asset}>
         <img
@@ -33,11 +39,7 @@ export default function FeatureDetails({
           alt="central p"
         />
       </div>
-      {buttonText !== undefined ? (
-        <a href={linkDestination} target="_blank" rel="noopener noreferrer">
-          <button className={style.button}>{buttonText}</button>
-        </a>
-      ) : null}
+      {buttonText !== undefined ? buttonMarkup : null}
     </div>
   );
 }

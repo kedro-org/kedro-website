@@ -6,6 +6,10 @@
   max-width: $max-content;
   margin-bottom: 20rem;
 
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
   @include breakpoint(small) {
     margin-bottom: 8.75rem;
   }
@@ -71,8 +75,26 @@
       }
     }
 
-    .text .button {
+    .text .buttonWrapper {
+      @include breakpoint(large) {
+        display: block;
+      }
+
+      @include breakpoint(medium-only) {
+        display: block;
+      }
+
       @include breakpoint(small) {
+        display: none;
+      }
+    }
+
+    .buttonWrapper {
+      @include breakpoint(large) {
+        display: none;
+      }
+
+      @include breakpoint(medium-only) {
         display: none;
       }
     }
@@ -99,10 +121,12 @@
   }
 }
 
-.button {
-  @include button($style: outline);
-
+.buttonWrapper {
   @include breakpoint(small) {
     margin-top: 3.375rem;
   }
+}
+
+.button {
+  @include button($style: outline);
 }
