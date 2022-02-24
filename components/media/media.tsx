@@ -1,15 +1,29 @@
 import Image from 'next/image';
 
-interface IProps {
-  source: StaticImageData;
-}
+import style from './media.module.scss';
 
-export default function Media(media: IProps) {
+type Props = {
+  alt?: string;
+  image?: StaticImageData;
+  poster?: string;
+  video?: string;
+};
+
+export default function Media({ alt, image, poster, video }: Props) {
   if (
-    media?.source?.src?.includes('webp') ||
-    media?.source?.src?.includes('png')
+    image?.src?.includes('webp') ||
+    image?.src?.includes('jpg') ||
+    image?.src?.includes('png')
   ) {
-    return <Image src={media.source} layout="intrinsic"></Image>;
+    return <Image alt={alt} src={image}></Image>;
+  }
+
+  if (!!video?.length) {
+    return (
+      <video className={style.video} controls poster={poster} src={video}>
+        Sorry, your browser doesn&#39;t support embedded videos.
+      </video>
+    );
   }
 
   return null;

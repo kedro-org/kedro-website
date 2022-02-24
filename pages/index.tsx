@@ -1,14 +1,16 @@
 import Head from 'next/head';
 import WhyKedro from '../components/why-kedro';
+import Hero from '../components/hero';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Kedro</title>
       </Head>
+      <Hero />
       <WhyKedro />
-    </div>
+    </>
   );
 };
 

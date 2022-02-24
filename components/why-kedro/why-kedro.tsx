@@ -50,7 +50,7 @@ export default function WhyKedro() {
           {selectedTab.description}
         </motion.p>
       </AnimatePresence>
-      <Media source={image} />
+      <Media image={image} />
     </div>
   );
 }
