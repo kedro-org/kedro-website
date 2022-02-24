@@ -9,14 +9,6 @@
   overflow: hidden;
   text-align: center;
   width: 100%;
-
-  @include breakpoint(medium-only) {
-    padding: 0 1rem;
-  }
-
-  @include breakpoint(small) {
-    padding: 0 1rem;
-  }
 }
 
 .title {
@@ -26,12 +18,12 @@
 }
 
 .tabsWrapper {
-  border-bottom: 1px solid $color-font-grey;
   margin: 0 auto 2.625rem;
-  width: 100%;
 
   @include breakpoint(small) {
     margin: 0 auto 1.375rem;
+    padding-left: 1rem;
+    width: 100%;
   }
 }
 
@@ -45,9 +37,11 @@
 .list {
   align-items: center;
   display: flex;
+  justify-content: center;
   width: 100%;
 
   @include breakpoint(small) {
+    justify-content: flex-start;
     overflow-x: scroll;
     overflow-y: hidden;
   }
@@ -57,6 +51,7 @@
   @include h3;
 
   align-items: flex-end;
+  border-bottom: 1px solid $color-font-grey;
   color: $color-font-grey;
   cursor: pointer;
   display: flex;
@@ -64,7 +59,20 @@
   justify-content: center;
   padding: 0 1rem 0.35rem;
   position: relative;
+  white-space: nowrap;
   width: 100%;
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+
+  &:last-of-type {
+    padding-right: 0;
+
+    @include breakpoint(small) {
+      margin-right: 1rem;
+    }
+  }
 
   &.selected {
     color: $color-light;
@@ -72,7 +80,6 @@
 
   @include breakpoint(small) {
     height: 40px;
-    white-space: nowrap;
   }
 }
 
@@ -93,4 +100,12 @@
   @include h3;
 
   margin-bottom: 5.75rem;
+
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
 }
