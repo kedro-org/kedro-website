@@ -22,7 +22,7 @@
 
   @include breakpoint(small) {
     margin: 0 auto 1.375rem;
-    padding-left: 1rem;
+    padding-left: 3rem;
     width: 100%;
   }
 }
@@ -105,6 +105,12 @@
     padding: 0 1rem;
   }
 
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
+
+.mediaWrapper {
   @include breakpoint(small) {
     padding: 0 1rem;
   }

@@ -50,7 +50,9 @@ export default function WhyKedro() {
           {selectedTab.description}
         </motion.p>
       </AnimatePresence>
-      <Media image={image} />
+      <div className={style.mediaWrapper}>
+        <Media image={image} />
+      </div>
     </div>
   );
 }
