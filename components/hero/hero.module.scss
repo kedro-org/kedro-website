@@ -11,14 +11,13 @@
   position: relative;
 
   @include breakpoint(medium-only) {
-    padding: 0 1rem;
+    margin: 100px 1rem;
   }
 
   @include breakpoint(small) {
     align-items: flex-start;
     flex-direction: column;
-    margin: 0;
-    padding: 100px 1rem;
+    margin: 100px 1rem;
     text-align: center;
   }
 }
@@ -59,7 +58,7 @@
   }
 }
 
-.getStarted {
+.start {
   @include button;
 
   @include breakpoint(medium-up) {

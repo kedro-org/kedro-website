@@ -19,7 +19,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className={style.getStarted}>Get Started</button>
+              <button className={style.start}>Get Started</button>
             </a>
             <a
               href="https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html"
