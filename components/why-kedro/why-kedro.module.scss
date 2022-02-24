@@ -20,6 +20,10 @@
 .tabsWrapper {
   margin: 0 auto 2.625rem;
 
+  @include breakpoint(medium-only) {
+    margin: 0 0 0 2rem;
+  }
+
   @include breakpoint(small) {
     margin: 0 auto 1.375rem;
     padding-left: 3rem;
@@ -39,6 +43,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @include breakpoint(medium-only) {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 
   @include breakpoint(small) {
     justify-content: flex-start;
@@ -111,6 +121,10 @@
 }
 
 .mediaWrapper {
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
   @include breakpoint(small) {
     padding: 0 1rem;
   }
