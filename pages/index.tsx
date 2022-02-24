@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import Container from '../components/container';
+import Hero from '../components/hero';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Kedro</title>
       </Head>
-      <Container />
-    </div>
+      <Hero />
+    </>
   );
 };
 
