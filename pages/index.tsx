@@ -2,7 +2,9 @@ import Head from 'next/head';
 import WhyKedro from '../components/why-kedro';
 import Hero from '../components/hero';
 import FeatureDetails from '../components/feature-details';
+import codingStandards from '../public/images/coding-standards.jpg';
 import placeholder from '../public/images/placeholder.jpg';
+import projectTemplate from '../public/images/project-template.jpg';
 
 import style from '../styles/pages/index.module.scss';
 
@@ -38,11 +40,11 @@ const Home = () => {
           title="Pipeline visualisation"
         />
         <FeatureDetails
-          altText="Placeholder"
+          altText="Project Template"
           assetPosition="right"
           buttonLink="https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure"
           buttonText="Learn more"
-          imageSrc={placeholder}
+          imageSrc={projectTemplate}
           subtitle={
             <>
               You can standardise how configuration, source code, tests,
@@ -60,9 +62,9 @@ const Home = () => {
           title="Project Template"
         />
         <FeatureDetails
-          altText="Placeholder"
+          altText="Coding Standards"
           assetPosition="left"
-          imageSrc={placeholder}
+          imageSrc={codingStandards}
           subtitle={
             <>
               Test-driven development using{' '}
