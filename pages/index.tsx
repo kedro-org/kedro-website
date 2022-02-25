@@ -115,6 +115,33 @@ const Home = () => {
           subtitle="Apache Spark, Pandas, Dask, Matplotlib, Plotly, fsspec, Apache Airflow, Jupyter Notebook and Docker."
           title="Integrations"
         />
+        <FeatureDetails
+          altText="Placeholder"
+          assetPosition="left"
+          buttonLink="https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html"
+          buttonText="Learn more"
+          imageSrc={placeholder}
+          subtitle="A series of lightweight data connectors used to save and load data across many different file formats and file systems, including local and network file systems, cloud object stores, and HDFS. The Data Catalog also includes data and model versioning for file-based systems."
+          title="Data Catalog"
+        />
+        <FeatureDetails
+          altText="Placeholder"
+          assetPosition="right"
+          buttonLink="https://kedro.readthedocs.io/en/stable/10_deployment/01_deployment_guide.html"
+          buttonText="Explore"
+          imageSrc={placeholder}
+          subtitle="Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more."
+          title="Flexible Deployment"
+        />
+        <FeatureDetails
+          altText="Placeholder"
+          assetPosition="left"
+          buttonLink="https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html"
+          buttonText="Explore"
+          imageSrc={placeholder}
+          subtitle="You never have to label the running order of tasks in your pipeline because Kedro supports a dataset-driven workflow that supports automatic resolution of dependencies between pure Python functions."
+          title="Pipeline Abstraction"
+        />
       </section>
     </>
   );
