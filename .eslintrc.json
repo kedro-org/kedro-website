@@ -4,7 +4,6 @@
     "curly": ["error"],
     "valid-typeof": ["error"],
     "camelcase": "error",
-    "semi": [2, "always"],
     "id-length": [
       "error",
       {

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Hero from '../components/hero';
 import FeatureDetails from '../components/feature-details';
 
 import style from '../styles/pages/index.module.scss';
@@ -9,6 +10,7 @@ const Home = () => {
       <Head>
         <title>Kedro</title>
       </Head>
+      <Hero />
       <section className={style.features}>
         <h3 className={style.sectionTitle}>Features</h3>
         <FeatureDetails
