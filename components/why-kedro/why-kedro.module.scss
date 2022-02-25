@@ -1,0 +1,131 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: $max-content;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  @include h1;
+
+  margin-bottom: 3rem;
+}
+
+.tabsWrapper {
+  margin: 0 auto 2.625rem;
+
+  @include breakpoint(medium-only) {
+    margin: 0 0 0 2rem;
+  }
+
+  @include breakpoint(small) {
+    margin: 0 auto 1.375rem;
+    padding-left: 3rem;
+    width: 100%;
+  }
+}
+
+.list,
+.listItem {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include breakpoint(medium-only) {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  @include breakpoint(small) {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}
+
+.listItem {
+  @include h3;
+
+  align-items: flex-end;
+  border-bottom: 1px solid $color-font-grey;
+  color: $color-font-grey;
+  cursor: pointer;
+  display: flex;
+  height: 88px;
+  justify-content: center;
+  padding: 0 1rem 0.35rem;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+
+  &:last-of-type {
+    padding-right: 0;
+
+    @include breakpoint(small) {
+      margin-right: 1rem;
+    }
+  }
+
+  &.selected {
+    color: $color-light;
+  }
+
+  @include breakpoint(small) {
+    height: 40px;
+  }
+}
+
+.underline {
+  background: $color-light;
+  bottom: -1px;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+
+  @include breakpoint(small) {
+    bottom: -0.5px;
+  }
+}
+
+.tabContent {
+  @include h3;
+
+  margin-bottom: 5.75rem;
+
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
+
+.mediaWrapper {
+  @include breakpoint(medium-only) {
+    padding: 0 1rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
