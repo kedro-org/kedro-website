@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import WhyKedro from '../components/why-kedro';
 import Hero from '../components/hero';
 import FeatureDetails from '../components/feature-details';
 import placeholder from '../public/images/placeholder.jpg';
@@ -12,6 +13,7 @@ const Home = () => {
         <title>Kedro</title>
       </Head>
       <Hero />
+      <WhyKedro />
       <section className={style.features}>
         <h3 className={style.sectionTitle}>Features</h3>
         <FeatureDetails

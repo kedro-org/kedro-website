@@ -17,7 +17,7 @@
   @include breakpoint(small) {
     align-items: flex-start;
     flex-direction: column;
-    margin: 100px 1rem;
+    margin: 100px 1rem 120px;
     text-align: center;
   }
 }
@@ -88,7 +88,7 @@
 }
 
 .video {
-  margin: 140px auto;
+  margin: 140px auto 0;
   max-width: 1024px;
   width: 100%;
   z-index: 2;
