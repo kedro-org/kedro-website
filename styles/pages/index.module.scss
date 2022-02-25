@@ -1,0 +1,18 @@
+@import '../variables';
+@import '../mixins';
+
+.features {
+  margin: 0 auto;
+  max-width: $max-content;
+}
+
+.sectionTitle {
+  @include h1;
+
+  margin-bottom: 8rem;
+  text-align: center;
+
+  @include breakpoint(small) {
+    margin-bottom: 2.5rem;
+  }
+}
