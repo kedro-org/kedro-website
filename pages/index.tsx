@@ -4,6 +4,7 @@ import Hero from '../components/hero';
 import FeatureDetails from '../components/feature-details';
 import codingStandards from '../public/images/coding-standards.jpg';
 import placeholder from '../public/images/placeholder.jpg';
+import pipelineAbstraction from '../public/images/pipeline-abstraction.png';
 import projectTemplate from '../public/images/project-template.jpg';
 
 import style from '../styles/pages/index.module.scss';
@@ -138,11 +139,11 @@ const Home = () => {
           title="Flexible Deployment"
         />
         <FeatureDetails
-          altText="Placeholder"
+          altText="Pipeline Abstraction"
           assetPosition="left"
           buttonLink="https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html"
           buttonText="Explore"
-          imageSrc={placeholder}
+          imageSrc={pipelineAbstraction}
           subtitle="You never have to label the running order of tasks in your pipeline because Kedro supports a dataset-driven workflow that supports automatic resolution of dependencies between pure Python functions."
           title="Pipeline Abstraction"
         />
