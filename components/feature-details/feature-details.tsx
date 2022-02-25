@@ -1,21 +1,31 @@
+import Media from '../media';
+
 import style from './feature-details.module.scss';
 
 type Props = {
+  altText?: string;
   assetPosition?: 'center' | 'left' | 'right';
   buttonLink?: string;
   buttonText?: string;
   iframeLink?: string;
+  imageSrc?: StaticImageData;
+  posterText?: string;
   subtitle: string | JSX.Element;
   title: string;
+  videoSrc?: string;
 };
 
 export default function FeatureDetails({
+  altText,
   assetPosition = 'center',
   buttonLink,
   buttonText = undefined,
   iframeLink = undefined,
+  imageSrc,
+  posterText,
   subtitle,
   title,
+  videoSrc,
 }: Props) {
   const buttonMarkup = (
     <div className={style.buttonWrapper}>
@@ -43,10 +53,11 @@ export default function FeatureDetails({
             width="100%"
           />
         ) : (
-          <img
-            src="https://tynandebold.com/assets/photo/people/1.jpg"
-            style={{ width: '100%' }}
-            alt="central p"
+          <Media
+            alt={altText}
+            image={imageSrc}
+            poster={posterText}
+            video={videoSrc}
           />
         )}
       </div>

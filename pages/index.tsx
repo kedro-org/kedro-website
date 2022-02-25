@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Hero from '../components/hero';
 import FeatureDetails from '../components/feature-details';
+import placeholder from '../public/images/placeholder.jpg';
 
 import style from '../styles/pages/index.module.scss';
 
@@ -35,9 +36,11 @@ const Home = () => {
           title="Pipeline visualisation"
         />
         <FeatureDetails
+          altText="Placeholder"
           assetPosition="right"
           buttonLink="https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure"
           buttonText="Learn more"
+          imageSrc={placeholder}
           subtitle={
             <>
               You can standardise how configuration, source code, tests,
@@ -55,7 +58,9 @@ const Home = () => {
           title="Project Template"
         />
         <FeatureDetails
+          altText="Placeholder"
           assetPosition="left"
+          imageSrc={placeholder}
           subtitle={
             <>
               Test-driven development using{' '}
@@ -104,7 +109,9 @@ const Home = () => {
           title="Coding Standards"
         />
         <FeatureDetails
+          altText="Placeholder"
           assetPosition="right"
+          imageSrc={placeholder}
           subtitle="Apache Spark, Pandas, Dask, Matplotlib, Plotly, fsspec, Apache Airflow, Jupyter Notebook and Docker."
           title="Integrations"
         />
