@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 html,
 body {
@@ -10,8 +11,14 @@ body {
   padding: 0;
 }
 
+body {
+  @include breakpoint(medium-only) {
+    margin: 0 2.5rem;
+  }
+}
+
 a {
-  color: inherit;
+  color: $color-accent;
   text-decoration: none;
 }
 

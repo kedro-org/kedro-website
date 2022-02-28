@@ -4,11 +4,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 18rem;
   max-width: $max-content;
   overflow: hidden;
   text-align: center;
   width: 100%;
+
+  @include breakpoint(small) {
+    margin: 0 auto 7.5rem;
+  }
 }
 
 .title {
