@@ -3,22 +3,79 @@
 
 .container {
   display: flex;
-  flex-wrap: wrap;
   margin-left: 100px;
-  height: 50px;
+  margin-right: 100px;
+  justify-content: space-between;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  width: 95%;
+  z-index: 4;
   margin: auto;
   max-width: $max-content;
   overflow: hidden;
-  position: relative;
-
-  @include breakpoint(medium-only) {
-    margin: 100px 1rem;
-  }
+  background: $color-dark;
 
   @include breakpoint(small) {
-    align-items: flex-start;
-    flex-direction: column;
-    margin: 100px 1rem;
+    margin: 0 0.8em;
     text-align: center;
+  }
+}
+
+.logo {
+  display: flex;
+}
+
+.logoText {
+  font-size: 1.25em;
+  font-weight: 400;
+  margin: 0.9em;
+
+  @include breakpoint(small) {
+    margin: 1.1rem 0.5rem;
+  }
+}
+
+.links {
+  display: flex;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    right: 0;
+    z-index: -1;
+    top: -1000px;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+  }
+
+  &.active {
+    top: 60px;
+    background: $color-dark;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+  }
+}
+
+.iconLinks {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: $color-light;
+  margin: 1.25em 0.8em 1.25em 0.8em;
+}
+
+.githubLink {
+  margin: 1em;
+}
+
+.burger {
+  display: none;
+  margin: 1em 0.5em;
+  @include breakpoint(small) {
+    display: block;
   }
 }

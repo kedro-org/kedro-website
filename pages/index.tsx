@@ -19,7 +19,7 @@ const Home = () => {
       <Header />
       <Hero />
       <WhyKedro />
-      <section className={style.features}>
+      <section id="features" className={style.features}>
         <h3 className={style.sectionTitle}>Features</h3>
         <FeatureDetails
           buttonLink="https://demo.kedro.org/"
