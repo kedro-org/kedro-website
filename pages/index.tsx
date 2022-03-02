@@ -2,6 +2,7 @@ import Head from 'next/head';
 import WhyKedro from '../components/why-kedro';
 import Hero from '../components/hero';
 import Features from '../components/features';
+import UseCases from '../components/use-cases';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Hero />
       <WhyKedro />
       <Features />
+      <UseCases />
     </>
   );
 };

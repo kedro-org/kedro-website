@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 558px;
+}
+
+.logoContainer {
+  max-width: 558px;
+  height: 343px;
+  background-color: $color-dark;
+  border-radius: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint(small) {
+    min-width: 343px;
+    width: 100%;
+    height: 211px;
+    border-radius: 8px;
+  }
+}
+
+.textContainer {
+  padding: 66px 0;
+  letter-spacing: 0.26px;
+  font-weight: 400px;
+  line-height: 1.5rem;
+
+  @include breakpoint(small) {
+    text-align: center;
+  }
+
+  a {
+    color: $color-font;
+    border-bottom: 2px solid $color-font;
+    padding-bottom: 3.5px;
+  }
+}
+
+.title {
+  font-size: 18px;
+  padding: 16px 0;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: normal;
+}

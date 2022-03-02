@@ -11,7 +11,7 @@
   position: relative;
 
   @include breakpoint(medium-only) {
-    margin: 100px 1rem;
+    margin: 100px 5rem;
   }
 
   @include breakpoint(small) {
