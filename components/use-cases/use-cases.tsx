@@ -9,20 +9,16 @@ export default function UseCases() {
     <div className={style.container}>
       <h3 className={style.sectionTitle}>Use Cases</h3>
       <div className={style.cards}>
-        <UseCasesCard
-          title={content[0].title}
-          text={content[0].text}
-          logo={content[0].logo}
-          linkUrl={content[0].linkUrl}
-          linkText={content[0].linkText}
-        />
-        <UseCasesCard
-          title={content[1].title}
-          text={content[1].text}
-          logo={content[1].logo}
-          linkUrl={content[1].linkUrl}
-          linkText={content[1].linkText}
-        />
+        {content.map((cardContent, i) => (
+          <UseCasesCard
+            title={cardContent.title}
+            text={cardContent.text}
+            logo={cardContent.logo}
+            linkUrl={cardContent.linkUrl}
+            linkText={cardContent.linkText}
+            key={i}
+          />
+        ))}
       </div>
     </div>
   );
