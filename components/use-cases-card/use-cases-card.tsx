@@ -4,7 +4,7 @@ import style from './use-cases-card.module.scss';
 type Props = {
   title: string;
   text: string | JSX.Element;
-  logo: JSX.Element;
+  logo: React.ComponentType;
   linkUrl?: string;
   linkText?: string;
 };
