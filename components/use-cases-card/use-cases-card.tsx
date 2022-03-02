@@ -26,7 +26,12 @@ export default function UseCasesCard({
       <div className={style.textContainer}>
         <h2 className={style.title}>{title}</h2>
         <p className={style.text}>{text}</p>
-        <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+        <a
+          href={linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+        >
           {linkText}
         </a>
       </div>
