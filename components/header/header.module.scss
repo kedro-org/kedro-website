@@ -49,21 +49,21 @@
 }
 
 .menu {
-  display: flex;
-  background: $color-dark;
   align-items: center;
+  background: $color-dark;
+  display: flex;
   justify-content: center;
   opacity: 0.9;
 
   @include breakpoint(small) {
     -webkit-transition: all 0.3s ease;
     flex-direction: column;
+    height: 100%;
     position: fixed;
     right: 0;
     top: -1000px;
     transition: all 0.3s ease;
     width: 100%;
-    height: 100%;
     z-index: -1;
   }
 
@@ -84,8 +84,8 @@
 }
 
 .iconText {
-  display: none;
   color: $color-light;
+  display: none;
 
   @include breakpoint(small) {
     display: block;
@@ -95,24 +95,25 @@
 }
 
 .link {
-  display: flex;
   color: $color-light;
+  display: flex;
   margin: 1em;
 }
 
 .githubLink {
   display: flex;
   margin: 0.8em;
+
   @include breakpoint(small) {
     margin: 1em;
   }
 }
 
 .burger {
-  display: none;
-  margin: 0.4em;
   background: none;
   border: none;
+  display: none;
+  margin: 0.4em;
 
   @include breakpoint(small) {
     display: block;

@@ -52,7 +52,6 @@
 
 .buttons {
   display: flex;
-  text-align: center;
   @include breakpoint(small) {
     flex-direction: column;
   }
