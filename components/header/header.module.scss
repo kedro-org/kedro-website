@@ -2,22 +2,26 @@
 @import '../../styles/mixins';
 
 .container {
+  background: $color-dark;
   display: flex;
-  margin-left: 100px;
-  margin-right: 100px;
-  justify-content: space-between;
   height: 60px;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 0.5em;
   position: fixed;
   top: 0;
-  width: 95%;
+  width: 100%;
   z-index: 4;
-  margin: auto;
-  max-width: $max-content;
-  overflow: hidden;
-  background: $color-dark;
+
+  @include breakpoint(medium-only) {
+    padding-left: 1em;
+    padding-right: 5em;
+  }
 
   @include breakpoint(small) {
-    margin: 0 0.8em;
+    padding: 0.5em;
     text-align: center;
   }
 }
@@ -29,52 +33,79 @@
 .logoText {
   font-size: 1.25em;
   font-weight: 400;
-  margin: 0.9em;
+  margin: 0.5em;
 
   @include breakpoint(small) {
-    margin: 1.1rem 0.5rem;
+    margin: 0.5rem;
   }
 }
 
-.links {
+.menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-dark;
+  opacity: 0.9;
 
   @include breakpoint(small) {
+    -webkit-transition: all 0.3s ease;
     flex-direction: column;
     position: fixed;
-    width: 100%;
     right: 0;
-    z-index: -1;
     top: -1000px;
-    -webkit-transition: all 0.8s ease;
-    transition: all 0.8s ease;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   &.active {
+    -webkit-transition: all 0.3s ease;
     top: 60px;
-    background: $color-dark;
-    -webkit-transition: all 0.8s ease;
-    transition: all 0.8s ease;
+    transition: all 0.3s ease;
   }
 }
 
 .iconLinks {
   display: flex;
   justify-content: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.iconText {
+  display: none;
+  color: $color-light;
+
+  @include breakpoint(small) {
+    display: block;
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+  }
 }
 
 .link {
+  display: flex;
   color: $color-light;
-  margin: 1.25em 0.8em 1.25em 0.8em;
+  margin: 1em;
 }
 
 .githubLink {
-  margin: 1em;
+  display: flex;
+  margin: 0.8em;
+  @include breakpoint(small) {
+    margin: 1em;
+  }
 }
 
 .burger {
   display: none;
-  margin: 1em 0.5em;
+  margin: 0.4em;
+  background: none;
+  border: none;
+
   @include breakpoint(small) {
     display: block;
   }

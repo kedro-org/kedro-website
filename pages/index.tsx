@@ -3,10 +3,10 @@ import WhyKedro from '../components/why-kedro';
 import Hero from '../components/hero';
 import Header from '../components/header';
 import FeatureDetails from '../components/feature-details';
-import codingStandards from '../public/images/coding-standards.jpg';
-import placeholder from '../public/images/placeholder.jpg';
-import pipelineAbstraction from '../public/images/pipeline-abstraction.png';
-import projectTemplate from '../public/images/project-template.jpg';
+import codingStandards from '../public/assets/images/coding-standards.jpg';
+import placeholder from '../public/assets/images/placeholder.jpg';
+import pipelineAbstraction from '../public/assets/images/pipeline-abstraction.png';
+import projectTemplate from '../public/assets/images/project-template.jpg';
 
 import style from '../styles/pages/index.module.scss';
 

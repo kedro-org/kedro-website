@@ -1,5 +1,5 @@
 import Media from '../media';
-import hero from '../../public/images/hero.webp';
+import hero from '../../public/assets/images/hero.webp';
 
 import style from './hero.module.scss';
 
