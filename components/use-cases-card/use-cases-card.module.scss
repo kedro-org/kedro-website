@@ -6,10 +6,15 @@
   flex-direction: column;
   max-width: 558px;
   margin: 0 36px;
+
+  @include breakpoint(small) {
+    margin: 0;
+  }
 }
 
 .logoContainer {
   max-width: 558px;
+  min-width: 343px;
   height: 343px;
   background-color: $color-dark;
   border-radius: 13px;
