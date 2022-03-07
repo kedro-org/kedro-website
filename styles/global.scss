@@ -11,6 +11,12 @@ body {
   padding: 0;
 }
 
+body {
+  @include breakpoint(medium-up) {
+    margin: 0 2.5rem;
+  }
+}
+
 a {
   color: $color-accent;
   text-decoration: none;
