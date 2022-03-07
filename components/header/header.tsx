@@ -33,14 +33,11 @@ export default function Header() {
             Documentation
           </a>
           <div className={style.iconLinks}>
-            <a className={style.link} href="https://github.com/kedro-org">
+            <a className={style.link} href="https://discord.com/kedro-org">
               <DiscordLogo />
               <span className={style.iconText}>Discord</span>
             </a>
-            <a
-              className={style.githubLink}
-              href="https://discord.com/kedro-org"
-            >
+            <a className={style.githubLink} href="https://github.com/kedro-org">
               <GithubLogo />
               <span className={style.iconText}> Github</span>
             </a>
