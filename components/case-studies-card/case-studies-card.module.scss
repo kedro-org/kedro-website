@@ -23,6 +23,7 @@
   background-color: $color-dark;
   border: 1px solid $color-grey-border;
   border-radius: 0.8125rem;
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -44,6 +45,12 @@
 
   @include breakpoint(large) {
     max-width: 34.875rem;
+  }
+}
+
+.logo {
+  > span {
+    margin: 4rem !important;
   }
 }
 

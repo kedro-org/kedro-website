@@ -18,12 +18,18 @@ export default function CaseStudiesCard({
   linkUrl,
   linkText,
 }: Props) {
-  console.log('logo: ', logo);
-
   return (
     <div className={style.container}>
       <div className={style.logoContainer}>
-        <Image alt={'title'} src={logo} layout="fill" />
+        <div className={style.logo}>
+          <Image
+            alt="Logo"
+            src={logo}
+            layout="fill"
+            width="100px"
+            height="92px"
+          />
+        </div>
       </div>
 
       <div className={style.textContainer}>
