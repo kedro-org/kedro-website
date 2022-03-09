@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import CaseStudiesCard from './index';
-import TelkonselLogo from '../../assets/logos/telkonsel';
 
 describe('Use Case Card Details', () => {
   it('renders without crashing', () => {
@@ -11,7 +10,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo={TelkonselLogo}
+        logo="/images/telkonsel.svg"
         linkUrl="www.google.com"
         linkText="linkText"
       />
@@ -23,7 +22,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo={TelkonselLogo}
+        logo="/images/telkonsel.svg"
         linkUrl="www.google.com"
         linkText="linkText"
       />
@@ -41,7 +40,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo={TelkonselLogo}
+        logo="/images/telkonsel.svg"
       />
     );
 
