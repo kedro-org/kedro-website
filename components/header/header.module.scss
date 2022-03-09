@@ -30,7 +30,7 @@
   display: flex;
 
   @include breakpoint(medium-only) {
-    margin-left:3.5rem;
+    margin-left: 3.5rem;
   }
 
   @include breakpoint(small) {
@@ -56,7 +56,6 @@
   opacity: 0.9;
 
   @include breakpoint(small) {
-    -webkit-transition: all 0.3s ease;
     flex-direction: column;
     height: 100%;
     position: fixed;
@@ -68,7 +67,6 @@
   }
 
   &.active {
-    -webkit-transition: all 0.3s ease;
     top: 0;
     transition: all 0.3s ease;
   }

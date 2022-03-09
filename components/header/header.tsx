@@ -13,7 +13,6 @@ export default function Header() {
           <Image
             alt="KedroLogo"
             src="/images/kedro-logo.svg"
-            layout="intrinsic"
             width={30}
             height={30}
           />
@@ -33,7 +32,10 @@ export default function Header() {
           <a href="#" className={style.link}>
             Get Started
           </a>
-          <a href="#" className={style.link}>
+          <a
+            href="https://kedro.readthedocs.io/en/stable/"
+            className={style.link}
+          >
             Documentation
           </a>
           <div className={style.iconLinks}>
@@ -46,7 +48,6 @@ export default function Header() {
               <Image
                 alt="DiscordLogo"
                 src="/images/discord.svg"
-                layout="intrinsic"
                 width={30}
                 height={30}
               />
@@ -61,7 +62,6 @@ export default function Header() {
               <Image
                 alt="GithubLogo"
                 src="/images/github.svg"
-                layout="intrinsic"
                 width={30}
                 height={30}
               />
@@ -78,7 +78,6 @@ export default function Header() {
             <Image
               alt="CloseIcon"
               src="/images/close.svg"
-              layout="intrinsic"
               width={15}
               height={15}
             />
@@ -86,7 +85,6 @@ export default function Header() {
             <Image
               alt="BurgerIcon"
               src="/images/burger.svg"
-              layout="intrinsic"
               width={25}
               height={25}
             />
