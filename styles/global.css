@@ -1,0 +1,52 @@
+/**
+*** Colors
+**/
+/**
+*** Dimensions
+**/
+/**
+*** Buttons
+**/
+/**
+*** Breakpoints
+**/
+/**
+*** Headings
+**/
+html,
+body {
+  background: #0b0b0b;
+  color: #e2e2e2;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 0 2.5rem;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:target:before {
+  content: '';
+  display: block;
+  height: 90px;
+  /* fixed header height*/
+  margin: -90px 0 0;
+  /* negative fixed header height */
+}
+/*# sourceMappingURL=global.css.map */

@@ -9,8 +9,8 @@ import {
 import '@testing-library/jest-dom';
 
 import Header from './index';
-import BurgerIcon from '../../public/assets/icons/burger';
-import CloseIcon from '../../public/assets/icons/close';
+import BurgerIcon from '../../public/icons/burger';
+import CloseIcon from '../../public/icons/close';
 
 describe('Header', () => {
   it('renders without crashing', () => {

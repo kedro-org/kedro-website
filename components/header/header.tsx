@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+import KedroLogo from '../../public/logos/kedro-logo.svg';
+import DiscordLogo from '../../public/logos/discord.svg';
+import GithubLogo from '../../public/logos/github.svg';
+import BurgerIcon from '../../public/icons/burger.svg';
+import CloseIcon from '../../public/icons/close.svg';
+
 import style from './header.module.scss';
-import KedroLogo from '../../public/assets/logos/kedro';
-import DiscordLogo from '../../public/assets/logos/discord';
-import GithubLogo from '../../public/assets/logos/github';
-import BurgerIcon from '../../public/assets/icons/burger';
-import CloseIcon from '../../public/assets/icons/close';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <div className={style.logo}>
-          <KedroLogo />
+        <a href='/' className={style.logo}>
+          <Image alt="KedroLogo" src={KedroLogo} layout='intrinsic' width={30} height={30}/>
           <h4 className={style.logoText}>Kedro</h4>
-        </div>
+        </a>
         {/*TO DO - Update All Links*/}
         <nav
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
         >
           <a href="#why-kedro" className={style.link}>
-            Why Kedro
+            Why Kedro?
           </a>
           <a href="#features" className={style.link}>
             Features
@@ -33,12 +37,22 @@ export default function Header() {
             Documentation
           </a>
           <div className={style.iconLinks}>
-            <a className={style.link} href="https://discord.com/kedro-org">
-              <DiscordLogo />
+            <a 
+              className={style.link} 
+              href="https://discord.gg/4qeKKspFf8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image alt="DiscordLogo"  src={DiscordLogo} layout='intrinsic' width={30} height={30}/>
               <span className={style.iconText}>Discord</span>
             </a>
-            <a className={style.githubLink} href="https://github.com/kedro-org">
-              <GithubLogo />
+            <a 
+              className={style.link} 
+              href="https://github.com/kedro-org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image alt="GithubLogo" src={GithubLogo} layout='intrinsic' width={30} height={30}/>
               <span className={style.iconText}> Github</span>
             </a>
           </div>
@@ -48,7 +62,10 @@ export default function Header() {
           className={style.burger}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <CloseIcon /> : <BurgerIcon />}
+          {menuOpen ?  
+          <Image alt="CloseIcon" src={CloseIcon} layout='intrinsic' width={15} height={15}/>
+          :
+          <Image alt="BurgerIcon" src={BurgerIcon} layout='intrinsic' width={25} height={25}/>}
         </button>
       </div>
     </div>

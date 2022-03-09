@@ -5,13 +5,13 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 100px auto;
+  margin: 200px auto 10px;
   max-width: $max-content;
   overflow: hidden;
   position: relative;
 
   @include breakpoint(medium-only) {
-    margin: 100px 1rem;
+    margin: 200px 1rem 10px;
   }
 
   @include breakpoint(small) {
