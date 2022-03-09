@@ -9,8 +9,14 @@ export default function Header() {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <a href='/' className={style.logo}>
-          <Image alt="KedroLogo" src='/public/logos/kedro-logo.svg' layout='intrinsic' width={30} height={30}/>
+        <a href="#" className={style.logo}>
+          <Image
+            alt="KedroLogo"
+            src="/public/logos/kedro-logo.svg"
+            layout="intrinsic"
+            width={30}
+            height={30}
+          />
           <h4 className={style.logoText}>Kedro</h4>
         </a>
         {/*TO DO - Update All Links*/}
@@ -31,22 +37,34 @@ export default function Header() {
             Documentation
           </a>
           <div className={style.iconLinks}>
-            <a 
-              className={style.link} 
+            <a
+              className={style.link}
               href="https://discord.gg/4qeKKspFf8"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image alt="DiscordLogo"  src='/public/logos/discord.svg'layout='intrinsic' width={30} height={30}/>
+              <Image
+                alt="DiscordLogo"
+                src="/public/logos/discord.svg"
+                layout="intrinsic"
+                width={30}
+                height={30}
+              />
               <span className={style.iconText}>Discord</span>
             </a>
-            <a 
-              className={style.link} 
+            <a
+              className={style.link}
               href="https://github.com/kedro-org"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image alt="GithubLogo" src='/public/logos/github.svg'layout='intrinsic' width={30} height={30}/>
+              <Image
+                alt="GithubLogo"
+                src="/public/logos/github.svg"
+                layout="intrinsic"
+                width={30}
+                height={30}
+              />
               <span className={style.iconText}> Github</span>
             </a>
           </div>
@@ -56,10 +74,23 @@ export default function Header() {
           className={style.burger}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ?  
-          <Image alt="CloseIcon" src='/public/icons/close.svg' layout='intrinsic' width={15} height={15}/>
-          :
-          <Image alt="BurgerIcon" src='/public/icons/burger.svg' layout='intrinsic' width={25} height={25}/>}
+          {menuOpen ? (
+            <Image
+              alt="CloseIcon"
+              src="/public/icons/close.svg"
+              layout="intrinsic"
+              width={15}
+              height={15}
+            />
+          ) : (
+            <Image
+              alt="BurgerIcon"
+              src="/public/icons/burger.svg"
+              layout="intrinsic"
+              width={25}
+              height={25}
+            />
+          )}
         </button>
       </div>
     </div>
