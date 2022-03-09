@@ -4,7 +4,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 34.875rem;
   margin: 0 2.25rem;
 
   @include breakpoint(small) {
@@ -12,11 +11,14 @@
     max-width: 100%;
     width: 100%;
   }
+
+  @include breakpoint(large) {
+    max-width: 34.875rem;
+  }
 }
 
 .logoContainer {
-  max-width: 34.875rem;
-  min-width: 21.4375rem;
+  width: 100%;
   height: 21.4375rem;
   background-color: $color-dark;
   border: 1px solid $color-grey-border;
@@ -26,18 +28,20 @@
   align-items: center;
   justify-content: center;
 
-  @include breakpoint(medium-only) {
-    max-width: 100%;
-    height: 21.4375rem;
-    width: 100%;
-    border-radius: 8px;
-  }
-
   @include breakpoint(small) {
-    max-width: 100%;
     width: 100%;
     height: 13.1875rem;
     border-radius: 0.5rem;
+  }
+
+  @include breakpoint(medium-down) {
+    width: 100%;
+    border-radius: 8px;
+    height: 21.4375rem;
+  }
+
+  @include breakpoint(large) {
+    max-width: 34.875rem;
   }
 }
 
