@@ -40,6 +40,10 @@
     @media (min-width: 820px) and (max-width: 1279px) {
       @content;
     }
+  } @else if $point == medium-down {
+    @media (min-width: 415px) and (max-width: 819px) {
+      @content;
+    }
   } @else if $point == small {
     @media (max-width: 819px) {
       @content;

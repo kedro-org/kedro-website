@@ -1,6 +1,6 @@
 import Media from '../media';
 
-import style from './feature-details.module.scss';
+import style from './feature-details-card.module.scss';
 
 type Props = {
   altText?: string;
@@ -15,7 +15,7 @@ type Props = {
   videoSrc?: string;
 };
 
-export default function FeatureDetails({
+export default function FeatureDetailsCard({
   altText,
   assetPosition = 'center',
   buttonLink,

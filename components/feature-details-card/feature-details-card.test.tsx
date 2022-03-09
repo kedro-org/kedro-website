@@ -2,14 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import FeatureDetails from './index';
+import FeatureDetailsCard from './index';
 
 describe('FeatureDetails', () => {
   it('renders without crashing', () => {
     render(
-      <FeatureDetails
+      <FeatureDetailsCard
         buttonText="Explore Live Demo"
-        linkDestination="https://demo.kedro.org/"
         subtitle="Subtitle text goes here"
         title="Pipeline visualisation"
       />
@@ -18,9 +17,8 @@ describe('FeatureDetails', () => {
 
   it('displays the correct h3, p, and button text', () => {
     render(
-      <FeatureDetails
+      <FeatureDetailsCard
         buttonText="Explore Live Demo"
-        linkDestination="https://demo.kedro.org/"
         subtitle="Subtitle text goes here"
         title="Pipeline visualisation"
       />
@@ -35,7 +33,7 @@ describe('FeatureDetails', () => {
 
   it("doesn't render a button", () => {
     render(
-      <FeatureDetails
+      <FeatureDetailsCard
         subtitle="Subtitle text goes here"
         title="Pipeline visualisation"
       />
