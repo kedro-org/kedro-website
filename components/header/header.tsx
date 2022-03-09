@@ -12,7 +12,7 @@ export default function Header() {
         <a href="#" className={style.logo}>
           <Image
             alt="KedroLogo"
-            src="/public/logos/kedro-logo.svg"
+            src="/logos/kedro-logo.svg"
             layout="intrinsic"
             width={30}
             height={30}
@@ -45,7 +45,7 @@ export default function Header() {
             >
               <Image
                 alt="DiscordLogo"
-                src="/public/logos/discord.svg"
+                src="/logos/discord.svg"
                 layout="intrinsic"
                 width={30}
                 height={30}
@@ -60,7 +60,7 @@ export default function Header() {
             >
               <Image
                 alt="GithubLogo"
-                src="/public/logos/github.svg"
+                src="/logos/github.svg"
                 layout="intrinsic"
                 width={30}
                 height={30}
@@ -77,7 +77,7 @@ export default function Header() {
           {menuOpen ? (
             <Image
               alt="CloseIcon"
-              src="/public/icons/close.svg"
+              src="/icons/close.svg"
               layout="intrinsic"
               width={15}
               height={15}
@@ -85,7 +85,7 @@ export default function Header() {
           ) : (
             <Image
               alt="BurgerIcon"
-              src="/public/icons/burger.svg"
+              src="/icons/burger.svg"
               layout="intrinsic"
               width={25}
               height={25}
