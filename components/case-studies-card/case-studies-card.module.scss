@@ -28,6 +28,8 @@
   align-items: center;
   justify-content: center;
 
+  position: relative;
+
   @include breakpoint(small) {
     width: 100%;
     height: 13.1875rem;

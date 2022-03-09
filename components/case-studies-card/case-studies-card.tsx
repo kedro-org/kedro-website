@@ -1,10 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
+
 import style from './case-studies-card.module.scss';
 
 type Props = {
   linkUrl?: string;
   linkText?: string;
-  logo: React.ComponentType;
+  logo: string;
   title: string;
   text: string;
 };
@@ -16,11 +18,12 @@ export default function CaseStudiesCard({
   linkUrl,
   linkText,
 }: Props) {
-  const Logo = logo;
+  console.log('logo: ', logo);
+
   return (
     <div className={style.container}>
       <div className={style.logoContainer}>
-        <Logo />
+        <Image alt={'title'} src={logo} layout="fill" />
       </div>
 
       <div className={style.textContainer}>
