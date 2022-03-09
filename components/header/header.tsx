@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import KedroLogo from '../../public/logos/kedro-logo.svg';
-import DiscordLogo from '../../public/logos/discord.svg';
-import GithubLogo from '../../public/logos/github.svg';
-import BurgerIcon from '../../public/icons/burger.svg';
-import CloseIcon from '../../public/icons/close.svg';
-
 import style from './header.module.scss';
 
 export default function Header() {
@@ -16,7 +10,7 @@ export default function Header() {
     <div className={style.container}>
       <div className={style.header}>
         <a href='/' className={style.logo}>
-          <Image alt="KedroLogo" src={KedroLogo} layout='intrinsic' width={30} height={30}/>
+          <Image alt="KedroLogo" src='/public/logos/kedro-logo.svg' layout='intrinsic' width={30} height={30}/>
           <h4 className={style.logoText}>Kedro</h4>
         </a>
         {/*TO DO - Update All Links*/}
@@ -43,7 +37,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image alt="DiscordLogo"  src={DiscordLogo} layout='intrinsic' width={30} height={30}/>
+              <Image alt="DiscordLogo"  src='/public/logos/discord.svg'layout='intrinsic' width={30} height={30}/>
               <span className={style.iconText}>Discord</span>
             </a>
             <a 
@@ -52,7 +46,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image alt="GithubLogo" src={GithubLogo} layout='intrinsic' width={30} height={30}/>
+              <Image alt="GithubLogo" src='/public/logos/github.svg'layout='intrinsic' width={30} height={30}/>
               <span className={style.iconText}> Github</span>
             </a>
           </div>
@@ -63,9 +57,9 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ?  
-          <Image alt="CloseIcon" src={CloseIcon} layout='intrinsic' width={15} height={15}/>
+          <Image alt="CloseIcon" src='/public/icons/close.svg' layout='intrinsic' width={15} height={15}/>
           :
-          <Image alt="BurgerIcon" src={BurgerIcon} layout='intrinsic' width={25} height={25}/>}
+          <Image alt="BurgerIcon" src='/public/icons/burger.svg' layout='intrinsic' width={25} height={25}/>}
         </button>
       </div>
     </div>

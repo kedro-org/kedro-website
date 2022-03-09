@@ -9,8 +9,7 @@ import {
 import '@testing-library/jest-dom';
 
 import Header from './index';
-import BurgerIcon from '../../public/icons/burger';
-import CloseIcon from '../../public/icons/close';
+
 
 describe('Header', () => {
   it('renders without crashing', () => {
@@ -28,7 +27,7 @@ describe('Header', () => {
   it('displays the correct number of links', async () => {
     render(<Header />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(6);
+    expect(screen.getAllByRole('link')).toHaveLength(7);
   });
 
   it('opens and closes the menu when burger/close icon clicked', async () => {
