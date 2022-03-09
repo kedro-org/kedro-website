@@ -4,10 +4,6 @@
 .features {
   margin: 0 auto;
   max-width: $max-content;
-
-  @include breakpoint(medium-only) {
-    margin: 0 5rem;
-  }
 }
 
 .sectionTitle {

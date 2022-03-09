@@ -9,14 +9,6 @@
   overflow: hidden;
   text-align: center;
   width: 100%;
-
-  @include breakpoint(small) {
-    margin: 0 auto 7.5rem;
-  }
-
-  @include breakpoint(medium-only) {
-    margin: 0 5rem;
-  }
 }
 
 .title {
