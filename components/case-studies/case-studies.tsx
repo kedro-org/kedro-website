@@ -1,16 +1,15 @@
-import TelkonselLogo from '../../assets/logos/telkonsel';
-import UseCasesCard from '../use-cases-card';
+import CaseStudiesCard from '../case-studies-card';
 import { content } from './content';
 
-import style from './use-cases.module.scss';
+import style from './case-studies.module.scss';
 
-export default function UseCases() {
+export default function CaseStudies() {
   return (
     <div className={style.container}>
-      <h3 className={style.sectionTitle}>Use Cases</h3>
+      <h3 className={style.sectionTitle}>Case Studies</h3>
       <div className={style.cards}>
         {content.map((cardContent, i) => (
-          <UseCasesCard
+          <CaseStudiesCard
             title={cardContent.title}
             text={cardContent.text}
             logo={cardContent.logo}

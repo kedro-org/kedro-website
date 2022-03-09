@@ -2,13 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import UseCasesCard from './index';
+import CaseStudiesCard from './index';
 import TelkonselLogo from '../../assets/logos/telkonsel';
 
 describe('Use Case Card Details', () => {
   it('renders without crashing', () => {
     render(
-      <UseCasesCard
+      <CaseStudiesCard
         title="test title"
         text="text goes here"
         logo={TelkonselLogo}
@@ -20,7 +20,7 @@ describe('Use Case Card Details', () => {
 
   it('displays the correct content in the use case card', () => {
     render(
-      <UseCasesCard
+      <CaseStudiesCard
         title="test title"
         text="text goes here"
         logo={TelkonselLogo}
@@ -38,7 +38,7 @@ describe('Use Case Card Details', () => {
 
   it("doesn't render a link if not provided", () => {
     render(
-      <UseCasesCard
+      <CaseStudiesCard
         title="test title"
         text="text goes here"
         logo={TelkonselLogo}

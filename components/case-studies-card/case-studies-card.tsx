@@ -1,15 +1,15 @@
 import React from 'react';
-import style from './use-cases-card.module.scss';
+import style from './case-studies-card.module.scss';
 
 type Props = {
-  title: string;
-  text: string | JSX.Element;
-  logo: React.ComponentType;
   linkUrl?: string;
   linkText?: string;
+  logo: React.ComponentType;
+  title: string;
+  text: string;
 };
 
-export default function UseCasesCard({
+export default function CaseStudiesCard({
   title,
   text,
   logo,
