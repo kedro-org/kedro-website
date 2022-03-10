@@ -5,19 +5,19 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 200px auto 10px;
+  margin: 12.5rem auto 0.6rem;
   max-width: $max-content;
   overflow: hidden;
   position: relative;
 
   @include breakpoint(medium-only) {
-    margin: 200px 1rem 10px;
+    margin: 12.5rem 1rem 0.6rem;
   }
 
   @include breakpoint(small) {
     align-items: flex-start;
     flex-direction: column;
-    margin: 100px 1rem 120px;
+    margin: 6.25rem 1rem 6.5rem;
     text-align: center;
   }
 }
@@ -47,7 +47,7 @@
 .subtitle {
   @include h3;
 
-  margin: 20px 0 50px;
+  margin: 1.25rem 0 3rem;
 }
 
 .buttons {
@@ -61,11 +61,11 @@
   @include button;
 
   @include breakpoint(medium-up) {
-    margin-right: 30px;
+    margin-right: 1.9rem;
   }
 
   @include breakpoint(small) {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -76,27 +76,27 @@
 .image {
   position: absolute;
   right: 1rem;
-  width: 470px;
+  width: 29rem;
 
   @include breakpoint(small) {
-    left: 170px;
+    left: 10rem;
     right: unset;
-    top: 350px;
+    top: 22rem;
     width: 100%;
   }
 }
 
 .video {
-  margin: 140px auto 0;
-  max-width: 1024px;
+  margin: 9rem auto 0;
+  max-width: 64rem;
   width: 100%;
   z-index: 2;
 
   @include breakpoint(large) {
-    margin: 300px auto;
+    margin: 19rem auto;
   }
 
   @include breakpoint(medium-only) {
-    margin: 220px auto;
+    margin: 14rem auto;
   }
 }
