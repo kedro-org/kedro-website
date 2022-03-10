@@ -11,7 +11,7 @@ export default function WhyKedro() {
   const [selectedTab, setSelectedTab] = useState(tabData[0]);
 
   return (
-    <div className={style.container}>
+    <section className={style.container}>
       <h3 className={style.title}>Why Kedro?</h3>
       <div className={style.tabsWrapper}>
         <ul className={style.list} role="tablist">
@@ -53,6 +53,6 @@ export default function WhyKedro() {
       <div className={style.mediaWrapper}>
         <Media image={image} />
       </div>
-    </div>
+    </section>
   );
 }

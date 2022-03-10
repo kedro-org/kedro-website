@@ -17,7 +17,8 @@
   @include breakpoint(small) {
     align-items: flex-start;
     flex-direction: column;
-    margin: 100px 1rem 120px;
+    margin: 0;
+    padding: 100px 1rem 120px;
     text-align: center;
   }
 }

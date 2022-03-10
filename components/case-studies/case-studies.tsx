@@ -10,12 +10,12 @@ export default function CaseStudies() {
       <div className={style.cards}>
         {content.map((cardContent, i) => (
           <CaseStudiesCard
-            title={cardContent.title}
-            text={cardContent.text}
-            logo={cardContent.logo}
-            linkUrl={cardContent.linkUrl}
-            linkText={cardContent.linkText}
             key={i}
+            linkText={cardContent.linkText}
+            linkUrl={cardContent.linkUrl}
+            logo={cardContent.logo}
+            text={cardContent.text}
+            title={cardContent.title}
           />
         ))}
       </div>
