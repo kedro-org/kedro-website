@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.outer {
+  background-color: $color-accent;
+  padding: 7rem 0;
+
+  @include breakpoint(medium-up) {
+    margin: 0 -7rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $max-content;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.text {
+  color: $color-dark;
+  width: 53%;
+
+  @include breakpoint(small) {
+    width: 100%;
+  }
+}
+
+.sectionTitle {
+  @include h1;
+
+  @include breakpoint(small) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.startText {
+  @include h3;
+}
+
+.button {
+  @include button($size: large, $style: secondary);
+
+  margin-top: 1rem;
+}
+
+.image {
+  display: flex;
+  justify-content: flex-end;
+  width: 43%;
+
+  @include breakpoint(small) {
+    margin: 4rem auto 0;
+    width: 85%;
+  }
+}

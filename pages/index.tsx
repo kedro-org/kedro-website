@@ -1,8 +1,10 @@
 import Head from 'next/head';
-import WhyKedro from '../components/why-kedro';
-import Hero from '../components/hero';
-import Features from '../components/features';
+
 import CaseStudies from '../components/case-studies';
+import Features from '../components/features';
+import Hero from '../components/hero';
+import ReadyToStart from '../components/ready-to-start';
+import WhyKedro from '../components/why-kedro';
 
 const Home = () => {
   return (
@@ -14,6 +16,7 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <CaseStudies />
+      <ReadyToStart />
     </>
   );
 };
