@@ -5,7 +5,7 @@ import style from './ready-to-start.module.scss';
 
 export default function ReadyToStart() {
   return (
-    <div className={style.outer}>
+    <section className={style.outer}>
       <div className={style.inner}>
         <div className={style.text}>
           <h3 className={style.sectionTitle}>Ready to start?</h3>
@@ -27,6 +27,6 @@ export default function ReadyToStart() {
           <Media alt="Kedro logo" image={diamonds} />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

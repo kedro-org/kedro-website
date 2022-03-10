@@ -5,7 +5,7 @@ import style from './case-studies.module.scss';
 
 export default function CaseStudies() {
   return (
-    <div className={style.container}>
+    <section className={style.container}>
       <h3 className={style.sectionTitle}>Case Studies</h3>
       <div className={style.cards}>
         {content.map((cardContent, i) => (
@@ -19,6 +19,6 @@ export default function CaseStudies() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
