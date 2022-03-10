@@ -10,7 +10,6 @@ import '@testing-library/jest-dom';
 
 import Header from './index';
 
-
 describe('Header', () => {
   it('renders without crashing', () => {
     render(<Header />);
@@ -35,12 +34,12 @@ describe('Header', () => {
 
     const button = container.querySelector('.burger');
 
-    //open the menu
+    //Open the menu
     fireEvent.click(button);
 
     expect(button).toHaveAttribute('aria-label', 'open');
 
-    //close the menu
+    //Close the menu
     fireEvent.click(button);
 
     expect(button).toHaveAttribute('aria-label', 'close');

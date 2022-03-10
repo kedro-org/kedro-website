@@ -35,6 +35,8 @@ export default function Header() {
           <a
             href="https://kedro.readthedocs.io/en/stable/"
             className={style.link}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Documentation
           </a>
