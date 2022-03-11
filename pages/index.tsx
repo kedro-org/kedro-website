@@ -3,6 +3,7 @@ import WhyKedro from '../components/why-kedro';
 import Hero from '../components/hero';
 import Features from '../components/features';
 import CaseStudies from '../components/case-studies';
+import Footer from '../components/footer';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <CaseStudies />
+      <Footer />
     </>
   );
 };

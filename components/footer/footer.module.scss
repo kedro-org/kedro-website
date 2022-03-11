@@ -1,0 +1,88 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  background: orange;
+  margin: 0 -7rem;
+}
+
+.footer {
+  background: pink;
+  display: flex;
+  height: 60px;
+  justify-content: space-around;
+  margin: auto;
+  max-width: $max-content;
+
+  text-align: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    padding: 0.5rem;
+    height: 20rem;
+  }
+}
+
+.logo {
+  display: flex;
+
+  @include breakpoint(medium-only) {
+    margin-left: 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    margin-left: 0.5rem;
+  }
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1rem;
+
+  @include breakpoint(small) {
+    margin: 0.5rem;
+  }
+}
+
+.menu {
+  align-items: center;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.iconLinks {
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.iconText {
+  color: $color-light;
+  display: none;
+
+  @include breakpoint(small) {
+    display: block;
+    margin-left: 0.8rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.link {
+  color: $color-light;
+  display: flex;
+  margin: 1rem;
+}
