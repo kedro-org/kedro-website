@@ -16,11 +16,11 @@ export default function ReadyToStart() {
             our introductory tutorial.
           </p>
           <a
-            href="https://kedro.readthedocs.io/"
+            href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className={style.button}>Join us</button>
+            <button className={style.button}>Get started</button>
           </a>
         </div>
         <div className={style.image}>
