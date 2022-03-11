@@ -1,0 +1,110 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  background: $color-dark;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  margin-bottom: 6.25rem;
+}
+
+.header {
+  background: $color-dark;
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  margin: auto;
+  max-width: $max-content;
+  position: sticky;
+  text-align: center;
+
+  @include breakpoint(small) {
+    padding: 0.5rem;
+  }
+}
+
+.logo {
+  display: flex;
+
+  @include breakpoint(medium-only) {
+    margin-left: 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    margin-left: 0.5rem;
+  }
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1rem;
+
+  @include breakpoint(small) {
+    margin: 0.5rem;
+  }
+}
+
+.menu {
+  align-items: center;
+  background: $color-dark;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: -60rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &.active {
+    top: 0;
+    transition: all 0.3s ease;
+  }
+}
+
+.iconLinks {
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.iconText {
+  color: $color-light;
+  display: none;
+
+  @include breakpoint(small) {
+    display: block;
+    margin-left: 0.8rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.link {
+  color: $color-light;
+  display: flex;
+  margin: 1rem;
+}
+
+.burger {
+  display: none;
+
+  @include breakpoint(small) {
+    background: none;
+    border: none;
+    display: block;
+    margin: 0.4rem;
+  }
+}

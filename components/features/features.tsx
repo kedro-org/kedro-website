@@ -8,7 +8,7 @@ import style from './features.module.scss';
 
 export default function Hero() {
   return (
-    <section className={style.features}>
+    <section id="features" className={style.features}>
       <h3 className={style.sectionTitle}>Features</h3>
       <FeatureDetailsCard
         buttonLink="https://demo.kedro.org/"
