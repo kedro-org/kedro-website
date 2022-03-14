@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 import Head from 'next/head';
 import WhyKedro from '../components/why-kedro';
 import Header from '../components/header';
@@ -6,15 +8,29 @@ import Features from '../components/features';
 import CaseStudies from '../components/case-studies';
 import Footer from '../components/footer';
 
-import style from '../styles/pages/index.module.scss';
-
 const Home = () => {
+  const [offset, setOffset] = useState(0);
+  const [hideHeader, setHideHeader] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setOffset(window.innerHeight + window.scrollY);
+    const footerOffset = document.getElementById('footer').offsetTop;
+    if (footerOffset <= offset) {
+      setHideHeader(true);
+    } else {
+      setHideHeader(false);
+    }
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  });
+
   return (
     <>
       <Head>
         <title>Kedro</title>
       </Head>
-      <Header />
+      {!hideHeader && <Header />}
       <Hero />
       <WhyKedro />
       <Features />
