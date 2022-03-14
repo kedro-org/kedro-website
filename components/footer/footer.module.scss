@@ -3,7 +3,7 @@
 
 .container {
   background: $color-dark;
-  height: 400px;
+  height: 25rem;
   margin: 0 -7em;
 
   @include breakpoint(small) {
@@ -32,7 +32,7 @@
   display: flex;
 
   @include breakpoint(small) {
-    margin-bottom: 30px;
+    margin-bottom: 1.9rem;
   }
 }
 
