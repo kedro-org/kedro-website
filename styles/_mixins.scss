@@ -120,3 +120,10 @@
     line-height: 1.5rem;
   }
 }
+
+@mixin h4 {
+  font-size: 1.25em;
+  letter-spacing: -0.1px;
+  font-weight: 400;
+  line-height: 1.4;
+}
