@@ -5,7 +5,7 @@ import style from './ready-to-start.module.scss';
 
 export default function ReadyToStart() {
   return (
-    <section className={style.outer}>
+    <section className={style.outer} id="get-started">
       <div className={style.inner}>
         <div className={style.text}>
           <h3 className={style.sectionTitle}>Ready to start?</h3>

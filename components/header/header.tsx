@@ -29,7 +29,7 @@ export default function Header() {
           <a href="#features" className={style.link}>
             Features
           </a>
-          <a href="#" className={style.link}>
+          <a href="#get-started" className={style.link}>
             Get Started
           </a>
           <a

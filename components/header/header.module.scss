@@ -53,11 +53,11 @@
   background: $color-dark;
   display: flex;
   justify-content: center;
-  opacity: 0;
 
   @include breakpoint(small) {
     flex-direction: column;
     height: 100%;
+    opacity: 0;
     position: fixed;
     right: 0;
     top: -100%;
