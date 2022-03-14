@@ -6,6 +6,10 @@
   height: 25rem;
   margin: 0 -7em;
 
+  @include breakpoint(medium-only) {
+    margin-left: -4rem;
+  }
+
   @include breakpoint(small) {
     margin: 0;
   }
@@ -30,6 +34,10 @@
 
 .logo {
   display: flex;
+
+  @include breakpoint(medium-only) {
+    margin-left: 3.5rem;
+  }
 
   @include breakpoint(small) {
     margin-bottom: 1.9rem;
