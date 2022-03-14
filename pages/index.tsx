@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 import Head from 'next/head';
 import WhyKedro from '../components/why-kedro';
@@ -8,34 +8,25 @@ import Features from '../components/features';
 import CaseStudies from '../components/case-studies';
 import Footer from '../components/footer';
 
-const Home = () => {
-  const [offset, setOffset] = useState(0);
-  const [showHeader, setShowHeader] = useState(true);
+import useOnScreen from '../components/utils/hooks/useOnScreen'
 
-  useEffect(() => {
-    const onScroll = () => setOffset(window.innerHeight + window.scrollY);
-    const footerOffset = document.getElementById('footer').offsetTop;
-    if (footerOffset <= offset) {
-      setShowHeader(false);
-    } else {
-      setShowHeader(true);
-    }
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  });
+const Home = () => {
+  const ref = useRef();
+  const onScreen = useOnScreen(ref);
 
   return (
     <>
       <Head>
         <title>Kedro</title>
       </Head>
-      {showHeader && <Header />}
+      {!onScreen && <Header />}
       <Hero />
       <WhyKedro />
       <Features />
       <CaseStudies />
-      <Footer />
+      <div ref={ref}>
+        <Footer />
+      </div>
     </>
   );
 };
