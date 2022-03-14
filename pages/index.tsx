@@ -1,18 +1,17 @@
 import React, { useRef } from 'react';
+import useOnScreen from '../utils/hooks/useOnScreen';
 
+import CaseStudies from '../components/case-studies';
+import Features from '../components/features';
+import Footer from '../components/footer';
 import Head from 'next/head';
-import WhyKedro from '../components/why-kedro';
 import Header from '../components/header';
 import Hero from '../components/hero';
-import Features from '../components/features';
-import CaseStudies from '../components/case-studies';
-import Footer from '../components/footer';
-
-import useOnScreen from '../components/utils/hooks/useOnScreen'
+import WhyKedro from '../components/why-kedro';
 
 const Home = () => {
-  const ref = useRef();
-  const onScreen = useOnScreen(ref);
+  const footerRef = useRef();
+  const onScreen = useOnScreen(footerRef);
 
   return (
     <>
@@ -24,7 +23,7 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <CaseStudies />
-      <div ref={ref}>
+      <div ref={footerRef}>
         <Footer />
       </div>
     </>
