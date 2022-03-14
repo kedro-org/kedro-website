@@ -10,15 +10,15 @@ import Footer from '../components/footer';
 
 const Home = () => {
   const [offset, setOffset] = useState(0);
-  const [hideHeader, setHideHeader] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
     const onScroll = () => setOffset(window.innerHeight + window.scrollY);
     const footerOffset = document.getElementById('footer').offsetTop;
     if (footerOffset <= offset) {
-      setHideHeader(true);
+      setShowHeader(false);
     } else {
-      setHideHeader(false);
+      setShowHeader(true);
     }
     window.removeEventListener('scroll', onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -30,7 +30,7 @@ const Home = () => {
       <Head>
         <title>Kedro</title>
       </Head>
-      {!hideHeader && <Header />}
+      {showHeader && <Header />}
       <Hero />
       <WhyKedro />
       <Features />
