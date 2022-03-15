@@ -1,14 +1,33 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.container {
+.outer {
   background-color: $color-bg-grey;
-  display: flex;
-  flex-direction: column;
   padding: 7rem 0;
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
+  }
+
+  @include breakpoint(medium-up) {
+    padding: 7rem 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $max-content;
+
+  @include breakpoint(small) {
+    flex-direction: column;
   }
 }
 
@@ -22,4 +41,33 @@
     margin-bottom: 2.5rem;
     padding: 0;
   }
+}
+
+.carousel {
+  display: flex;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: flex;
+  flex: none;
+  height: 100%;
+  width: 100%;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column;
+}
+
+.dot {
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin: 4px;
+  width: 20px;
 }

@@ -1,52 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  animate,
-  AnimationOptions,
-  motion,
-  MotionStyle,
-  useMotionValue,
-} from 'framer-motion';
+import { animate, motion, useMotionValue } from 'framer-motion';
 import { testimonials } from './testimonial-content';
 
+import Image from 'next/image';
 import Media from '../media';
 
 import style from './testimonials.module.scss';
-
-const containerStyle: React.CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  height: '100%',
-  overflowX: 'hidden',
-  display: 'flex',
-};
-
-const dotWrapStyle: React.CSSProperties = {
-  position: 'absolute',
-  bottom: '10px',
-  left: '50%',
-  transform: 'translateX(-50%)',
-};
-
-const pageStyle: MotionStyle = {
-  width: '100%',
-  height: '100%',
-  display: 'inline-block',
-  flex: 'none',
-};
-
-const dotItemStyle: React.CSSProperties = {
-  width: '20px',
-  height: '20px',
-  borderRadius: '50%',
-  margin: '0 10px',
-  display: 'inline-block',
-  cursor: 'pointer',
-};
-
-const transition: AnimationOptions<any> = {
-  type: 'spring',
-  bounce: 0,
-};
 
 export default function Testimonials() {
   const x = useMotionValue(0);
@@ -54,39 +13,65 @@ export default function Testimonials() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const calculateNewX = () =>
-      -index * (containerRef.current?.clientWidth || 0);
-    const controls = animate(x, calculateNewX(), transition);
+    const newToValue = () => {
+      return index * containerRef.current?.clientWidth * -1;
+    };
 
-    return controls.stop;
+    animate(x, newToValue(), {
+      bounce: 0,
+      type: 'spring',
+    });
   }, [index, x]);
 
   return (
-    <section className={style.container}>
+    <section className={style.outer}>
       <h3 className={style.sectionTitle}>Testimonials</h3>
-      <div ref={containerRef} style={containerStyle}>
-        {testimonials.map((testimonial, i) => (
-          <motion.div
-            key={i}
-            style={{
-              ...pageStyle,
-              x,
-              left: `${i * 100}%`,
-              right: `${i * 100}%`,
-            }}
-          >
-            <Media alt={testimonial.user} image={testimonial.userImage} />
-            <p>{testimonial.text}</p>
-          </motion.div>
-        ))}
-
-        <div style={dotWrapStyle}>
+      <div className={style.inner}>
+        <div className={style.carousel} ref={containerRef}>
+          {testimonials.map((testimonial, i) => (
+            <motion.div
+              className={style.slide}
+              key={i}
+              style={{
+                x,
+                left: `${i * 100}%`,
+                right: `${i * 100}%`,
+              }}
+            >
+              <div className={style.userImage}>
+                <Media alt={testimonial.user} image={testimonial.userImage} />
+              </div>
+              <div>
+                <div className="logo">
+                  <Image
+                    alt="Case study logo"
+                    layout="fill"
+                    src={testimonial.logo}
+                  />
+                </div>
+                <p>{testimonial.user}</p>
+                <p>{testimonial.jobTitle}</p>
+                <h4>{testimonial.callout}</h4>
+                <p>{testimonial.text}</p>
+                <a
+                  className={style.link}
+                  href={testimonial.linkUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {testimonial.linkText}
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className={style.dots}>
           {testimonials.map((testimonial, i) => (
             <span
+              className={style.dot}
               key={testimonial.user}
               onClick={() => setIndex(i)}
               style={{
-                ...dotItemStyle,
                 background: i === index ? '#C4C4C4' : '#6D6D6D',
               }}
             />
