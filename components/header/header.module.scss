@@ -53,22 +53,22 @@
   background: $color-dark;
   display: flex;
   justify-content: center;
-  opacity: 0.9;
 
   @include breakpoint(small) {
     flex-direction: column;
     height: 100%;
+    opacity: 0;
     position: fixed;
     right: 0;
-    top: -60rem;
-    transition: all 0.3s ease;
+    top: -100%;
+    transition: opacity 0.3s ease, top 0.3s ease;
     width: 100%;
     z-index: -1;
   }
 
   &.active {
+    opacity: 0.9;
     top: 0;
-    transition: all 0.3s ease;
   }
 }
 

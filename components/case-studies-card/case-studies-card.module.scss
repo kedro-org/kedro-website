@@ -18,29 +18,26 @@
 }
 
 .logoContainer {
-  width: 100%;
-  height: 21.4375rem;
-  background-color: $color-dark;
-  border: 1px solid $color-grey-border;
-  border-radius: 0.8125rem;
-  position: relative;
-
-  display: flex;
   align-items: center;
+  background-color: $color-dark;
+  border-radius: 0.8125rem;
+  border: 1px solid $color-grey-border;
+  display: flex;
+  height: 21.4375rem;
   justify-content: center;
-
   position: relative;
+  width: 100%;
 
   @include breakpoint(small) {
-    width: 100%;
-    height: 13.1875rem;
     border-radius: 0.5rem;
+    height: 13.1875rem;
+    width: 100%;
   }
 
   @include breakpoint(medium-down) {
-    width: 100%;
     border-radius: 8px;
     height: 21.4375rem;
+    width: 100%;
   }
 
   @include breakpoint(large) {
@@ -55,18 +52,18 @@
 }
 
 .textContainer {
-  padding: 2.123rem 0 4.125rem;
-  letter-spacing: 0.26px;
   font-weight: 25rem;
+  letter-spacing: $letter-spacing;
   line-height: 1.5rem;
+  padding: 2.123rem 0 4.125rem;
 
   @include breakpoint(small) {
     text-align: center;
   }
 
   a {
-    color: $color-font;
     border-bottom: 2px solid $color-font;
+    color: $color-font;
     padding-bottom: 3.5px;
   }
 }
