@@ -1,0 +1,58 @@
+.container {
+
+    height:1000px;
+}
+
+
+.animation {
+    vertical-align: sub;
+    display: inline-block;
+    margin: 10em;
+    height: 1.2em;
+  }
+  
+@keyframes center-animate {
+    0% {
+        width: var(--firstWidth);
+    }
+    50% {
+        width: var(--secondWidth);
+    }
+    100% {
+        width: var(--finalWidth);
+    }
+}
+
+.animationGray {
+    position: absolute;
+    color: lightgray;
+}
+ 
+.animationWindow {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background: #ffbc00;
+    color: black;
+    animation: center-animate var(--duration) infinite ease; 
+  }
+
+
+  
+  
+  .animation ul {
+    position: relative;
+    list-style: none;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    transition: top 300ms;
+    width: var(--firstWidth)
+  }
+  
+  .animation li {
+    margin: 0 .2em;
+    float: left;
+    clear: both; 
+    text-align: center;
+  }

@@ -4,8 +4,9 @@ import Header from '../components/header';
 import Hero from '../components/hero';
 import Features from '../components/features';
 import CaseStudies from '../components/case-studies';
+import Companies from '../components/companies';
 
-import style from '../styles/pages/index.module.scss';
+
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <CaseStudies />
+      <Companies />
     </>
   );
 };
