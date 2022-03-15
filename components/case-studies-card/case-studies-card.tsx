@@ -22,13 +22,7 @@ export default function CaseStudiesCard({
     <div className={style.container}>
       <div className={style.logoContainer}>
         <div className={style.logo}>
-          <Image
-            alt="Case study logo"
-            src={logo}
-            layout="fill"
-            width="100px"
-            height="92px"
-          />
+          <Image alt="Case study logo" src={logo} layout="fill" />
         </div>
       </div>
 
