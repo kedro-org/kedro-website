@@ -1,13 +1,13 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.container {
+.outer {
   background: $color-dark;
   height: 25rem;
   margin: 0 -7em;
 
   @include breakpoint(medium-only) {
-    margin-left: -4rem;
+    margin: 0 -3.5rem;
   }
 
   @include breakpoint(small) {
@@ -15,7 +15,7 @@
   }
 }
 
-.footer {
+.inner {
   align-items: center;
   background: $color-dark;
   display: flex;
