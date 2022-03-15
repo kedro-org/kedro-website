@@ -6,11 +6,11 @@
   padding: 7rem 0;
 
   @include breakpoint(medium-up) {
-    margin: 0 -3.5rem;
+    margin: 0 -7rem;
   }
 
   @include breakpoint(medium-up) {
-    padding: 7rem 3.5rem;
+    padding: 7rem;
   }
 
   @include breakpoint(small) {
