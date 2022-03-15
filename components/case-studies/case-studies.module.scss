@@ -3,12 +3,12 @@
 
 .container {
   background-color: $color-bg-grey;
-  padding: 7rem 3rem;
   display: flex;
   flex-direction: column;
+  padding: 7rem 3rem;
 
   @include breakpoint(medium-up) {
-    margin: 0 -7rem;
+    margin: 0 -3.5rem;
   }
 }
 
@@ -34,7 +34,7 @@
 
   @include breakpoint(large) {
     flex-direction: row;
+    // margin: 0 3.125rem;
     padding: 0 1rem;
-    margin: 0 3.125rem;
   }
 }

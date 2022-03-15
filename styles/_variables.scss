@@ -4,17 +4,18 @@
 
 $color-accent: #ffbc00;
 $color-bg-1: #0b0b0b;
-$color-dark: black;
+$color-dark: #000000;
 $color-bg-grey: #171717;
 $color-font-dark: #0b0b0b;
 $color-font-grey: #8e8e8e;
 $color-font: #e2e2e2;
-$color-light: white;
+$color-light: #ffffff;
 $color-grey-border: #434343;
 
 /**
 *** Dimensions
 **/
 
+$letter-spacing: 0.01625rem;
 $max-content: 1235px;
 $header-height: 60px;
