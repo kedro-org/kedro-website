@@ -8,7 +8,7 @@
 
 ## QA notes
 
-<!-- How has the expected behaviour changed? What testing strategies have you used? -->
+<!-- How has the expected behavior changed? What testing strategies have you used? Have you QAed your final work with the design team? -->
 
 ## Checklist
 
