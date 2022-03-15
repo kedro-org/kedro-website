@@ -5,6 +5,7 @@ import Features from '../components/features';
 import Header from '../components/header';
 import Hero from '../components/hero';
 import ReadyToStart from '../components/ready-to-start';
+import Testimonials from '../components/testimonials';
 import WhyKedro from '../components/why-kedro';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <CaseStudies />
+      <Testimonials />
       <ReadyToStart />
     </>
   );
