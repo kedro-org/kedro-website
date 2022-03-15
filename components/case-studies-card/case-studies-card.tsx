@@ -4,25 +4,25 @@ import Image from 'next/image';
 import style from './case-studies-card.module.scss';
 
 type Props = {
-  linkUrl?: string;
   linkText?: string;
+  linkUrl?: string;
   logo: string;
-  title: string;
   text: string;
+  title: string;
 };
 
 export default function CaseStudiesCard({
-  title,
-  text,
-  logo,
-  linkUrl,
   linkText,
+  linkUrl,
+  logo,
+  text,
+  title,
 }: Props) {
   return (
     <div className={style.container}>
       <div className={style.logoContainer}>
         <div className={style.logo}>
-          <Image alt="Case study logo" src={logo} layout="fill" />
+          <Image alt="Case study logo" layout="fill" src={logo} />
         </div>
       </div>
 
@@ -31,9 +31,9 @@ export default function CaseStudiesCard({
         <p className={style.text}>{text}</p>
         <a
           href={linkUrl}
-          target="_blank"
           rel="noopener noreferrer"
           role="button"
+          target="_blank"
         >
           {linkText}
         </a>
