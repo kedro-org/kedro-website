@@ -18,7 +18,6 @@ export default function Header() {
           />
           <h4 className={style.logoText}>Kedro</h4>
         </a>
-        {/*TO DO - Update All Links*/}
         <nav
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
@@ -33,10 +32,10 @@ export default function Header() {
             Get Started
           </a>
           <a
-            href="https://kedro.readthedocs.io/en/stable/"
             className={style.link}
-            target="_blank"
+            href="https://kedro.readthedocs.io/en/stable/"
             rel="noopener noreferrer"
+            target="_blank"
           >
             Documentation
           </a>
@@ -44,22 +43,22 @@ export default function Header() {
             <a
               className={style.link}
               href="https://discord.gg/4qeKKspFf8"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <Image
                 alt="DiscordLogo"
+                height={30}
                 src="/images/discord.svg"
                 width={30}
-                height={30}
               />
               <span className={style.iconText}>Discord</span>
             </a>
             <a
               className={style.link}
               href="https://github.com/kedro-org"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <Image
                 alt="GithubLogo"
@@ -79,16 +78,16 @@ export default function Header() {
           {menuOpen ? (
             <Image
               alt="CloseIcon"
+              height={15}
               src="/images/close.svg"
               width={15}
-              height={15}
             />
           ) : (
             <Image
               alt="BurgerIcon"
+              height={25}
               src="/images/burger.svg"
               width={25}
-              height={25}
             />
           )}
         </button>
