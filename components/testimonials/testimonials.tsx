@@ -8,9 +8,9 @@ import Media from '../media';
 import style from './testimonials.module.scss';
 
 export default function Testimonials() {
-  const y = useMotionValue(0);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const y = useMotionValue(0);
 
   useEffect(() => {
     const newToValue = () => {
@@ -18,7 +18,9 @@ export default function Testimonials() {
     };
 
     animate(y, newToValue(), {
-      bounce: 0,
+      bounce: 0.05,
+      damping: 30,
+      stiffness: 500,
       type: 'spring',
     });
   }, [index, y]);
@@ -29,15 +31,7 @@ export default function Testimonials() {
       <div className={style.inner}>
         <div className={style.carousel} ref={containerRef}>
           {testimonials.map((testimonial, i) => (
-            <motion.div
-              className={style.slide}
-              key={i}
-              style={{
-                y,
-                top: `${i * 100}%`,
-                bottom: `${i * 100}%`,
-              }}
-            >
+            <motion.div className={style.slide} key={i} style={{ y }}>
               <div className={style.userImage}>
                 <Media
                   alt={testimonial.user}
