@@ -1,3 +1,5 @@
+import artem from '../../public/images/artem.png';
+import eduardo from '../../public/images/eduardo.png';
 import ghifari from '../../public/images/ghifari.png';
 
 export const testimonials = [
@@ -21,7 +23,7 @@ export const testimonials = [
     logo: '/images/telkomsel.svg',
     text: 'Kedro has streamlined our workflow process, avoiding a lot of back and forth with debugging. It allowed our company to deliver more value to our customers quickly.',
     user: 'Eduardo Ohe',
-    userImage: ghifari,
+    userImage: eduardo,
   },
   {
     headline: 'Faster results with Kedro',
@@ -32,6 +34,6 @@ export const testimonials = [
     logo: '/images/telkomsel.svg',
     text: 'Development of models for the same features, but with a different type of target 4 times faster. Retraining models 2 times faster.',
     user: 'Artem Seleznev',
-    userImage: ghifari,
+    userImage: artem,
   },
 ];

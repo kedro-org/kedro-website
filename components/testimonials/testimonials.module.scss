@@ -46,13 +46,14 @@
 .carousel {
   display: flex;
   flex-direction: column;
-  height: 410px; // change
+  height: 450px; // change
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
 .slide {
+  align-items: center;
   display: flex;
   flex-shrink: 0;
   height: 100%;
@@ -108,7 +109,7 @@
 .dots {
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin-left: 8rem;
 }
 
 .dot {
