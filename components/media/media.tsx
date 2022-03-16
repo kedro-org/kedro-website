@@ -5,17 +5,24 @@ import style from './media.module.scss';
 type Props = {
   alt?: string;
   image?: StaticImageData;
+  layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   poster?: string;
   video?: string;
 };
 
-export default function Media({ alt, image, poster, video }: Props) {
+export default function Media({
+  alt,
+  image,
+  layout = 'intrinsic',
+  poster,
+  video,
+}: Props) {
   if (
     image?.src?.includes('webp') ||
     image?.src?.includes('jpg') ||
     image?.src?.includes('png')
   ) {
-    return <Image alt={alt} src={image}></Image>;
+    return <Image alt={alt} src={image} layout={layout} />;
   }
 
   if (!!video?.length) {

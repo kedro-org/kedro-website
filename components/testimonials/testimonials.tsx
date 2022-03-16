@@ -8,20 +8,20 @@ import Media from '../media';
 import style from './testimonials.module.scss';
 
 export default function Testimonials() {
-  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const newToValue = () => {
-      return index * containerRef.current?.clientWidth * -1;
+      return index * containerRef.current?.clientHeight * -1;
     };
 
-    animate(x, newToValue(), {
+    animate(y, newToValue(), {
       bounce: 0,
       type: 'spring',
     });
-  }, [index, x]);
+  }, [index, y]);
 
   return (
     <section className={style.outer}>
@@ -33,26 +33,30 @@ export default function Testimonials() {
               className={style.slide}
               key={i}
               style={{
-                x,
-                left: `${i * 100}%`,
-                right: `${i * 100}%`,
+                y,
+                top: `${i * 100}%`,
+                bottom: `${i * 100}%`,
               }}
             >
               <div className={style.userImage}>
-                <Media alt={testimonial.user} image={testimonial.userImage} />
+                <Media
+                  alt={testimonial.user}
+                  image={testimonial.userImage}
+                  layout="fill"
+                />
               </div>
               <div>
-                <div className="logo">
+                <div className={style.logo}>
                   <Image
-                    alt="Case study logo"
+                    alt="Company logo"
                     layout="fill"
                     src={testimonial.logo}
                   />
                 </div>
-                <p>{testimonial.user}</p>
-                <p>{testimonial.jobTitle}</p>
-                <h4>{testimonial.callout}</h4>
-                <p>{testimonial.text}</p>
+                <p className={style.user}>{testimonial.user}</p>
+                <p className={style.jobTitle}>{testimonial.jobTitle}</p>
+                <h3 className={style.headline}>{testimonial.headline}</h3>
+                <p className={style.quote}>&#34;{testimonial.text}&#34;</p>
                 <a
                   className={style.link}
                   href={testimonial.linkUrl}

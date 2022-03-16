@@ -2,7 +2,7 @@ import ghifari from '../../public/images/ghifari.png';
 
 export const testimonials = [
   {
-    callout: 'We heavily use Kedro',
+    headline: 'We heavily use Kedro',
     jobTitle: 'Data Engineering',
     linkText: 'Thoughts on Kedro',
     linkUrl:
@@ -13,7 +13,7 @@ export const testimonials = [
     userImage: ghifari,
   },
   {
-    callout: 'Tremendously valuable',
+    headline: 'Tremendously valuable',
     jobTitle: 'Principal ML Engineer',
     linkText: 'Read the article',
     linkUrl:
@@ -24,7 +24,7 @@ export const testimonials = [
     userImage: ghifari,
   },
   {
-    callout: 'Faster results with Kedro',
+    headline: 'Faster results with Kedro',
     jobTitle: 'Data Science Team Lead',
     linkText: 'Thoughts on Kedro',
     linkUrl:
