@@ -35,6 +35,11 @@ const UserDescription = ({ testimonial, view }: Props) => {
   );
 };
 
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
+
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,7 +64,23 @@ export default function Testimonials() {
       <div className={style.inner}>
         <div className={style.carousel} ref={containerRef}>
           {testimonials.map((testimonial: Testimonial, i: number) => (
-            <motion.div className={style.slide} key={i} style={{ x }}>
+            <motion.div
+              className={style.slide}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+
+                if (swipe < -swipeConfidenceThreshold) {
+                  setIndex(index + 1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  setIndex(index - 1);
+                }
+              }}
+              key={i}
+              style={{ x }}
+            >
               <UserDescription testimonial={testimonial} view="mobile" />
               <div className={style.userImage}>
                 <Media
