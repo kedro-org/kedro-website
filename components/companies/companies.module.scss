@@ -1,15 +1,43 @@
-.container {
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-    height:1000px;
+.container {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 93px;
+    display: flex;
+
+}
+
+.left {
+  width: 60%;
+  position: relative;
+}
+
+.right {
+  width: 40%;
+  position: relative;
+  overflow: hidden;
 }
 
 
 .animation {
     vertical-align: sub;
-    display: inline-block;
-    margin: 10em;
     height: 1.2em;
+    top: 46%;
+    position: absolute;
+
+    
   }
+
+.title {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+
+
+  
+}
   
 @keyframes center-animate {
     0% {
@@ -23,18 +51,28 @@
     }
 }
 
+.animationMask {
+  position: relative;
+  height: 800px;
+  background-image: linear-gradient(#0B0B0B,#0B0B0B, transparent, transparent,#0B0B0B, #0B0B0B);
+  z-index: 2;
+}
+
 .animationGray {
     position: absolute;
-    color: lightgray;
+    color: $color-light;
+    max-height: 400px;
+    // overflow: hidden;
+
 }
  
 .animationWindow {
     position: relative;
-    height: 100%;
+    height: 100px;
     overflow: hidden;
     background: #ffbc00;
     color: black;
-    animation: center-animate var(--duration) infinite ease; 
+    animation: center-animate 3s infinite ease; 
   }
 
 

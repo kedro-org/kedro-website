@@ -5,7 +5,7 @@ import style from './companies.module.scss';
 export default function Header() {
       
       useEffect(()=>{
-        createWordListAnimation(document.querySelector(`.${style.animation}`), 7000 /* (ms) */);
+        createWordListAnimation(document.querySelector(`.${style.animation}`), 3000 /* (ms) */);
       },[])
 
       function createWordListAnimation(animNode: any, delay: number){
@@ -18,7 +18,6 @@ export default function Header() {
         var grayList = animWindow.cloneNode(true);
         var grayUl = grayList.querySelector("ul");
         grayList.className = style.animationGray;
-        console.log(grayList.classList)
         animNode.insertBefore(grayList, animWindow);
       
         // This function shows the li number `liNum`.                     
@@ -26,32 +25,30 @@ export default function Header() {
           var li = lis[liNum];
           var prevli = ascending ? lis[liNum-1]:lis[liNum+1];
           var nextli = ascending ? lis[liNum+1]:lis[liNum-1];
-          console.log(prevli)
-          console.log(nextli)
           var liTop = li.getBoundingClientRect().top;
           var ulTop = ul.getBoundingClientRect().top;
-          var liWidth = li.getBoundingClientRect().width + 10;
-          var prevliWidth = prevli.getBoundingClientRect().width + 10;
-          var nextliWidth = nextli.getBoundingClientRect().width + 10;
+          var liWidth = li.getBoundingClientRect().width + 30;
+          var prevliWidth = prevli.getBoundingClientRect().width + 30;
+          var nextliWidth = nextli.getBoundingClientRect().width + 30;
           var midprevliWidth = (liWidth+prevliWidth)/2;
           var midnextliWidth = (liWidth+nextliWidth)/2;
           if(prevliWidth <= liWidth && nextliWidth <= liWidth)
           {
-            animWindow.style.setProperty('--duration', '1s'); 
+            animWindow.style.setProperty('--duration', '3s'); 
             animWindow.style.setProperty('--firstWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', liWidth+ "px"); 
           }
           else if(prevliWidth <= liWidth && nextliWidth > liWidth)
           {
-            animWindow.style.setProperty('--duration', '7s'); 
+            animWindow.style.setProperty('--duration', '3s'); 
             animWindow.style.setProperty('--firstWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', midnextliWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', nextliWidth+ "px"); 
           }
           else if(prevliWidth > liWidth && nextliWidth <= liWidth)
           {
-            animWindow.style.setProperty('--duration', '12s'); 
+            animWindow.style.setProperty('--duration', '3s'); 
             animWindow.style.setProperty('--firstWidth', prevliWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', midprevliWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', liWidth+ "px"); 
@@ -59,7 +56,7 @@ export default function Header() {
 
           else if (prevliWidth > liWidth && nextliWidth > liWidth)
           {
-            animWindow.style.setProperty('--duration', '7s'); 
+            animWindow.style.setProperty('--duration', '3s'); 
             animWindow.style.setProperty('--firstWidth', prevliWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', nextliWidth+ "px"); 
@@ -71,12 +68,12 @@ export default function Header() {
         }
       
         // Set up an interval that changes the current li every `delay` ms.
-        var current = 0;
+        var current = 2;
         // We need a boolean to know if the animation is going up or down.
         var ascending = true;
         // Create the interval.
         return setInterval(function(){
-          ascending = ascending && current + 2 < lis.length || current === 1;
+          ascending = ascending && current + 3 < lis.length || current === 1;
           current = ascending ? current + 1: current - 1;
           goTo(current,ascending);
         }, delay);
@@ -86,22 +83,31 @@ export default function Header() {
 
   return (
     <div className={style.container}>
-        Kedro is loved by 
-        <div className={style.animation}>
-            <div className={style.animationWindow}>
-                <ul>
-                    <li className={style.listItem}>Beamery</li>
-                    <li className={style.listItem}>Telkomsel</li>
-                    <li className={style.listItem}>NASA</li>
-                    <li className={style.listItem}>Belfius</li>
-                    <li className={style.listItem}>Sber</li>
-                    <li className={style.listItem}>AISingapore</li>
-                    <li className={style.listItem}>Helvetas</li>
-                    <li className={style.listItem}>Leapfrog</li>
-                    <li className={style.listItem}>Naranja</li>
-                </ul>
-            </div>
+        <div className= {style.left}>
+          <h3 className={style.title}>Kedro is used and loved by </h3>
         </div>
+        <div className = {style.right}>
+          <div className={style.animation}>
+              <div className={style.animationWindow}>
+                  <ul>
+                      <li className={style.listItem}>Leapfrog</li>
+                      <li className={style.listItem}>Naranja</li>
+                      <li className={style.listItem}>Beamery</li>
+                      <li className={style.listItem}>Telkomsel</li>
+                      <li className={style.listItem}>NASA</li>
+                      <li className={style.listItem}>Belfius</li>
+                      <li className={style.listItem}>Sber</li>
+                      <li className={style.listItem}>AISingapore</li>
+                      <li className={style.listItem}>Helvetas</li>
+                      <li className={style.listItem}>Leapfrog</li>
+                      <li className={style.listItem}>Naranja</li>
+                      <li className={style.listItem}>Beamery</li>
+                      <li className={style.listItem}>Telkomsel</li>
+                  </ul>
+              </div>
+          </div>
+        <div className={style.animationMask}></div>
+      </div>
     </div>
   );
 }
