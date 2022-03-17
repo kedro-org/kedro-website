@@ -38,15 +38,13 @@
   text-align: center;
 
   @include breakpoint(small) {
-    margin-bottom: 2.5rem;
+    margin-bottom: 5rem;
     padding: 0;
   }
 }
 
 .carousel {
   display: flex;
-  flex-direction: column;
-  height: 450px; // change
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -58,6 +56,23 @@
   flex-shrink: 0;
   height: 100%;
   width: 100%;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.mobile {
+  @include breakpoint(medium-up) {
+    display: none;
+  }
+}
+
+.desktop {
+  @include breakpoint(small) {
+    display: none;
+  }
 }
 
 .userImage {
@@ -66,13 +81,24 @@
   margin-right: 5.75rem;
   position: relative;
   width: 394px;
+
+  @include breakpoint(small) {
+    height: 215px;
+    margin-bottom: 3rem;
+    margin-right: 0;
+    width: 215px;
+  }
 }
 
 .logo {
   position: relative;
-  height: 50px;
+  height: 3.125rem;
   max-width: 270px;
   width: 100%;
+
+  @include breakpoint(small) {
+    height: 2rem;
+  }
 }
 
 .user {
@@ -85,6 +111,10 @@
 .jobTitle {
   letter-spacing: $letter-spacing;
   margin: 0.2rem 0 3rem;
+
+  @include breakpoint(small) {
+    margin: 0.2rem 0 1.5rem;
+  }
 }
 
 .headline {
@@ -108,15 +138,19 @@
 
 .dots {
   display: flex;
-  flex-direction: column;
-  margin-left: 8rem;
+  justify-content: center;
+  margin-top: 5rem;
+
+  @include breakpoint(small) {
+    margin-top: 4rem;
+  }
 }
 
 .dot {
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
-  height: 1.75rem;
+  height: 1.25rem;
   margin: 0.375rem;
-  width: 1.75rem;
+  width: 1.25rem;
 }
