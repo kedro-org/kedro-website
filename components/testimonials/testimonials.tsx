@@ -43,8 +43,8 @@ const variants = {
   center: {
     opacity: 1,
     transition: {
-      delay: 0.4,
-      duration: 0.25,
+      delay: 0.5,
+      duration: 0.5,
     },
     x: 0,
   },
@@ -52,9 +52,9 @@ const variants = {
     return {
       opacity: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.5,
       },
-      x: direction > 0 ? 200 : -200,
+      x: direction > 0 ? 100 : -100,
     };
   },
 };

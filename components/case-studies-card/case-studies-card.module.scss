@@ -46,6 +46,10 @@
 }
 
 .logo {
+  height: 100%;
+  position: relative;
+  width: 100%;
+
   > span {
     margin: 4rem !important;
   }
