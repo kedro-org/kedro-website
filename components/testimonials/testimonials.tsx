@@ -48,13 +48,14 @@ const variants = {
     },
     x: 0,
   },
-  exit: {
-    opacity: 0,
-    transition: {
-      delay: 0,
-      duration: 0.4,
-    },
-    x: -100,
+  exit: (direction: number) => {
+    return {
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+      },
+      x: direction > 0 ? 200 : -200,
+    };
   },
 };
 
@@ -64,32 +65,36 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export default function Testimonials() {
-  const [index, setIndex] = useState(0);
+  const [[index, direction], setIndex] = useState([0, 0]);
 
   return (
     <section className={style.outer}>
       <h3 className={style.sectionTitle}>Testimonials</h3>
       <div className={style.inner}>
         <div className={style.carousel}>
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
               animate="center"
               className={style.slide}
+              custom={direction}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               exit="exit"
               initial="enter"
-              key={testimonials[index].user}
+              key={index}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
 
                 if (swipe < -swipeConfidenceThreshold) {
-                  setIndex(
-                    index + 1 === testimonials.length ? index : index + 1
-                  );
+                  // Swipe left
+                  setIndex([
+                    index + 1 === testimonials.length ? index : index + 1,
+                    -1,
+                  ]);
                 } else if (swipe > swipeConfidenceThreshold) {
-                  setIndex(index - 1 === -1 ? index : index - 1);
+                  // Swipe right
+                  setIndex([index - 1 === -1 ? index : index - 1, 1]);
                 }
               }}
               variants={variants}
@@ -98,13 +103,22 @@ export default function Testimonials() {
                 testimonial={testimonials[index]}
                 view="mobile"
               />
-              <div className={style.userImage}>
+              <motion.div
+                className={style.userImage}
+                exit={{
+                  opacity: 0,
+                  scale: 0.75,
+                  transition: {
+                    duration: 0.4,
+                  },
+                }}
+              >
                 <Media
                   alt={testimonials[index].user}
                   image={testimonials[index].userImage}
                   layout="fill"
                 />
-              </div>
+              </motion.div>
               <div>
                 <UserDescription
                   testimonial={testimonials[index]}
@@ -132,12 +146,9 @@ export default function Testimonials() {
       <div className={style.dots}>
         {testimonials.map((testimonial: Testimonial, i: number) => (
           <span
-            className={style.dot}
+            className={i === index ? `${style.dot} ${style.active}` : style.dot}
             key={testimonial.user}
-            onClick={() => setIndex(i)}
-            style={{
-              background: i === index ? '#C4C4C4' : '#6D6D6D',
-            }}
+            onClick={() => setIndex([i, index > i ? 1 : -1])}
           />
         ))}
       </div>

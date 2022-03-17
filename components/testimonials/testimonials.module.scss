@@ -148,10 +148,15 @@
 }
 
 .dot {
+  background-color: #6d6d6d;
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
   height: 1.25rem;
   margin: 0.375rem;
   width: 1.25rem;
+}
+
+.active {
+  background-color: #c4c4c4;
 }
