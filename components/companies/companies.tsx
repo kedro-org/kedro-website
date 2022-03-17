@@ -34,21 +34,21 @@ export default function Header() {
           var midnextliWidth = (liWidth+nextliWidth)/2;
           if(prevliWidth <= liWidth && nextliWidth <= liWidth)
           {
-            animWindow.style.setProperty('--duration', '3s'); 
+            animWindow.style.setProperty('--transition', "ease"); 
             animWindow.style.setProperty('--firstWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', liWidth+ "px"); 
           }
           else if(prevliWidth <= liWidth && nextliWidth > liWidth)
           {
-            animWindow.style.setProperty('--duration', '3s'); 
+            animWindow.style.setProperty('--transition', "ease-out"); 
             animWindow.style.setProperty('--firstWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', midnextliWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', nextliWidth+ "px"); 
           }
           else if(prevliWidth > liWidth && nextliWidth <= liWidth)
           {
-            animWindow.style.setProperty('--duration', '3s'); 
+            animWindow.style.setProperty('--transition', "ease-in"); 
             animWindow.style.setProperty('--firstWidth', prevliWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', midprevliWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', liWidth+ "px"); 
@@ -56,7 +56,7 @@ export default function Header() {
 
           else if (prevliWidth > liWidth && nextliWidth > liWidth)
           {
-            animWindow.style.setProperty('--duration', '3s'); 
+            animWindow.style.setProperty('--transition', "ease-in-out"); 
             animWindow.style.setProperty('--firstWidth', prevliWidth+ "px"); 
             animWindow.style.setProperty('--secondWidth', liWidth+ "px"); 
             animWindow.style.setProperty('--finalWidth', nextliWidth+ "px"); 
@@ -68,7 +68,7 @@ export default function Header() {
         }
       
         // Set up an interval that changes the current li every `delay` ms.
-        var current = 2;
+        var current = 3;
         // We need a boolean to know if the animation is going up or down.
         var ascending = true;
         // Create the interval.
@@ -84,7 +84,7 @@ export default function Header() {
   return (
     <div className={style.container}>
         <div className= {style.left}>
-          <h3 className={style.title}>Kedro is used and loved by </h3>
+          <p className={style.title}>Kedro is used and loved by </p>
         </div>
         <div className = {style.right}>
           <div className={style.animation}>

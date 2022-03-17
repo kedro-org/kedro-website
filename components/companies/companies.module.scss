@@ -4,39 +4,59 @@
 .container {
     font-size: 3rem;
     font-weight: 700;
-    line-height: 93px;
+    line-height: 6rem;
+    margin: 100px;
     display: flex;
+    overflow: hidden;
+
+    @include breakpoint(small) {
+      flex-direction: column;
+      font-size: 2rem;
+      line-height: 4rem;
+      margin: 3rem 0;
+
+    }
 
 }
 
 .left {
   width: 60%;
-  position: relative;
+  display:flex;
+  align-items: center;
+  justify-content: right;
+  padding: 1em;
+
+  @include breakpoint(small) {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .right {
   width: 40%;
   position: relative;
   overflow: hidden;
+
+  @include breakpoint(small) {
+    width: 100%;
+    margin-left: 2.5em;
+  }
 }
 
 
 .animation {
     vertical-align: sub;
     height: 1.2em;
-    top: 46%;
     position: absolute;
-
-    
+    top: 40%;  
   }
 
-.title {
-  position: absolute;
-  top: 40%;
-  left: 10%;
-
-
-  
+.title {  
+  @include breakpoint(small) {
+    font-size: 1rem;
+    line-height: 2rem;
+    letter-spacing: 0.12rem;
+  }
 }
   
 @keyframes center-animate {
@@ -53,27 +73,34 @@
 
 .animationMask {
   position: relative;
-  height: 800px;
-  background-image: linear-gradient(#0B0B0B,#0B0B0B, transparent, transparent,#0B0B0B, #0B0B0B);
+  background-image: linear-gradient(#0B0B0B,transparent,#0B0B0B);
   z-index: 2;
+  height: 480px;
+
+  @include breakpoint(small) {
+    height: 300px;
+  }
+
 }
 
 .animationGray {
     position: absolute;
     color: $color-light;
-    max-height: 400px;
-    // overflow: hidden;
-
 }
  
 .animationWindow {
-    position: relative;
-    height: 100px;
+    height: 6.25rem;
     overflow: hidden;
     background: #ffbc00;
     color: black;
-    animation: center-animate 3s infinite ease; 
+    animation: center-animate 3s infinite var(--transition); 
+
+    @include breakpoint(small) {
+      height: 4rem;
+      animation: none;
+    }
   }
+
 
 
   
@@ -81,11 +108,16 @@
   .animation ul {
     position: relative;
     list-style: none;
-    top: 0;
+    top: -279px;
     padding: 0;
     margin: 0;
     transition: top 300ms;
-    width: var(--firstWidth)
+    width: var(--firstWidth);
+
+    @include breakpoint(small) {
+      width: auto;
+    }
+  
   }
   
   .animation li {
@@ -93,4 +125,9 @@
     float: left;
     clear: both; 
     text-align: center;
+
+    @include breakpoint(small) {
+      float: none;
+      clear: both;
+    }
   }
