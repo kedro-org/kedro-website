@@ -1,7 +1,10 @@
 import FeatureDetailsCard from '../feature-details-card';
-import codingStandards from '../../public/images/coding-standards.jpg';
-import placeholder from '../../public/images/placeholder.jpg';
+
+import codingStandards from '../../public/images/coding-standards.png';
+import dataCatalog from '../../public/images/data-catalog.png';
+import flexibleDeployment from '../../public/images/flexible-deployment.jpg';
 import pipelineAbstraction from '../../public/images/pipeline-abstraction.png';
+import placeholder from '../../public/images/placeholder.jpg';
 import projectTemplate from '../../public/images/project-template.jpg';
 
 import style from './features.module.scss';
@@ -32,7 +35,7 @@ export default function Hero() {
         title="Pipeline visualisation"
       />
       <FeatureDetailsCard
-        altText="Project Template"
+        altText="Project Template example"
         assetPosition="right"
         buttonLink="https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure"
         buttonText="Learn more"
@@ -54,7 +57,7 @@ export default function Hero() {
         title="Project Template"
       />
       <FeatureDetailsCard
-        altText="Coding Standards"
+        altText="Coding Standards example"
         assetPosition="left"
         imageSrc={codingStandards}
         subtitle={
@@ -112,25 +115,25 @@ export default function Hero() {
         title="Integrations"
       />
       <FeatureDetailsCard
-        altText="Placeholder"
+        altText="Data Catalog example"
         assetPosition="left"
         buttonLink="https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html"
         buttonText="Learn more"
-        imageSrc={placeholder}
+        imageSrc={dataCatalog}
         subtitle="A series of lightweight data connectors used to save and load data across many different file formats and file systems, including local and network file systems, cloud object stores, and HDFS. The Data Catalog also includes data and model versioning for file-based systems."
         title="Data Catalog"
       />
       <FeatureDetailsCard
-        altText="Placeholder"
+        altText="Flexible Deployment example"
         assetPosition="right"
         buttonLink="https://kedro.readthedocs.io/en/stable/10_deployment/01_deployment_guide.html"
         buttonText="Explore"
-        imageSrc={placeholder}
+        imageSrc={flexibleDeployment}
         subtitle="Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more."
         title="Flexible Deployment"
       />
       <FeatureDetailsCard
-        altText="Pipeline Abstraction"
+        altText="Pipeline Abstraction example"
         assetPosition="left"
         buttonLink="https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html"
         buttonText="Explore"
