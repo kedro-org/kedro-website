@@ -19,7 +19,7 @@ export const testimonials = [
     jobTitle: 'Principal ML Engineer',
     linkText: 'Read the article',
     linkUrl:
-      'https://junglescouteng.medium.com/jungle-scout-case-study-kedro-airflow-and-mlflow-use-on-production-code-150d7231d42ehttps://medium.com/life-at-telkomsel/how-we-build-a-production-grade-data-pipeline-7004e56c8c98',
+      'https://junglescouteng.medium.com/jungle-scout-case-study-kedro-airflow-and-mlflow-use-on-production-code-150d7231d42e',
     logo: '/images/telkomsel.svg',
     text: 'Kedro has streamlined our workflow process, avoiding a lot of back and forth with debugging. It allowed our company to deliver more value to our customers quickly.',
     user: 'Eduardo Ohe',
