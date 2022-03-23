@@ -5,7 +5,7 @@ import style from './hero.module.scss';
 
 export default function Hero() {
   return (
-    <div className={style.container}>
+    <section className={style.container}>
       <div className={style.row}>
         <div className={style.info}>
           <h1 className={style.title}>Maintainable data science solved</h1>
@@ -37,6 +37,6 @@ export default function Hero() {
       <div className={style.video}>
         <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
 import Image from 'next/image';
 
-import style from './header.module.scss';
+import style from './footer.module.scss';
 
-export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+export default function Footer() {
   return (
-    <div className={style.container}>
-      <div className={style.header}>
+    <section id="footer" className={style.outer}>
+      <div className={style.inner}>
         <a href="#" className={style.logo}>
           <Image
             alt="KedroLogo"
@@ -18,24 +15,21 @@ export default function Header() {
           />
           <h4 className={style.logoText}>Kedro</h4>
         </a>
-        <nav
-          className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
-          onClick={() => setMenuOpen(false)}
-        >
+        <nav className={style.menu}>
           <a href="#why-kedro" className={style.link}>
             Why Kedro?
           </a>
           <a href="#features" className={style.link}>
             Features
           </a>
-          <a href="#get-started" className={style.link}>
+          <a href="#" className={style.link}>
             Get Started
           </a>
           <a
-            className={style.link}
             href="https://kedro.readthedocs.io/en/stable/"
-            rel="noopener noreferrer"
+            className={style.link}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Documentation
           </a>
@@ -43,22 +37,22 @@ export default function Header() {
             <a
               className={style.link}
               href="https://discord.gg/4qeKKspFf8"
-              rel="noopener noreferrer"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 alt="DiscordLogo"
-                height={30}
                 src="/images/discord.svg"
                 width={30}
+                height={30}
               />
               <span className={style.iconText}>Discord</span>
             </a>
             <a
               className={style.link}
               href="https://github.com/kedro-org"
-              rel="noopener noreferrer"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 alt="GithubLogo"
@@ -70,28 +64,7 @@ export default function Header() {
             </a>
           </div>
         </nav>
-        <button
-          aria-label={menuOpen ? 'open' : 'close'}
-          className={style.burger}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? (
-            <Image
-              alt="CloseIcon"
-              height={15}
-              src="/images/close.svg"
-              width={15}
-            />
-          ) : (
-            <Image
-              alt="BurgerIcon"
-              height={25}
-              src="/images/burger.svg"
-              width={25}
-            />
-          )}
-        </button>
       </div>
-    </div>
+    </section>
   );
 }
