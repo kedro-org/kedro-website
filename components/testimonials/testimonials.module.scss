@@ -94,7 +94,6 @@
 .logo {
   position: relative;
   height: 3.125rem;
-  max-width: 270px;
   width: 100%;
 
   @include breakpoint(small) {

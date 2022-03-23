@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Media from '../media';
 
 import style from './testimonials.module.scss';
+import { logDOM } from '@testing-library/react';
 
 type Props = {
   testimonial: Testimonial;
@@ -18,6 +19,7 @@ type Testimonial = {
   linkText: string;
   linkUrl: string;
   logo: string;
+  logoWidth: number;
   text: string;
   user: string;
   userImage: StaticImageData;
@@ -26,7 +28,8 @@ type Testimonial = {
 const UserDescription = ({ testimonial, view }: Props) => {
   return (
     <div className={`${style[view]}`}>
-      <div className={style.logo}>
+      {/* Dynamic maxWidth needed to size and position logos correctly. */}
+      <div className={style.logo} style={{ maxWidth: testimonial.logoWidth }}>
         <Image alt="Company logo" layout="fill" src={testimonial.logo} />
       </div>
       <p className={style.user}>{testimonial.user}</p>
