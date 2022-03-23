@@ -1,133 +1,114 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.container {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 6rem;
-    margin: 100px;
-    display: flex;
-    overflow: hidden;
+.outer {
+  background: $color-dark;
+  padding: 7rem 0;
 
-    @include breakpoint(small) {
-      flex-direction: column;
-      font-size: 2rem;
-      line-height: 4rem;
-      margin: 3rem 0;
+  @include breakpoint(medium-up) {
+    margin: 0 -3.5rem;
+    padding: 7rem 3.5rem;
+  }
 
-    }
+  @include breakpoint(small) {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+}
 
+.inner {
+  background: $color-dark;
+  display: flex;
+  margin: 0 auto;
+  max-width: $max-content;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
 }
 
 .left {
-  width: 60%;
-  display:flex;
   align-items: center;
-  justify-content: right;
-  padding: 1em;
+  display: flex;
+  padding: 0.5em;
+  width: 60%;
 
   @include breakpoint(small) {
-    width: 100%;
     justify-content: center;
-  }
-}
-
-.right {
-  width: 40%;
-  position: relative;
-  overflow: hidden;
-
-  @include breakpoint(small) {
     width: 100%;
-    margin-left: 2.5em;
   }
 }
 
+.title {
+  @include h5;
 
-.animation {
-    vertical-align: sub;
-    height: 1.2em;
-    position: absolute;
-    top: 40%;  
-  }
-
-.title {  
   @include breakpoint(small) {
     font-size: 1rem;
     line-height: 2rem;
     letter-spacing: 0.12rem;
   }
 }
-  
-@keyframes center-animate {
-    0% {
-        width: var(--firstWidth);
-    }
-    50% {
-        width: var(--secondWidth);
-    }
-    100% {
-        width: var(--finalWidth);
-    }
+
+.right {
+  overflow: hidden;
+  position: relative;
+  width: 40%;
+
+  @include breakpoint(small) {
+    margin-left: 2.5em;
+    width: 100%;
+  }
+}
+
+.animation {
+  position: absolute;
+  top: 40%;
 }
 
 .animationMask {
-  position: relative;
-  background-image: linear-gradient(#0B0B0B,transparent,#0B0B0B);
-  z-index: 2;
+  background-image: linear-gradient(
+    $color-dark,
+    transparent,
+    transparent,
+    $color-dark
+  );
   height: 480px;
+  position: relative;
 
   @include breakpoint(small) {
     height: 300px;
   }
-
 }
 
-.animationGray {
-    position: absolute;
-    color: $color-light;
-}
- 
 .animationWindow {
-    height: 6.25rem;
-    overflow: hidden;
-    background: #ffbc00;
-    color: black;
-    animation: center-animate 3s infinite var(--transition); 
+  position: relative;
+}
 
-    @include breakpoint(small) {
-      height: 4rem;
-      animation: none;
-    }
+.animation ul {
+  position: relative;
+  list-style: none;
+  top: -279px;
+  padding: 0;
+  margin: 0;
+  transition: top 300ms;
+
+  @include breakpoint(small) {
+    width: auto;
   }
+}
 
+.animation li {
+  @include h5;
 
+  float: left;
+  clear: both;
 
-  
-  
-  .animation ul {
-    position: relative;
-    list-style: none;
-    top: -279px;
-    padding: 0;
-    margin: 0;
-    transition: top 300ms;
-    width: var(--firstWidth);
-
-    @include breakpoint(small) {
-      width: auto;
-    }
-  
+  @include breakpoint(small) {
+    float: none;
+    clear: both;
   }
-  
-  .animation li {
-    margin: 0 .2em;
-    float: left;
-    clear: both; 
-    text-align: center;
+}
 
-    @include breakpoint(small) {
-      float: none;
-      clear: both;
-    }
-  }
+.active {
+  color: $color-accent;
+}
