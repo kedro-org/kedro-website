@@ -78,16 +78,16 @@
 
 .userImage {
   flex-shrink: 0;
-  height: 394px;
+  height: 24.625rem;
   margin-right: 5.75rem;
   position: relative;
-  width: 394px;
+  width: 24.625rem;
 
   @include breakpoint(small) {
-    height: 215px;
+    height: 13.4375rem;
     margin-bottom: 3rem;
     margin-right: 0;
-    width: 215px;
+    width: 13.4375rem;
   }
 }
 

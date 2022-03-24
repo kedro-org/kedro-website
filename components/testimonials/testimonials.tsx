@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Media from '../media';
 
 import style from './testimonials.module.scss';
-import { logDOM } from '@testing-library/react';
 
 type Props = {
   testimonial: Testimonial;
@@ -127,11 +126,11 @@ export default function Testimonials() {
                   testimonial={testimonials[index]}
                   view="desktop"
                 />
-                <h3 className={style.headline}>
+                <h4 className={style.headline}>
                   {testimonials[index].headline}
-                </h3>
+                </h4>
                 <p className={style.quote}>
-                  &#34;{testimonials[index].text}&#34;
+                  <q>{testimonials[index].text}</q>
                 </p>
                 <a
                   className={style.link}
@@ -146,7 +145,7 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
       </div>
-      <div className={style.dots}>
+      <div className={style.dots} aria-label="carousel-nav">
         {testimonials.map((testimonial: Testimonial, i: number) => (
           <span
             className={i === index ? `${style.dot} ${style.active}` : style.dot}
