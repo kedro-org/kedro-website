@@ -44,7 +44,7 @@ export default function Header() {
     <section className={style.outer}>
       <div className={style.inner}>
         <div className={style.left}>
-          <p className={style.title}>Kedro is used and loved by </p>
+          <p className={style.title}>Used and loved by </p>
         </div>
         <div className={style.right}>
           <div className={style.animation}>
@@ -58,6 +58,7 @@ export default function Header() {
                 <li>Belfius</li>
                 <li>Sber</li>
                 <li>Augment Partners</li>
+                <li>Mckinsey & Company</li>
                 <li>GetInData</li>
                 <li>Indicium</li>
                 <li>GMO</li>

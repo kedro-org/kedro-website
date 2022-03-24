@@ -1,0 +1,217 @@
+/**
+*** Colors
+**/
+/**
+*** Dimensions
+**/
+/**
+*** Buttons
+**/
+/**
+*** Breakpoints
+**/
+/**
+*** Headings
+**/
+.outer {
+  background: #000000;
+  margin: 0 -7em;
+}
+
+@media (min-width: 820px) {
+  .outer {
+    margin: 0 -3.5rem;
+    padding: 7rem 5rem;
+  }
+}
+
+@media (max-width: 819px) {
+  .outer {
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+  }
+}
+
+.inner {
+  background: #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1235px;
+}
+
+@media (min-width: 820px) and (max-width: 1234px) {
+  .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 819px) {
+  .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.left {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: right;
+  -ms-flex-pack: right;
+  justify-content: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 1.5rem;
+  width: 45%;
+}
+
+@media (min-width: 820px) and (max-width: 1234px) {
+  .left {
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 819px) {
+  .left {
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 1.89px;
+  margin: 0;
+}
+
+@media (max-width: 819px) {
+  .title {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 819px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: 0.12rem;
+  }
+}
+
+.right {
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+}
+
+@media (min-width: 820px) and (max-width: 1234px) {
+  .right {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 819px) {
+  .right {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+}
+
+.animation {
+  position: absolute;
+  top: 40%;
+}
+
+.animationMask {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#000000),
+    color-stop(transparent),
+    color-stop(transparent),
+    to(#000000)
+  );
+  background-image: linear-gradient(#000000, transparent, transparent, #000000);
+  height: 480px;
+  position: relative;
+}
+
+@media (max-width: 819px) {
+  .animationMask {
+    height: 250px;
+  }
+}
+
+.animationWindow {
+  position: relative;
+}
+
+.animation ul {
+  position: relative;
+  list-style: none;
+  top: -279px;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: top 300ms;
+  transition: top 300ms;
+}
+
+@media (min-width: 820px) and (max-width: 1234px) {
+  .animation ul {
+    width: auto;
+  }
+}
+
+@media (max-width: 819px) {
+  .animation ul {
+    width: auto;
+  }
+}
+
+.animation li {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 1.89px;
+  margin: 0;
+  float: left;
+  clear: both;
+}
+
+@media (max-width: 819px) {
+  .animation li {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 819px) {
+  .animation li {
+    font-size: 1.5rem;
+    line-height: 3rem;
+    letter-spacing: 0.12rem;
+  }
+}
+
+.active {
+  color: #ffbc00;
+}
+/*# sourceMappingURL=companies.module.css.map */
