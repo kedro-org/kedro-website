@@ -53,7 +53,7 @@ export default function Header() {
                 <li>Leapfrog</li>
                 <li>Naranja</li>
                 <li>Beamery</li>
-                <li>Telkomsel</li>
+                <li className={style.active}>Telkomsel</li>
                 <li>NASA</li>
                 <li>Belfius</li>
                 <li>Sber</li>
