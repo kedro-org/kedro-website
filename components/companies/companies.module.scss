@@ -112,6 +112,7 @@
   }
 
   @include breakpoint(small) {
+    top: -144px;
     width: auto;
   }
 }
