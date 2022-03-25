@@ -2,7 +2,7 @@ export const content = [
   {
     title: 'Kedro in Production at Telksomsel',
     text: "Learn how Kedro is used in production at Telkomsel, Indonesia's largest telecommunications company. Kedro is used to help consume tens of TBs of data, run hundreds of feature engineering tasks, and serve dozens of Machine Learning models.",
-    logo: '/images/telkonsel.svg',
+    logo: '/images/telkomsel.svg',
     linkUrl:
       'https://www.medium.com/life-at-telkomsel/how-we-build-a-production-grade-data-pipeline-7004e56c8c98',
     linkText: 'View on Medium',

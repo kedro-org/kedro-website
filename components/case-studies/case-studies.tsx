@@ -1,5 +1,5 @@
 import CaseStudiesCard from '../case-studies-card';
-import { content } from './content';
+import { content } from './case-studies-content';
 
 import style from './case-studies.module.scss';
 
