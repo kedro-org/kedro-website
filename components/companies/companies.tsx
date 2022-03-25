@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import { content } from './content';
 import style from './companies.module.scss';
 
 export default function Header() {
@@ -10,33 +10,36 @@ export default function Header() {
     );
   }, []);
 
-  function createWordListAnimation(animNode: any, delay: number) {
-    const animWindow = animNode.querySelector(`.${style.animationWindow}`);
-    const ul = animWindow.querySelector('ul');
-    const list = ul.querySelectorAll('li');
+  function createWordListAnimation(
+    animationWrapper: HTMLMediaElement,
+    delay: number
+  ) {
+    const listWrapper = animationWrapper.querySelector('ul');
+    const allCompanies = listWrapper.querySelectorAll('li');
 
     function goTo(liNum: number) {
-      const li = list[liNum];
+      const company = allCompanies[liNum];
 
-      const liTop = li.getBoundingClientRect().top;
-      const ulTop = ul.getBoundingClientRect().top;
+      const allCompaniesTop = company.getBoundingClientRect().top;
+      const listWrapperTop = listWrapper.getBoundingClientRect().top;
 
-      ul.style.top = -(liTop - ulTop) + 'px';
+      listWrapper.style.top = -(allCompaniesTop - listWrapperTop) + 'px';
     }
 
-    let current = 3;
+    let current = 2;
 
     let ascending = true;
 
     return setInterval(function () {
-      list[current].className = '';
+      allCompanies[current].className = '';
 
-      ascending = (ascending && current + 3 < list.length) || current === 2;
+      ascending =
+        (ascending && current + 3 < allCompanies.length) || current === 2;
       current = ascending ? current + 1 : current - 1;
 
       goTo(current);
 
-      list[current].className = style.active;
+      allCompanies[current].className = style.active;
     }, delay);
   }
 
@@ -48,30 +51,17 @@ export default function Header() {
         </div>
         <div className={style.right}>
           <div className={style.animation}>
-            <div className={style.animationWindow}>
-              <ul>
-                <li>Leapfrog</li>
-                <li>Naranja</li>
-                <li>Beamery</li>
-                <li className={style.active}>Telkomsel</li>
-                <li>NASA</li>
-                <li>Belfius</li>
-                <li>Sber</li>
-                <li>Augment Partners</li>
-                <li>Mckinsey & Company</li>
-                <li>GetInData</li>
-                <li>Indicium</li>
-                <li>GMO</li>
-                <li>QuantumBlack</li>
-                <li>XP</li>
-                <li>AI Singapore</li>
-                <li>Helvetas</li>
-                <li>Leapfrog</li>
-                <li>Naranja</li>
-                <li>Beamery</li>
-                <li>Telkomsel</li>
-              </ul>
-            </div>
+            <ul>
+              <li>Leapfrog</li>
+              <li>Naranja</li>
+              {content.map((listContent, i) => (
+                <li key={i} className={i == 0 ? style.active : ''}>
+                  {listContent}
+                </li>
+              ))}
+              <li>Beamery</li>
+              <li>Telkomsel</li>
+            </ul>
           </div>
           <div className={style.animationMask}></div>
         </div>

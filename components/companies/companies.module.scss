@@ -11,13 +11,16 @@
   }
 
   @include breakpoint(small) {
-    padding: 4rem 2rem 4rem;
-    text-align: center;
+    padding: 4rem 1rem 4rem;
   }
 }
 
 .inner {
   background: $color-dark;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: $letter-spacing;
   display: flex;
   margin: 0 auto;
   max-width: $max-content;
@@ -28,6 +31,8 @@
 
   @include breakpoint(small) {
     flex-direction: column;
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
 }
 
@@ -49,28 +54,16 @@
   }
 }
 
-.title {
-  @include h5;
-
-  @include breakpoint(small) {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    letter-spacing: 0.12rem;
-  }
-}
-
 .right {
   overflow: hidden;
   position: relative;
   width: 50%;
 
   @include breakpoint(medium-only) {
-    margin-top: 2.5rem;
     width: 100%;
   }
 
   @include breakpoint(small) {
-    margin-top: 2.5rem;
     width: 100%;
   }
 }
@@ -87,22 +80,18 @@
     transparent,
     $color-dark
   );
-  height: 480px;
+  height: 30rem;
   position: relative;
 
   @include breakpoint(small) {
-    height: 250px;
+    height: 15.625rem;
   }
-}
-
-.animationWindow {
-  position: relative;
 }
 
 .animation ul {
   position: relative;
   list-style: none;
-  top: -290px;
+  top: -12rem;
   padding: 0;
   margin: 0;
   transition: top 300ms;
@@ -112,21 +101,8 @@
   }
 
   @include breakpoint(small) {
-    top: -144px;
+    top: -6rem;
     width: auto;
-  }
-}
-
-.animation li {
-  @include h5;
-
-  float: left;
-  clear: both;
-
-  @include breakpoint(small) {
-    font-size: 1.5rem;
-    line-height: 3rem;
-    letter-spacing: 0.12rem;
   }
 }
 
