@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { content } from './content';
-import style from './companies.module.scss';
+import style from './companies-using-kedro.module.scss';
 
 export default function CompaniesUsingKedro() {
   useEffect(() => {
