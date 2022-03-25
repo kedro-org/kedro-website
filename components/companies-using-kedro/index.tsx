@@ -1,3 +1,3 @@
-import Companies from './companies-using-kedro';
+import CompaniesUsingKedro from './companies-using-kedro';
 
-export default Companies;
+export default CompaniesUsingKedro;

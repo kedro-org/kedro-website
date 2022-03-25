@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { content } from './content';
 import style from './companies.module.scss';
 
-export default function Header() {
+export default function CompaniesUsingKedro() {
   useEffect(() => {
     createWordListAnimation(
       document.querySelector(`.${style.animation}`),
