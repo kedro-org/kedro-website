@@ -6,7 +6,7 @@ import CaseStudies from '../components/case-studies';
 import Features from '../components/features';
 import Header from '../components/header';
 import Hero from '../components/hero';
-import Companies from '../components/companies';
+import Companies from '../components/companies-using-kedro';
 import ReadyToStart from '../components/ready-to-start';
 import WhyKedro from '../components/why-kedro';
 import Footer from '../components/footer';
