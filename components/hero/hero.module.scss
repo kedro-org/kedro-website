@@ -45,6 +45,17 @@
   }
 }
 
+.outerHeader {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.innerHeader {
+  height: 90px;
+  overflow: hidden;
+}
+
 .subtitle {
   @include h3;
 
