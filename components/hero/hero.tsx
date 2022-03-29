@@ -9,16 +9,20 @@ const variants = {
   enter: (wordIndex: number) => {
     return {
       opacity: 0,
+      width: wordIndex === 0 ? 298 : 465,
       y: wordIndex === 0 ? 100 : -100,
     };
   },
-  center: {
-    opacity: 1,
-    transition: {
-      delay: 0.5,
-      duration: 0.5,
-    },
-    y: 0,
+  center: (wordIndex: number) => {
+    return {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+      },
+      width: wordIndex === 0 ? 465 : 298,
+      y: 0,
+    };
   },
   exit: (wordIndex: number) => {
     return {
@@ -26,6 +30,7 @@ const variants = {
       transition: {
         duration: 0.5,
       },
+      width: wordIndex === 0 ? 465 : 298,
       y: wordIndex === 0 ? -100 : 100,
     };
   },
@@ -39,7 +44,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex(wordIndex === 0 ? 1 : 0);
-    }, 5500);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [wordIndex]);
@@ -49,21 +54,25 @@ export default function Hero() {
       <div className={style.row}>
         <div className={style.info}>
           <h1 className={style.title}>
-            <div style={{ height: 90, overflow: 'hidden' }}>
-              <AnimatePresence custom={wordIndex} initial={false}>
-                <motion.div
-                  animate="center"
-                  custom={wordIndex}
-                  exit="exit"
-                  initial="enter"
-                  key={wordIndex}
-                  variants={variants}
-                >
-                  {headerText[wordIndex]}
-                </motion.div>
-              </AnimatePresence>{' '}
+            <div className={style.outerHeader}>
+              <div className={style.innerHeader}>
+                <AnimatePresence custom={wordIndex} initial={false}>
+                  <motion.div
+                    animate="center"
+                    custom={wordIndex}
+                    exit="exit"
+                    initial="enter"
+                    key={wordIndex}
+                    variants={variants}
+                  >
+                    {headerText[wordIndex]}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <span>data </span>
+              <span>science </span>
+              <span>solved</span>
             </div>
-            data science solved
           </h1>
           <h2 className={style.subtitle}>
             Kedro is an open-sourced Python framework for creating maintainable
