@@ -8,8 +8,7 @@ import style from './hero.module.scss';
 const variants = {
   enter: (wordIndex: number) => {
     return {
-      opacity: 0,
-      width: wordIndex === 0 ? 298 : 465,
+      opacity: 1,
       y: wordIndex === 0 ? 100 : -100,
     };
   },
@@ -17,8 +16,7 @@ const variants = {
     return {
       opacity: 1,
       transition: {
-        delay: 0.5,
-        duration: 0.5,
+        duration: 0.35,
       },
       width: wordIndex === 0 ? 465 : 298,
       y: 0,
@@ -26,9 +24,9 @@ const variants = {
   },
   exit: (wordIndex: number) => {
     return {
-      opacity: 0,
+      opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.35,
       },
       width: wordIndex === 0 ? 465 : 298,
       y: wordIndex === 0 ? -100 : 100,
@@ -44,10 +42,10 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex(wordIndex === 0 ? 1 : 0);
-    }, 2500);
+    }, 5500);
 
     return () => clearInterval(interval);
-  }, [wordIndex]);
+  });
 
   return (
     <section className={style.container}>
@@ -56,7 +54,11 @@ export default function Hero() {
           <h1 className={style.title}>
             <div className={style.outerHeader}>
               <div className={style.innerHeader}>
-                <AnimatePresence custom={wordIndex} initial={false}>
+                <AnimatePresence
+                  custom={wordIndex}
+                  exitBeforeEnter
+                  initial={false}
+                >
                   <motion.div
                     animate="center"
                     custom={wordIndex}
