@@ -9,6 +9,7 @@ import style from './hero.module.scss';
 
 const headerText = ['Maintainable', 'Modular'];
 const MOBILE_BREAKPOINT = 819;
+const BUTTON_HEIGHT = 48; // 3rem.
 
 function computeVariants(isMobile: boolean) {
   const variants = {
@@ -42,6 +43,12 @@ function computeVariants(isMobile: boolean) {
 
   return variants;
 }
+
+const buttonTransition = {
+  damping: 40,
+  stiffness: 500,
+  type: 'spring',
+};
 
 export default function Hero() {
   const size: Size = useWindowSize();
@@ -94,13 +101,39 @@ export default function Hero() {
             and modular data science code.
           </h2>
           <div className={style.buttons}>
-            <a
-              href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              animate="visible"
+              className={style.buttonWrapper}
+              initial="hidden"
+              whileHover="hover"
             >
-              <button className={style.start}>Get Started</button>
-            </a>
+              <a
+                href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.button
+                  className={style.start}
+                  transition={buttonTransition}
+                  variants={{
+                    hidden: { y: 0 },
+                    hover: { y: BUTTON_HEIGHT },
+                  }}
+                >
+                  Get Started
+                </motion.button>
+                <motion.button
+                  className={style.letsGo}
+                  transition={buttonTransition}
+                  variants={{
+                    hidden: { y: -BUTTON_HEIGHT },
+                    hover: { y: 0 },
+                  }}
+                >
+                  Let&apos;s go!
+                </motion.button>
+              </a>
+            </motion.div>
             <a
               href="https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html"
               target="_blank"
