@@ -32,7 +32,7 @@
   z-index: 2;
 
   @include breakpoint(medium-only) {
-    width: 82%;
+    width: 70%;
   }
 
   @include breakpoint(small) {
