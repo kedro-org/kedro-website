@@ -6,6 +6,7 @@
     "dev": "next dev",
     "format": "prettier --write .",
     "lint": "next lint",
+    "sign-off": "make sign-off",
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "npm test -- --watchAll=false --maxWorkers=2"

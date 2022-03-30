@@ -8,6 +8,7 @@ import Header from '../components/header';
 import Hero from '../components/hero';
 import CompaniesUsingKedro from '../components/companies-using-kedro';
 import ReadyToStart from '../components/ready-to-start';
+import Testimonials from '../components/testimonials';
 import WhyKedro from '../components/why-kedro';
 import Footer from '../components/footer';
 
@@ -26,6 +27,7 @@ const Home = () => {
       <Features />
       <CaseStudies />
       <CompaniesUsingKedro />
+      <Testimonials />
       <ReadyToStart />
       <div ref={footerRef}>
         <Footer />

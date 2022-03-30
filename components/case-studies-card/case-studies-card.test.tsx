@@ -10,7 +10,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkonsel.svg"
+        logo="/images/telkomsel.svg"
         linkUrl="www.google.com"
         linkText="linkText"
       />
@@ -22,7 +22,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkonsel.svg"
+        logo="/images/telkomsel.svg"
         linkUrl="www.google.com"
         linkText="linkText"
       />
@@ -40,7 +40,7 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkonsel.svg"
+        logo="/images/telkomsel.svg"
       />
     );
 
