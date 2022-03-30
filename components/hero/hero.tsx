@@ -1,43 +1,56 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Size, useWindowSize } from '../../utils/hooks/useWindowSize';
+
 import Media from '../media';
 import hero from '../../public/images/hero.webp';
 
 import style from './hero.module.scss';
 
-const variants = {
-  enter: (wordIndex: number) => {
-    return {
-      opacity: 1,
-      y: wordIndex === 0 ? 100 : -100,
-    };
-  },
-  center: (wordIndex: number) => {
-    return {
-      opacity: 1,
-      transition: {
-        duration: 0.35,
-      },
-      width: wordIndex === 0 ? 465 : 298,
-      y: 0,
-    };
-  },
-  exit: (wordIndex: number) => {
-    return {
-      opacity: 1,
-      transition: {
-        duration: 0.35,
-      },
-      width: wordIndex === 0 ? 465 : 298,
-      y: wordIndex === 0 ? -100 : 100,
-    };
-  },
-};
-
 const headerText = ['Maintainable', 'Modular'];
+const MOBILE_BREAKPOINT = 819;
+
+function computeVariants(isMobile: boolean) {
+  const variants = {
+    enter: (wordIndex: number) => {
+      return {
+        opacity: 1,
+        y: wordIndex === 0 ? 100 : -100,
+      };
+    },
+    center: (wordIndex: number) => {
+      return {
+        opacity: 1,
+        transition: {
+          duration: 0.35,
+        },
+        width: isMobile ? '100%' : wordIndex === 0 ? 465 : 298,
+        y: 0,
+      };
+    },
+    exit: (wordIndex: number) => {
+      return {
+        opacity: 1,
+        transition: {
+          duration: 0.35,
+        },
+        width: isMobile ? '100%' : wordIndex === 0 ? 465 : 298,
+        y: wordIndex === 0 ? -100 : 100,
+      };
+    },
+  };
+
+  return variants;
+}
 
 export default function Hero() {
+  const size: Size = useWindowSize();
   const [wordIndex, setWordIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(size.width > 819 ? false : true);
+
+  useEffect(() => {
+    setIsMobile(size.width > MOBILE_BREAKPOINT ? false : true);
+  }, [size]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,7 +66,7 @@ export default function Hero() {
         <div className={style.info}>
           <h1 className={style.title}>
             <div className={style.outerHeader}>
-              <div className={style.innerHeader}>
+              <div className={style.animatingWord}>
                 <AnimatePresence
                   custom={wordIndex}
                   exitBeforeEnter
@@ -65,14 +78,14 @@ export default function Hero() {
                     exit="exit"
                     initial="enter"
                     key={wordIndex}
-                    variants={variants}
+                    variants={computeVariants(isMobile)}
                   >
                     {headerText[wordIndex]}
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <span>data </span>
-              <span>science </span>
+              <span>data</span>
+              <span>science</span>
               <span>solved</span>
             </div>
           </h1>
