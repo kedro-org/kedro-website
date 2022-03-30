@@ -58,15 +58,17 @@
     flex-direction: column;
     height: 100%;
     opacity: 0;
+    pointer-events: none;
     position: fixed;
     right: 0;
-    top: -100%;
-    transition: opacity 0.3s ease, top 0.3s ease;
+    top: -4rem;
+    transition: opacity 0.25s ease, top 0.25s ease;
     width: 100%;
     z-index: -1;
   }
 
   &.active {
+    pointer-events: all;
     opacity: 0.9;
     top: 0;
   }
