@@ -1,6 +1,23 @@
 import React, { useEffect } from 'react';
-import { content } from './content';
 import style from './companies-using-kedro.module.scss';
+
+export const companies = [
+  'Telkomsel',
+  'NASA',
+  'Belfius',
+  'Sber',
+  'Augment Partners',
+  'Mckinsey & Company',
+  'GetInData',
+  'Indicium',
+  'GMO',
+  'QuantumBlack',
+  'XP',
+  'AI Singapore',
+  'Helvetas',
+  'Leapfrog',
+  'Naranja',
+];
 
 export default function CompaniesUsingKedro() {
   useEffect(() => {
@@ -17,8 +34,8 @@ export default function CompaniesUsingKedro() {
     const listWrapper = animationWrapper.querySelector('ul');
     const allCompanies = listWrapper.querySelectorAll('li');
 
-    function goTo(liNum: number) {
-      const company = allCompanies[liNum];
+    function changeCompany(companyIndex: number) {
+      const company = allCompanies[companyIndex];
 
       const allCompaniesTop = company.getBoundingClientRect().top;
       const listWrapperTop = listWrapper.getBoundingClientRect().top;
@@ -27,7 +44,6 @@ export default function CompaniesUsingKedro() {
     }
 
     let current = 2;
-
     let ascending = true;
 
     return setInterval(function () {
@@ -37,12 +53,12 @@ export default function CompaniesUsingKedro() {
         (ascending && current + 3 < allCompanies.length) || current === 2;
       current = ascending ? current + 1 : current - 1;
 
-      goTo(current);
+      changeCompany(current);
 
       allCompanies[current].className = style.active;
     }, delay);
   }
-
+  // Added two <li> hard-coded elements on top and bottom to make the animation consistent with design.
   return (
     <section className={style.outer}>
       <div className={style.inner}>
@@ -54,9 +70,9 @@ export default function CompaniesUsingKedro() {
             <ul>
               <li>Leapfrog</li>
               <li>Naranja</li>
-              {content.map((listContent, i) => (
+              {companies.map((company, i) => (
                 <li key={i} className={i == 0 ? style.active : ''}>
-                  {listContent}
+                  {company}
                 </li>
               ))}
               <li>Beamery</li>
