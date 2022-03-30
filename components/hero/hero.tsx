@@ -7,7 +7,10 @@ import hero from '../../public/images/hero.webp';
 
 import style from './hero.module.scss';
 
-const headerText = ['Maintainable', 'Modular'];
+const headerText = [
+  { width: 465, word: 'Maintainable' },
+  { width: 298, word: 'Modular' },
+];
 const MOBILE_BREAKPOINT = 819;
 const BUTTON_HEIGHT = 48; // 3rem.
 
@@ -25,7 +28,7 @@ function computeVariants(isMobile: boolean) {
         transition: {
           duration: 0.35,
         },
-        width: isMobile ? '100%' : wordIndex === 0 ? 465 : 298,
+        width: isMobile ? '100%' : headerText[wordIndex].width,
         y: 0,
       };
     },
@@ -35,7 +38,7 @@ function computeVariants(isMobile: boolean) {
         transition: {
           duration: 0.35,
         },
-        width: isMobile ? '100%' : wordIndex === 0 ? 465 : 298,
+        width: isMobile ? '100%' : headerText[wordIndex].width,
         y: wordIndex === 0 ? -100 : 100,
       };
     },
@@ -87,7 +90,7 @@ export default function Hero() {
                     key={wordIndex}
                     variants={computeVariants(isMobile)}
                   >
-                    {headerText[wordIndex]}
+                    {headerText[wordIndex].word}
                   </motion.div>
                 </AnimatePresence>
               </div>
