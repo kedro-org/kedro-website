@@ -109,9 +109,9 @@
 }
 
 .buttonWrapper {
+  min-width: 10.625rem;
   overflow: hidden;
   position: relative;
-  width: 170px;
 
   @include breakpoint(medium-up) {
     margin-right: 1.9rem;
