@@ -5,7 +5,7 @@
 @mixin button($size: normal, $style: primary) {
   cursor: pointer;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  letter-spacing: $letter-spacing;
+  letter-spacing: $letter-spacing-narrow;
   min-width: 10.625rem;
 
   @if $size == normal {
@@ -89,7 +89,7 @@
 @mixin h1 {
   font-size: 4.5rem;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: $letter-spacing;
   line-height: 90px;
   margin: 0;
 
@@ -101,7 +101,7 @@
 
 @mixin h2 {
   font-size: 2.5em;
-  letter-spacing: 2px;
+  letter-spacing: $letter-spacing;
 
   @include breakpoint(small) {
     font-size: 1.125rem;
@@ -112,7 +112,7 @@
 @mixin h3 {
   font-size: 1.5rem;
   font-weight: 400;
-  letter-spacing: $letter-spacing;
+  letter-spacing: $letter-spacing-narrow;
   line-height: 34px;
 
   @include breakpoint(small) {
