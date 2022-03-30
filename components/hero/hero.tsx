@@ -56,7 +56,9 @@ const buttonTransition = {
 export default function Hero() {
   const size: Size = useWindowSize();
   const [wordIndex, setWordIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(size.width > 819 ? false : true);
+  const [isMobile, setIsMobile] = useState(
+    size.width > MOBILE_BREAKPOINT ? false : true
+  );
 
   useEffect(() => {
     setIsMobile(size.width > MOBILE_BREAKPOINT ? false : true);
