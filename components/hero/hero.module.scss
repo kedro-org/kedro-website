@@ -78,7 +78,7 @@
 }
 
 .animatingWord {
-  height: 90px;
+  height: 5.625rem;
   margin-right: 1.3rem;
   overflow: hidden;
 
@@ -124,6 +124,11 @@
 
 .start {
   @include button;
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+    width: 9.375rem;
+  }
 }
 
 .letsGo {
@@ -140,7 +145,16 @@
 .tutorial {
   @include button($style: outline);
 
+  padding: 0 1rem;
   transition: box-shadow 0.2s ease;
+
+  @include breakpoint(medium-up) {
+    width: 10.625rem;
+  }
+
+  @include breakpoint(small) {
+    width: 9.375rem;
+  }
 
   &:hover {
     box-shadow: inset 0 0 0 2px $color-light;

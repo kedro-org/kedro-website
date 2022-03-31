@@ -14,7 +14,7 @@ const headerText = [
 const MOBILE_BREAKPOINT = 819;
 const BUTTON_HEIGHT = 48; // 3rem.
 
-function computeVariants(isMobile: boolean) {
+function computeAnimationVariants(isMobile: boolean) {
   const variants = {
     enter: (wordIndex: number) => {
       return {
@@ -90,7 +90,7 @@ export default function Hero() {
                     exit="exit"
                     initial="enter"
                     key={wordIndex}
-                    variants={computeVariants(isMobile)}
+                    variants={computeAnimationVariants(isMobile)}
                   >
                     {headerText[wordIndex].word}
                   </motion.div>
