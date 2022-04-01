@@ -67,7 +67,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex(wordIndex === 0 ? 1 : 0);
-    }, 5500);
+    }, 4250);
 
     return () => clearInterval(interval);
   });
@@ -79,11 +79,7 @@ export default function Hero() {
           <h1 className={style.title}>
             <div className={style.outerHeader}>
               <div className={style.animatingWord}>
-                <AnimatePresence
-                  custom={wordIndex}
-                  exitBeforeEnter
-                  initial={false}
-                >
+                <AnimatePresence custom={wordIndex} exitBeforeEnter>
                   <motion.div
                     animate="center"
                     custom={wordIndex}
