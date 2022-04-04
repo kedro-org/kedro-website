@@ -12,9 +12,9 @@ export default function Header() {
         <a href="#" className={style.logo}>
           <Image
             alt="KedroLogo"
+            height={30}
             src="/images/kedro-logo.svg"
             width={30}
-            height={30}
           />
           <h4 className={style.logoText}>Kedro</h4>
         </a>
