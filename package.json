@@ -6,12 +6,10 @@
     "dev": "next dev",
     "format": "prettier --write .",
     "lint": "next lint",
-    "pre-commit": "lint-staged",
-    "prepare": "husky install",
     "sign-off": "make sign-off",
     "start": "next start",
-    "test:ci": "npm test -- --watchAll=false --maxWorkers=2",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test:ci": "npm test -- --watchAll=false --maxWorkers=2"
   },
   "dependencies": {
     "framer-motion": "^6.2.7",
@@ -27,11 +25,17 @@
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "^8.3.0",
-    "husky": "^7.0.0",
+    "husky": "^4.3.8",
     "jest": "^27.4.7",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
     "typescript": "^4.5.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:ci"
+    }
   },
   "lint-staged": {
     "*/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
