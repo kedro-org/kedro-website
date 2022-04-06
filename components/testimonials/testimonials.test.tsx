@@ -25,7 +25,7 @@ describe('Testimonials', () => {
     let index = 0;
     render(<Testimonials />);
 
-    const carouselNavigation = screen.getByLabelText('carousel-nav');
+    let carouselNavigation = screen.getByLabelText('carousel-nav');
     const secondDot = carouselNavigation.children[1];
     const thirdDot = carouselNavigation.children[2];
 
