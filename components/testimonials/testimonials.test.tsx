@@ -15,7 +15,7 @@ describe('Testimonials', () => {
 
     const carouselNavigation = screen.getByLabelText('carousel-nav');
 
-    expect(carouselNavigation.children).toHaveLength(20);
+    expect(carouselNavigation.children).toHaveLength(25);
     expect(
       carouselNavigation.firstElementChild.classList.contains('active')
     ).toBe(true);
