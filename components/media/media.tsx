@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 import Image from 'next/image';
 
 import style from './media.module.scss';
