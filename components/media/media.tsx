@@ -9,6 +9,7 @@ type Props = {
   image?: StaticImageData;
   layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   poster?: string;
+  priority?: boolean;
   video?: string;
 };
 
@@ -17,6 +18,7 @@ export default function Media({
   image,
   layout = 'intrinsic',
   poster,
+  priority = false,
   video,
 }: Props) {
   if (
@@ -24,7 +26,15 @@ export default function Media({
     image?.src?.includes('jpg') ||
     image?.src?.includes('png')
   ) {
-    return <Image alt={alt} layout={layout} placeholder="blur" src={image} />;
+    return (
+      <Image
+        alt={alt}
+        layout={layout}
+        placeholder="blur"
+        priority={priority}
+        src={image}
+      />
+    );
   }
 
   if (!!video?.length) {
