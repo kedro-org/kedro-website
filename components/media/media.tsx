@@ -24,7 +24,7 @@ export default function Media({
     image?.src?.includes('jpg') ||
     image?.src?.includes('png')
   ) {
-    return <Image alt={alt} src={image} layout={layout} />;
+    return <Image alt={alt} layout={layout} placeholder="blur" src={image} />;
   }
 
   if (!!video?.length) {
