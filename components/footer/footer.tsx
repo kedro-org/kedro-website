@@ -37,14 +37,14 @@ export default function Footer() {
             <a
               className={style.link}
               href="https://discord.gg/4qeKKspFf8"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <Image
                 alt="DiscordLogo"
+                height={30}
                 src="/images/discord.svg"
                 width={30}
-                height={30}
               />
               <span className={style.iconText}>Discord</span>
             </a>
@@ -56,13 +56,26 @@ export default function Footer() {
             >
               <Image
                 alt="GithubLogo"
+                height={30}
                 src="/images/github.svg"
                 width={30}
-                height={30}
               />
               <span className={style.iconText}> Github</span>
             </a>
           </div>
+          <a
+            className={style.netlify}
+            href="https://www.netlify.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              alt="Deploys by Netlify"
+              height={51}
+              src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+              width={114}
+            />
+          </a>
         </nav>
       </div>
     </section>

@@ -8,6 +8,7 @@ type Props = {
   alt?: string;
   image?: StaticImageData;
   layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
+  placeholder?: 'blur' | 'empty';
   poster?: string;
   priority?: boolean;
   video?: string;
@@ -17,6 +18,7 @@ export default function Media({
   alt,
   image,
   layout = 'intrinsic',
+  placeholder = 'blur',
   poster,
   priority = false,
   video,
@@ -30,7 +32,7 @@ export default function Media({
       <Image
         alt={alt}
         layout={layout}
-        placeholder="blur"
+        placeholder={placeholder}
         priority={priority}
         src={image}
       />
