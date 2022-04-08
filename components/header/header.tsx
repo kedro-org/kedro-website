@@ -56,7 +56,7 @@ export default function Header() {
             </a>
             <a
               className={style.link}
-              href="https://github.com/kedro-org"
+              href="https://github.com/kedro-org/kedro"
               rel="noopener noreferrer"
               target="_blank"
             >

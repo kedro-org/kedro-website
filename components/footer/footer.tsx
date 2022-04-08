@@ -50,7 +50,7 @@ export default function Footer() {
             </a>
             <a
               className={style.link}
-              href="https://github.com/kedro-org"
+              href="https://github.com/kedro-org/kedro"
               target="_blank"
               rel="noopener noreferrer"
             >
