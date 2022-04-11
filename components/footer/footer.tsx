@@ -10,8 +10,8 @@ export default function Footer() {
           <Image
             alt="KedroLogo"
             src="/images/kedro-logo.svg"
-            width={30}
-            height={30}
+            width={60}
+            height={60}
           />
           <h4 className={style.logoText}>Kedro</h4>
         </a>
@@ -71,9 +71,9 @@ export default function Footer() {
           >
             <Image
               alt="Deploys by Netlify"
-              height={51}
+              height={38}
               src="https://www.netlify.com/img/global/badges/netlify-light.svg"
-              width={114}
+              width={85}
             />
           </a>
         </nav>
