@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  fireEvent,
-  getAllByRole,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Footer from './index';
@@ -26,6 +20,6 @@ describe('Footer', () => {
   it('displays the correct number of links', async () => {
     render(<Footer />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(7);
+    expect(screen.getAllByRole('link')).toHaveLength(8);
   });
 });

@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 import Media from '../media';
 
 import style from './feature-details-card.module.scss';

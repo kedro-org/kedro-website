@@ -145,7 +145,12 @@ export default function Hero() {
           </div>
         </div>
         <div className={style.image}>
-          <Media alt="Kedro logo" image={hero} />
+          <Media
+            alt="Kedro logo"
+            image={hero}
+            placeholder="empty"
+            priority={true}
+          />
         </div>
       </div>
       <div className={style.video}>

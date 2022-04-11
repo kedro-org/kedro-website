@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { StaticImageData } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { testimonials } from './testimonial-content';
 
