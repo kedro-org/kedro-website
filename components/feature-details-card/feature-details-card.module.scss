@@ -18,11 +18,16 @@
     text-align: center;
 
     .subtitle {
-      margin-bottom: 6.75rem;
+      margin: 0 auto 6.75rem;
+      max-width: 1000px;
 
       @include breakpoint(small) {
-        margin-bottom: 3rem;
+        margin: 0 auto 3rem;
       }
+    }
+
+    .button {
+      @include button($size: large, $style: primary);
     }
 
     .asset {

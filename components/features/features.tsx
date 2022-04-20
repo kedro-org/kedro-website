@@ -7,19 +7,21 @@ import flexibleDeployment from '../../public/images/flexible_deployment.png';
 import integrations from '../../public/images/features_integrations.png';
 import pipelineAbstraction from '../../public/images/pipeline-abstraction.png';
 import projectTemplate from '../../public/images/project-template.jpg';
+import vizScreenshot from '../../public/images/viz-screenshot.png';
 
 import style from './features.module.scss';
 
 export default function Hero() {
-  const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [showMoreFeatures, setShowMoreFeatures] = useState(false);
 
   return (
     <section id="features" className={style.features}>
       <h3 className={style.sectionTitle}>Features</h3>
       <FeatureDetailsCard
+        altText="Kedro-Viz example"
         buttonLink="https://demo.kedro.org/"
         buttonText="Explore Live Demo"
-        iframeLink="https://demo.kedro.org/"
+        imageSrc={vizScreenshot}
         subtitle={
           <>
             <a
@@ -75,8 +77,8 @@ export default function Hero() {
         }
         title="Project Template"
       />
-      {showAllFeatures ? (
-        <div>
+      {showMoreFeatures ? (
+        <>
           <FeatureDetailsCard
             altText="Pipeline Abstraction example"
             assetPosition="left"
@@ -146,12 +148,17 @@ export default function Hero() {
             subtitle="Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more."
             title="Flexible Deployment"
           />
-        </div>
+        </>
       ) : null}
-      {!showAllFeatures ? (
-        <button onClick={() => setShowAllFeatures(true)}>
-          Show all features
-        </button>
+      {!showMoreFeatures ? (
+        <div className={style.buttonWrapper}>
+          <button
+            className={style.button}
+            onClick={() => setShowMoreFeatures(true)}
+          >
+            Show more features
+          </button>
+        </div>
       ) : null}
     </section>
   );
