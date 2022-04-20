@@ -55,12 +55,11 @@
   display: flex;
   flex-shrink: 0;
   height: 100%;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.5rem;
   width: 100%;
 
   @include breakpoint(small) {
     flex-direction: column;
-    padding-bottom: 0.5rem;
   }
 }
 
@@ -104,12 +103,12 @@
 .user {
   font-size: 1.125rem;
   font-weight: 500;
-  letter-spacing: $letter-spacing;
+  letter-spacing: $letter-spacing-narrow;
   margin: 1.5rem 0 0;
 }
 
 .jobTitle {
-  letter-spacing: $letter-spacing;
+  letter-spacing: $letter-spacing-narrow;
   margin: 0.2rem 0 3rem;
 
   @include breakpoint(small) {
@@ -132,7 +131,7 @@
 .link {
   border-bottom: 1px solid $color-light;
   font-weight: 500;
-  letter-spacing: $letter-spacing;
+  letter-spacing: $letter-spacing-narrow;
   padding-bottom: 0.3125rem;
 }
 
