@@ -113,6 +113,10 @@
   @include breakpoint(small) {
     padding: 0 1rem;
   }
+
+  > a {
+    text-decoration: underline;
+  }
 }
 
 .iframe {
