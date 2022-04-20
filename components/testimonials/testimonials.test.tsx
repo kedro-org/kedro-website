@@ -15,7 +15,7 @@ describe('Testimonials', () => {
 
     const carouselNavigation = screen.getByLabelText('carousel-nav');
 
-    expect(carouselNavigation.children).toHaveLength(3);
+    expect(carouselNavigation.children).toHaveLength(2);
     expect(
       carouselNavigation.firstElementChild.classList.contains('active')
     ).toBe(true);
@@ -27,16 +27,8 @@ describe('Testimonials', () => {
 
     const carouselNavigation = screen.getByLabelText('carousel-nav');
     const secondDot = carouselNavigation.children[1];
-    const thirdDot = carouselNavigation.children[2];
 
     fireEvent.click(secondDot);
-    index++;
-
-    expect(
-      screen.getAllByRole('heading', { level: 4 })[index]
-    ).toHaveTextContent(testimonials[index].headline);
-
-    fireEvent.click(thirdDot);
     index++;
 
     expect(
