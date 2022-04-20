@@ -37,7 +37,7 @@ export default function Hero() {
             stakeholders.
           </>
         }
-        title="Pipeline visualisation"
+        title="Pipeline Visualisation"
       />
       <FeatureDetailsCard
         altText="Data Catalog example"
