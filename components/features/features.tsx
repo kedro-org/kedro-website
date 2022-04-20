@@ -150,16 +150,14 @@ export default function Hero() {
           />
         </>
       ) : null}
-      {!showMoreFeatures ? (
-        <div className={style.buttonWrapper}>
-          <button
-            className={style.button}
-            onClick={() => setShowMoreFeatures(true)}
-          >
-            Show more features
-          </button>
-        </div>
-      ) : null}
+      <div className={style.buttonWrapper}>
+        <button
+          className={style.button}
+          onClick={() => setShowMoreFeatures(!showMoreFeatures)}
+        >
+          Show {showMoreFeatures ? 'fewer' : 'more'} features
+        </button>
+      </div>
     </section>
   );
 }
