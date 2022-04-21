@@ -9,7 +9,10 @@ export interface FeatureProps {
   assetPosition?: 'center' | 'left' | 'right';
   buttonLink?: string;
   buttonText?: string;
-  iframeLink?: string;
+  iframeAttributes?: {
+    source: string;
+    style?: Object;
+  };
   imageSrc?: StaticImageData;
   posterText?: string;
   subtitle: string;
@@ -22,7 +25,7 @@ export default function FeatureDetailsCard({
   assetPosition = 'center',
   buttonLink,
   buttonText = undefined,
-  iframeLink = undefined,
+  iframeAttributes,
   imageSrc,
   posterText,
   subtitle,
@@ -50,12 +53,13 @@ export default function FeatureDetailsCard({
           : null}
       </div>
       <div className={style.asset}>
-        {iframeLink !== undefined ? (
+        {iframeAttributes?.source ? (
           <iframe
             className={style.iframe}
             frameBorder="0"
-            src={iframeLink}
-            width="100%"
+            src={iframeAttributes.source}
+            style={iframeAttributes.style}
+            // width="100%"
           />
         ) : (
           <Media

@@ -52,12 +52,22 @@ export const shownContent: FeatureProps[] = [
 
 export const hiddenContent: FeatureProps[] = [
   {
-    altText: 'Pipeline Abstraction example',
     assetPosition: 'left',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
     buttonText: 'Explore',
-    imageSrc: pipelineAbstraction,
+    iframeAttributes: {
+      source:
+        'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=lucario&wt=sharp&l=python&width=700&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=import%2520pandas%2520as%2520pd%250Afrom%2520kedro.pipeline%2520import%2520pipeline%252C%2520node%250A%250Adef%2520clean_data%28weather_df%253A%2520pd.DataFrame%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520clean_weather_df%2520%253D%2520weather_df.drop%28%2522temperature%2522%252C%2520axis%253D1%29%250A%2520%2520%2520%2520return%2520clean_weather_df%250A%250Adef%2520join_meteoro_data%28%250A%2520%2520%2520%2520weather_df%253A%2520pd.DataFrame%252C%2520climate_df%253A%2520pd.DataFrame%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520weather_climate_df%2520%253D%2520weather_df.merge%28climate_df%252C%2520on%253D%255B%2522country_code%2522%252C%2520%2522area_code%2522%255D%252C%2520how%253D%2522inner%2522%29%250A%2520%2520%2520%2520return%2520weather_climate_df%250A%250Adata_processing_pipeline%2520%253D%2520pipeline%28%250A%2520%2520%2520%2520%255B%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Dclean_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%2522weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522clean_weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Djoin_meteoro_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%255B%2522clean_weather_data%2522%252C%2520%2522climate_change_data%2522%255D%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522weather_climate_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%252C%250A%2520%2520%2520%2520%255D%250A%293%250A%2520%2520file_format%253A%2520csv',
+      style: {
+        border: 0,
+        height: '473px',
+        marginLeft: '-35px',
+        overflow: 'hidden',
+        transform: 'scale(1)',
+        width: '770px',
+      },
+    },
     subtitle:
       'You never have to label the running order of tasks in your pipeline because Kedro supports a dataset-driven workflow that supports automatic resolution of dependencies between pure Python functions.',
     title: 'Pipeline Abstraction',

@@ -124,14 +124,6 @@
   }
 }
 
-.iframe {
-  height: 700px;
-
-  @include breakpoint(small) {
-    height: 450px;
-  }
-}
-
 .asset {
   @include breakpoint(small) {
     padding: 0 1rem;
