@@ -4,7 +4,7 @@ import Media from '../media';
 
 import style from './feature-details-card.module.scss';
 
-type Props = {
+export interface FeatureProps {
   altText?: string;
   assetPosition?: 'center' | 'left' | 'right';
   buttonLink?: string;
@@ -12,10 +12,10 @@ type Props = {
   iframeLink?: string;
   imageSrc?: StaticImageData;
   posterText?: string;
-  subtitle: string | JSX.Element;
+  subtitle: string;
   title: string;
   videoSrc?: string;
-};
+}
 
 export default function FeatureDetailsCard({
   altText,
@@ -28,7 +28,7 @@ export default function FeatureDetailsCard({
   subtitle,
   title,
   videoSrc,
-}: Props) {
+}: FeatureProps) {
   const buttonMarkup = (
     <div className={style.buttonWrapper}>
       <a href={buttonLink} target="_blank" rel="noopener noreferrer">
@@ -41,7 +41,10 @@ export default function FeatureDetailsCard({
     <div className={`${style.container} ${style[assetPosition]}`}>
       <div className={style.text}>
         <h4 className={style.title}>{title}</h4>
-        <p className={style.subtitle}>{subtitle}</p>
+        <p
+          className={style.subtitle}
+          dangerouslySetInnerHTML={{ __html: subtitle }}
+        />
         {buttonText !== undefined && assetPosition !== 'center'
           ? buttonMarkup
           : null}
