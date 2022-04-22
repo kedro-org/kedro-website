@@ -124,6 +124,14 @@
   }
 }
 
+.iframe {
+  width: 770px;
+
+  @include breakpoint(small) {
+    width: 100%;
+  }
+}
+
 .asset {
   @include breakpoint(small) {
     padding: 0 1rem;
