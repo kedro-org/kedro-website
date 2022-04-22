@@ -10,8 +10,8 @@ export default function Footer() {
           <Image
             alt="KedroLogo"
             src="/images/kedro-logo.svg"
-            width={30}
-            height={30}
+            width={50}
+            height={50}
           />
           <h4 className={style.logoText}>Kedro</h4>
         </a>

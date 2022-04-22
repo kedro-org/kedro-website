@@ -3,7 +3,7 @@
 
 .outer {
   background: $color-dark;
-  height: 25rem;
+  height: 13.25rem;
   margin: 0 -3.5rem;
 
   @include breakpoint(small) {
@@ -41,8 +41,9 @@
 }
 
 .logoText {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 400;
+  letter-spacing: $letter-spacing-narrow;
   margin: 1rem;
 }
 
@@ -81,6 +82,7 @@
 .link {
   color: $color-light;
   display: flex;
+  font-size: 0.875rem;
   margin: 1rem;
 }
 

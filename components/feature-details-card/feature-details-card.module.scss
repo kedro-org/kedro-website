@@ -18,11 +18,16 @@
     text-align: center;
 
     .subtitle {
-      margin-bottom: 6.75rem;
+      margin: 0 auto 6.75rem;
+      max-width: 1000px;
 
       @include breakpoint(small) {
-        margin-bottom: 3rem;
+        margin: 0 auto 3rem;
       }
+    }
+
+    .button {
+      @include button($size: large, $style: primary);
     }
 
     .asset {
@@ -40,7 +45,7 @@
 
   &.left,
   &.right {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
 
@@ -113,13 +118,9 @@
   @include breakpoint(small) {
     padding: 0 1rem;
   }
-}
 
-.iframe {
-  height: 700px;
-
-  @include breakpoint(small) {
-    height: 450px;
+  > a {
+    text-decoration: underline;
   }
 }
 
