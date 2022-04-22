@@ -18,7 +18,7 @@ export default function Hero() {
             assetPosition={featureContent.assetPosition}
             buttonLink={featureContent.buttonLink}
             buttonText={featureContent.buttonText}
-            iframeAttributes={featureContent.iframeAttributes}
+            iframeList={featureContent.iframeList}
             imageSrc={featureContent.imageSrc}
             key={featureContent.title}
             subtitle={featureContent.subtitle}
@@ -35,7 +35,7 @@ export default function Hero() {
                 assetPosition={featureContent.assetPosition}
                 buttonLink={featureContent.buttonLink}
                 buttonText={featureContent.buttonText}
-                iframeAttributes={featureContent.iframeAttributes}
+                iframeList={featureContent.iframeList}
                 imageSrc={featureContent.imageSrc}
                 key={featureContent.title}
                 subtitle={featureContent.subtitle}
