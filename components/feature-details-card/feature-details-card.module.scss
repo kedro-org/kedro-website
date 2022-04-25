@@ -128,7 +128,13 @@
   width: 770px;
 
   @include breakpoint(small) {
-    width: 100%;
+    display: none;
+  }
+}
+
+.iframeFallback {
+  @include breakpoint(medium-up) {
+    display: none;
   }
 }
 
