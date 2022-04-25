@@ -1,51 +1,37 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Size, useWindowSize } from '../../utils/hooks/useWindowSize';
 
 import Media from '../media';
 import hero from '../../public/images/hero.webp';
 
 import style from './hero.module.scss';
 
-const headerText = [
-  { width: 465, word: 'Maintainable' },
-  { width: 298, word: 'Modular' },
-];
-const MOBILE_BREAKPOINT = 819;
-const BUTTON_HEIGHT = 48; // 3rem.
+const headerText = ['Maintainable', 'Modular'];
 
-function computeAnimationVariants(isMobile: boolean) {
-  const variants = {
-    enter: (wordIndex: number) => {
-      return {
-        opacity: 1,
-        y: wordIndex === 0 ? 100 : -100,
-      };
+const headerVariants = {
+  enter: (wordIndex: number) => {
+    return {
+      opacity: 1,
+      y: wordIndex === 0 ? 100 : -100,
+    };
+  },
+  center: {
+    opacity: 1,
+    transition: {
+      duration: 0.35,
     },
-    center: (wordIndex: number) => {
-      return {
-        opacity: 1,
-        transition: {
-          duration: 0.35,
-        },
-        width: isMobile ? '100%' : headerText[wordIndex].width,
-        y: 0,
-      };
-    },
-    exit: (wordIndex: number) => {
-      return {
-        opacity: 1,
-        transition: {
-          duration: 0.35,
-        },
-        width: isMobile ? '100%' : headerText[wordIndex].width,
-        y: wordIndex === 0 ? -100 : 100,
-      };
-    },
-  };
-
-  return variants;
-}
+    y: 0,
+  },
+  exit: (wordIndex: number) => {
+    return {
+      opacity: 1,
+      transition: {
+        duration: 0.35,
+      },
+      y: wordIndex === 0 ? -100 : 100,
+    };
+  },
+};
 
 const buttonTransition = {
   damping: 40,
@@ -54,15 +40,7 @@ const buttonTransition = {
 };
 
 export default function Hero() {
-  const size: Size = useWindowSize();
   const [wordIndex, setWordIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(
-    size.width > MOBILE_BREAKPOINT ? false : true
-  );
-
-  useEffect(() => {
-    setIsMobile(size.width > MOBILE_BREAKPOINT ? false : true);
-  }, [size]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,9 +64,9 @@ export default function Hero() {
                     exit="exit"
                     initial="enter"
                     key={wordIndex}
-                    variants={computeAnimationVariants(isMobile)}
+                    variants={headerVariants}
                   >
-                    {headerText[wordIndex].word}
+                    {headerText[wordIndex]}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -115,8 +93,8 @@ export default function Hero() {
                   className={style.start}
                   transition={buttonTransition}
                   variants={{
-                    hidden: { y: 0 },
-                    hover: { y: BUTTON_HEIGHT },
+                    hidden: { opacity: 1 },
+                    hover: { opacity: 0 },
                   }}
                 >
                   Get Started
@@ -125,8 +103,8 @@ export default function Hero() {
                   className={style.letsGo}
                   transition={buttonTransition}
                   variants={{
-                    hidden: { y: -BUTTON_HEIGHT },
-                    hover: { y: 0 },
+                    hidden: { opacity: 0 },
+                    hover: { opacity: 1 },
                   }}
                 >
                   Let&apos;s go!
