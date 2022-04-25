@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { tabData } from './why-kedro-data';
 
-import image from '../../public/images/why-kedro.png';
 import Media from '../media';
 
 import style from './why-kedro.module.scss';
