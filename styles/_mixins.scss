@@ -64,6 +64,26 @@
     border: 1px solid $color-font;
     color: $color-font;
   }
+
+  @if $style == underline {
+    background: none;
+    border: none;
+    border-bottom: 2px solid $color-font;
+    border-radius: 0;
+    color: $color-font;
+    font-weight: 500;
+    height: auto;
+    line-height: 1.375rem;
+    min-width: unset;
+    padding: 0;
+    padding-bottom: 3.5px;
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      color: $color-accent;
+      transform: translateY(-2px);
+    }
+  }
 }
 
 /**
@@ -122,10 +142,10 @@
 }
 
 @mixin h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: $letter-spacing-narrow;
-  line-height: 34px;
+  line-height: 1.6875rem;
 
   @include breakpoint(small) {
     font-size: 1rem;

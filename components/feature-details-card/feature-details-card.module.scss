@@ -50,6 +50,7 @@
     justify-content: space-between;
 
     @include breakpoint(small) {
+      align-items: center;
       flex-direction: column;
       text-align: center;
     }
@@ -73,7 +74,7 @@
     }
 
     .subtitle {
-      margin-bottom: 4.75rem;
+      margin-bottom: 2.75rem;
 
       @include breakpoint(small) {
         margin-bottom: 3rem;
@@ -110,6 +111,7 @@
   @include h2;
 
   margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .subtitle {
@@ -151,5 +153,5 @@
 }
 
 .button {
-  @include button($style: outline);
+  @include button($style: underline);
 }
