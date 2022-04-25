@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-$subtitle-max-width: 510px;
+$shared-element-width: 510px;
 
 .container {
   align-items: center;
@@ -38,7 +38,7 @@ $subtitle-max-width: 510px;
 
   @include breakpoint(small) {
     margin-top: 0;
-    max-width: $subtitle-max-width;
+    max-width: $shared-element-width;
     width: 100%;
   }
 }
@@ -64,7 +64,7 @@ $subtitle-max-width: 510px;
 
 .animatingWord {
   overflow: hidden;
-  width: 500px;
+  width: $shared-element-width;
 
   @include breakpoint(medium-only) {
     width: 100%;
@@ -81,7 +81,7 @@ $subtitle-max-width: 510px;
   @include h3;
 
   margin: 1.5rem 0 4.5rem;
-  max-width: $subtitle-max-width;
+  max-width: $shared-element-width;
 
   @include breakpoint(small) {
     margin: 1.5rem 0 2.5rem;
