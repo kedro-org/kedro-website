@@ -92,9 +92,7 @@ export default function Hero() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <span>data</span>
-              <span>science</span>
-              <span>solved</span>
+              data science solved
             </div>
           </h1>
           <h2 className={style.subtitle}>
@@ -152,9 +150,6 @@ export default function Hero() {
             priority={true}
           />
         </div>
-      </div>
-      <div className={style.video}>
-        <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
       </div>
     </section>
   );

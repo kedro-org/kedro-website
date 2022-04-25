@@ -52,7 +52,7 @@ export default function WhyKedro() {
           </motion.p>
         </AnimatePresence>
         <div className={style.mediaWrapper}>
-          <Media image={image} />
+          <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
         </div>
       </div>
     </section>

@@ -3,20 +3,19 @@
 **/
 
 @mixin button($size: normal, $style: primary) {
+  border-radius: 4rem;
   cursor: pointer;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   letter-spacing: $letter-spacing-narrow;
-  min-width: 10.625rem;
+  min-width: 9.375rem;
 
   @if $size == normal {
-    border-radius: 2px;
     font-size: 1rem;
     height: 3rem;
     padding: 0 2rem;
   }
 
   @if $size == normal-pill {
-    border-radius: 4rem;
     font-size: 1rem;
     height: 3rem;
     padding: 0 2.5rem;
@@ -28,7 +27,6 @@
   }
 
   @if $size == large {
-    border-radius: 4rem;
     font-size: 1.5rem;
     font-weight: 500;
     height: 6.125rem;
@@ -122,10 +120,10 @@
 }
 
 @mixin h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: $letter-spacing-narrow;
-  line-height: 34px;
+  line-height: 1.6875rem;
 
   @include breakpoint(small) {
     font-size: 1rem;
