@@ -64,6 +64,19 @@ export default function Footer() {
             </a>
           </div>
           <a
+            className={style.linux}
+            href="https://lfaidata.foundation/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              alt="Linux Foundation logo"
+              height={30}
+              src="/images/linux-foundation-logo.svg"
+              width={90}
+            />
+          </a>
+          <a
             className={style.netlify}
             href="https://www.netlify.com"
             rel="noopener noreferrer"
