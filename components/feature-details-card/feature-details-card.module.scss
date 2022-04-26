@@ -43,6 +43,12 @@
     flex-direction: row-reverse;
   }
 
+  &.right {
+    & .iframe {
+      margin-left: -11px;
+    }
+  }
+
   &.left,
   &.right {
     align-items: flex-start;
