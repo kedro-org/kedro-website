@@ -16,28 +16,31 @@
   }
 
   @if $size == normal-pill {
+    backface-visibility: hidden;
     border-radius: 4rem;
     font-size: 1rem;
     height: 3rem;
     padding: 0 2.5rem;
-    transition: transform 0.25s ease;
+    transform: translateZ(0);
+    transition: opacity $transition-time ease, transform $transition-time ease;
 
     &:hover {
-      transform: scale(0.98);
+      @include scale-transition();
     }
   }
 
   @if $size == large {
+    backface-visibility: hidden;
     border-radius: 4rem;
     font-size: 1.5rem;
     font-weight: 500;
     height: 6.125rem;
     padding: 0 4.5rem;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateZ(0);
+    transition: opacity $transition-time ease, transform $transition-time ease;
 
     &:hover {
-      opacity: 0.85;
-      transform: scale(0.98);
+      @include scale-transition();
     }
 
     @include breakpoint(small) {
@@ -66,6 +69,7 @@
   }
 
   @if $style == underline {
+    backface-visibility: hidden;
     background: none;
     border: none;
     border-bottom: 2px solid $color-font;
@@ -77,11 +81,14 @@
     min-width: unset;
     padding: 0;
     padding-bottom: 3.5px;
-    transition: color 0.25s ease, transform 0.25s ease;
+    transform: translateZ(0);
+    transition: color $transition-time ease, opacity $transition-time ease,
+      transform $transition-time ease;
 
     &:hover {
       color: $color-accent;
-      transform: translateY(-2px);
+
+      @include scale-transition();
     }
   }
 }
@@ -158,4 +165,15 @@
   letter-spacing: -0.1px;
   font-weight: 400;
   line-height: 1.4;
+}
+
+/**
+*** Other
+**/
+
+$transition-time: 0.25s;
+
+@mixin scale-transition {
+  opacity: 0.85;
+  transform: scale(0.98);
 }

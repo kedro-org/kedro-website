@@ -9,7 +9,7 @@
 .sectionTitle {
   @include h1;
 
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
   text-align: center;
 
   @include breakpoint(small) {
