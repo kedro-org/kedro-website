@@ -13,7 +13,7 @@ describe('Hero', () => {
     render(<Hero />);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'Maintainabledatasciencesolved'
+      'Maintainabledata science solved'
     );
   });
 

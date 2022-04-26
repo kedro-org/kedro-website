@@ -1,24 +1,24 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+$shared-element-width: 510px;
+
 .container {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 12.5rem auto 0.6rem;
+  height: 700px;
+  margin: $header-height auto 0;
   max-width: $max-content;
   overflow: hidden;
   position: relative;
 
-  @include breakpoint(medium-only) {
-    margin: 12.5rem 1rem 0.6rem;
-  }
-
   @include breakpoint(small) {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    margin: 0;
-    padding: 6.25rem 1rem 7.5rem;
+    height: 580px;
+    margin: $header-height auto 0;
+    padding: 2.5rem 1rem 0;
     text-align: center;
   }
 }
@@ -28,7 +28,8 @@
 }
 
 .info {
-  width: 60%;
+  margin-top: -4rem;
+  width: 65%;
   z-index: 2;
 
   @include breakpoint(medium-only) {
@@ -36,6 +37,8 @@
   }
 
   @include breakpoint(small) {
+    margin-top: 0;
+    max-width: $shared-element-width;
     width: 100%;
   }
 }
@@ -57,30 +60,11 @@
   @include breakpoint(small) {
     justify-content: center;
   }
-
-  > span {
-    margin-right: 1.3rem;
-
-    @include breakpoint(small) {
-      margin-right: 0;
-    }
-  }
-
-  @include breakpoint(small) {
-    > span:nth-of-type(1) {
-      margin-right: 0.6rem;
-    }
-
-    > span:last-of-type {
-      margin-left: 0.6rem;
-    }
-  }
 }
 
 .animatingWord {
-  height: 5.625rem;
-  margin-right: 1.3rem;
   overflow: hidden;
+  width: $shared-element-width;
 
   @include breakpoint(medium-only) {
     width: 100%;
@@ -96,7 +80,12 @@
 .subtitle {
   @include h3;
 
-  margin: 1.25rem 0 3rem;
+  margin: 1.5rem 0 4.5rem;
+  max-width: $shared-element-width;
+
+  @include breakpoint(small) {
+    margin: 1.5rem 0 2.5rem;
+  }
 }
 
 .buttons {
@@ -109,7 +98,7 @@
 }
 
 .buttonWrapper {
-  min-width: 10.625rem;
+  min-width: 9.375rem;
   overflow: hidden;
   position: relative;
 
@@ -127,7 +116,7 @@
 
   @include breakpoint(small) {
     padding: 0 1rem;
-    width: 9.375rem;
+    width: 12.125rem;
   }
 }
 
@@ -135,7 +124,7 @@
   @include button;
 
   background-color: transparent;
-  border: 2px solid $color-accent;
+  border: 3px solid $color-accent;
   color: $color-accent;
   left: 0;
   position: absolute;
@@ -149,11 +138,11 @@
   transition: box-shadow 0.2s ease;
 
   @include breakpoint(medium-up) {
-    width: 10.625rem;
+    width: 12.125rem;
   }
 
   @include breakpoint(small) {
-    width: 9.375rem;
+    width: 12.125rem;
   }
 
   &:hover {
@@ -163,28 +152,14 @@
 
 .image {
   position: absolute;
-  right: 1rem;
+  right: 0;
+  top: 5rem;
   width: 29rem;
 
   @include breakpoint(small) {
-    left: 10rem;
+    left: 45%;
     right: unset;
-    top: 22rem;
-    width: 100%;
-  }
-}
-
-.video {
-  margin: 9rem auto 0;
-  max-width: 64rem;
-  width: 100%;
-  z-index: 2;
-
-  @include breakpoint(large) {
-    margin: 19rem auto;
-  }
-
-  @include breakpoint(medium-only) {
-    margin: 14rem auto;
+    top: 23.5rem;
+    width: 18rem;
   }
 }
