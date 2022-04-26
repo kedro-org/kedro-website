@@ -140,6 +140,10 @@
 .iframe {
   width: 770px;
 
+  @include breakpoint(medium-only) {
+    width: 460px;
+  }
+
   @include breakpoint(small) {
     display: none;
   }
