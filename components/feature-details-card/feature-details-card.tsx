@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+import React from 'react';
 
 import Media from '../media';
 
@@ -9,10 +10,11 @@ export interface FeatureProps {
   assetPosition?: 'center' | 'left' | 'right';
   buttonLink?: string;
   buttonText?: string;
-  iframeAttributes?: {
+  iframeList?: {
+    fallbackImg: StaticImageData;
     source: string;
     style?: Object;
-  };
+  }[];
   imageSrc?: StaticImageData;
   posterText?: string;
   subtitle: string;
@@ -25,7 +27,7 @@ export default function FeatureDetailsCard({
   assetPosition = 'center',
   buttonLink,
   buttonText = undefined,
-  iframeAttributes,
+  iframeList,
   imageSrc,
   posterText,
   subtitle,
@@ -53,14 +55,25 @@ export default function FeatureDetailsCard({
           : null}
       </div>
       <div className={style.asset}>
-        {iframeAttributes?.source ? (
-          <iframe
-            className={style.iframe}
-            frameBorder="0"
-            src={iframeAttributes.source}
-            style={iframeAttributes.style}
-            // width="100%"
-          />
+        {iframeList?.length > 0 ? (
+          iframeList.map((iframe, i) => {
+            return (
+              <React.Fragment key={iframe.source}>
+                <iframe
+                  className={style.iframe}
+                  frameBorder="0"
+                  src={iframe.source}
+                  style={iframe.style}
+                />
+                <div className={style.iframeFallback}>
+                  <Media
+                    alt="Kedro code snippet example"
+                    image={iframe.fallbackImg}
+                  />
+                </div>
+              </React.Fragment>
+            );
+          })
         ) : (
           <Media
             alt={altText}
