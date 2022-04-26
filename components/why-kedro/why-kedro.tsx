@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { tabData } from './why-kedro-data';
 
-import image from '../../public/images/why-kedro.png';
 import Media from '../media';
 
 import style from './why-kedro.module.scss';
@@ -52,7 +51,7 @@ export default function WhyKedro() {
           </motion.p>
         </AnimatePresence>
         <div className={style.mediaWrapper}>
-          <Media image={image} />
+          <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
         </div>
       </div>
     </section>
