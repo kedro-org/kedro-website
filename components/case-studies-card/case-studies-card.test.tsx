@@ -10,7 +10,11 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkomsel.svg"
+        logo={{
+          height: 54,
+          src: '/images/telkomsel.svg',
+          width: 299,
+        }}
         linkUrl="www.google.com"
         linkText="linkText"
       />
@@ -22,13 +26,17 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkomsel.svg"
+        logo={{
+          height: 54,
+          src: '/images/telkomsel.svg',
+          width: 299,
+        }}
         linkUrl="www.google.com"
         linkText="linkText"
       />
     );
 
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent(
       'test title'
     );
     expect(screen.getByText('text goes here'));
@@ -40,7 +48,11 @@ describe('Use Case Card Details', () => {
       <CaseStudiesCard
         title="test title"
         text="text goes here"
-        logo="/images/telkomsel.svg"
+        logo={{
+          height: 54,
+          src: '/images/telkomsel.svg',
+          width: 299,
+        }}
       />
     );
 
