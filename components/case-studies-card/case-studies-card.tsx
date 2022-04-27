@@ -6,11 +6,7 @@ import style from './case-studies-card.module.scss';
 type Props = {
   linkText?: string;
   linkUrl?: string;
-  logo: {
-    height: number;
-    src: string;
-    width: number;
-  };
+  logo: string;
   logoStyleAdjustments?: Object;
   text: string;
   title: string;
@@ -27,13 +23,7 @@ export default function CaseStudiesCard({
   return (
     <div className={style.container}>
       <div className={style.logo} style={logoStyleAdjustments}>
-        <Image
-          alt="Case study logo"
-          layout="fill"
-          height={logo.height}
-          width={logo.width}
-          src={logo.src}
-        />
+        <Image alt="Case study logo" layout="fill" src={logo} />
       </div>
 
       <div className={style.textContainer}>
