@@ -6,10 +6,6 @@
   max-width: $max-content;
   margin-bottom: 10rem;
 
-  @include breakpoint(medium-only) {
-    padding: 0 1rem;
-  }
-
   @include breakpoint(small) {
     margin-bottom: 5rem;
   }
