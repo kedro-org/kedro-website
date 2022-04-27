@@ -32,8 +32,10 @@ const UserDescription = ({ testimonial, view }: Props) => {
       <div className={style.logo} style={{ maxWidth: testimonial.logoWidth }}>
         <Image alt="Company logo" layout="fill" src={testimonial.logo} />
       </div>
-      <p className={style.user}>{testimonial.user}</p>
-      <p className={style.jobTitle}>{testimonial.jobTitle}</p>
+      <p className={style.user}>
+        {testimonial.user},{' '}
+        <span className={style.jobTitle}>{testimonial.jobTitle}</span>
+      </p>
     </div>
   );
 };
