@@ -10,8 +10,8 @@ export default function WhyKedro() {
   const [selectedTab, setSelectedTab] = useState(tabData[0]);
 
   return (
-    <section id="why-kedro">
-      <div className={style.container}>
+    <section className={style.outer} id="why-kedro">
+      <div className={style.inner}>
         <h3 className={style.title}>Why Kedro?</h3>
         <div className={style.tabsWrapper}>
           <ul className={style.list} role="tablist">
