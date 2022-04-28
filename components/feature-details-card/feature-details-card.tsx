@@ -62,6 +62,7 @@ export default function FeatureDetailsCard({
                 <iframe
                   className={style.iframe}
                   frameBorder="0"
+                  loading="lazy"
                   src={iframe.source}
                   style={iframe.style}
                   title={`${title} code snippet example`}
