@@ -42,6 +42,10 @@
   &.right {
     & .iframe {
       margin-left: -55px;
+
+      @include breakpoint(medium-only) {
+        margin-left: 50px;
+      }
     }
   }
 
