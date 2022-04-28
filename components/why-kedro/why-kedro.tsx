@@ -36,6 +36,7 @@ export default function WhyKedro() {
               );
             })}
           </ul>
+          <div className={style.gradient}></div>
         </div>
         <AnimatePresence exitBeforeEnter>
           <motion.p
