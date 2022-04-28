@@ -148,7 +148,7 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
       </div>
-      <div className={style.dots} aria-label="carousel-nav">
+      <div className={style.dots} title="carousel-nav">
         {testimonials.map((testimonial: Testimonial, i: number) => (
           <span
             className={i === index ? `${style.dot} ${style.active}` : style.dot}

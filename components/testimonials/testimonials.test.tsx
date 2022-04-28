@@ -13,7 +13,7 @@ describe('Testimonials', () => {
   it('renders three carousel navigation dots, one with an active class', () => {
     render(<Testimonials />);
 
-    const carouselNavigation = screen.getByLabelText('carousel-nav');
+    const carouselNavigation = screen.getByTitle('carousel-nav');
 
     expect(carouselNavigation.children).toHaveLength(2);
     expect(
@@ -25,7 +25,7 @@ describe('Testimonials', () => {
     let index = 0;
     render(<Testimonials />);
 
-    const carouselNavigation = screen.getByLabelText('carousel-nav');
+    const carouselNavigation = screen.getByTitle('carousel-nav');
     const secondDot = carouselNavigation.children[1];
 
     fireEvent.click(secondDot);

@@ -64,10 +64,11 @@ export default function FeatureDetailsCard({
                   frameBorder="0"
                   src={iframe.source}
                   style={iframe.style}
+                  title={`${title} code snippet example`}
                 />
                 <div className={style.iframeFallback}>
                   <Media
-                    alt="Kedro code snippet example"
+                    alt={`${title} code snippet example`}
                     image={iframe.fallbackImg}
                   />
                 </div>
