@@ -140,11 +140,8 @@
   }
 }
 
-.link {
-  border-bottom: 1px solid $color-light;
-  font-weight: 500;
-  letter-spacing: $letter-spacing-narrow;
-  padding-bottom: 0.3125rem;
+.button {
+  @include button($style: underline);
 }
 
 .dots {

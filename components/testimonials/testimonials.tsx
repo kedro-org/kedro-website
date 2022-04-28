@@ -148,12 +148,13 @@ export default function Testimonials() {
                   <q>{testimonials[index].text}</q>
                 </p>
                 <a
-                  className={style.link}
                   href={testimonials[index].linkUrl}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  {testimonials[index].linkText}
+                  <button className={style.button}>
+                    {testimonials[index].linkText}
+                  </button>
                 </a>
               </motion.div>
             </motion.div>
