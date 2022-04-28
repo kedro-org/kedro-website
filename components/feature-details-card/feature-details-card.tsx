@@ -16,7 +16,7 @@ export interface FeatureProps {
     style?: Object;
   }[];
   imageSrc?: StaticImageData;
-  posterText?: string;
+  posterSrc?: string;
   subtitle: string;
   title: string;
   videoSrc?: string;
@@ -29,7 +29,7 @@ export default function FeatureDetailsCard({
   buttonText = undefined,
   iframeList,
   imageSrc,
-  posterText,
+  posterSrc,
   subtitle,
   title,
   videoSrc,
@@ -78,7 +78,7 @@ export default function FeatureDetailsCard({
           <Media
             alt={altText}
             image={imageSrc}
-            poster={posterText}
+            poster={posterSrc}
             video={videoSrc}
           />
         )}

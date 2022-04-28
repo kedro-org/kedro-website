@@ -41,7 +41,7 @@
 
   &.right {
     & .iframe {
-      margin-left: -11px;
+      margin-left: -55px;
     }
   }
 
@@ -67,7 +67,7 @@
     }
 
     .asset {
-      max-width: 57%;
+      max-width: 660px;
 
       @include breakpoint(small) {
         max-width: unset;
