@@ -29,13 +29,10 @@ export default function CaseStudiesCard({
       <div className={style.textContainer}>
         <h4 className={style.title}>{title}</h4>
         <p className={style.text}>{text}</p>
-        <a
-          href={linkUrl}
-          rel="noopener noreferrer"
-          role="button"
-          target="_blank"
-        >
-          <button className={style.button}>{linkText}</button>
+        <a href={linkUrl} rel="noopener noreferrer" target="_blank">
+          <button className={style.button} role="button">
+            {linkText}
+          </button>
         </a>
       </div>
     </div>
