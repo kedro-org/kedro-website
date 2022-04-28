@@ -16,7 +16,7 @@ export interface FeatureProps {
     style?: Object;
   }[];
   imageSrc?: StaticImageData;
-  posterText?: string;
+  posterSrc?: string;
   subtitle: string;
   title: string;
   videoSrc?: string;
@@ -29,7 +29,7 @@ export default function FeatureDetailsCard({
   buttonText = undefined,
   iframeList,
   imageSrc,
-  posterText,
+  posterSrc,
   subtitle,
   title,
   videoSrc,
@@ -62,12 +62,14 @@ export default function FeatureDetailsCard({
                 <iframe
                   className={style.iframe}
                   frameBorder="0"
+                  loading="lazy"
                   src={iframe.source}
                   style={iframe.style}
+                  title={`${title} code snippet example`}
                 />
                 <div className={style.iframeFallback}>
                   <Media
-                    alt="Kedro code snippet example"
+                    alt={`${title} code snippet example`}
                     image={iframe.fallbackImg}
                   />
                 </div>
@@ -78,7 +80,7 @@ export default function FeatureDetailsCard({
           <Media
             alt={altText}
             image={imageSrc}
-            poster={posterText}
+            poster={posterSrc}
             video={videoSrc}
           />
         )}

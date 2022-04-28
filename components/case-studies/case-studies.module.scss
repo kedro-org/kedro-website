@@ -1,23 +1,37 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.container {
+.outer {
   background-color: $color-bg-grey;
-  display: flex;
-  flex-direction: column;
-  padding: 7rem 0;
+  padding: 5rem 0;
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $max-content;
+
+  @include breakpoint(small) {
+    flex-direction: column;
   }
 }
 
 .sectionTitle {
   @include h1;
 
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
   text-align: center;
-  padding: 5.5875rem 0;
 
   @include breakpoint(small) {
     margin-bottom: 2.5rem;
@@ -28,12 +42,10 @@
 .cards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0;
-  padding: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
 
-  @include breakpoint(large) {
+  @include breakpoint(medium-up) {
     flex-direction: row;
-    padding: 0 1rem;
   }
 }

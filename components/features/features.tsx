@@ -13,38 +13,19 @@ export default function Hero() {
       <h3 className={style.sectionTitle}>Features</h3>
       {shownContent.map((featureContent) => {
         return (
-          <FeatureDetailsCard
-            altText={featureContent.altText}
-            assetPosition={featureContent.assetPosition}
-            buttonLink={featureContent.buttonLink}
-            buttonText={featureContent.buttonText}
-            iframeList={featureContent.iframeList}
-            imageSrc={featureContent.imageSrc}
-            key={featureContent.title}
-            subtitle={featureContent.subtitle}
-            title={featureContent.title}
-          />
+          <FeatureDetailsCard key={featureContent.title} {...featureContent} />
         );
       })}
-      {showMoreFeatures ? (
-        <>
-          {hiddenContent.map((featureContent) => {
-            return (
-              <FeatureDetailsCard
-                altText={featureContent.altText}
-                assetPosition={featureContent.assetPosition}
-                buttonLink={featureContent.buttonLink}
-                buttonText={featureContent.buttonText}
-                iframeList={featureContent.iframeList}
-                imageSrc={featureContent.imageSrc}
-                key={featureContent.title}
-                subtitle={featureContent.subtitle}
-                title={featureContent.title}
-              />
-            );
-          })}
-        </>
-      ) : null}
+      <div style={{ display: showMoreFeatures ? 'block' : 'none' }}>
+        {hiddenContent.map((featureContent) => {
+          return (
+            <FeatureDetailsCard
+              key={featureContent.title}
+              {...featureContent}
+            />
+          );
+        })}
+      </div>
       <div className={style.buttonWrapper}>
         <button
           className={style.button}

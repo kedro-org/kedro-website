@@ -28,7 +28,7 @@ describe('Use Case Card Details', () => {
       />
     );
 
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent(
       'test title'
     );
     expect(screen.getByText('text goes here'));

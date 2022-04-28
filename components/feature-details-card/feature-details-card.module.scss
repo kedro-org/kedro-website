@@ -6,10 +6,6 @@
   max-width: $max-content;
   margin-bottom: 10rem;
 
-  @include breakpoint(medium-only) {
-    padding: 0 1rem;
-  }
-
   @include breakpoint(small) {
     margin-bottom: 5rem;
   }
@@ -45,13 +41,17 @@
 
   &.right {
     & .iframe {
-      margin-left: -11px;
+      margin-left: -55px;
+
+      @include breakpoint(medium-only) {
+        margin-left: 50px;
+      }
     }
   }
 
   &.left,
   &.right {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     justify-content: space-between;
 
@@ -71,7 +71,7 @@
     }
 
     .asset {
-      max-width: 57%;
+      max-width: 660px;
 
       @include breakpoint(small) {
         max-width: unset;

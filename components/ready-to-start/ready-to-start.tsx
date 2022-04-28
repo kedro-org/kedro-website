@@ -20,7 +20,7 @@ export default function ReadyToStart() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className={style.button}>Get started</button>
+            <button className={style.button}>Join us</button>
           </a>
         </div>
         <div className={style.image}>

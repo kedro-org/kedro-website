@@ -32,16 +32,17 @@ const UserDescription = ({ testimonial, view }: Props) => {
       <div className={style.logo} style={{ maxWidth: testimonial.logoWidth }}>
         <Image alt="Company logo" layout="fill" src={testimonial.logo} />
       </div>
-      <p className={style.user}>{testimonial.user}</p>
-      <p className={style.jobTitle}>{testimonial.jobTitle}</p>
+      <p className={style.user}>
+        {testimonial.user},{' '}
+        <span className={style.jobTitle}>{testimonial.jobTitle}</span>
+      </p>
     </div>
   );
 };
 
-const variants = {
+const containerVariants = {
   enter: {
     opacity: 0,
-    x: 0,
   },
   center: {
     opacity: 1,
@@ -49,16 +50,31 @@ const variants = {
       delay: 0.5,
       duration: 0.5,
     },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const textVariants = {
+  enter: {
     x: 0,
   },
-  exit: (direction: number) => {
-    return {
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-      x: direction > 0 ? 100 : -100,
-    };
+  center: {
+    transition: {
+      delay: 0.5,
+      duration: 0.5,
+    },
+    x: 0,
+  },
+  exit: {
+    transition: {
+      duration: 0.5,
+    },
+    x: -40,
   },
 };
 
@@ -68,18 +84,17 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export default function Testimonials() {
-  const [[index, direction], setIndex] = useState([0, 0]);
+  const [index, setIndex] = useState(0);
 
   return (
     <section className={style.outer}>
       <h3 className={style.sectionTitle}>Testimonials</h3>
       <div className={style.inner}>
         <div className={style.carousel}>
-          <AnimatePresence initial={false} custom={direction}>
+          <AnimatePresence initial={false}>
             <motion.div
               animate="center"
               className={style.slide}
-              custom={direction}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
@@ -91,16 +106,15 @@ export default function Testimonials() {
 
                 if (swipe < -swipeConfidenceThreshold) {
                   // Swipe left
-                  setIndex([
-                    index + 1 === testimonials.length ? index : index + 1,
-                    -1,
-                  ]);
+                  setIndex(
+                    index + 1 === testimonials.length ? index : index + 1
+                  );
                 } else if (swipe > swipeConfidenceThreshold) {
                   // Swipe right
-                  setIndex([index - 1 === -1 ? index : index - 1, 1]);
+                  setIndex(index - 1 === -1 ? index : index - 1);
                 }
               }}
-              variants={variants}
+              variants={containerVariants}
             >
               <UserDescription
                 testimonial={testimonials[index]}
@@ -122,7 +136,7 @@ export default function Testimonials() {
                   layout="fill"
                 />
               </motion.div>
-              <div>
+              <motion.div variants={textVariants}>
                 <UserDescription
                   testimonial={testimonials[index]}
                   view="desktop"
@@ -134,24 +148,25 @@ export default function Testimonials() {
                   <q>{testimonials[index].text}</q>
                 </p>
                 <a
-                  className={style.link}
                   href={testimonials[index].linkUrl}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  {testimonials[index].linkText}
+                  <button className={style.button}>
+                    {testimonials[index].linkText}
+                  </button>
                 </a>
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
-      <div className={style.dots} aria-label="carousel-nav">
+      <div className={style.dots} title="carousel-nav">
         {testimonials.map((testimonial: Testimonial, i: number) => (
           <span
             className={i === index ? `${style.dot} ${style.active}` : style.dot}
             key={testimonial.user}
-            onClick={() => setIndex([i, index > i ? 1 : -1])}
+            onClick={() => setIndex(i)}
           />
         ))}
       </div>
