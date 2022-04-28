@@ -35,7 +35,7 @@ export default function CaseStudiesCard({
           role="button"
           target="_blank"
         >
-          {linkText}
+          <button className={style.button}>{linkText}</button>
         </a>
       </div>
     </div>

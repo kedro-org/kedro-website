@@ -42,12 +42,6 @@
     padding: 0.5rem 0 0;
     text-align: center;
   }
-
-  a {
-    border-bottom: 2px solid $color-font;
-    color: $color-font;
-    padding-bottom: 3.5px;
-  }
 }
 
 .title {
@@ -65,4 +59,8 @@
 
   margin: 0 0 2.5rem;
   max-width: 550px;
+}
+
+.button {
+  @include button($style: underline);
 }
