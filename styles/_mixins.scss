@@ -176,3 +176,10 @@
   opacity: 0.85;
   transform: scale(0.98);
 }
+
+@mixin video-aspect-ratio {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}

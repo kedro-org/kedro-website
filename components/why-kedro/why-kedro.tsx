@@ -38,7 +38,7 @@ export default function WhyKedro() {
           </ul>
           <div className={style.gradient}></div>
         </div>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter initial={false}>
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className={style.tabContent}
@@ -52,7 +52,16 @@ export default function WhyKedro() {
           </motion.p>
         </AnimatePresence>
         <div className={style.mediaWrapper}>
-          <Media poster="/images/intro-poster.jpg" video="/videos/kedro.mp4" />
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+            height="100%"
+            loading="lazy"
+            src="https://www.youtube.com/embed/yEQqf3XUvzk?modestbranding=1&rel=0"
+            title="YouTube video player"
+            width="100%"
+          ></iframe>
         </div>
       </div>
     </section>

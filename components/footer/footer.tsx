@@ -85,7 +85,7 @@ export default function Footer() {
             <Image
               alt="Deploys by Netlify"
               height={30}
-              src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+              src="/images/netlify-logo.svg"
               width={67}
             />
           </a>

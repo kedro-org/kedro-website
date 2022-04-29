@@ -169,6 +169,10 @@
   }
 }
 
+.youtube {
+  @include video-aspect-ratio;
+}
+
 .buttonWrapper {
   @include breakpoint(small) {
     margin-bottom: 2.5rem;

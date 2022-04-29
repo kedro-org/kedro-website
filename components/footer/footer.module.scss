@@ -54,6 +54,11 @@
   justify-content: center;
   opacity: 0.9;
 
+  @include breakpoint(medium-only) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   @include breakpoint(small) {
     flex-direction: column;
   }
