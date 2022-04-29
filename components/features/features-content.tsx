@@ -22,7 +22,7 @@ export const shownContent: FeatureProps[] = [
     assetPosition: 'right',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html',
-    buttonText: 'Learn more',
+    buttonText: 'Explore the data catalog',
     iframeList: [
       {
         fallbackImg: dataCatalog1,
@@ -48,7 +48,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'A series of lightweight data connectors used to save and load data across many different file formats and file systems, including local and network file systems, cloud object stores, and HDFS. The Data Catalog also includes data and model versioning for file-based systems.',
+      'A series of lightweight data connectors used to save and load data across many different file formats and file systems. Supported file formats include Pandas, Spark, Dask, NetworkX, Pickle, Plotly, Matplotlib and many more. The Data Catalog supports S3, GCP, Azure, sFTP, DBFS and local filesystems. The Data Catalog also includes data and model snapshots for file-based systems.',
     title: 'Data Catalog',
   },
   {
@@ -63,7 +63,7 @@ export const shownContent: FeatureProps[] = [
     assetPosition: 'right',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure',
-    buttonText: 'Learn more',
+    buttonText: 'View the project template',
     iframeList: [
       {
         fallbackImg: projectTemplate,
@@ -88,7 +88,7 @@ export const hiddenContent: FeatureProps[] = [
     assetPosition: 'left',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
-    buttonText: 'Explore',
+    buttonText: 'Build a pipeline',
     iframeList: [
       {
         fallbackImg: pipelineAbstraction,
@@ -120,7 +120,7 @@ export const hiddenContent: FeatureProps[] = [
     assetPosition: 'left',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/10_deployment/01_deployment_guide.html',
-    buttonText: 'Explore',
+    buttonText: 'Choose your deployment target',
     imageSrc: flexibleDeployment,
     subtitle:
       'Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more.',
