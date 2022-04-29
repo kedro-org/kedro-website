@@ -24,7 +24,7 @@
 
   @include breakpoint(small) {
     flex-direction: column;
-    padding: 5em 0;
+    padding: 2.5em 0;
   }
 }
 
@@ -53,6 +53,11 @@
   background: $color-dark;
   justify-content: center;
   opacity: 0.9;
+
+  @include breakpoint(medium-only) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 
   @include breakpoint(small) {
     flex-direction: column;

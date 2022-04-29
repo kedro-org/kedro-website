@@ -9,15 +9,10 @@ export default function Hero() {
   const [showMoreFeatures, setShowMoreFeatures] = useState(false);
 
   return (
-    <section id="features" className={style.features}>
-      <h3 className={style.sectionTitle}>Features</h3>
-      {shownContent.map((featureContent) => {
-        return (
-          <FeatureDetailsCard key={featureContent.title} {...featureContent} />
-        );
-      })}
-      <div style={{ display: showMoreFeatures ? 'block' : 'none' }}>
-        {hiddenContent.map((featureContent) => {
+    <section id="features" className={style.outer}>
+      <div className={style.inner}>
+        <h3 className={style.sectionTitle}>Features</h3>
+        {shownContent.map((featureContent) => {
           return (
             <FeatureDetailsCard
               key={featureContent.title}
@@ -25,14 +20,24 @@ export default function Hero() {
             />
           );
         })}
-      </div>
-      <div className={style.buttonWrapper}>
-        <button
-          className={style.button}
-          onClick={() => setShowMoreFeatures(!showMoreFeatures)}
-        >
-          Show {showMoreFeatures ? 'Fewer' : 'More'} Features
-        </button>
+        <div style={{ display: showMoreFeatures ? 'block' : 'none' }}>
+          {hiddenContent.map((featureContent) => {
+            return (
+              <FeatureDetailsCard
+                key={featureContent.title}
+                {...featureContent}
+              />
+            );
+          })}
+        </div>
+        <div className={style.buttonWrapper}>
+          <button
+            className={style.button}
+            onClick={() => setShowMoreFeatures(!showMoreFeatures)}
+          >
+            Show {showMoreFeatures ? 'Fewer' : 'More'} Features
+          </button>
+        </div>
       </div>
     </section>
   );

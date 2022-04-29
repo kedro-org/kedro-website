@@ -7,11 +7,12 @@ import style from './feature-details-card.module.scss';
 
 export interface FeatureProps {
   altText?: string;
+  assetClassName?: string;
   assetPosition?: 'center' | 'left' | 'right';
   buttonLink?: string;
   buttonText?: string;
   iframeList?: {
-    fallbackImg: StaticImageData;
+    fallbackImg?: StaticImageData;
     source: string;
     style?: Object;
   }[];
@@ -24,6 +25,7 @@ export interface FeatureProps {
 
 export default function FeatureDetailsCard({
   altText,
+  assetClassName = undefined,
   assetPosition = 'center',
   buttonLink,
   buttonText = undefined,
@@ -54,25 +56,31 @@ export default function FeatureDetailsCard({
           ? buttonMarkup
           : null}
       </div>
-      <div className={style.asset}>
+      <div
+        className={
+          assetClassName
+            ? `${style.asset} ${style[assetClassName]}`
+            : style.asset
+        }
+      >
         {iframeList?.length > 0 ? (
-          iframeList.map((iframe, i) => {
+          iframeList.map((iframe) => {
             return (
               <React.Fragment key={iframe.source}>
                 <iframe
+                  allowFullScreen
                   className={style.iframe}
                   frameBorder="0"
                   loading="lazy"
                   src={iframe.source}
                   style={iframe.style}
-                  title={`${title} code snippet example`}
+                  title={`${title}`}
                 />
-                <div className={style.iframeFallback}>
-                  <Media
-                    alt={`${title} code snippet example`}
-                    image={iframe.fallbackImg}
-                  />
-                </div>
+                {iframe.fallbackImg && (
+                  <div className={style.iframeFallback}>
+                    <Media alt={`${title}`} image={iframe.fallbackImg} />
+                  </div>
+                )}
               </React.Fragment>
             );
           })

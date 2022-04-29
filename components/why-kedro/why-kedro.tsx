@@ -10,8 +10,8 @@ export default function WhyKedro() {
   const [selectedTab, setSelectedTab] = useState(tabData[0]);
 
   return (
-    <section id="why-kedro">
-      <div className={style.container}>
+    <section className={style.outer} id="why-kedro">
+      <div className={style.inner}>
         <h3 className={style.title}>Why Kedro?</h3>
         <div className={style.tabsWrapper}>
           <ul className={style.list} role="tablist">
@@ -38,7 +38,7 @@ export default function WhyKedro() {
           </ul>
           <div className={style.gradient}></div>
         </div>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter initial={false}>
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className={style.tabContent}
@@ -52,7 +52,16 @@ export default function WhyKedro() {
           </motion.p>
         </AnimatePresence>
         <div className={style.mediaWrapper}>
-          <Media poster="/images/intro-poster.jpg" video="/videos/kedro.mp4" />
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+            height="100%"
+            loading="lazy"
+            src="https://www.youtube.com/embed/yEQqf3XUvzk?modestbranding=1&rel=0"
+            title="YouTube video player"
+            width="100%"
+          ></iframe>
         </div>
       </div>
     </section>
