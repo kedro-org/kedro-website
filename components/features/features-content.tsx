@@ -113,7 +113,7 @@ export const hiddenContent: FeatureProps[] = [
     iframeList: [
       {
         source:
-          'https://www.youtube.com/embed/MErBf3sTn-A?modestbranding=1&rel=0',
+          '"https://www.youtube-nocookie.com/embed/MErBf3sTn-A?modestbranding=1&rel=0',
         style: {
           height: '100%',
           marginLeft: 0,
