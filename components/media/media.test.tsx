@@ -10,7 +10,9 @@ describe('Media', () => {
   });
 
   it('displays the video element', () => {
-    render(<Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />);
+    render(
+      <Media poster="/images/intro-poster.jpg" video="/videos/kedro.mp4" />
+    );
 
     expect(
       screen.getByText(/Sorry, your browser doesn't support embedded videos./i)
