@@ -134,6 +134,7 @@
 
   @include breakpoint(small) {
     font-size: 2rem;
+    letter-spacing: $letter-spacing-narrow;
     line-height: 2.5rem;
   }
 }
