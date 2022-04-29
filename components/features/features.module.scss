@@ -36,6 +36,10 @@
   display: flex;
   justify-content: center;
   margin-bottom: 6.25rem;
+
+  @include breakpoint(small) {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .button {
