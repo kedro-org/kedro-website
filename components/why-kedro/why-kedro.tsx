@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { tabData } from './why-kedro-data';
 
-import Media from '../media';
-
 import style from './why-kedro.module.scss';
 
 export default function WhyKedro() {
@@ -58,7 +56,7 @@ export default function WhyKedro() {
             frameBorder="0"
             height="100%"
             loading="lazy"
-            src="https://www.youtube.com/embed/yEQqf3XUvzk?modestbranding=1&rel=0"
+            src="https://www.youtube-nocookie.com/embed/yEQqf3XUvzk?modestbranding=1&rel=0"
             title="YouTube video player"
             width="100%"
           ></iframe>
