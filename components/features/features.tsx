@@ -31,7 +31,7 @@ export default function Hero() {
           className={style.button}
           onClick={() => setShowMoreFeatures(!showMoreFeatures)}
         >
-          Show {showMoreFeatures ? 'fewer' : 'more'} features
+          Show {showMoreFeatures ? 'Fewer' : 'More'} Features
         </button>
       </div>
     </section>

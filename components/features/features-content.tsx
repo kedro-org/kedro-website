@@ -113,7 +113,7 @@ export const hiddenContent: FeatureProps[] = [
     subtitle:
       'Test-driven development using <a href="https://github.com/pytest-dev/pytest" rel="noopener noreferrer" target="_blank">pytest</a>, produce well-documented code using <a href="http://www.sphinx-doc.org/en/master/" rel="noopener noreferrer" target="_blank">Sphinx</a>, create linted code with support for <a href="https://github.com/PyCQA/flake8" rel="noopener noreferrer" target="_blank">flake8</a>, <a href="https://github.com/PyCQA/isort" rel="noopener noreferrer" target="_blank">isort</a> and <a href="https://github.com/psf/black" rel="noopener noreferrer" target="_blank">black</a> and make use of the standard Python logging library.',
     title: 'Coding Standards',
-    videoSrc: '/kedro-coding-standards.mp4',
+    videoSrc: '/videos/kedro-coding-standards.mp4',
   },
   {
     altText: 'Flexible Deployment example',
