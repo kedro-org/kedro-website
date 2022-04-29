@@ -11,9 +11,8 @@
 
   @include breakpoint(small) {
     align-items: center;
-    margin: 0 0 5rem;
+    margin: 2rem 0 3rem;
     max-width: 100%;
-    padding: 2.5rem 1rem 0;
     width: 100%;
   }
 }
