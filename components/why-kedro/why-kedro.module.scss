@@ -37,6 +37,7 @@
 
 .tabsWrapper {
   margin: 0 auto 5rem;
+  position: relative;
 
   @include breakpoint(medium-only) {
     margin: 0 0 5rem 2rem;
@@ -136,6 +137,27 @@
   @include breakpoint(small) {
     margin-bottom: 3rem;
     padding: 0 1rem;
+  }
+}
+
+.gradient {
+  @include breakpoint(medium-up) {
+    display: none;
+  }
+
+  @include breakpoint(small) {
+    background: linear-gradient(
+      90deg,
+      $color-bg-grey 17%,
+      rgba(30, 30, 31, 0) 100%
+    );
+    display: block;
+    height: 42px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(-180deg);
+    width: 50px;
   }
 }
 

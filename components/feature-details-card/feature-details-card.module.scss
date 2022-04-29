@@ -134,6 +134,13 @@
 
   > a {
     text-decoration: underline;
+    text-decoration-color: $color-light;
+    transition: color $transition-time ease;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration-color: $color-light;
+    }
   }
 }
 

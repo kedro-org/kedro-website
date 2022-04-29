@@ -172,8 +172,6 @@
 *** Other
 **/
 
-$transition-time: 0.25s;
-
 @mixin scale-transition {
   opacity: 0.85;
   transform: scale(0.98);

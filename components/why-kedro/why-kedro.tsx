@@ -36,6 +36,7 @@ export default function WhyKedro() {
               );
             })}
           </ul>
+          <div className={style.gradient}></div>
         </div>
         <AnimatePresence exitBeforeEnter>
           <motion.p
@@ -51,7 +52,7 @@ export default function WhyKedro() {
           </motion.p>
         </AnimatePresence>
         <div className={style.mediaWrapper}>
-          <Media poster="/images/intro-poster.jpg" video="/kedro.mp4" />
+          <Media poster="/images/intro-poster.jpg" video="/videos/kedro.mp4" />
         </div>
       </div>
     </section>
