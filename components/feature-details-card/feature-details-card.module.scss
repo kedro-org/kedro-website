@@ -171,6 +171,10 @@
 
 .youtube {
   @include video-aspect-ratio;
+
+  > .iframe {
+    display: block;
+  }
 }
 
 .buttonWrapper {
