@@ -11,17 +11,23 @@ import ReadyToStart from '../components/ready-to-start';
 import Testimonials from '../components/testimonials';
 import WhyKedro from '../components/why-kedro';
 import Footer from '../components/footer';
+import { Size, useWindowSize } from '../utils/hooks/useWindowSize';
+
+const MOBILE_BREAKPOINT = 819;
 
 const Home = () => {
   const footerRef = useRef();
   const onScreen = useOnScreen(footerRef);
+
+  const size: Size = useWindowSize();
+  const isMobile = size.width > MOBILE_BREAKPOINT ? false : true;
 
   return (
     <>
       <Head>
         <title>Kedro</title>
       </Head>
-      {!onScreen && <Header />}
+      {(!onScreen || isMobile) && <Header />}
       <Hero />
       <WhyKedro />
       <Features />
