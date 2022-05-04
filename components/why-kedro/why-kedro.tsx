@@ -12,6 +12,7 @@ export default function WhyKedro() {
       <div className={style.inner}>
         <h3 className={style.title}>Why Kedro?</h3>
         <div className={style.tabsWrapper}>
+          <div className={style.gradient}></div>
           <ul className={style.list} role="tablist">
             {tabData.map((item) => {
               return (

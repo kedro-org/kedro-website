@@ -45,7 +45,6 @@
 
   @include breakpoint(small) {
     margin: 0 auto 1.375rem;
-    padding-left: 3rem;
     width: 100%;
   }
 }
@@ -73,7 +72,7 @@
     justify-content: flex-start;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding-right: 1.5rem;
+    padding: 0 1.5rem 0 3rem;
   }
 }
 
@@ -152,6 +151,30 @@
 .gradient {
   @include breakpoint(medium-up) {
     display: none;
+  }
+
+  @include breakpoint(small) {
+    background: linear-gradient(
+      90deg,
+      $color-bg-grey 17%,
+      rgba(30, 30, 31, 0) 100%
+    );
+    display: block;
+    height: 42px;
+    position: absolute;
+    top: 0;
+    width: 50px;
+
+    &:first-of-type {
+      left: 0;
+      transform: rotate(0);
+      z-index: 1;
+    }
+
+    &:last-of-type {
+      right: 0;
+      transform: rotate(-180deg);
+    }
   }
 
   @include breakpoint(small) {
