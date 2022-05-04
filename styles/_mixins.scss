@@ -6,7 +6,7 @@
   border-radius: 4rem;
   cursor: pointer;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  letter-spacing: $letter-spacing-narrow;
+  letter-spacing: $letter-spacing;
   min-width: 9.375rem;
 
   @if $size == normal {
@@ -57,7 +57,7 @@
   }
 
   @if $style == secondary {
-    background: $color-light;
+    background: $color-font;
     border: 0;
     color: $color-font-dark;
   }
@@ -82,10 +82,12 @@
     padding: 0;
     padding-bottom: 3.5px;
     transform: translateZ(0);
-    transition: color $transition-time ease, opacity $transition-time ease,
+    transition: border-bottom-color $transition-time ease,
+      color $transition-time ease, opacity $transition-time ease,
       transform $transition-time ease;
 
     &:hover {
+      border-bottom-color: $color-accent;
       color: $color-accent;
 
       @include scale-transition();
@@ -128,20 +130,17 @@
 @mixin h1 {
   font-size: 4.5rem;
   font-weight: bold;
-  letter-spacing: $letter-spacing;
   line-height: 90px;
   margin: 0;
 
   @include breakpoint(small) {
     font-size: 2rem;
-    letter-spacing: $letter-spacing-narrow;
     line-height: 2.5rem;
   }
 }
 
 @mixin h2 {
   font-size: 2.5rem;
-  letter-spacing: $letter-spacing;
 
   @include breakpoint(small) {
     font-size: 1.125rem;
@@ -152,7 +151,6 @@
 @mixin h3 {
   font-size: 1.25rem;
   font-weight: 400;
-  letter-spacing: $letter-spacing-narrow;
   line-height: 1.6875rem;
 
   @include breakpoint(small) {
@@ -163,7 +161,6 @@
 
 @mixin h4 {
   font-size: 1.25rem;
-  letter-spacing: -0.1px;
   font-weight: 400;
   line-height: 1.4;
 }

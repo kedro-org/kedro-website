@@ -34,7 +34,6 @@
 }
 
 .textContainer {
-  letter-spacing: $letter-spacing-narrow;
   line-height: 1.5rem;
   padding: 3.5rem 0;
 
@@ -46,7 +45,6 @@
 
 .title {
   font-size: 1.125rem;
-  letter-spacing: $letter-spacing-narrow;
   margin: 0 0 1.25rem;
 
   @include breakpoint(small) {

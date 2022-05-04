@@ -73,6 +73,7 @@
     justify-content: flex-start;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding-right: 1.5rem;
   }
 }
 
@@ -104,11 +105,11 @@
   }
 
   &.selected {
-    color: $color-light;
+    color: $color-font;
   }
 
   &:hover {
-    color: $color-light;
+    color: $color-font;
   }
 
   @include breakpoint(small) {
@@ -117,7 +118,7 @@
 }
 
 .underline {
-  background: $color-light;
+  background: $color-font;
   bottom: -1px;
   height: 1px;
   left: 0;
@@ -134,13 +135,16 @@
 
   margin: 0 auto 5rem;
   max-width: 1000px;
+  min-height: 5rem;
 
   @include breakpoint(medium-only) {
+    min-height: 7rem;
     padding: 0 1rem;
   }
 
   @include breakpoint(small) {
     margin-bottom: 3rem;
+    min-height: 9rem;
     padding: 0 1rem;
   }
 }

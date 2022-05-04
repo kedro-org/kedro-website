@@ -63,7 +63,7 @@ export default function CompaniesUsingKedro() {
     <section className={style.outer}>
       <div className={style.inner}>
         <div className={style.left}>
-          <p className={style.title}>Used and loved by </p>
+          <span className={style.title}>Used and loved by </span>
         </div>
         <div className={style.right}>
           <div className={style.animation}>
