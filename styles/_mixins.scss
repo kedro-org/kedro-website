@@ -64,7 +64,7 @@
 
   @if $style == outline {
     background: none;
-    border: 1px solid $color-font;
+    border: 2px solid $color-font;
     color: $color-font;
   }
 
@@ -85,6 +85,7 @@
     transition: border-bottom-color $transition-time ease,
       color $transition-time ease, opacity $transition-time ease,
       transform $transition-time ease;
+    white-space: nowrap;
 
     &:hover {
       border-bottom-color: $color-accent;
@@ -170,7 +171,6 @@
 **/
 
 @mixin scale-transition {
-  opacity: 0.85;
   transform: scale(0.98);
 }
 

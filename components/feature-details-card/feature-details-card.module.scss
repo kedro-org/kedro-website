@@ -43,9 +43,21 @@
 
   &.left {
     flex-direction: row-reverse;
+
+    .text {
+      @include breakpoint(medium-only) {
+        margin-left: 1rem;
+      }
+    }
   }
 
   &.right {
+    .text {
+      @include breakpoint(medium-only) {
+        margin-right: 1rem;
+      }
+    }
+
     & .iframe {
       margin-left: -55px;
 
@@ -174,6 +186,12 @@
     margin-bottom: 2.5rem;
     order: -1; // Assets should be the first thing in the section on mobile.
     padding: 0 1rem;
+  }
+}
+
+.pipelineAbstraction {
+  @include breakpoint(large) {
+    margin-left: -55px;
   }
 }
 
