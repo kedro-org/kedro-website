@@ -43,7 +43,7 @@
 .logoText {
   font-size: 1.5rem;
   font-weight: 400;
-  letter-spacing: $letter-spacing-narrow;
+  letter-spacing: $letter-spacing;
   margin: 1rem;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .iconText {
-  color: $color-light;
+  color: $color-font;
   display: none;
 
   @include breakpoint(small) {
@@ -85,7 +85,7 @@
 }
 
 .link {
-  color: $color-light;
+  color: $color-font;
   display: flex;
   font-size: 0.875rem;
   margin: 1rem;

@@ -83,7 +83,7 @@
 }
 
 .iconText {
-  color: $color-light;
+  color: $color-font;
   display: none;
 
   @include breakpoint(small) {
@@ -94,7 +94,7 @@
 }
 
 .link {
-  color: $color-light;
+  color: $color-font;
   display: flex;
   margin: 1rem;
 }

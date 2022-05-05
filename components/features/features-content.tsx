@@ -85,6 +85,7 @@ export const shownContent: FeatureProps[] = [
 
 export const hiddenContent: FeatureProps[] = [
   {
+    assetClassName: 'pipelineAbstraction',
     assetPosition: 'left',
     buttonLink:
       'https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
@@ -97,7 +98,6 @@ export const hiddenContent: FeatureProps[] = [
         style: {
           border: 0,
           height: '570px',
-          marginLeft: '-55px',
           overflow: 'hidden',
           transform: 'scale(1)',
         },
@@ -113,7 +113,7 @@ export const hiddenContent: FeatureProps[] = [
     iframeList: [
       {
         source:
-          'https://www.youtube-nocookie.com/embed/MErBf3sTn-A?modestbranding=1&rel=0',
+          'https://www.youtube-nocookie.com/embed/MErBf3sTn-A?modestbranding=1&rel=0&autoplay=1&loop=1',
         style: {
           height: '100%',
           marginLeft: 0,

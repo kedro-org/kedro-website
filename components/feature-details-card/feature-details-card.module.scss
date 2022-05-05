@@ -24,6 +24,12 @@
 
     .button {
       @include button($size: large, $style: primary);
+
+      margin-bottom: 3.125rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 2rem;
+      }
     }
 
     .asset {
@@ -37,9 +43,21 @@
 
   &.left {
     flex-direction: row-reverse;
+
+    .text {
+      @include breakpoint(medium-only) {
+        margin-left: 1rem;
+      }
+    }
   }
 
   &.right {
+    .text {
+      @include breakpoint(medium-only) {
+        margin-right: 1rem;
+      }
+    }
+
     & .iframe {
       margin-left: -55px;
 
@@ -120,7 +138,7 @@
   margin-bottom: 2rem;
 
   @include breakpoint(small) {
-    letter-spacing: $letter-spacing-narrow;
+    letter-spacing: $letter-spacing;
     margin-bottom: 1rem;
   }
 }
@@ -134,12 +152,13 @@
 
   > a {
     text-decoration: underline;
-    text-decoration-color: $color-light;
-    transition: color $transition-time ease;
+    text-decoration-color: $color-font;
+    transition: color $transition-time ease,
+      text-decoration-color $transition-time ease;
 
     &:hover {
       color: $color-accent;
-      text-decoration-color: $color-light;
+      text-decoration-color: $color-accent;
     }
   }
 }
@@ -164,8 +183,15 @@
 
 .asset {
   @include breakpoint(small) {
-    order: 10; // Images should be the last thing in the section on mobile.
+    margin-bottom: 2.5rem;
+    order: -1; // Assets should be the first thing in the section on mobile.
     padding: 0 1rem;
+  }
+}
+
+.pipelineAbstraction {
+  @include breakpoint(large) {
+    margin-left: -55px;
   }
 }
 

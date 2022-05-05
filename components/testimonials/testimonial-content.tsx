@@ -1,10 +1,10 @@
-import eduardo from '../../public/images/eduardo.png';
+import eduardo from '../../public/images/eduardo.jpg';
 import ghifari from '../../public/images/ghifari.png';
 
 export const testimonials = [
   {
     headline: 'Tremendously valuable',
-    jobTitle: 'Principal ML Engineer',
+    jobTitle: 'Principal Data Engineer',
     linkText: 'Read the article',
     linkUrl:
       'https://junglescouteng.medium.com/jungle-scout-case-study-kedro-airflow-and-mlflow-use-on-production-code-150d7231d42e',
