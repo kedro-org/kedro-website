@@ -136,7 +136,7 @@ $shared-element-width: 510px;
   @include button($style: outline);
 
   padding: 0 1rem;
-  transition: border-width $transition-time ease;
+  transition: box-shadow $transition-time ease;
 
   @include breakpoint(medium-up) {
     width: 12.125rem;
@@ -147,7 +147,7 @@ $shared-element-width: 510px;
   }
 
   &:hover {
-    border-width: 3px;
+    box-shadow: inset 0 0 0 1px $color-font;
   }
 }
 
