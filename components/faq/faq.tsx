@@ -16,7 +16,7 @@ export default function FAQ() {
       {faqs.map((topics) => (
         <div className={style.accordionWrapper} key={topics.title}>
           <Accordion title={topics.title}>
-            {topics.items.map((item) => {
+            {topics.items.map((item: any) => {
               return (
                 <div className={style.questionWrapper} key={item.question}>
                   <h4 className={style.question}>{item.question}</h4>
