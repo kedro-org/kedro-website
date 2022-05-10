@@ -1,36 +1,50 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import style from './header.module.scss';
 
-export default function Header() {
+export default function Header({ isHomepage = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <a href="#" className={style.logo}>
-          <Image
-            alt="KedroLogo"
-            height={30}
-            src="/images/kedro-logo.svg"
-            width={30}
-          />
-          <h4 className={style.logoText}>Kedro</h4>
-        </a>
+        <Link href="/">
+          <a className={style.logo}>
+            <Image
+              alt="KedroLogo"
+              height={30}
+              src="/images/kedro-logo.svg"
+              width={30}
+            />
+            <h4 className={style.logoText}>Kedro</h4>
+          </a>
+        </Link>
         <nav
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
         >
-          <a href="#why-kedro" className={style.link}>
-            Why Kedro?
-          </a>
-          <a href="#features" className={style.link}>
-            Features
-          </a>
-          <a href="#get-started" className={style.link}>
-            Get Started
-          </a>
+          {isHomepage ? (
+            <>
+              <a href="#why-kedro" className={style.link}>
+                Why Kedro?
+              </a>
+              <a href="#features" className={style.link}>
+                Features
+              </a>
+              <a href="#get-started" className={style.link}>
+                Get Started
+              </a>
+              <Link href="/faq">
+                <a className={style.link}>FAQ</a>
+              </Link>
+            </>
+          ) : (
+            <Link href="/">
+              <a className={style.link}>Home</a>
+            </Link>
+          )}
           <a
             className={style.link}
             href="https://kedro.readthedocs.io/en/stable/"

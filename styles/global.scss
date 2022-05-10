@@ -39,3 +39,24 @@ p {
   height: $header_height; /* fixed header height*/
   margin: -($header_height - 50px) 0 0; /* negative fixed header height */
 }
+
+pre {
+  background-color: $color-bg-grey;
+  border: 1px solid $color-grey-border;
+  border-radius: 0.25rem;
+  padding: 1rem;
+
+  > code {
+    background-color: unset;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+code {
+  background-color: $color-bg-grey;
+  border: 1px solid $color-grey-border;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.2rem;
+}
