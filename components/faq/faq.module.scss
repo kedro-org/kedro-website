@@ -7,7 +7,11 @@
   flex-direction: column;
   margin: $header-height auto 0;
   min-height: 110vh;
-  max-width: calc($max-content - 400px);
+  max-width: calc($max-content - 450px);
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
 }
 
 .title {
@@ -76,10 +80,23 @@
 .onThisPage {
   display: flex;
   flex-direction: column;
-  left: 240px;
+  left: 0;
+  margin-left: 13.5vw;
   position: fixed;
   text-align: right;
   top: 95px;
+
+  @media (max-width: 1550px) {
+    margin-left: 8vw;
+  }
+
+  @media (max-width: 1300px) {
+    margin-left: 4vw;
+  }
+
+  @media (max-width: 1125px) {
+    display: none;
+  }
 
   > span {
     margin-bottom: 0.5rem;
