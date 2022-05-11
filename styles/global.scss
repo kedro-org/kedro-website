@@ -20,6 +20,7 @@ body {
 
 a {
   color: $color-font;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -33,18 +34,18 @@ p {
   box-sizing: border-box;
 }
 
-:target:before {
-  content: '';
-  display: block;
-  height: $header_height; /* fixed header height*/
-  margin: -($header_height - 50px) 0 0; /* negative fixed header height */
-}
+// :target:before {
+//   content: '';
+//   display: block;
+//   height: $header_height; /* fixed header height*/
+//   margin: -($header_height - 50px) 0 0; /* negative fixed header height */
+// }
 
 pre {
   background-color: $color-bg-grey;
   border: 1px solid $color-grey-border;
   border-radius: 0.25rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
 
   > code {
     background-color: unset;

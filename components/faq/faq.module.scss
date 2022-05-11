@@ -27,10 +27,22 @@
 }
 
 .accordionHeader {
+  align-items: center;
   border-bottom: 1px solid $color-font-grey;
   cursor: pointer;
-  padding-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
   margin: 0 0 2rem;
+  padding-bottom: 0.25rem;
+
+  > h3 {
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  > svg {
+    fill: $color-font;
+  }
 }
 
 .questionWrapper {
@@ -40,6 +52,21 @@
 
 .question {
   margin: 0 0 1rem;
+}
+
+.answer {
+  line-height: 1.5rem;
+
+  > a {
+    text-decoration: underline;
+    transition: color $transition-time ease,
+      text-decoration-color $transition-time ease;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration-color: $color-accent;
+    }
+  }
 }
 
 .button {
