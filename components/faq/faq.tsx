@@ -7,6 +7,7 @@ import style from './faq.module.scss';
 export default function FAQ() {
   return (
     <section className={style.outer}>
+      <OnThisPage data={faqs} />
       <div className={style.titleWrapper}>
         <h1 className={style.title}>FAQ</h1>
         <h2 className={style.subtitle}>
@@ -98,6 +99,23 @@ const Accordion = ({ children, title }: AccordionProps) => {
         )}
       </AnimatePresence>
     </>
+  );
+};
+
+const OnThisPage = ({ data }) => {
+  return (
+    <div className={style.onThisPage}>
+      <h4>ON THIS PAGE</h4>
+      {data.map((section) => {
+        return (
+          <span key={section.title}>
+            <a href={`#${lowercaseFirstLetter(section.title)}`}>
+              {section.title}
+            </a>
+          </span>
+        );
+      })}
+    </div>
   );
 };
 

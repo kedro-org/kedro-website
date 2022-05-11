@@ -72,3 +72,24 @@
 .button {
   @include button($style: underline);
 }
+
+.onThisPage {
+  display: flex;
+  flex-direction: column;
+  left: 240px;
+  position: fixed;
+  text-align: right;
+  top: 95px;
+
+  > span {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    transition: color $transition-time ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
