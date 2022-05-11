@@ -7,7 +7,7 @@ export const companies = [
   'Belfius',
   'Sber',
   'Augment Partners',
-  'Mckinsey & Company',
+  'McKinsey & Company',
   'GetInData',
   'Indicium',
   'GMO',
