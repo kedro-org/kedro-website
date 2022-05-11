@@ -29,7 +29,7 @@ export default function FAQ() {
             {topics.items.map((item: any) => {
               return (
                 <div className={style.questionWrapper} key={item.question}>
-                  <a onClick={(e) => handleClick(e, item.question)}>
+                  <a href={`#${prettifyQuestion(item.question)}`}>
                     <h4
                       className={style.question}
                       id={prettifyQuestion(item.question)}
@@ -46,9 +46,6 @@ export default function FAQ() {
                       <code>{item.code}</code>
                     </pre>
                   )}
-                  {/* <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <button className={style.button}>Learn more</button>
-                  </a> */}
                 </div>
               );
             })}
@@ -75,7 +72,7 @@ const Accordion = ({ children, title }: AccordionProps) => {
         initial={false}
         onClick={(e) => {
           setExpanded(!expanded);
-          handleClick(e, title);
+          handleClick(e, title, true);
         }}
       >
         <h3>{title}</h3>
@@ -132,8 +129,14 @@ const OnThisPage = ({ data }: OnThisPageProps) => {
   );
 };
 
-const handleClick = (e: React.MouseEvent, target: string) => {
-  e.preventDefault();
+const handleClick = (
+  e: React.MouseEvent,
+  target: string,
+  preventDefault: boolean
+) => {
+  if (preventDefault) {
+    e.preventDefault();
+  }
 
   history.replaceState(
     {},
