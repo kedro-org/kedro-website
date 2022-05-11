@@ -4,6 +4,15 @@ import { faqs } from './faq-content';
 
 import style from './faq.module.scss';
 
+export interface FaqContent {
+  title: string;
+  items: {
+    question: string;
+    answer: string;
+    code?: string;
+  }[];
+}
+
 export default function FAQ() {
   return (
     <section className={style.outer}>
@@ -102,7 +111,11 @@ const Accordion = ({ children, title }: AccordionProps) => {
   );
 };
 
-const OnThisPage = ({ data }) => {
+type OnThisPageProps = {
+  data: FaqContent[];
+};
+
+const OnThisPage = ({ data }: OnThisPageProps) => {
   return (
     <div className={style.onThisPage}>
       <h4>ON THIS PAGE</h4>
