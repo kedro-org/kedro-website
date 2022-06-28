@@ -10,6 +10,7 @@ export const companies = [
   'McKinsey & Company',
   'GetInData',
   'Indicium',
+  'NHS',
   'GMO',
   'QuantumBlack',
   'XP',
