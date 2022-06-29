@@ -33,7 +33,7 @@ export const companies = [
     link: 'https://medium.com/indiciumtech/how-to-build-models-as-products-using-mlops-part-2-machine-learning-pipelines-with-kedro-10337c48de92',
   },
   {
-    name: 'NHS',
+    name: 'NHS AI Lab',
     link: 'https://nhsx.github.io/skunkworks/synthetic-data-pipeline',
   },
   {
