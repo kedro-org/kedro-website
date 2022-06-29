@@ -80,6 +80,7 @@
     $color-dark
   );
   height: 30rem;
+  pointer-events: none;
   position: relative;
 
   @include breakpoint(small) {
@@ -105,6 +106,11 @@
   }
 }
 
-.active {
+.active > a {
   color: $color-accent;
+  transition: opacity $transition-time ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
