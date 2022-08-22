@@ -12,7 +12,10 @@ export default function Document() {
 
         <meta property="og:title" content="Kedro" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/kedro-social-image.png" />
+        <meta
+          content="https://kedro.org/images/kedro-social-image.png"
+          property="og:image"
+        />
         <meta property="og:url" content="https://kedro.org/" />
         <meta
           content="A Python framework for creating reproducible, maintainable and modular data science code."
@@ -25,7 +28,7 @@ export default function Document() {
           name="twitter:image:alt"
         />
         <meta
-          content="/images/kedro-social-image.png"
+          content="https://kedro.org/images/kedro-social-image.png"
           name="twitter:image"
         ></meta>
         <meta name="twitter:title" content="Kedro"></meta>
