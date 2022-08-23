@@ -42,7 +42,7 @@ export default function Header() {
           <div className={style.iconLinks}>
             <a
               className={style.link}
-              href="https://discord.gg/4qeKKspFf8"
+              href="https://linen-discord.kedro.org/"
               rel="noopener noreferrer"
               target="_blank"
             >
