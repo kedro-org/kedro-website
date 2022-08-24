@@ -22,7 +22,12 @@ export default function Footer() {
           <a href="#features" className={style.link}>
             Features
           </a>
-          <a href="#" className={style.link}>
+          <a
+            className={style.link}
+            href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Get Started
           </a>
           <a

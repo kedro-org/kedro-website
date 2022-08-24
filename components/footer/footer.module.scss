@@ -89,6 +89,11 @@
   display: flex;
   font-size: 0.875rem;
   margin: 1rem;
+  transition: color $transition-time ease;
+
+  &:hover {
+    color: $color-accent;
+  }
 }
 
 .linux {

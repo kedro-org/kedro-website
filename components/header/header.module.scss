@@ -97,6 +97,11 @@
   color: $color-font;
   display: flex;
   margin: 1rem;
+  transition: color $transition-time ease;
+
+  &:hover {
+    color: $color-accent;
+  }
 }
 
 .burger {
