@@ -17,100 +17,71 @@
 
 .inner {
   background: $color-dark;
+  flex-direction: column;
   font-size: 3rem;
   font-weight: 700;
   line-height: 6rem;
   display: flex;
   margin: 0 auto;
   max-width: $max-content;
+}
 
-  @include breakpoint(medium-only) {
-    flex-direction: column;
-  }
+.sectionTitle {
+  @include h1;
+
+  margin-bottom: 8rem;
+  text-align: center;
 
   @include breakpoint(small) {
-    flex-direction: column;
-    font-size: 1.5rem;
-    line-height: 3rem;
+    margin-bottom: 2.5rem;
+    padding: 0;
   }
 }
 
 .left {
-  align-items: center;
-  justify-content: right;
   display: flex;
-  padding-right: 1.5rem;
-  width: 45%;
-
-  @include breakpoint(medium-only) {
-    justify-content: left;
-    width: 100%;
-  }
-
-  @include breakpoint(small) {
-    justify-content: left;
-    width: 100%;
-  }
+  justify-content: center;
+  width: 100%;
 }
 
 .right {
   overflow: hidden;
   position: relative;
-  width: 50%;
-
-  @include breakpoint(medium-only) {
-    width: 100%;
-  }
-
-  @include breakpoint(small) {
-    width: 100%;
-  }
+  width: 100%;
 }
 
-.animation {
-  position: absolute;
-  top: 40%;
-}
-
-.animationMask {
-  background-image: linear-gradient(
-    $color-dark,
-    transparent,
-    transparent,
-    $color-dark
-  );
-  height: 30rem;
-  pointer-events: none;
-  position: relative;
-
-  @include breakpoint(small) {
-    height: 15.625rem;
-  }
-}
-
-.animation ul {
-  position: relative;
+.list {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  top: -12rem;
-  padding: 0;
   margin: 0;
-  transition: top 300ms;
-
-  @include breakpoint(medium-only) {
-    width: auto;
-  }
-
-  @include breakpoint(small) {
-    top: -6rem;
-    width: auto;
-  }
+  padding: 0;
 }
 
-.active > a {
-  color: $color-accent;
-  transition: opacity $transition-time ease;
+.company {
+  align-items: center;
+  border-radius: 6px;
+  border: 2px solid $color-font-grey;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin: 5px;
+  transition: background $transition-time ease,
+    border-color $transition-time ease, transform $transition-time ease;
+  width: calc(25% - 10px);
 
   &:hover {
-    opacity: 0.85;
+    background: linear-gradient(-45deg, $color-dark 67%, $color-accent);
+    border-color: $color-accent;
+    cursor: pointer;
+    transform: scale(1.01);
   }
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
