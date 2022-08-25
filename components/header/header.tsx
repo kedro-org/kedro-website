@@ -28,7 +28,12 @@ export default function Header() {
           <a href="#features" className={style.link}>
             Features
           </a>
-          <a href="#get-started" className={style.link}>
+          <a
+            className={style.link}
+            href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Get Started
           </a>
           <a
@@ -62,9 +67,9 @@ export default function Header() {
             >
               <Image
                 alt="GithubLogo"
+                height={30}
                 src="/images/github.svg"
                 width={30}
-                height={30}
               />
               <span className={style.iconText}> Github</span>
             </a>
