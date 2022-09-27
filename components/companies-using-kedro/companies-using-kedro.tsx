@@ -8,6 +8,7 @@ export default function CompaniesUsingKedro() {
   return (
     <section className={style.outer}>
       <div className={style.inner}>
+        <span className={style.title}>Our community</span>
         <ul className={style.list}>
           {companies.map((company) => (
             <li className={style.company} key={company.name}>

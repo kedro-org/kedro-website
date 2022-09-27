@@ -24,16 +24,19 @@
   display: flex;
   margin: 0 auto;
   max-width: $max-content;
+
+  @include breakpoint(small) {
+    font-size: 1.5rem;
+    line-height: 3rem;
+  }
 }
 
-.sectionTitle {
-  @include h1;
-
-  margin-bottom: 8rem;
+.title {
+  margin-bottom: 3rem;
   text-align: center;
 
   @include breakpoint(small) {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     padding: 0;
   }
 }
