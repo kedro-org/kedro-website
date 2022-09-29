@@ -16,9 +16,10 @@
 }
 
 .inner {
+  @include h1;
+
   background: $color-dark;
   flex-direction: column;
-  font-size: 4.5rem;
   font-weight: 700;
   line-height: 6rem;
   display: flex;
