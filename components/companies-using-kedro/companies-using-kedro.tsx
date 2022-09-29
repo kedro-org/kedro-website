@@ -12,14 +12,12 @@ export default function CompaniesUsingKedro() {
         <ul className={style.list}>
           {companies.map((company) => (
             <li className={style.company} key={company.name}>
-              <a href={company.link} rel="noopener noreferrer" target="_blank">
-                <Image
-                  alt={`${company.name} logo`}
-                  height="120px"
-                  src={company.logo}
-                  width="308px"
-                />
-              </a>
+              <Image
+                alt={`${company.name} logo`}
+                height="120px"
+                src={company.logo}
+                width="308px"
+              />
             </li>
           ))}
         </ul>

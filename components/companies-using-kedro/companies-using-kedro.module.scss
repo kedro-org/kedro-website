@@ -59,23 +59,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.01);
-  }
-}
-
-.company a {
-  height: 120px;
-
-  @include breakpoint(small) {
-    height: 70px;
-  }
-
-  @include breakpoint(medium-down) {
-    height: 100px;
-  }
 }
 
 .link {
