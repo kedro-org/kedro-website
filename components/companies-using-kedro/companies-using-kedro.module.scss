@@ -16,8 +16,6 @@
 }
 
 .inner {
-  @include h1;
-
   background: $color-dark;
   flex-direction: column;
   font-weight: 700;
@@ -33,11 +31,14 @@
 }
 
 .title {
-  margin-bottom: 3rem;
+  @include h1;
+
+  margin-bottom: 6rem;
   text-align: center;
 
   @include breakpoint(small) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+
     padding: 0;
   }
 }
