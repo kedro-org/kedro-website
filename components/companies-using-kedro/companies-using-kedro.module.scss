@@ -17,100 +17,56 @@
 
 .inner {
   background: $color-dark;
-  font-size: 3rem;
+  flex-direction: column;
   font-weight: 700;
   line-height: 6rem;
   display: flex;
   margin: 0 auto;
   max-width: $max-content;
 
-  @include breakpoint(medium-only) {
-    flex-direction: column;
-  }
-
   @include breakpoint(small) {
-    flex-direction: column;
     font-size: 1.5rem;
     line-height: 3rem;
   }
 }
 
-.left {
-  align-items: center;
-  justify-content: right;
-  display: flex;
-  padding-right: 1.5rem;
-  width: 45%;
+.title {
+  @include h1;
 
-  @include breakpoint(medium-only) {
-    justify-content: left;
-    width: 100%;
-  }
+  margin-bottom: 6rem;
+  text-align: center;
 
   @include breakpoint(small) {
-    justify-content: left;
-    width: 100%;
+    margin-bottom: 2.5rem;
+
+    padding: 0;
   }
 }
 
-.right {
-  overflow: hidden;
-  position: relative;
-  width: 50%;
-
-  @include breakpoint(medium-only) {
-    width: 100%;
-  }
-
-  @include breakpoint(small) {
-    width: 100%;
-  }
-}
-
-.animation {
-  position: absolute;
-  top: 40%;
-}
-
-.animationMask {
-  background-image: linear-gradient(
-    $color-dark,
-    transparent,
-    transparent,
-    $color-dark
-  );
-  height: 30rem;
-  pointer-events: none;
-  position: relative;
-
-  @include breakpoint(small) {
-    height: 15.625rem;
-  }
-}
-
-.animation ul {
-  position: relative;
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-items: start;
   list-style: none;
-  top: -12rem;
-  padding: 0;
   margin: 0;
-  transition: top 300ms;
-
-  @include breakpoint(medium-only) {
-    width: auto;
-  }
+  padding: 0;
 
   @include breakpoint(small) {
-    top: -6rem;
-    width: auto;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.active > a {
-  color: $color-accent;
-  transition: opacity $transition-time ease;
+.company {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
-  &:hover {
-    opacity: 0.85;
-  }
+.link {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
