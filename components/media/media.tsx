@@ -6,7 +6,7 @@ import style from './media.module.scss';
 
 type Props = {
   alt?: string;
-  image?: StaticImageData;
+  image?: StaticImageData | any;
   layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   placeholder?: 'blur' | 'empty';
   poster?: string;
