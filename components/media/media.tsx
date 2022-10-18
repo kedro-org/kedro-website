@@ -26,7 +26,8 @@ export default function Media({
   if (
     image?.src?.includes('webp') ||
     image?.src?.includes('jpg') ||
-    image?.src?.includes('png')
+    image?.src?.includes('png') ||
+    image?.includes('png')
   ) {
     return (
       <Image
