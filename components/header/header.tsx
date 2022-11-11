@@ -47,7 +47,7 @@ export default function Header() {
           <div className={style.iconLinks}>
             <a
               className={style.link}
-              href="https://join.slack.com/t/kedro-org/shared_invite/zt-1jrzhgyjk-M0maWkWSOVvK3Zzfr6YNbw"
+              href="https://slack.kedro.org"
               rel="noopener noreferrer"
               target="_blank"
             >
