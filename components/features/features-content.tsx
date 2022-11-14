@@ -3,7 +3,7 @@ import { FeatureProps } from '../feature-details-card/feature-details-card';
 import dataCatalog1 from '../../public/images/data-catalog-1.png';
 import dataCatalog2 from '../../public/images/data-catalog-2.png';
 import flexibleDeployment from '../../public/images/flexible_deployment.png';
-import expTracking from '../../public/images/exp-tracking.png';
+import expTracking from '../../public/images/features_experiment_tracking.png';
 import integrations from '../../public/images/features_integrations.png';
 import pipelineAbstraction from '../../public/images/pipeline-abstraction.png';
 import projectTemplate from '../../public/images/project-template.png';
