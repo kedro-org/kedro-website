@@ -145,7 +145,7 @@ export const hiddenContent: FeatureProps[] = [
     buttonText: 'Enable experiment tracking',
     imageSrc: expTracking,
     subtitle:
-      'Experiment tracking is a way to record all information that you would need to recreate and analyse a data science experiment.',
+      'Experiment tracking records all the information you need to recreate and analyse a data science experiment.',
     title: 'Experiment Tracking',
   },
 ];
