@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
+import Header from '../../components/header';
 import Media from '../../components/media';
 import PostBody from '../../components/post-body';
 
@@ -24,6 +25,7 @@ export default function Post({ post, morePosts, preview }) {
               <title>{post.title} | Kedro</title>
               <meta property="og:image" content={post.coverImage.url} />
             </Head>
+            <Header />
             <div style={{ width: 400, height: 260, position: 'relative' }}>
               <Media
                 alt="Kedro screenshot"
