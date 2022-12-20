@@ -16,7 +16,7 @@ interface Post {
   date: string;
   featuredPost: boolean;
   secondaryPost: boolean | null;
-  author: { name: string; picture: any };
+  author: { name: string; picture: any; urlDisplayName: string };
   excerpt: string;
 }
 
@@ -38,7 +38,15 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         <Link href={`/blog/${featuredPost.slug}`} passHref>
           <a>{featuredPost.title}</a>
         </Link>
-        <p>Written by: {featuredPost.author.name}</p>
+        <p>
+          Written by:{' '}
+          <Link
+            href={`/blog/author/${featuredPost.author.urlDisplayName}`}
+            passHref
+          >
+            <a> {featuredPost.author.name}</a>
+          </Link>
+        </p>
       </div>
       <div style={{ marginTop: 50 }}>
         <h3>Secondary posts</h3>
@@ -49,7 +57,15 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
               <Link href={`/blog/${post.slug}`} passHref>
                 <a>{post.title}</a>
               </Link>
-              <p>Written by: {post.author.name}</p>
+              <p>
+                Written by:
+                <Link
+                  href={`/blog/author/${post.author.urlDisplayName}`}
+                  passHref
+                >
+                  <a> {post.author.name}</a>
+                </Link>
+              </p>
             </div>
           );
         })}
@@ -61,9 +77,12 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         </p>
       </div>
       <style jsx global>{`
-        body,
-        a {
+        body {
           color: #000;
+        }
+
+        a {
+          color: #1e58a8;
         }
       `}</style>
     </>
