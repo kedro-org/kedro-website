@@ -2,15 +2,15 @@ import React, { useRef } from 'react';
 import useOnScreen from '../utils/hooks/useOnScreen';
 import Head from 'next/head';
 
-import CaseStudies from '../components/case-studies';
-import Features from '../components/features';
-import Header from '../components/header';
-import Hero from '../components/hero';
-import CompaniesUsingKedro from '../components/companies-using-kedro';
-import ReadyToStart from '../components/ready-to-start';
-import Testimonials from '../components/testimonials';
-import WhyKedro from '../components/why-kedro';
-import Footer from '../components/footer';
+import CaseStudies from '../modules/index/case-studies';
+import Features from '../modules/index/features';
+import Header from '../modules/shared/header';
+import Hero from '../modules/index/hero';
+import CompaniesUsingKedro from '../modules/index/companies-using-kedro';
+import ReadyToStart from '../modules/index/ready-to-start';
+import Testimonials from '../modules/index/testimonials';
+import WhyKedro from '../modules/index/why-kedro';
+import Footer from '../modules/index/footer';
 import { Size, useWindowSize } from '../utils/hooks/useWindowSize';
 
 const MOBILE_BREAKPOINT = 819;

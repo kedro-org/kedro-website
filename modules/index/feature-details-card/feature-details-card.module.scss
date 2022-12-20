@@ -1,0 +1,214 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.container {
+  margin: 0 auto;
+  max-width: $max-content;
+  margin-bottom: 10rem;
+
+  @include breakpoint(small) {
+    margin-bottom: 5rem;
+  }
+
+  &.center {
+    text-align: center;
+
+    .subtitle {
+      margin: 0 auto 6.75rem;
+      max-width: 1000px;
+
+      @include breakpoint(small) {
+        margin: 0 auto 2.5rem;
+      }
+    }
+
+    .button {
+      @include button($size: large, $style: primary);
+
+      margin-bottom: 3.125rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .asset {
+      margin-bottom: 5.25rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+
+  &.left {
+    flex-direction: row-reverse;
+
+    .text {
+      @include breakpoint(medium-only) {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &.right {
+    .text {
+      @include breakpoint(medium-only) {
+        margin-right: 1rem;
+      }
+    }
+
+    & .iframe {
+      margin-left: -55px;
+
+      @include breakpoint(medium-only) {
+        margin-left: 50px;
+      }
+    }
+  }
+
+  &.left,
+  &.right {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(small) {
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text {
+      max-width: 37%;
+
+      @include breakpoint(small) {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    .asset {
+      max-width: 660px;
+
+      @include breakpoint(small) {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    .subtitle {
+      margin-bottom: 2.75rem;
+
+      @include breakpoint(small) {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    .text .buttonWrapper {
+      @include breakpoint(large) {
+        display: block;
+      }
+
+      @include breakpoint(medium-only) {
+        display: block;
+      }
+
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+
+    .buttonWrapper {
+      @include breakpoint(large) {
+        display: none;
+      }
+
+      @include breakpoint(medium-only) {
+        display: none;
+      }
+    }
+  }
+}
+
+.title {
+  @include h2;
+
+  margin-top: 0;
+  margin-bottom: 2rem;
+
+  @include breakpoint(small) {
+    letter-spacing: $letter-spacing;
+    margin-bottom: 1rem;
+  }
+}
+
+.subtitle {
+  @include h3;
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+
+  > a {
+    text-decoration: underline;
+    text-decoration-color: $color-font;
+    transition: color $transition-time ease,
+      text-decoration-color $transition-time ease;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration-color: $color-accent;
+    }
+  }
+}
+
+.iframe {
+  width: 770px;
+
+  @include breakpoint(medium-only) {
+    width: 460px;
+  }
+
+  @include breakpoint(small) {
+    display: none;
+  }
+}
+
+.iframeFallback {
+  @include breakpoint(medium-up) {
+    display: none;
+  }
+}
+
+.asset {
+  @include breakpoint(small) {
+    margin-bottom: 2.5rem;
+    order: -1; // Assets should be the first thing in the section on mobile.
+    padding: 0 1rem;
+  }
+}
+
+.pipelineAbstraction {
+  @include breakpoint(large) {
+    margin-left: -55px;
+  }
+}
+
+.youtube {
+  @include video-aspect-ratio;
+
+  > .iframe {
+    display: block;
+  }
+}
+
+.buttonWrapper {
+  @include breakpoint(small) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.button {
+  @include button($style: underline);
+}

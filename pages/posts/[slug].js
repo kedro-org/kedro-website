@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
-import Header from '../../components/header';
+import Header from '../../components/shared/header';
 import Media from '../../components/media';
-import PostBody from '../../components/post-body';
+import PostBody from '../../components/blog/post-body';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 

@@ -1,0 +1,113 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.outer {
+  background: $color-dark;
+  height: 13.25rem;
+  margin: 0 -3.5rem;
+
+  @include breakpoint(small) {
+    margin: 0;
+  }
+}
+
+.inner {
+  align-items: center;
+  background: $color-dark;
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  margin: auto;
+  max-width: $max-content;
+  padding: 5em 0;
+  text-align: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    padding: 2.5em 0;
+  }
+}
+
+.logo {
+  display: flex;
+
+  @include breakpoint(medium-only) {
+    margin-left: 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    margin-bottom: 1.9rem;
+  }
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: $letter-spacing;
+  margin: 1rem;
+}
+
+.menu {
+  align-items: center;
+  display: flex;
+  background: $color-dark;
+  justify-content: center;
+  opacity: 0.9;
+
+  @include breakpoint(medium-only) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.iconLinks {
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+  }
+}
+
+.iconText {
+  color: $color-font;
+  display: none;
+
+  @include breakpoint(small) {
+    display: flex;
+    margin-left: 0.8rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.link {
+  color: $color-font;
+  display: flex;
+  font-size: 0.875rem;
+  margin: 1rem;
+  transition: color $transition-time ease;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.linux {
+  margin: 1rem;
+}
+
+.netlify {
+  margin: 1rem 0 1rem 1rem;
+
+  @include breakpoint(medium-only) {
+    margin: 1rem 3.5rem 1rem 1rem;
+  }
+
+  @include breakpoint(small) {
+    margin: 1rem;
+  }
+}
