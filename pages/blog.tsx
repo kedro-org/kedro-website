@@ -35,7 +35,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
       <Header />
       <div style={{ marginTop: 100 }}>
         <h3>Featured post</h3>
-        <Link href={`/posts/${featuredPost.slug}`} passHref>
+        <Link href={`/blog/${featuredPost.slug}`} passHref>
           <a>{featuredPost.title}</a>
         </Link>
         <p>Written by: {featuredPost.author.name}</p>
@@ -46,7 +46,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         {secondaryPosts.map((post: Post) => {
           return (
             <div key={post.sys.id}>
-              <Link href={`/posts/${post.slug}`} passHref>
+              <Link href={`/blog/${post.slug}`} passHref>
                 <a>{post.title}</a>
               </Link>
               <p>Written by: {post.author.name}</p>

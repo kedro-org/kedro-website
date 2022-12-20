@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     let postSlug = req.body.fields.slug['en-US'];
 
     // revalidate the individual post and the home page
-    await res.revalidate(`/posts/${postSlug}`);
+    await res.revalidate(`/blog/${postSlug}`);
     await res.revalidate('/');
 
     return res.json({ revalidated: true });

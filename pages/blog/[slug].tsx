@@ -7,7 +7,40 @@ import PostBody from '../../modules/blog/post-body';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 
-export default function Post({ post, morePosts, preview }) {
+interface Slug {
+  slug: string;
+}
+
+interface Post {
+  author: {
+    name: string;
+    picture: any;
+  };
+  content: {
+    json: any;
+    links: any;
+  };
+  coverImage: {
+    url: string;
+  };
+  date: string;
+  excerpt: string;
+  featuredPost: true;
+  secondaryPost: false;
+  slug: string;
+  sys: {
+    id: string;
+  };
+  title: string;
+}
+
+interface BlogPost {
+  morePosts: Post[];
+  post: Post;
+  preview: boolean;
+}
+
+export default function BlogPost({ post, morePosts, preview }: BlogPost) {
   const router = useRouter();
 
   if (!router.isFallback && !post) {
@@ -53,7 +86,13 @@ export default function Post({ post, morePosts, preview }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({
+  params,
+  preview = false,
+}: {
+  params: Slug;
+  preview: boolean;
+}) {
   const data = await getPostAndMorePosts(params.slug, preview);
 
   return {
@@ -71,6 +110,6 @@ export async function getStaticPaths() {
 
   return {
     fallback: true,
-    paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],
+    paths: allPosts?.map(({ slug }: Slug) => `/blog/${slug}`) ?? [],
   };
 }
