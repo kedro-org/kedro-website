@@ -43,6 +43,12 @@ export default function Post({ post, morePosts, preview }) {
           {morePosts && morePosts.length > 0 && <div>More posts here...</div>}
         </>
       )}
+      <style jsx global>{`
+        body,
+        a {
+          color: #000;
+        }
+      `}</style>
     </>
   );
 }

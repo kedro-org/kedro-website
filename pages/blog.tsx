@@ -60,6 +60,12 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           {allPosts.length === 0 ? 'No more posts' : 'There are more posts'}
         </p>
       </div>
+      <style jsx global>{`
+        body,
+        a {
+          color: #000;
+        }
+      `}</style>
     </>
   );
 };

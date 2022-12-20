@@ -38,6 +38,16 @@ const Home = () => {
       <div ref={footerRef}>
         <Footer />
       </div>
+      <style jsx global>{`
+        body {
+          background: #000;
+          color: #fff;
+        }
+
+        a {
+          color: #fff;
+        }
+      `}</style>
     </>
   );
 };
