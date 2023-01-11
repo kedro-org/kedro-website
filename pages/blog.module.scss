@@ -1,0 +1,21 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.featured {
+  background: #000;
+  color: #fff;
+  margin-top: $header-height;
+  padding-bottom: 80px;
+}
+
+.secondary {
+  background: #242424;
+  color: #fff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.secondaryTitle {
+  @include h2;
+  margin-top: 0;
+}
