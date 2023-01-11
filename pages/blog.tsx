@@ -5,14 +5,20 @@ import Link from 'next/link';
 import Header from '../modules/shared/header';
 
 import { getAllPostsForBlog } from '../lib/api';
+import BlogHome from '../modules/blog/blog-home';
 
-interface Post {
+import style from './blog.module.scss';
+
+export interface PostInterface {
   sys: { id: string };
   slug: string;
   title: string;
   coverImage: {
     url: string;
   };
+  category: string;
+  readingTime: number;
+  description: string;
   date: string;
   featuredPost: boolean;
   secondaryPost: boolean | null;
@@ -21,9 +27,9 @@ interface Post {
 }
 
 interface PostTypes {
-  featuredPost: Post;
-  secondaryPosts: Post[];
-  allPosts: Post[];
+  featuredPost: PostInterface;
+  secondaryPosts: PostInterface[];
+  allPosts: PostInterface[];
 }
 
 const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
@@ -33,43 +39,24 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         <title>Blog | Kedro</title>
       </Head>
       <Header />
-      <div style={{ marginTop: 100 }}>
-        <h3>Featured post</h3>
-        <Link href={`/blog/${featuredPost.slug}`} passHref>
-          <a>{featuredPost.title}</a>
-        </Link>
-        <p>
-          Written by:{' '}
-          <Link
-            href={`/blog/author/${featuredPost.author.urlDisplayName}`}
-            passHref
-          >
-            <a> {featuredPost.author.name}</a>
-          </Link>
-        </p>
-      </div>
-      <div style={{ marginTop: 50 }}>
-        <h3>Secondary posts</h3>
+      <section className={style.featured}>
+        <BlogHome size="large" imgPosition="right" post={featuredPost} />
+      </section>
+      <section className={style.secondary}>
+        <h3 className={style.secondaryTitle}>Recent blog posts</h3>
 
-        {secondaryPosts.map((post: Post) => {
+        {secondaryPosts.map((post: PostInterface, index: number) => {
           return (
             <div key={post.sys.id}>
-              <Link href={`/blog/${post.slug}`} passHref>
-                <a>{post.title}</a>
-              </Link>
-              <p>
-                Written by:
-                <Link
-                  href={`/blog/author/${post.author.urlDisplayName}`}
-                  passHref
-                >
-                  <a> {post.author.name}</a>
-                </Link>
-              </p>
+              <BlogHome
+                size="medium"
+                imgPosition={index % 2 == 0 ? 'left' : 'right'}
+                post={post}
+              />
             </div>
           );
         })}
-      </div>
+      </section>
       <div style={{ marginTop: 50 }}>
         <h3>All posts</h3>
         <p>
@@ -94,11 +81,14 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
-      featuredPost: data.filter((post: Post) => post.featuredPost)[0],
-      secondaryPosts: data.filter((post: Post) => post.secondaryPost),
-      allPosts: data.filter(
-        (post: Post) => !(post.featuredPost || post.secondaryPost) ?? null
-      ),
+      featuredPost: data.filter((post: PostInterface) => post.featuredPost)[0],
+      secondaryPosts: data
+        .filter((post: PostInterface) => post.secondaryPost)
+        .slice(0, 2),
+      //   allPosts: data.filter(
+      //     (post: PostInterface) => !(post.featuredPost || post.secondaryPost) ?? null
+      //   ),
+      allPosts: data.filter((post: PostInterface) => post),
       preview,
     },
     revalidate: 10,
