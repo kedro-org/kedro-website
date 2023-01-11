@@ -1,0 +1,72 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.container {
+  align-items: center;
+  column-gap: 50px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 56px;
+  padding-top: 56px;
+}
+
+.containerRowReverse {
+  flex-direction: row-reverse;
+}
+
+.info,
+.image {
+  width: 592px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  .title {
+    @include h2;
+  }
+
+  .description {
+    @include h4;
+  }
+}
+
+.infoLarge {
+  .title {
+    @include h1;
+  }
+
+  .description {
+    @include h3;
+  }
+}
+
+.author,
+.date,
+.category {
+  font-size: 14px;
+}
+
+.author {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.date {
+  margin-top: 0;
+  margin-bottom: 17px;
+  opacity: 0.6;
+}
+
+.button {
+  @include button($size: normal, $style: underline);
+
+  margin-bottom: 3.125rem;
+
+  @include breakpoint(small) {
+    margin-bottom: 2rem;
+  }
+}
