@@ -62,3 +62,33 @@
     margin: 2rem;
   }
 }
+
+.animationWrapper {
+  opacity: 0;
+  transform: translateY(-2%);
+
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.fadeInBottom {
+  animation-name: fadeInBottom;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(2%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animationDelay1 {
+  animation-delay: 0.3s;
+}
+
+.animationDelay2 {
+  animation-delay: 0.6s;
+}

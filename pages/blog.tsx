@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -41,45 +42,62 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
       </Head>
       <Header />
       <section className={style.featured}>
-        <BlogHome size="large" imgPosition="right" post={featuredPost} />
+        <div className={classNames(style.animationWrapper, style.fadeInBottom)}>
+          <BlogHome size="large" imgPosition="right" post={featuredPost} />
+        </div>
       </section>
       <section className={style.secondary}>
-        <h3 className={style.secondaryTitle}>Recent blog posts</h3>
-
-        {secondaryPosts.map((post: PostInterface, index: number) => {
-          return (
-            <div key={post.sys.id}>
-              <BlogHome
-                size="medium"
-                imgPosition={index % 2 == 0 ? 'left' : 'right'}
-                post={post}
-              />
-            </div>
-          );
-        })}
+        <div
+          className={classNames(
+            style.animationWrapper,
+            style.fadeInBottom,
+            style.animationDelay1
+          )}
+        >
+          <h3 className={style.secondaryTitle}>Recent blog posts</h3>
+          {secondaryPosts.map((post: PostInterface, index: number) => {
+            return (
+              <div key={post.sys.id}>
+                <BlogHome
+                  size="medium"
+                  imgPosition={index % 2 == 0 ? 'left' : 'right'}
+                  post={post}
+                />
+              </div>
+            );
+          })}
+        </div>
       </section>
       <section className={style.allBlogs}>
-        <h3 className={style.secondaryTitle}>All blog posts</h3>
-        {allPosts.length === 0 ? (
-          <p>{'No more posts'}</p>
-        ) : (
-          <>
-            {allPosts.map((post: PostInterface) => {
-              return (
-                <div key={post.sys.id}>
-                  <MoreBlogHome post={post} />
+        <div
+          className={classNames(
+            style.animationWrapper,
+            style.fadeInBottom,
+            style.animationDelay2
+          )}
+        >
+          <h3 className={style.secondaryTitle}>All blog posts</h3>
+          {allPosts.length === 0 ? (
+            <p>{'No more posts'}</p>
+          ) : (
+            <>
+              {allPosts.map((post: PostInterface) => {
+                return (
+                  <div key={post.sys.id}>
+                    <MoreBlogHome post={post} />
+                  </div>
+                );
+              })}
+              {allPosts.length > 2 ? (
+                <div className={style.buttonWrapper}>
+                  <button className={style.showMoreButton}>
+                    Show more posts
+                  </button>
                 </div>
-              );
-            })}
-            {allPosts.length > 2 ? (
-              <div className={style.buttonWrapper}>
-                <button className={style.showMoreButton}>
-                  Show more posts
-                </button>
-              </div>
-            ) : null}
-          </>
-        )}
+              ) : null}
+            </>
+          )}
+        </div>
       </section>
       <style jsx global>{`
         body {
