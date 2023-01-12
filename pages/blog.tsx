@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -10,6 +10,8 @@ import BlogHome from '../modules/blog/blog-home';
 import MoreBlogHome from '../modules/blog/more-blog-home';
 
 import style from './blog.module.scss';
+
+const defaultLength = 6;
 
 export interface PostInterface {
   sys: { id: string };
@@ -35,6 +37,8 @@ interface PostTypes {
 }
 
 const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
+  const [allPostsLength, setAllPostLength] = useState(defaultLength);
+
   return (
     <>
       <Head>
@@ -81,16 +85,22 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
             <p>{'No more posts'}</p>
           ) : (
             <>
-              {allPosts.map((post: PostInterface) => {
+              {allPosts.slice(0, allPostsLength).map((post: PostInterface) => {
                 return (
                   <div key={post.sys.id}>
                     <MoreBlogHome post={post} />
                   </div>
                 );
               })}
-              {allPosts.length > 2 ? (
+              {allPosts.length > defaultLength &&
+              allPosts.length > allPostsLength ? (
                 <div className={style.buttonWrapper}>
-                  <button className={style.showMoreButton}>
+                  <button
+                    className={style.showMoreButton}
+                    onClick={() =>
+                      setAllPostLength(allPostsLength + defaultLength)
+                    }
+                  >
                     Show more posts
                   </button>
                 </div>
@@ -121,10 +131,7 @@ export async function getStaticProps({ preview = false }) {
       secondaryPosts: data
         .filter((post: PostInterface) => post.secondaryPost)
         .slice(0, 2),
-      //   allPosts: data.filter(
-      //     (post: PostInterface) => !(post.featuredPost || post.secondaryPost) ?? null
-      //   ),
-      allPosts: data.filter((post: PostInterface) => post),
+      allPosts: data,
       preview,
     },
     revalidate: 10,
