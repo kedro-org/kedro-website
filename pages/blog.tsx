@@ -6,6 +6,7 @@ import Header from '../modules/shared/header';
 
 import { getAllPostsForBlog } from '../lib/api';
 import BlogHome from '../modules/blog/blog-home';
+import MoreBlogHome from '../modules/blog/more-blog-home';
 
 import style from './blog.module.scss';
 
@@ -57,12 +58,29 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           );
         })}
       </section>
-      <div style={{ marginTop: 50 }}>
-        <h3>All posts</h3>
-        <p>
-          {allPosts.length === 0 ? 'No more posts' : 'There are more posts'}
-        </p>
-      </div>
+      <section className={style.allBlogs}>
+        <h3 className={style.secondaryTitle}>All blog posts</h3>
+        {allPosts.length === 0 ? (
+          <p>{'No more posts'}</p>
+        ) : (
+          <>
+            {allPosts.map((post: PostInterface) => {
+              return (
+                <div key={post.sys.id}>
+                  <MoreBlogHome post={post} />
+                </div>
+              );
+            })}
+            {allPosts.length > 2 ? (
+              <div className={style.buttonWrapper}>
+                <button className={style.showMoreButton}>
+                  Show more posts
+                </button>
+              </div>
+            ) : null}
+          </>
+        )}
+      </section>
       <style jsx global>{`
         body {
           color: #000;

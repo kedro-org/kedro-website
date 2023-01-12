@@ -23,7 +23,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
     >
       <div
         className={classNames(style.info, {
-          [style.infoLarge]: size === 'large',
+          [style.infoMedium]: size === 'medium',
         })}
       >
         <p
@@ -33,7 +33,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
           <h1 className={style.title}>{post.title}</h1>
         </Link>
         <Link href={`/blog/${post.slug}`} passHref>
-          <p className={style.description}>{post.description}t</p>
+          <p className={style.description}>{post.description}</p>
         </Link>
         <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
           <p className={style.author}>{post.author.name}</p>
@@ -49,7 +49,11 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
           <button className={style.button}>Read more</button>
         </Link>
       </div>
-      <div className={style.image}>
+      <div
+        className={classNames(style.image, {
+          [style.imageMedium]: size === 'medium',
+        })}
+      >
         <Image
           src={post.coverImage.url}
           alt="cover image alt"
