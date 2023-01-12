@@ -1,0 +1,90 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.container {
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: 23rem 36rem 10rem;
+  grid-template-rows: 1.8rem 5.6rem;
+  grid-template-areas:
+    'category category category'
+    'title description authorWrapper';
+  position: relative;
+
+  padding: 1.75rem 0;
+
+  @include breakpoint(small) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+}
+
+.category {
+  grid-area: category;
+
+  @include breakpoint(small) {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  @include h3;
+  font-weight: 500;
+  grid-area: title;
+}
+
+.description {
+  grid-area: description;
+  margin: 0;
+}
+
+.authorWrapper {
+  grid-area: authorWrapper;
+  font-size: 0.75rem;
+}
+
+.author {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.date {
+  margin-top: 0;
+  margin-bottom: 17px;
+  opacity: 0.6;
+}
+
+.container:first-child {
+  margin-top: 1.75rem;
+
+  @include breakpoint(small) {
+    margin-top: 0;
+  }
+}
+
+.container:before {
+  content: '';
+  border-bottom: solid 1px #97a0a6;
+  left: 0;
+  opacity: 0.15;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  @include breakpoint(small) {
+    display: none;
+  }
+}
+
+.container:last-child:after {
+  content: '';
+  border-bottom: solid 1px #97a0a6;
+  left: 0;
+  opacity: 0.15;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
