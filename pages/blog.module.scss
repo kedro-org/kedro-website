@@ -57,6 +57,8 @@
   @include button($size: normal, $style: primary);
 
   margin: 3.125rem 0;
+  font-size: 0.875rem;
+  font-weight: 700;
 
   @include breakpoint(small) {
     margin: 2rem;
