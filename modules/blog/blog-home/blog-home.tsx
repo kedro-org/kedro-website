@@ -8,13 +8,14 @@ import { PostInterface } from '../../../pages/blog';
 import style from './blog-home.module.scss';
 
 interface PostHomeTypes {
-  size: string;
   imgPosition: string;
   post: PostInterface;
+  size: string;
 }
 
 const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
   const imgSize = size === 'large' ? 592 : 400;
+
   return (
     <div
       className={classNames(style.container, {
