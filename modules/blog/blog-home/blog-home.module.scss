@@ -38,6 +38,8 @@
 .info {
   .title {
     @include h1;
+    line-height: 5rem;
+    margin-top: 0.75rem;
   }
 
   .description {
@@ -48,6 +50,8 @@
 .infoMedium {
   .title {
     @include h2;
+    line-height: 2.375rem;
+    margin-top: 1rem;
   }
 
   .description {
@@ -67,6 +71,10 @@
 .date,
 .category {
   font-size: 0.875rem;
+}
+
+.category {
+  margin-bottom: 0;
 }
 
 .author {
