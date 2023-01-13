@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
-import Link from 'next/link';
 
 import Header from '../modules/shared/header';
 
