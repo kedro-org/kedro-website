@@ -6,7 +6,7 @@
   column-gap: 50px;
   display: flex;
   justify-content: center;
-  
+
   @include breakpoint(small) {
     flex-direction: column-reverse;
     padding-top: 0;
@@ -39,7 +39,7 @@
 .info {
   .title {
     @include h1;
-    
+
     line-height: 5rem;
     margin-top: 0.75rem;
   }
@@ -51,14 +51,14 @@
 
 .isHovered {
   cursor: pointer;
-  color: yellow;
+  color: $color-accent;
   text-decoration-line: underline;
 }
 
 .infoMedium {
   .title {
     @include h2;
-    
+
     line-height: 2.375rem;
     margin-top: 1rem;
   }
@@ -83,6 +83,7 @@
 }
 
 .category {
+  color: $color-grey-500;
   margin-bottom: 0;
 }
 
@@ -92,9 +93,9 @@
 }
 
 .date {
+  color: $color-grey-500;
   margin-top: 0;
   margin-bottom: 17px;
-  opacity: 0.6;
 }
 
 .button {
