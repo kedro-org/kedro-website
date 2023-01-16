@@ -5,7 +5,7 @@
   display: grid;
   column-gap: 0.5rem;
   grid-template-columns: 23rem 36rem 10rem;
-  grid-template-rows: 2rem 4.5rem;
+  grid-template-rows: 2rem 5rem;
   grid-template-areas:
     'category category category'
     'title description authorWrapper';
