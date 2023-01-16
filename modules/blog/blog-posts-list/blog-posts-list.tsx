@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 import { PostInterface } from '../../../pages/blog';
 
-import style from './more-blog-home.module.scss';
+import style from './blog-posts-list.module.scss';
 
-interface MoreBlogHomeTypes {
+interface BlogPostsListTypes {
   post: PostInterface;
 }
 
-const MoreBlogHome = ({ post }: MoreBlogHomeTypes) => {
+const BlogPostsList = ({ post }: BlogPostsListTypes) => {
   const [isTitleHovere, setIsTitleHovered] = useState(false);
 
   return (
@@ -57,4 +57,4 @@ const MoreBlogHome = ({ post }: MoreBlogHomeTypes) => {
   );
 };
 
-export default MoreBlogHome;
+export default BlogPostsList;

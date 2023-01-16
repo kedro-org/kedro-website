@@ -6,7 +6,7 @@ import Header from '../modules/shared/header';
 
 import { getAllPostsForBlog } from '../lib/api';
 import BlogHome from '../modules/blog/blog-home';
-import MoreBlogHome from '../modules/blog/more-blog-home';
+import BlogPostsList from '../modules/blog/blog-posts-list';
 
 import style from './blog.module.scss';
 
@@ -87,7 +87,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
               {allPosts.slice(0, allPostsLength).map((post: PostInterface) => {
                 return (
                   <div key={post.sys.id}>
-                    <MoreBlogHome post={post} />
+                    <BlogPostsList post={post} />
                   </div>
                 );
               })}
