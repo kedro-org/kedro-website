@@ -2,14 +2,14 @@
 @import '../styles/mixins';
 
 .featured {
-  background: #000;
-  color: #fff;
+  background: $color-dark;
+  color: $color-font;
   margin-top: $header-height;
 }
 
 .secondary {
-  background: #242424;
-  color: #fff;
+  background: $color-black-700;
+  color: $color-font;
 }
 
 .featured {
@@ -47,7 +47,7 @@
 
 .secondaryTitle {
   @include h3;
-  
+
   margin: 0 0;
   font-weight: 500;
 
