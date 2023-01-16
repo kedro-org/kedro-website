@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { PostInterface } from '../../../pages/blog';
+import { dateFormatting } from '../../../utils/date-formatting';
 
 import style from './blog-posts-list.module.scss';
 
@@ -45,13 +46,7 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
         <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
           <p className={style.author}>{post.author.name}</p>
         </Link>
-        <p className={style.date}>
-          {new Date(post.date).toLocaleDateString('default', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </p>
+        <p className={style.date}>{dateFormatting(post.date)}</p>
       </div>
     </div>
   );
