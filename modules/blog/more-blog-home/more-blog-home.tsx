@@ -24,8 +24,8 @@ const MoreBlogHome = ({ post }: MoreBlogHomeTypes) => {
         <Image
           src={post.coverImage.url}
           alt="cover image alt"
-          width={200}
-          height={200}
+          width={180}
+          height={180}
         />
       </div>
       <p
