@@ -32,7 +32,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
       >
         <p
           className={style.category}
-        >{`${post.category} - ${post.readingTime} min read`}</p>
+        >{`${post.category} — ${post.readingTime} min read`}</p>
         <Link href={`/blog/${post.slug}`} passHref>
           <h1
             className={classNames(style.title, {
