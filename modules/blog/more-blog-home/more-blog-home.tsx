@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { PostInterface } from '../../../pages/blog';
 
@@ -10,13 +12,33 @@ interface MoreBlogHomeTypes {
 }
 
 const MoreBlogHome = ({ post }: MoreBlogHomeTypes) => {
+  const [isTitleHovere, setIsTitleHovered] = useState(false);
+
   return (
     <div className={style.container}>
+      <div
+        className={classNames(style.imageWrapper, {
+          [style.imageWrapperShown]: isTitleHovere,
+        })}
+      >
+        <Image
+          src={post.coverImage.url}
+          alt="cover image alt"
+          width={200}
+          height={200}
+        />
+      </div>
       <p
         className={style.category}
       >{`${post.category} - ${post.readingTime} min read`}</p>
       <Link href={`/blog/${post.slug}`} passHref>
-        <h2 className={style.title}>{post.title}</h2>
+        <h2
+          className={style.title}
+          onMouseOver={() => setIsTitleHovered(true)}
+          onMouseOut={() => setIsTitleHovered(false)}
+        >
+          {post.title}
+        </h2>
       </Link>
       <p className={style.description}>{post.description}</p>
       <div className={style.authorWrapper}>

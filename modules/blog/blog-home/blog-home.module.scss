@@ -40,6 +40,17 @@
     @include h1;
     line-height: 5rem;
     margin-top: 0.75rem;
+
+    &:hover {
+      cursor: pointer;
+      color: yellow;
+      text-decoration-line: underline;
+
+      + .description {
+        color: yellow;
+        text-decoration-line: underline;
+      }
+    }
   }
 
   .description {
