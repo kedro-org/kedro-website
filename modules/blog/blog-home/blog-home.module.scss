@@ -53,7 +53,7 @@
 
 .isHovered {
   cursor: pointer;
-  color: $color-accent;
+  color: $color-accent !important;
   text-decoration-line: underline;
 }
 
