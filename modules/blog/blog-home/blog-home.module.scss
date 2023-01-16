@@ -39,6 +39,7 @@
 .info {
   .title {
     @include h1;
+    
     line-height: 5rem;
     margin-top: 0.75rem;
   }
