@@ -84,6 +84,24 @@
   }
 }
 
+.isImageHovered {
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-name: rotating;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateX(-15deg) rotateY(5deg);
+  }
+  50% {
+    transform: rotateX(15deg) rotateY(5deg);
+  }
+  100% {
+    transform: rotateX(-15deg) rotateY(5deg);
+  }
+}
+
 .author,
 .date,
 .category {
