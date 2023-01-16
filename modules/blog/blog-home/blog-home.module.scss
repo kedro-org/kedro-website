@@ -58,6 +58,7 @@
 .infoMedium {
   .title {
     @include h2;
+    
     line-height: 2.375rem;
     margin-top: 1rem;
   }
