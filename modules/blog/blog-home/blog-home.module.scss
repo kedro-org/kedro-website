@@ -40,33 +40,17 @@
     @include h1;
     line-height: 5rem;
     margin-top: 0.75rem;
-
-    &:hover {
-      cursor: pointer;
-      color: yellow;
-      text-decoration-line: underline;
-
-      + .description {
-        color: yellow;
-        text-decoration-line: underline;
-      }
-    }
   }
 
   .description {
     @include h3;
-
-    &:hover {
-      cursor: pointer;
-      color: yellow;
-      text-decoration-line: underline;
-
-      + .title {
-        color: yellow;
-        text-decoration-line: underline;
-      }
-    }
   }
+}
+
+.isHovered {
+  cursor: pointer;
+  color: yellow;
+  text-decoration-line: underline;
 }
 
 .infoMedium {

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
-import classNames from 'classnames';
 
 import { PostInterface } from '../../../pages/blog';
 
@@ -14,6 +14,8 @@ interface PostHomeTypes {
 }
 
 const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
+  const [isTitleHovered, setIsTitleHovered] = useState(false);
+
   const imgSize = size === 'large' ? 592 : 400;
 
   return (
@@ -31,10 +33,26 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
           className={style.category}
         >{`${post.category} - ${post.readingTime} min read`}</p>
         <Link href={`/blog/${post.slug}`} passHref>
-          <h1 className={style.title}>{post.title}</h1>
+          <h1
+            className={classNames(style.title, {
+              [style.isHovered]: isTitleHovered,
+            })}
+            onMouseOver={() => setIsTitleHovered(true)}
+            onMouseOut={() => setIsTitleHovered(false)}
+          >
+            {post.title}
+          </h1>
         </Link>
         <Link href={`/blog/${post.slug}`} passHref>
-          <p className={style.description}>{post.description}</p>
+          <p
+            className={classNames(style.description, {
+              [style.isHovered]: isTitleHovered,
+            })}
+            onMouseOver={() => setIsTitleHovered(true)}
+            onMouseOut={() => setIsTitleHovered(false)}
+          >
+            {post.description}
+          </p>
         </Link>
         <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
           <p className={style.author}>{post.author.name}</p>
@@ -53,6 +71,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
       <div
         className={classNames(style.image, {
           [style.imageMedium]: size === 'medium',
+          [style.isImageHovered]: isTitleHovered,
         })}
       >
         <Image
