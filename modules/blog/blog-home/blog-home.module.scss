@@ -55,6 +55,17 @@
 
   .description {
     @include h3;
+
+    &:hover {
+      cursor: pointer;
+      color: yellow;
+      text-decoration-line: underline;
+
+      + .title {
+        color: yellow;
+        text-decoration-line: underline;
+      }
+    }
   }
 }
 
