@@ -44,14 +44,21 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         <title>Blog | Kedro</title>
       </Head>
       <Header />
-      <section className={style.featured}>
-        <div className={classNames(style.animationWrapper, style.fadeInBottom)}>
+      <section className={style.featuredOuter}>
+        <div
+          className={classNames(
+            style.featuredInner,
+            style.animationWrapper,
+            style.fadeInBottom
+          )}
+        >
           <BlogHome size="large" imgPosition="right" post={featuredPost} />
         </div>
       </section>
-      <section className={style.secondary}>
+      <section className={style.secondaryOuter}>
         <div
           className={classNames(
+            style.secondaryInner,
             style.animationWrapper,
             style.fadeInBottom,
             style.animationDelay1
@@ -71,9 +78,10 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           })}
         </div>
       </section>
-      <section className={style.allBlogs}>
+      <section className={style.allBlogsOuter}>
         <div
           className={classNames(
+            style.allBlogsInner,
             style.animationWrapper,
             style.fadeInBottom,
             style.animationDelay2
