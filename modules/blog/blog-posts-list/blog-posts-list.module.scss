@@ -77,11 +77,10 @@
 
 .authorWrapper {
   grid-area: authorWrapper;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .author {
-  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.25rem;
   margin-bottom: 5px;
@@ -95,7 +94,6 @@
 .date {
   color: $color-grey-500;
   margin-top: 0;
-  margin-bottom: 17px;
 }
 
 .container:first-child {

@@ -6,7 +6,7 @@ $gap-mobile-version: 1rem;
 
 .container {
   align-items: center;
-  column-gap: 50px;
+  column-gap: 2rem;
   display: flex;
   justify-content: center;
 
@@ -89,7 +89,7 @@ $gap-mobile-version: 1rem;
   .description {
     // According to the new design
     font-size: 1rem;
-    line-height: 24px;
+    line-height: 1.5rem;
     font-weight: 400;
 
     color: $color-white-200;
@@ -120,7 +120,7 @@ $gap-mobile-version: 1rem;
   // According to the new design
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 1.25rem;
 }
 
 .category {
