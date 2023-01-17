@@ -1,6 +1,9 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
+$gap: 0.75rem;
+$gap-mobile-version: 1rem;
+
 .container {
   align-items: center;
   column-gap: 50px;
@@ -40,29 +43,26 @@
   .title {
     @include h1;
 
+    font-weight: 500;
     line-height: 5rem;
-    margin-top: 0.75rem;
+    margin-top: $gap;
+
+    @include breakpoint(small) {
+      margin-top: 1.5rem;
+    }
   }
 
   .description {
     @include h3;
 
     color: $color-grey-200;
+    margin: $gap 0;
+
+    @include breakpoint(small) {
+      margin: $gap-mobile-version 0;
+    }
   }
 }
-
-// do we need to create breakpoint at med size for font size?
-// @include breakpoint(medium-only) {
-//   .title {
-//     @include h2;
-//     line-height: 2.75rem;
-//   }
-
-//   .description {
-//     @include h4;
-//   }
-// }
-// }
 
 .isHovered {
   cursor: pointer;
@@ -76,6 +76,10 @@
 
     line-height: 2.375rem;
     margin-top: 1rem;
+
+    @include breakpoint(small) {
+      margin-top: $gap;
+    }
   }
 
   .description {
@@ -87,16 +91,12 @@
   .category {
     color: color-white-900;
   }
+}
 
-  // @include breakpoint(medium-only) {
-  //   .title {
-  //     @include h3;
-  //   }
-
-  //   .description {
-  //     @include h4;
-  //   }
-  // }
+.imageLarge {
+  @include breakpoint(small) {
+    width: 400px;
+  }
 }
 
 .imageMedium {
@@ -115,24 +115,28 @@
 
 .category {
   color: $color-grey-500;
-  margin-bottom: 0;
+  margin: 0;
+
+  @include breakpoint(small) {
+    margin-top: $gap;
+  }
 }
 
 .author {
   font-weight: 500;
-  margin-bottom: 5px;
+  margin: 0;
+  margin-bottom: $gap/2;
 }
 
 .date {
   color: $color-grey-500;
   margin-top: 0;
-  margin-bottom: 17px;
+  margin-bottom: $gap;
 }
 
 .button {
   @include button($size: normal, $style: underline);
 
-  margin-bottom: 3.125rem;
   font-size: 0.875rem;
 
   @include breakpoint(small) {

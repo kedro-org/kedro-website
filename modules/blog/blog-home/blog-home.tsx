@@ -114,6 +114,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
       </div>
       <div
         className={classNames(style.image, {
+          [style.imageLarge]: size === 'large',
           [style.imageMedium]: size === 'medium',
           [style.isImageHovered]: isTitleHovered,
         })}

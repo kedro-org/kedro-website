@@ -3,9 +3,10 @@
 
 .container {
   display: grid;
-  column-gap: 0.5rem;
-  grid-template-columns: 23rem 36rem 10rem;
-  grid-template-rows: 2rem 5rem;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  grid-template-columns: 24rem 38rem 11rem;
+  grid-template-rows: 1.25rem 5.625rem;
   grid-template-areas:
     'category category category'
     'title description authorWrapper';
