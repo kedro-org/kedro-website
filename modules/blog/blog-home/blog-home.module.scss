@@ -43,6 +43,7 @@ $gap-mobile-version: 1rem;
   .title {
     @include h1;
 
+    // According to the new design
     font-weight: 500;
     line-height: 5rem;
     margin-top: $gap;
@@ -56,6 +57,8 @@ $gap-mobile-version: 1rem;
     @include h3;
 
     color: $color-grey-200;
+    // According to the new design
+    line-height: 1.875rem;
     margin: $gap 0;
 
     @include breakpoint(small) {
@@ -72,8 +75,9 @@ $gap-mobile-version: 1rem;
 
 .infoMedium {
   .title {
-    @include h2;
-
+    // According to the new design
+    font-size: 1.875rem;
+    font-weight: 500;
     line-height: 2.375rem;
     margin-top: 1rem;
 
@@ -83,7 +87,10 @@ $gap-mobile-version: 1rem;
   }
 
   .description {
-    @include h4;
+    // According to the new design
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 400;
 
     color: $color-white-200;
   }
@@ -110,7 +117,10 @@ $gap-mobile-version: 1rem;
 .author,
 .date,
 .category {
+  // According to the new design
   font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .category {

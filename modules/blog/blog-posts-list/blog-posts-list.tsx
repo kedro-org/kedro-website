@@ -25,8 +25,8 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
         <Image
           src={post.coverImage.url}
           alt="cover image alt"
-          width={180}
-          height={180}
+          width={230}
+          height={230}
         />
       </div>
       <p
