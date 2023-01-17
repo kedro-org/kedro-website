@@ -9,7 +9,7 @@ import { dateFormatting } from '../../../utils/date-formatting';
 import style from './blog-home.module.scss';
 
 const tiltEffectSettings = {
-  max: 4, // max tilt rotation (degrees (deg))
+  max: 3, // max tilt rotation (degrees (deg))
   perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
   scale: 1,
   speed: 500, // speed (transition-duration) of the enter/exit transition (milliseconds (ms))
