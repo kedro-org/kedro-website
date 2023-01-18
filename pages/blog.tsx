@@ -78,10 +78,10 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           })}
         </div>
       </section>
-      <section className={style.allBlogsOuter}>
+      <section className={style.allBlogPostsOuter}>
         <div
           className={classNames(
-            style.allBlogsInner,
+            style.allBlogPostsInner,
             style.animationWrapper,
             style.fadeInBottom,
             style.animationDelay2
