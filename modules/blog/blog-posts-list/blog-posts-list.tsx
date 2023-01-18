@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import { PostInterface } from '../../../pages/blog';
 import { dateFormatting } from '../../../utils/date-formatting';
+import {
+  tiltEffectSettings,
+  getTiltEffectValues,
+} from '../../../utils/get-tilt-effect-values';
 
 import style from './blog-posts-list.module.scss';
 
@@ -14,6 +18,23 @@ interface BlogPostsListTypes {
 
 const BlogPostsList = ({ post }: BlogPostsListTypes) => {
   const [isTitleHovere, setIsTitleHovered] = useState(false);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const titleRef = useRef(null);
+
+  const onMouseMouse = (event: any) => {
+    setIsTitleHovered(true);
+    const { valueX, valueY } = getTiltEffectValues(titleRef, event);
+
+    setRotateX(valueX);
+    setRotateY(valueY);
+  };
+
+  const onMouseLeave = () => {
+    setIsTitleHovered(false);
+    setRotateX(0);
+    setRotateY(0);
+  };
 
   return (
     <div className={style.container}>
@@ -21,12 +42,17 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
         className={classNames(style.imageWrapper, {
           [style.imageWrapperShown]: isTitleHovere,
         })}
+        style={{
+          transition: `transform ${tiltEffectSettings.speed}ms ${tiltEffectSettings.easing}`,
+          transform: `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
+            scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`,
+        }}
       >
         <Image
           src={post.coverImage.url}
           alt="cover image alt"
-          width={230}
-          height={230}
+          width={236}
+          height={236}
         />
       </div>
       <p
@@ -35,8 +61,9 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
       <Link href={`/blog/${post.slug}`} passHref>
         <h2
           className={style.title}
-          onMouseOver={() => setIsTitleHovered(true)}
-          onMouseOut={() => setIsTitleHovered(false)}
+          onMouseMove={onMouseMouse}
+          onMouseOut={onMouseLeave}
+          ref={titleRef}
         >
           {post.title}
         </h2>
