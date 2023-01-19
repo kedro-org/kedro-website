@@ -57,7 +57,7 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
       </div>
       <p
         className={style.category}
-      >{`${post.category} - ${post.readingTime} min read`}</p>
+      >{`${post.category} — ${post.readingTime} min read`}</p>
       <Link href={`/blog/${post.slug}`} passHref>
         <h2
           className={style.title}
