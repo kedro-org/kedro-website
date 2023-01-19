@@ -17,7 +17,7 @@
   @include breakpoint(small) {
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
+    padding: 1rem 0 1.5rem;
   }
 }
 
@@ -62,7 +62,7 @@
   }
 
   @include breakpoint(small) {
-    margin-top: 0.5rem;
+    font-size: 1.25rem;
   }
 }
 
