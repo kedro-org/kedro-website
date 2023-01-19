@@ -44,6 +44,7 @@
   margin: 0;
 
   @include breakpoint(small) {
+    font-size: 0.75rem;
     margin-bottom: 0;
   }
 }
