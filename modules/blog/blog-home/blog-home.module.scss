@@ -57,6 +57,7 @@ $gap-mobile-version: 1rem;
     }
 
     @include breakpoint(small) {
+      @include display-md;
       margin-top: 1.5rem;
     }
   }
@@ -72,6 +73,7 @@ $gap-mobile-version: 1rem;
     }
 
     @include breakpoint(small) {
+      @include text-xl;
       margin: $gap-mobile-version 0;
     }
   }
