@@ -17,7 +17,7 @@
   @include breakpoint(small) {
     display: flex;
     flex-direction: column;
-    padding: 1rem 0 1.5rem;
+    padding: 1.5rem 0;
   }
 }
 
@@ -28,6 +28,10 @@
   top: -1.2rem;
   visibility: hidden;
   z-index: -1;
+
+  @include breakpoint(small) {
+    top: -0.2rem;
+  }
 }
 
 .imageWrapperShown {
@@ -97,11 +101,7 @@
   margin-top: 0;
 }
 
-.container:first-child {
-  @include breakpoint(small) {
-    margin-top: 0;
-  }
-
+.container:nth-of-type(1) {
   &:before {
     content: '';
     border-bottom: solid 1px $color-grey-500;
@@ -111,6 +111,14 @@
     top: 0;
     width: 100%;
     z-index: 1;
+  }
+
+  @include breakpoint(small) {
+    margin-top: 0;
+
+    &::before {
+      display: none;
+    }
   }
 }
 

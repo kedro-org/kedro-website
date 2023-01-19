@@ -93,11 +93,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           ) : (
             <>
               {allPosts.slice(0, allPostsLength).map((post: PostInterface) => {
-                return (
-                  <div key={post.sys.id}>
-                    <BlogPostsList post={post} />
-                  </div>
-                );
+                return <BlogPostsList key={post.sys.id} post={post} />;
               })}
               {allPosts.length > defaultLength &&
               allPosts.length > allPostsLength ? (
