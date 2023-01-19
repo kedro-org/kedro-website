@@ -14,6 +14,12 @@
 
   padding: 1.5rem 1.35rem 3rem;
 
+  @include breakpoint(medium-only) {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.35rem 3rem;
+  }
+
   @include breakpoint(small) {
     display: flex;
     flex-direction: column;
@@ -107,7 +113,7 @@
     opacity: 0.15;
     position: absolute;
     top: 0;
-    width: 90%;
+    width: 100%;
     z-index: 1;
   }
 
@@ -127,6 +133,6 @@
   opacity: 0.15;
   position: absolute;
   top: 100%;
-  width: 90%;
+  width: 100%;
   z-index: 1;
 }
