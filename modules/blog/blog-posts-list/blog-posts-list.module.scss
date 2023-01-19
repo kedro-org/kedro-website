@@ -115,10 +115,6 @@
     top: 0;
     width: 100%;
     z-index: 1;
-
-    @include breakpoint(small) {
-      left: 0;
-    }
   }
 
   @include breakpoint(small) {
