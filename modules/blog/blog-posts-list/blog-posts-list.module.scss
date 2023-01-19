@@ -12,7 +12,7 @@
     'title description authorWrapper';
   position: relative;
 
-  padding: 1.5rem 0 3rem;
+  padding: 1.5rem 1.35rem 3rem;
 
   @include breakpoint(small) {
     display: flex;
@@ -39,27 +39,26 @@
 }
 
 .category {
+  @include text-sm;
+
   color: $color-grey-500;
-  // According to the new design
-  font-size: 0.875rem;
   font-weight: 500;
   grid-area: category;
-  line-height: 1.25rem;
   margin: 0;
 
   @include breakpoint(small) {
-    font-size: 0.75rem;
+    @include text-xs;
+
     margin-bottom: 0;
   }
 }
 
 .title {
-  @include h3;
+  @include text-xl;
 
   cursor: pointer;
   font-weight: 500;
   grid-area: title;
-  line-height: 1.875rem;
   margin: 0;
 
   &:hover {
@@ -67,27 +66,26 @@
   }
 
   @include breakpoint(small) {
-    font-size: 1.25rem;
+    @include text-lg;
   }
 }
 
 .description {
+  @include text-md;
+
   color: $color-grey-900;
-  font-size: 1rem;
   font-weight: 400;
   grid-area: description;
-  line-height: 1.5rem;
   margin: 0;
 }
 
 .authorWrapper {
+  @include text-sm;
   grid-area: authorWrapper;
-  font-size: 0.875rem;
 }
 
 .author {
   font-weight: 400;
-  line-height: 1.25rem;
   margin-bottom: 2px;
   margin-top: 0;
 
@@ -105,11 +103,11 @@
   &:before {
     content: '';
     border-bottom: solid 1px $color-grey-500;
-    left: 0;
+    left: 1.35rem;
     opacity: 0.15;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 90%;
     z-index: 1;
   }
 
@@ -125,10 +123,10 @@
 .container:after {
   content: '';
   border-bottom: solid 1px $color-grey-500;
-  left: 0;
+  left: 1.35rem;
   opacity: 0.15;
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 90%;
   z-index: 1;
 }

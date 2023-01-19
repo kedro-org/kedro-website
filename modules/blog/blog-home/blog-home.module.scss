@@ -9,7 +9,11 @@ $gap-mobile-version: 1rem;
   column-gap: 2rem;
   display: flex;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 1.35rem;
+
+  @include breakpoint(medium-only) {
+    padding: 0 0.5rem;
+  }
 
   @include breakpoint(small) {
     flex-direction: column-reverse;
@@ -43,12 +47,14 @@ $gap-mobile-version: 1rem;
 
 .info {
   .title {
-    @include h1;
+    @include display-2xl;
 
-    // According to the new design
     font-weight: 500;
-    line-height: 5rem;
     margin-top: $gap;
+
+    @include breakpoint(medium-only) {
+      @include display-xl;
+    }
 
     @include breakpoint(small) {
       margin-top: 1.5rem;
@@ -56,12 +62,14 @@ $gap-mobile-version: 1rem;
   }
 
   .description {
-    @include h3;
+    @include text-xl;
 
     color: $color-grey-200;
-    // According to the new design
-    line-height: 1.875rem;
     margin: $gap 0;
+
+    @include breakpoint(medium-only) {
+      @include text-lg;
+    }
 
     @include breakpoint(small) {
       margin: $gap-mobile-version 0;
@@ -77,10 +85,9 @@ $gap-mobile-version: 1rem;
 
 .infoMedium {
   .title {
-    // According to the new design
-    font-size: 1.875rem;
+    @include display-sm;
+
     font-weight: 500;
-    line-height: 2.375rem;
     margin-top: 1rem;
 
     @include breakpoint(small) {
@@ -89,9 +96,7 @@ $gap-mobile-version: 1rem;
   }
 
   .description {
-    // According to the new design
-    font-size: 1rem;
-    line-height: 1.5rem;
+    @include text-md;
     font-weight: 400;
 
     color: $color-white-200;
@@ -119,10 +124,9 @@ $gap-mobile-version: 1rem;
 .author,
 .date,
 .category {
-  // According to the new design
-  font-size: 0.875rem;
+  @include text-sm;
+
   font-weight: 500;
-  line-height: 1.25rem;
 }
 
 .category {
@@ -147,8 +151,7 @@ $gap-mobile-version: 1rem;
 
 .button {
   @include button($size: normal, $style: underline);
-
-  font-size: 0.875rem;
+  @include text-sm;
 
   @include breakpoint(small) {
     margin: 0;

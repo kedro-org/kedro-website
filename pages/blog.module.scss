@@ -43,19 +43,23 @@
 }
 
 .secondaryTitle {
-  // According to the new design
-  font-size: 1.5rem;
+  @include display-xs;
+
   font-weight: 500;
-  margin: 0 0;
+  margin: 0 1.5rem;
 
   @include breakpoint(small) {
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
   }
 }
 
 .allBlogPostsInner {
   .secondaryTitle {
-    margin-bottom: 0.75rem;
+    margin: 0 1.5rem 2rem;
+
+    @include breakpoint(small) {
+      margin: 0 0 0.75rem;
+    }
   }
 }
 
@@ -67,9 +71,9 @@
 
 .showMoreButton {
   @include button($size: normal, $style: primary);
+  @include text-sm;
 
   margin: 3.125rem 0;
-  font-size: 0.875rem;
   font-weight: 700;
 
   @include breakpoint(small) {
