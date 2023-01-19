@@ -130,6 +130,7 @@
 
 @mixin h1 {
   font-size: 4.5rem;
+  font-weight: bold;
   line-height: 90px;
   margin: 0;
 
@@ -172,6 +173,7 @@
 @mixin display-2xl {
   font-size: 4.5rem;
   line-height: 5.625rem;
+  margin: 0;
 }
 
 @mixin display-xl {
