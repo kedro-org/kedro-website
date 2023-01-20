@@ -22,7 +22,7 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
   const [rotateY, setRotateY] = useState(0);
   const titleRef = useRef(null);
 
-  const onMouseMouse = (event: any) => {
+  const onMouseMouse = (event: React.MouseEvent) => {
     setIsTitleHovered(true);
     const { valueX, valueY } = getTiltEffectValues(titleRef, event);
 
