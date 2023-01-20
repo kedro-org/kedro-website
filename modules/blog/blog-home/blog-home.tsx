@@ -26,10 +26,10 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
 
   const imgSize = size === 'large' ? 592 : 400;
 
-  const onMouseMouse = (event: any) => {
-    setIsTitleHovered(true);
+  const onMouseMouse = (event: React.MouseEvent) => {
     const { valueX, valueY } = getTiltEffectValues(titleRef, event);
-
+    
+    setIsTitleHovered(true);
     setRotateX(valueX);
     setRotateY(valueY);
   };
