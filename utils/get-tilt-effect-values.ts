@@ -8,7 +8,7 @@ export const tiltEffectSettings = {
 
 export const getTiltEffectValues = (
   ref: React.RefObject<HTMLDivElement>,
-  event: MouseEvent
+  event: React.MouseEvent
 ) => {
   const card = ref?.current?.getBoundingClientRect();
   const cardWidth = card.width;
