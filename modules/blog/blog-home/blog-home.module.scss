@@ -109,12 +109,6 @@ $gap-mobile-version: 1rem;
   }
 }
 
-.imageLarge {
-  @include breakpoint(small) {
-    width: 400px;
-  }
-}
-
 .imageMedium {
   margin: 7rem 0;
 
