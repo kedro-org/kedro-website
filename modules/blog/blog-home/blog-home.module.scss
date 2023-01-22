@@ -117,6 +117,12 @@ $gap-mobile-version: 1rem;
   }
 }
 
+.imageLarge {
+  @include breakpoint(small) {
+    width: 100vw;
+  }
+}
+
 .author,
 .date,
 .category {
