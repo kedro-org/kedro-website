@@ -1,24 +1,24 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import Link from 'next/link';
-import Image from 'next/image';
-
-import { PostInterface } from '../../../pages/blog';
 import { dateFormatting } from '../../../utils/date-formatting';
 import {
   tiltEffectSettings,
   getTiltEffectValues,
 } from '../../../utils/get-tilt-effect-values';
 
-import style from './blog-home.module.scss';
+import { Post } from '../../../pages/blog';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import style from './post-snippet.module.scss';
 
 interface PostHomeTypes {
   imgPosition: string;
-  post: PostInterface;
+  post: Post;
   size: string;
 }
 
-const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
+const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
   const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -28,7 +28,7 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
 
   const onMouseMouse = (event: React.MouseEvent) => {
     const { valueX, valueY } = getTiltEffectValues(titleRef, event);
-    
+
     setIsTitleHovered(true);
     setRotateX(valueX);
     setRotateY(valueY);
@@ -108,4 +108,4 @@ const BlogHome = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
   );
 };
 
-export default BlogHome;
+export default PostSnippet;

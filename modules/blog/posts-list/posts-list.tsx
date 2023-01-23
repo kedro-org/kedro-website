@@ -3,21 +3,21 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { PostInterface } from '../../../pages/blog';
+import { Post } from '../../../pages/blog';
 import { dateFormatting } from '../../../utils/date-formatting';
 import {
   tiltEffectSettings,
   getTiltEffectValues,
 } from '../../../utils/get-tilt-effect-values';
 
-import style from './blog-posts-list.module.scss';
+import style from './posts-list.module.scss';
 
-interface BlogPostsListTypes {
-  post: PostInterface;
-}
+type PostsList = {
+  post: Post;
+};
 
-const BlogPostsList = ({ post }: BlogPostsListTypes) => {
-  const [isTitleHovere, setIsTitleHovered] = useState(false);
+const PostsList = ({ post }: PostsList) => {
+  const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const titleRef = useRef(null);
@@ -40,7 +40,7 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
     <div className={style.container}>
       <div
         className={classNames(style.imageWrapper, {
-          [style.imageWrapperShown]: isTitleHovere,
+          [style.imageWrapperShown]: isTitleHovered,
         })}
         style={{
           transition: `transform ${tiltEffectSettings.speed}ms ${tiltEffectSettings.easing}`,
@@ -79,4 +79,4 @@ const BlogPostsList = ({ post }: BlogPostsListTypes) => {
   );
 };
 
-export default BlogPostsList;
+export default PostsList;

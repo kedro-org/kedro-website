@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
+import { getAllPostsForBlog } from '../lib/api';
 
 import Header from '../modules/shared/header';
-
-import { getAllPostsForBlog } from '../lib/api';
-import BlogHome from '../modules/blog/blog-home';
-import BlogPostsList from '../modules/blog/blog-posts-list';
+import PostsList from '../modules/blog/posts-list';
+import PostSnippet from '../modules/blog/post-snippet';
 
 import style from './blog.module.scss';
 
 const defaultLength = 6;
 
-export interface PostInterface {
+export type Post = {
   sys: { id: string };
   slug: string;
   title: string;
@@ -27,13 +26,13 @@ export interface PostInterface {
   secondaryPost: boolean | null;
   author: { name: string; picture: any; urlDisplayName: string };
   excerpt: string;
-}
+};
 
-interface PostTypes {
-  featuredPost: PostInterface;
-  secondaryPosts: PostInterface[];
-  allPosts: PostInterface[];
-}
+type PostTypes = {
+  allPosts: Post[];
+  featuredPost: Post;
+  secondaryPosts: Post[];
+};
 
 const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
   const [allPostsLength, setAllPostLength] = useState(defaultLength);
@@ -52,7 +51,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
             style.fadeInBottom
           )}
         >
-          <BlogHome size="large" imgPosition="right" post={featuredPost} />
+          <PostSnippet size="large" imgPosition="right" post={featuredPost} />
         </div>
       </section>
       <section className={style.secondaryOuter}>
@@ -65,13 +64,13 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           )}
         >
           <h3 className={style.secondaryTitle}>Recent blog posts</h3>
-          {secondaryPosts.map((post: PostInterface, index: number) => {
+          {secondaryPosts.map((post: Post, index: number) => {
             return (
               <div key={post.sys.id}>
-                <BlogHome
-                  size="medium"
+                <PostSnippet
                   imgPosition={index % 2 == 0 ? 'left' : 'right'}
                   post={post}
+                  size="medium"
                 />
               </div>
             );
@@ -92,8 +91,8 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
             <p>{'No more posts'}</p>
           ) : (
             <>
-              {allPosts.slice(0, allPostsLength).map((post: PostInterface) => {
-                return <BlogPostsList key={post.sys.id} post={post} />;
+              {allPosts.slice(0, allPostsLength).map((post: Post) => {
+                return <PostsList key={post.sys.id} post={post} />;
               })}
               {allPosts.length > defaultLength &&
               allPosts.length > allPostsLength ? (
@@ -130,9 +129,9 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
-      featuredPost: data.filter((post: PostInterface) => post.featuredPost)[0],
+      featuredPost: data.filter((post: Post) => post.featuredPost)[0],
       secondaryPosts: data
-        .filter((post: PostInterface) => post.secondaryPost)
+        .filter((post: Post) => post.secondaryPost)
         .slice(0, 2),
       allPosts: data,
       preview,
