@@ -9,7 +9,7 @@ $gap-mobile-version: 1rem;
   column-gap: 2rem;
   display: flex;
   justify-content: center;
-  padding: 0 1.35rem;
+  padding: 0 2rem;
 
   @include breakpoint(medium-only) {
     padding: 0 0.5rem;

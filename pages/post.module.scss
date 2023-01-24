@@ -8,7 +8,7 @@
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 7.25rem 3.5rem;
+    padding: 7.25rem 3.5rem 6rem;
   }
 
   @include breakpoint(small) {
@@ -17,11 +17,10 @@
   }
 }
 
-.secondaryOuter,
-.allBlogPostsOuter {
+.postOuter {
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 5rem 3.5rem;
+    padding: 0 3.5rem 5rem;
   }
 
   @include breakpoint(small) {
@@ -31,8 +30,7 @@
 }
 
 .featuredInner,
-.secondaryInner,
-.allBlogPostsInner {
+.postInner {
   margin: 0 auto;
   max-width: $blog-max-content;
 }
@@ -48,7 +46,9 @@
   }
 }
 
-.allBlogPostsInner {
+.postInner {
+  padding: 0 1.35rem;
+
   .secondaryTitle {
     margin: 0 1.5rem 2rem;
 

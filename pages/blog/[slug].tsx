@@ -63,7 +63,11 @@ export default function Post({ post, morePosts, preview }: Post) {
                 />
               </div>
             </section>
-            <PostBody content={post.content} />
+            <section className={style.postOuter}>
+              <div className={style.postInner}>
+                <PostBody content={post.content} />
+              </div>
+            </section>
           </article>
           {morePosts && morePosts.length > 0 && <div>More posts here...</div>}
         </>

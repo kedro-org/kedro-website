@@ -1,0 +1,79 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.postBody {
+  @include text-lg;
+
+  color: $color-grey-900;
+  max-width: 904px;
+
+  h2 {
+    @include display-sm;
+
+    color: $color-dark;
+    margin: 0 0 1.5rem;
+
+    &:not(:first-of-type) {
+      margin-top: 6.5rem;
+    }
+  }
+
+  pre {
+    @include breakpoint(medium-up) {
+      margin: 4.5rem 0 !important;
+    }
+
+    @include breakpoint(small) {
+      margin: 3rem 0 !important;
+    }
+  }
+
+  blockquote {
+    @include display-sm;
+
+    border-left: 2px solid $color-accent;
+    color: $color-slate;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 2.75rem;
+    padding-left: 20px;
+
+    p {
+      margin: 0;
+    }
+
+    p:last-of-type {
+      @include text-md;
+
+      font-style: normal;
+      font-weight: 400;
+      margin-top: 2rem;
+    }
+
+    @include breakpoint(medium-up) {
+      margin: 4.5rem 0;
+    }
+
+    @include breakpoint(small) {
+      margin: 3rem 0;
+    }
+  }
+
+  ol > li p {
+    margin: 0;
+  }
+}
+
+.postBodyImgContainer {
+  @include breakpoint(medium-up) {
+    margin: 4.5rem 0;
+  }
+
+  @include breakpoint(small) {
+    margin: 3rem 0;
+  }
+}
+
+.postBodyImgCaption {
+  @include text-sm;
+}

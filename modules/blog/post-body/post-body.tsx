@@ -1,24 +1,28 @@
-import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-interface Content {
+import Image from 'next/image';
+// import Media from '../../shared/media';
+
+import style from './post-body.module.scss';
+
+type Content = {
   content: {
     json: Document;
     links: any;
   };
-}
+};
 
-interface _Block {
+type _Block = {
   sys: {
     id: string;
   };
   __typename: string;
-}
+};
 
-interface Links {
+type Links = {
   assets: {
     block: _Block[];
   };
@@ -26,9 +30,9 @@ interface Links {
     block: _Block[];
     inline: any[];
   };
-}
+};
 
-interface Node {
+type Node = {
   content: any[];
   data: {
     target: {
@@ -40,7 +44,7 @@ interface Node {
     };
   };
   nodeType: string;
-}
+};
 
 const renderOptions = (links: Links) => {
   // Create an asset map
@@ -82,7 +86,17 @@ const renderOptions = (links: Links) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const asset = assetMap.get(node.data.target.sys.id);
 
-        return <Image src={asset.url} layout="fill" alt={asset.description} />;
+        return (
+          <div className={style.postBodyImgContainer}>
+            <Image
+              alt={asset.description}
+              height={asset.height}
+              src={asset.url}
+              width={asset.width}
+            />
+            <div className={style.postBodyImgCaption}>{asset.title}</div>
+          </div>
+        );
       },
     },
   };
@@ -92,7 +106,7 @@ export default function PostBody({ content }: Content) {
   const { json, links } = content;
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className={style.postBody}>
       <div>{documentToReactComponents(json, renderOptions(links) as any)}</div>
     </div>
   );

@@ -11,12 +11,12 @@
     'title description authorWrapper';
   position: relative;
 
-  padding: 1.5rem 1.35rem 3rem;
+  padding: 1.5rem 2rem 3rem;
 
   @include breakpoint(medium-only) {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 1.35rem 3rem;
+    padding: 1.5rem 2rem 3rem;
   }
 
   @include breakpoint(small) {
@@ -112,7 +112,7 @@
   &:before {
     content: '';
     border-bottom: solid 1px $color-grey-500;
-    left: 1.35rem;
+    left: 2rem;
     opacity: 0.15;
     position: absolute;
     top: 0;
@@ -132,7 +132,7 @@
 .container:after {
   content: '';
   border-bottom: solid 1px $color-grey-500;
-  left: 1.35rem;
+  left: 2rem;
   opacity: 0.15;
   position: absolute;
   top: 100%;
