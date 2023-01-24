@@ -76,6 +76,10 @@ $gap-mobile-version: 1rem;
       @include text-xl;
       margin: $gap-mobile-version 0;
     }
+
+    &.descriptionOnPostPage {
+      color: $color-grey-900;
+    }
   }
 }
 

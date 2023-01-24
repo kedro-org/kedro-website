@@ -1,46 +1,34 @@
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
+import { PostSnippet as PostSnippetTypes } from '../../modules/blog/post-snippet';
+
 import Head from 'next/head';
 import ErrorPage from 'next/error';
 import Header from '../../modules/shared/header';
-import Media from '../../modules/shared/media';
 import PostBody from '../../modules/blog/post-body';
+import PostSnippet from '../../modules/blog/post-snippet';
 
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
+import style from '../post.module.scss';
 
-interface Slug {
+type Slug = {
   slug: string;
-}
+};
 
-interface Post {
-  author: {
-    name: string;
-    picture: any;
-  };
+type PostProps = {
   content: {
     json: any;
     links: any;
   };
-  coverImage: {
-    url: string;
-  };
-  date: string;
-  excerpt: string;
-  featuredPost: true;
-  secondaryPost: false;
-  slug: string;
-  sys: {
-    id: string;
-  };
-  title: string;
-}
+};
 
-interface BlogPost {
-  morePosts: Post[];
-  post: Post;
+type Post = {
+  morePosts: PostSnippetTypes[];
+  post: PostProps & PostSnippetTypes;
   preview: boolean;
-}
+};
 
-export default function BlogPost({ post, morePosts, preview }: BlogPost) {
+export default function Post({ post, morePosts, preview }: Post) {
   const router = useRouter();
 
   if (!router.isFallback && !post) {
@@ -59,18 +47,22 @@ export default function BlogPost({ post, morePosts, preview }: BlogPost) {
               <meta property="og:image" content={post.coverImage.url} />
             </Head>
             <Header />
-            <div style={{ width: 400, height: 260, position: 'relative' }}>
-              <Media
-                alt="Kedro screenshot"
-                image={post.coverImage.url}
-                layout="fill"
-                placeholder="empty"
-                priority={true}
-              />
-            </div>
-            <div>{post.title}</div>
-            <div>{post.date}</div>
-            <div>{post.author.name}</div>
+            <section className={style.featuredOuter}>
+              <div
+                className={classNames(
+                  style.featuredInner,
+                  style.animationWrapper,
+                  style.fadeInBottom
+                )}
+              >
+                <PostSnippet
+                  imgPosition="right"
+                  onPostPage
+                  post={post}
+                  size="large"
+                />
+              </div>
+            </section>
             <PostBody content={post.content} />
           </article>
           {morePosts && morePosts.length > 0 && <div>More posts here...</div>}

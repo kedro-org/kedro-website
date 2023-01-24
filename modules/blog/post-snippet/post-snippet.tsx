@@ -6,19 +6,47 @@ import {
   getTiltEffectValues,
 } from '../../../utils/get-tilt-effect-values';
 
-import { Post } from '../../../pages/blog';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import style from './post-snippet.module.scss';
 
-interface PostHomeTypes {
-  imgPosition: string;
-  post: Post;
-  size: string;
-}
+export type PostSnippet = {
+  author: {
+    name: string;
+    picture: any;
+    urlDisplayName: string;
+  };
+  category: string;
+  coverImage: {
+    url: string;
+  };
+  date: string;
+  description: string;
+  excerpt: string;
+  featuredPost: boolean;
+  readingTime: number;
+  secondaryPost: boolean | null;
+  slug: string;
+  sys: {
+    id: string;
+  };
+  title: string;
+};
 
-const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
+type PostSnippetProps = {
+  imgPosition: string;
+  onPostPage?: boolean;
+  post: PostSnippet;
+  size: string;
+};
+
+const PostSnippet = ({
+  imgPosition = 'right',
+  onPostPage = false,
+  post,
+  size,
+}: PostSnippetProps) => {
   const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -54,36 +82,53 @@ const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
         <p
           className={style.category}
         >{`${post.category} — ${post.readingTime} min read`}</p>
-        <Link href={`/blog/${post.slug}`} passHref>
-          <div
-            className={style.titleWrapper}
-            onMouseMove={onMouseMouse}
-            onMouseOut={onMouseLeave}
-            ref={titleRef}
-          >
-            <h1
-              className={classNames(style.title, {
-                [style.isHovered]: isTitleHovered,
-              })}
-            >
-              {post.title}
-            </h1>
+        {onPostPage ? (
+          <div className={style.titleWrapper}>
+            <h1 className={style.title}>{post.title}</h1>
             <p
               className={classNames(style.description, {
-                [style.isHovered]: isTitleHovered,
+                [style.descriptionOnPostPage]: onPostPage,
               })}
             >
               {post.description}
             </p>
           </div>
-        </Link>
-        <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
-          <p className={style.author}>{post.author.name}</p>
-        </Link>
-        <p className={style.date}>{dateFormatting(post.date)}</p>
-        <Link href={`/blog/${post.slug}`} passHref>
-          <button className={style.button}>Read more</button>
-        </Link>
+        ) : (
+          <Link href={`/blog/${post.slug}`} passHref>
+            <div
+              className={style.titleWrapper}
+              onMouseMove={onMouseMouse}
+              onMouseOut={onMouseLeave}
+              ref={titleRef}
+            >
+              <h1
+                className={classNames(style.title, {
+                  [style.isHovered]: isTitleHovered,
+                })}
+              >
+                {post.title}
+              </h1>
+              <p
+                className={classNames(style.description, {
+                  [style.isHovered]: isTitleHovered,
+                })}
+              >
+                {post.description}
+              </p>
+            </div>
+          </Link>
+        )}
+        {onPostPage ? null : (
+          <>
+            <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
+              <p className={style.author}>{post.author.name}</p>
+            </Link>
+            <p className={style.date}>{dateFormatting(post.date)}</p>
+            <Link href={`/blog/${post.slug}`} passHref>
+              <button className={style.button}>Read more</button>
+            </Link>
+          </>
+        )}
       </div>
       <div
         className={classNames(style.image, {
@@ -98,10 +143,10 @@ const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
         }}
       >
         <Image
-          src={post.coverImage.url}
           alt="cover image alt"
-          width={imgSize}
           height={imgSize}
+          src={post.coverImage.url}
+          width={imgSize}
         />
       </div>
     </div>

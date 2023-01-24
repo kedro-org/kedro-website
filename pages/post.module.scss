@@ -1,0 +1,107 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.featuredOuter {
+  background: $color-font;
+  color: $color-dark;
+  margin-top: $header-height;
+
+  @include breakpoint(medium-up) {
+    margin: 0 -3.5rem;
+    padding: 7.25rem 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem 1.5rem;
+    text-align: start;
+  }
+}
+
+.secondaryOuter,
+.allBlogPostsOuter {
+  @include breakpoint(medium-up) {
+    margin: 0 -3.5rem;
+    padding: 5rem 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 3rem 1rem 1rem;
+    text-align: start;
+  }
+}
+
+.featuredInner,
+.secondaryInner,
+.allBlogPostsInner {
+  margin: 0 auto;
+  max-width: $blog-max-content;
+}
+
+.secondaryTitle {
+  @include display-xs;
+
+  font-weight: 500;
+  margin: 0 1.5rem;
+
+  @include breakpoint(small) {
+    margin: 0 0 1.5rem;
+  }
+}
+
+.allBlogPostsInner {
+  .secondaryTitle {
+    margin: 0 1.5rem 2rem;
+
+    @include breakpoint(small) {
+      margin: 0 0 0.75rem;
+    }
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.showMoreButton {
+  @include button($size: normal, $style: primary);
+  @include text-sm;
+
+  margin: 3.125rem 0;
+  font-weight: 700;
+
+  @include breakpoint(small) {
+    margin: 2rem;
+  }
+}
+
+.animationWrapper {
+  opacity: 0;
+  transform: translateY(0%);
+
+  animation-duration: 0.7s;
+  animation-fill-mode: both;
+}
+
+.fadeInBottom {
+  animation-name: fadeInBottom;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(2%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animationDelay1 {
+  animation-delay: 0.3s;
+}
+
+.animationDelay2 {
+  animation-delay: 0.6s;
+}

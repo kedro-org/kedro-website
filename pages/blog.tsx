@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
 import { getAllPostsForBlog } from '../lib/api';
+import { PostSnippet as PostSnippetType } from '../modules/blog/post-snippet';
 
 import Header from '../modules/shared/header';
 import PostsList from '../modules/blog/posts-list';
@@ -11,27 +12,10 @@ import style from './blog.module.scss';
 
 const defaultLength = 6;
 
-export type Post = {
-  sys: { id: string };
-  slug: string;
-  title: string;
-  coverImage: {
-    url: string;
-  };
-  category: string;
-  readingTime: number;
-  description: string;
-  date: string;
-  featuredPost: boolean;
-  secondaryPost: boolean | null;
-  author: { name: string; picture: any; urlDisplayName: string };
-  excerpt: string;
-};
-
 type PostTypes = {
-  allPosts: Post[];
-  featuredPost: Post;
-  secondaryPosts: Post[];
+  allPosts: PostSnippetType[];
+  featuredPost: PostSnippetType;
+  secondaryPosts: PostSnippetType[];
 };
 
 const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
@@ -64,7 +48,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           )}
         >
           <h3 className={style.secondaryTitle}>Recent blog posts</h3>
-          {secondaryPosts.map((post: Post, index: number) => {
+          {secondaryPosts.map((post: PostSnippetType, index: number) => {
             return (
               <div key={post.sys.id}>
                 <PostSnippet
@@ -91,9 +75,11 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
             <p>{'No more posts'}</p>
           ) : (
             <>
-              {allPosts.slice(0, allPostsLength).map((post: Post) => {
-                return <PostsList key={post.sys.id} post={post} />;
-              })}
+              {allPosts
+                .slice(0, allPostsLength)
+                .map((post: PostSnippetType) => {
+                  return <PostsList key={post.sys.id} post={post} />;
+                })}
               {allPosts.length > defaultLength &&
               allPosts.length > allPostsLength ? (
                 <div className={style.buttonWrapper}>
@@ -129,9 +115,11 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
-      featuredPost: data.filter((post: Post) => post.featuredPost)[0],
+      featuredPost: data.filter(
+        (post: PostSnippetType) => post.featuredPost
+      )[0],
       secondaryPosts: data
-        .filter((post: Post) => post.secondaryPost)
+        .filter((post: PostSnippetType) => post.secondaryPost)
         .slice(0, 2),
       allPosts: data,
       preview,
