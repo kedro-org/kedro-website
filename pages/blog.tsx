@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import Head from 'next/head';
 import { getAllPostsForBlog } from '../lib/api';
-import { PostSnippet as PostSnippetType } from '../modules/blog/post-snippet';
+import { PostSnippet as PostSnippetTypes } from '../modules/blog/post-snippet';
 
 import Header from '../modules/shared/header';
 import PostsList from '../modules/blog/posts-list';
@@ -13,9 +13,9 @@ import style from './blog.module.scss';
 const defaultLength = 6;
 
 type PostTypes = {
-  allPosts: PostSnippetType[];
-  featuredPost: PostSnippetType;
-  secondaryPosts: PostSnippetType[];
+  allPosts: PostSnippetTypes[];
+  featuredPost: PostSnippetTypes;
+  secondaryPosts: PostSnippetTypes[];
 };
 
 const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
@@ -48,7 +48,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           )}
         >
           <h3 className={style.secondaryTitle}>Recent blog posts</h3>
-          {secondaryPosts.map((post: PostSnippetType, index: number) => {
+          {secondaryPosts.map((post: PostSnippetTypes, index: number) => {
             return (
               <div key={post.sys.id}>
                 <PostSnippet
@@ -77,7 +77,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
             <>
               {allPosts
                 .slice(0, allPostsLength)
-                .map((post: PostSnippetType) => {
+                .map((post: PostSnippetTypes) => {
                   return <PostsList key={post.sys.id} post={post} />;
                 })}
               {allPosts.length > defaultLength &&
@@ -116,10 +116,10 @@ export async function getStaticProps({ preview = false }) {
   return {
     props: {
       featuredPost: data.filter(
-        (post: PostSnippetType) => post.featuredPost
+        (post: PostSnippetTypes) => post.featuredPost
       )[0],
       secondaryPosts: data
-        .filter((post: PostSnippetType) => post.secondaryPost)
+        .filter((post: PostSnippetTypes) => post.secondaryPost)
         .slice(0, 2),
       allPosts: data,
       preview,
