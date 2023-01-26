@@ -4,10 +4,9 @@
 .featuredOuter {
   background: $color-font;
   color: $color-dark;
-  margin-top: $header-height;
 
   @include breakpoint(medium-up) {
-    margin: 0 -3.5rem;
+    margin: $header-height -3.5rem 0;
     padding: 7.25rem 3.5rem 6rem;
   }
 
