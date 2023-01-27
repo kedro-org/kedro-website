@@ -30,6 +30,7 @@ type Post = {
 };
 
 export default function Post({ post, morePosts, preview }: Post) {
+  console.log('post: ', post);
   const router = useRouter();
 
   if (!router.isFallback && !post) {

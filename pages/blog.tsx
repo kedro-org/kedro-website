@@ -98,12 +98,9 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         </div>
       </section>
       <style jsx global>{`
-        body {
-          color: #000;
-        }
-
+        body,
         a {
-          color: #1e58a8;
+          color: #000;
         }
       `}</style>
     </>

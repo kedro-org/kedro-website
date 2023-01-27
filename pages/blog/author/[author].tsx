@@ -72,7 +72,7 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                 {authorsPosts.map((post) => {
                   return (
                     <div key={post.slug}>
-                      <Link href={`/blog/${post.slug}`} passHref>
+                      <Link href={`/blog/${post.slug}`}>
                         <a>{post.title}</a>
                       </Link>
                     </div>

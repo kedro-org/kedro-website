@@ -81,7 +81,13 @@ const PostSnippet = ({
         >{`${post.category} — ${post.readingTime} min read`}</p>
         {onPostPage ? (
           <div className={style.titleWrapper}>
-            <h1 className={style.title}>{post.title}</h1>
+            <h1
+              className={classNames(style.title, {
+                [style.titleOnPostPage]: onPostPage,
+              })}
+            >
+              {post.title}
+            </h1>
             <p
               className={classNames(style.description, {
                 [style.descriptionOnPostPage]: onPostPage,
@@ -91,38 +97,42 @@ const PostSnippet = ({
             </p>
           </div>
         ) : (
-          <Link href={`/blog/${post.slug}`} passHref>
-            <div
-              className={style.titleWrapper}
-              onMouseMove={onMouseMouse}
-              onMouseOut={onMouseLeave}
-              ref={titleRef}
-            >
-              <h1
-                className={classNames(style.title, {
-                  [style.isHovered]: isTitleHovered,
-                })}
+          <Link href={`/blog/${post.slug}`}>
+            <a>
+              <div
+                className={style.titleWrapper}
+                onMouseMove={onMouseMouse}
+                onMouseOut={onMouseLeave}
+                ref={titleRef}
               >
-                {post.title}
-              </h1>
-              <p
-                className={classNames(style.description, {
-                  [style.isHovered]: isTitleHovered,
-                })}
-              >
-                {post.description}
-              </p>
-            </div>
+                <h1
+                  className={classNames(style.title, {
+                    [style.isHovered]: isTitleHovered,
+                  })}
+                >
+                  {post.title}
+                </h1>
+                <p
+                  className={classNames(style.description, {
+                    [style.isHovered]: isTitleHovered,
+                  })}
+                >
+                  {post.description}
+                </p>
+              </div>
+            </a>
           </Link>
         )}
         {onPostPage ? null : (
           <>
-            <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
-              <p className={style.author}>{post.author.name}</p>
+            <Link href={`/blog/author/${post.author.urlDisplayName}`}>
+              <a className={style.author}>{post.author.name}</a>
             </Link>
             <p className={style.date}>{dateFormatting(post.date)}</p>
-            <Link href={`/blog/${post.slug}`} passHref>
-              <button className={style.button}>Read more</button>
+            <Link href={`/blog/${post.slug}`}>
+              <a>
+                <button className={style.button}>Read more</button>
+              </a>
             </Link>
           </>
         )}

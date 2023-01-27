@@ -49,8 +49,13 @@ $gap-mobile-version: 1rem;
   .title {
     @include display-2xl;
 
+    color: $color-font;
     font-weight: 500;
     margin-top: $gap;
+
+    &.titleOnPostPage {
+      color: $color-dark;
+    }
 
     @include breakpoint(medium-only) {
       @include display-xl;
@@ -68,6 +73,10 @@ $gap-mobile-version: 1rem;
     color: $color-grey-200;
     margin: $gap 0;
 
+    &.descriptionOnPostPage {
+      color: $color-grey-900;
+    }
+
     @include breakpoint(medium-only) {
       @include text-lg;
     }
@@ -75,10 +84,6 @@ $gap-mobile-version: 1rem;
     @include breakpoint(small) {
       @include text-xl;
       margin: $gap-mobile-version 0;
-    }
-
-    &.descriptionOnPostPage {
-      color: $color-grey-900;
     }
   }
 }
@@ -93,6 +98,7 @@ $gap-mobile-version: 1rem;
   .title {
     @include display-sm;
 
+    color: $color-font;
     font-weight: 500;
     margin-top: 1rem;
 
@@ -145,6 +151,7 @@ $gap-mobile-version: 1rem;
 }
 
 .author {
+  color: $color-font;
   font-weight: 500;
   margin: 0;
 }
