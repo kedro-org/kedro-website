@@ -1,13 +1,14 @@
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
-import { PostSnippet as PostSnippetTypes } from '../../modules/blog/post-snippet';
 
 import Head from 'next/head';
 import ErrorPage from 'next/error';
 import Header from '../../modules/shared/header';
 import PostBody from '../../modules/blog/post-body';
-import PostSnippet from '../../modules/blog/post-snippet';
+import PostSnippet, {
+  PostSnippet as PostSnippetTypes,
+} from '../../modules/blog/post-snippet';
 
 import style from '../post.module.scss';
 

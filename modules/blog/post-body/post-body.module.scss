@@ -11,6 +11,7 @@
     @include display-sm;
 
     color: $color-dark;
+    font-weight: 500;
     margin: 0 0 1.5rem;
 
     &:not(:first-of-type) {
@@ -59,6 +60,13 @@
     }
   }
 
+  p code {
+    background-color: $color-white-500;
+    color: $color-grey-900;
+    font-weight: 500;
+    padding: 4px 8px 6px;
+  }
+
   ol > li p {
     margin: 0;
   }
@@ -72,8 +80,19 @@
   @include breakpoint(small) {
     margin: 3rem 0;
   }
+
+  .postBodyImgCaption {
+    @include text-sm;
+  }
 }
 
-.postBodyImgCaption {
-  @include text-sm;
+.postBodyCallout {
+  background-color: $color-white-100;
+  border-radius: 1rem;
+  margin: 4.5rem 0;
+  padding: 2rem 2rem 2.5rem;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 }

@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import { dateFormatting } from '../../../utils/date-formatting';
-import {
-  tiltEffectSettings,
-  getTiltEffectValues,
-} from '../../../utils/get-tilt-effect-values';
+import { dateFormatting } from '../../../utils/blog';
+import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 
 import Image from 'next/image';
 import Link from 'next/link';

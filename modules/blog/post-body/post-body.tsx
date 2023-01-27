@@ -4,7 +4,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import Image from 'next/image';
-// import Media from '../../shared/media';
 
 import style from './post-body.module.scss';
 
@@ -80,6 +79,20 @@ const renderOptions = (links: Links) => {
             >
               {entry.code}
             </SyntaxHighlighter>
+          );
+        }
+
+        if (entry.__typename === 'Callout') {
+          return (
+            <div className={style.postBodyCallout}>
+              <h2>{entry.title}</h2>
+              <div>
+                {documentToReactComponents(
+                  entry.content.json,
+                  renderOptions(links) as any
+                )}
+              </div>
+            </div>
           );
         }
       },

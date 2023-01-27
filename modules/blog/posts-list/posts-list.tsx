@@ -3,17 +3,14 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Post } from '../../../pages/blog';
-import { dateFormatting } from '../../../utils/date-formatting';
-import {
-  tiltEffectSettings,
-  getTiltEffectValues,
-} from '../../../utils/get-tilt-effect-values';
+import { PostSnippet } from '../post-snippet';
+import { dateFormatting } from '../../../utils/blog';
+import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 
 import style from './posts-list.module.scss';
 
 type PostsList = {
-  post: Post;
+  post: PostSnippet;
 };
 
 const PostsList = ({ post }: PostsList) => {
