@@ -72,7 +72,7 @@
   }
 }
 
-.postBodyImgContainer {
+.postBodyImgWrapper {
   @include breakpoint(medium-up) {
     margin: 4.5rem 0;
   }

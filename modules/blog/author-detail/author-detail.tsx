@@ -19,8 +19,8 @@ type Props = {
 
 const AuthorDetail = ({ authorInfo }: Props) => {
   return (
-    <div className={style.authorDetailContainer}>
-      <div className={style.imageContainer}>
+    <div className={style.authorDetailWrapper}>
+      <div className={style.imageWrapper}>
         <Image
           alt={`Photo of ${authorInfo.name}`}
           className={style.image}

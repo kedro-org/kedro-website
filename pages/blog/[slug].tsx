@@ -6,6 +6,7 @@ import AuthorDetail from '../../modules/blog/author-detail';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
 import Header from '../../modules/shared/header';
+import Image from 'next/image';
 import PostBody from '../../modules/blog/post-body';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
@@ -30,8 +31,19 @@ type Post = {
   preview: boolean;
 };
 
+const copyToClipboard = (str: string) => {
+  if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(str);
+  }
+
+  return Promise.reject('The Clipboard API is not available.');
+};
+
 export default function Post({ post, morePosts, preview }: Post) {
   const router = useRouter();
+  const postUrl = post?.slug
+    ? `https://kedro.org/blog/${post.slug}`
+    : 'https://kedro.org';
 
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />;
@@ -69,6 +81,47 @@ export default function Post({ post, morePosts, preview }: Post) {
               <div className={style.postInner}>
                 <PostBody content={post.content} />
                 <AuthorDetail authorInfo={post.author} />
+                <div className={style.sharePostWrapper}>
+                  <div className={style.sharePostTitle}>Share post:</div>
+                  <div className={style.sharePostIcons}>
+                    <a
+                      href={`https://twitter.com/intent/tweet?text=${postUrl}`}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <Image
+                        alt="Twitter logo"
+                        height={22}
+                        src="/images/twitter-logo.svg"
+                        width={27}
+                      />
+                    </a>
+                    <a
+                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <Image
+                        alt="LinkedIn logo"
+                        height={27}
+                        src="/images/linkedin-logo.svg"
+                        width={27}
+                      />
+                    </a>
+                    <button
+                      className={style.copyLink}
+                      onClick={() => copyToClipboard(postUrl)}
+                    >
+                      <Image
+                        alt="Copy icon"
+                        height={17}
+                        src="/images/copy-to-clipboard.svg"
+                        width={17}
+                      />
+                      Copy link
+                    </button>
+                  </div>
+                </div>
               </div>
             </section>
           </article>

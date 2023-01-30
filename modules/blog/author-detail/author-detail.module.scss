@@ -1,12 +1,12 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-.authorDetailContainer {
+.authorDetailWrapper {
   display: flex;
   padding-top: 2rem;
 }
 
-.imageContainer {
+.imageWrapper {
   height: 3rem;
   margin-right: 0.75rem;
   width: 3rem;

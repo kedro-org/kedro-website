@@ -100,7 +100,7 @@ const renderOptions = (links: Links) => {
         const asset = assetMap.get(node.data.target.sys.id);
 
         return (
-          <div className={style.postBodyImgContainer}>
+          <div className={style.postBodyImgWrapper}>
             <Image
               alt={asset.description}
               height={asset.height}
