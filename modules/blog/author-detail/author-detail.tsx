@@ -18,8 +18,6 @@ type Props = {
 };
 
 const AuthorDetail = ({ authorInfo }: Props) => {
-  console.log('authorInfo: ', authorInfo);
-
   return (
     <div className={style.authorDetailContainer}>
       <div className={style.imageContainer}>
