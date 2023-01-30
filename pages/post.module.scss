@@ -16,10 +16,11 @@
   }
 }
 
-.postOuter {
+.postOuter,
+.allBlogPostsOuter {
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 0 3.5rem 5rem;
+    padding: 0 3.5rem 5.375rem;
   }
 
   @include breakpoint(small) {
@@ -29,27 +30,22 @@
 }
 
 .featuredInner,
-.postInner {
+.postInner,
+.allBlogPostsInner {
   margin: 0 auto;
   max-width: $blog-max-content;
 }
 
-.secondaryTitle {
-  @include display-xs;
-
-  font-weight: 500;
-  margin: 0 1.5rem;
-
-  @include breakpoint(small) {
-    margin: 0 0 1.5rem;
-  }
+.postInner {
+  padding: 0 2rem;
 }
 
-.postInner {
-  padding: 0 1.35rem;
-
+.allBlogPostsInner {
   .secondaryTitle {
-    margin: 0 1.5rem 2rem;
+    @include display-xs;
+
+    font-weight: 500;
+    margin: 0 2rem 2rem;
 
     @include breakpoint(small) {
       margin: 0 0 0.75rem;

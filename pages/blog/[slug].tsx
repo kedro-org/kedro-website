@@ -7,7 +7,9 @@ import Head from 'next/head';
 import ErrorPage from 'next/error';
 import Header from '../../modules/shared/header';
 import Image from 'next/image';
+import Link from 'next/link';
 import PostBody from '../../modules/blog/post-body';
+import PostsList from '../../modules/blog/posts-list';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
 } from '../../modules/blog/post-snippet';
@@ -124,8 +126,28 @@ export default function Post({ post, morePosts, preview }: Post) {
                 </div>
               </div>
             </section>
+            {morePosts && morePosts.length > 0 ? (
+              <section className={style.allBlogPostsOuter}>
+                <div className={style.allBlogPostsInner}>
+                  <h3 className={style.secondaryTitle}>All blog posts</h3>
+                  {morePosts
+                    .slice(0, 6) // TODO: update in the future
+                    .map((post: PostSnippetTypes) => {
+                      return <PostsList key={post.sys.id} post={post} />;
+                    })}
+                  <div className={style.buttonWrapper}>
+                    <Link href="/blog">
+                      <a>
+                        <button className={style.showMoreButton}>
+                          Back to Blog home
+                        </button>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+            ) : null}
           </article>
-          {morePosts && morePosts.length > 0 && <div>More posts here...</div>}
         </>
       )}
       <style jsx global>{`
