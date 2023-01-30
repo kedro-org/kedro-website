@@ -72,7 +72,9 @@ const PostsList = ({ post }: PostsList) => {
         <Link href={`/blog/author/${post.author.urlDisplayName}`}>
           <a className={style.author}>{post.author.name}</a>
         </Link>
-        <p className={style.date}>{dateFormatting(post.date)}</p>
+        <p className={style.date}>
+          {dateFormatting(post.sys.firstPublishedAt)}
+        </p>
       </div>
     </div>
   );

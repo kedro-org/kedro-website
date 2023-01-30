@@ -26,7 +26,9 @@ export type PostSnippet = {
   secondaryPost: boolean | null;
   slug: string;
   sys: {
+    firstPublishedAt: Date;
     id: string;
+    publishedAt: Date;
   };
   title: string;
 };
@@ -44,6 +46,7 @@ const PostSnippet = ({
   post,
   size,
 }: PostSnippetProps) => {
+  console.log('post: ', post);
   const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -123,12 +126,19 @@ const PostSnippet = ({
             </a>
           </Link>
         )}
-        {onPostPage ? null : (
+        {onPostPage ? (
+          <div className={style.publishedAt}>
+            {dateFormatting(post.sys.firstPublishedAt)} (last updated{' '}
+            {dateFormatting(post.sys.publishedAt)})
+          </div>
+        ) : (
           <>
             <Link href={`/blog/author/${post.author.urlDisplayName}`}>
               <a className={style.author}>{post.author.name}</a>
             </Link>
-            <p className={style.date}>{dateFormatting(post.date)}</p>
+            <p className={style.date}>
+              {dateFormatting(post.sys.firstPublishedAt)}
+            </p>
             <Link href={`/blog/${post.slug}`}>
               <a>
                 <button className={style.button}>Read more</button>

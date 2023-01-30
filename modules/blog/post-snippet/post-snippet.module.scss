@@ -133,6 +133,12 @@ $gap-mobile-version: 1rem;
   }
 }
 
+.publishedAt {
+  @include text-sm;
+
+  color: $color-grey-500;
+}
+
 .author,
 .date,
 .category {
