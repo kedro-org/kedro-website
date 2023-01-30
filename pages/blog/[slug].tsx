@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 
+import AuthorDetail from '../../modules/blog/author-detail';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
 import Header from '../../modules/shared/header';
@@ -67,6 +68,7 @@ export default function Post({ post, morePosts, preview }: Post) {
             <section className={style.postOuter}>
               <div className={style.postInner}>
                 <PostBody content={post.content} />
+                <AuthorDetail authorInfo={post.author} />
               </div>
             </section>
           </article>

@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.authorDetailContainer {
+  display: flex;
+  padding-top: 2rem;
+}
+
+.imageContainer {
+  height: 3rem;
+  margin-right: 0.75rem;
+  width: 3rem;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.name {
+  @include text-md;
+
+  font-weight: 700;
+}
+
+.jobTitle {
+  @include text-md;
+}

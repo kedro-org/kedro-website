@@ -121,6 +121,7 @@ export default function PostBody({ content }: Content) {
   return (
     <div className={style.postBody}>
       <div>{documentToReactComponents(json, renderOptions(links) as any)}</div>
+      <hr className={style.bottomDivider} />
     </div>
   );
 }

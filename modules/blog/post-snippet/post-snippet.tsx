@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { dateFormatting } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
+import { Author } from '../author-detail';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,11 +10,7 @@ import Link from 'next/link';
 import style from './post-snippet.module.scss';
 
 export type PostSnippet = {
-  author: {
-    name: string;
-    picture: any;
-    urlDisplayName: string;
-  };
+  author: Author;
   category: string;
   coverImage: {
     url: string;
@@ -46,7 +43,6 @@ const PostSnippet = ({
   post,
   size,
 }: PostSnippetProps) => {
-  console.log('post: ', post);
   const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);

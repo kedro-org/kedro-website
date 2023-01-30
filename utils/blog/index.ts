@@ -38,7 +38,6 @@ export const getTiltEffectValues = (
 };
 
 export const dateFormatting = (date: string | Date) => {
-  console.log('date: ', date);
   return new Date(date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',
