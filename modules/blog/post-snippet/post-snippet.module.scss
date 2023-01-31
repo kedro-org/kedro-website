@@ -21,6 +21,12 @@ $gap-mobile-version: 1rem;
     margin-bottom: 3.75rem;
     padding: 0;
   }
+
+  &.containerOnPostPage {
+    @include breakpoint(small) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .containerRowReverse {

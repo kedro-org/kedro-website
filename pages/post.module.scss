@@ -11,7 +11,7 @@
   }
 
   @include breakpoint(small) {
-    padding: 0 1rem 1.5rem;
+    padding: 0 1rem 0;
     text-align: start;
   }
 }
@@ -38,6 +38,10 @@
 
 .postInner {
   padding: 0 2rem;
+
+  @include breakpoint(small) {
+    padding: 0;
+  }
 }
 
 .allBlogPostsInner {

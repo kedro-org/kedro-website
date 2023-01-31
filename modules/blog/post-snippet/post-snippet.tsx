@@ -68,6 +68,7 @@ const PostSnippet = ({
     <div
       className={classNames(style.container, {
         [style.containerRowReverse]: imgPosition === 'left',
+        [style.containerOnPostPage]: onPostPage,
       })}
     >
       <div

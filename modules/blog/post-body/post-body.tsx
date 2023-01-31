@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import style from './post-body.module.scss';
 
@@ -43,6 +45,15 @@ type Node = {
     };
   };
   nodeType: string;
+};
+
+type NavigationList = {
+  headerId: string;
+  headerTitle: string;
+};
+
+const headerTextToIdString = (str: string) => {
+  return str.split(' ').join('-').toLowerCase();
 };
 
 const renderOptions = (links: Links) => {
@@ -85,7 +96,7 @@ const renderOptions = (links: Links) => {
         if (entry.__typename === 'Callout') {
           return (
             <div className={style.postBodyCallout}>
-              <h2>{entry.title}</h2>
+              <h2 id={headerTextToIdString(entry.title)}>{entry.title}</h2>
               <div>
                 {documentToReactComponents(
                   entry.content.json,
@@ -111,17 +122,63 @@ const renderOptions = (links: Links) => {
           </div>
         );
       },
+      [BLOCKS.HEADING_2]: (node: Node, children: [string]) => {
+        return <h2 id={headerTextToIdString(children[0])}>{children}</h2>;
+      },
     },
   };
 };
 
 export default function PostBody({ content }: Content) {
   const { json, links } = content;
+  const [navigationList, setNavigationList] = useState<NavigationList[]>([]);
+
+  useEffect(() => {
+    const _h2s = document.querySelectorAll("div[class^='post-body'] h2");
+
+    _h2s.forEach((header: Element) => {
+      setNavigationList((navigationList) => [
+        ...navigationList,
+        {
+          headerId: header.id,
+          headerTitle: header.textContent,
+        },
+      ]);
+    });
+  }, []);
 
   return (
-    <div className={style.postBody}>
-      <div>{documentToReactComponents(json, renderOptions(links) as any)}</div>
-      <hr className={style.bottomDivider} />
+    <div className={style.postBodyWrapper}>
+      <div className={style.postBody}>
+        <div>
+          {documentToReactComponents(json, renderOptions(links) as any)}
+        </div>
+        <hr className={style.bottomDivider} />
+      </div>
+      <div className={style.stickyNav}>
+        <div className={style.stickyNavText}>On this page:</div>
+        {navigationList.map((section) => {
+          return (
+            <a
+              className={style.stickyNavLink}
+              href={`#${section.headerId}`}
+              key={section.headerTitle}
+            >
+              {section.headerTitle}
+            </a>
+          );
+        })}
+        <hr className={style.stickyNavBottomLine} />
+        <div className={style.stickyNavBackWrapper}>
+          <Link href="/blog">
+            <a>
+              <button className={style.stickyNavBackButton}>
+                {'<- Back to Blog home'}
+              </button>
+            </a>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
