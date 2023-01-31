@@ -44,3 +44,15 @@ export const dateFormatting = (date: string | Date) => {
     year: 'numeric',
   });
 };
+
+export const scrollToTargetAdjusted = (id: string) => {
+  const element = document.getElementById(id);
+  const headerOffset = 85;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    behavior: 'smooth',
+    top: offsetPosition,
+  });
+};

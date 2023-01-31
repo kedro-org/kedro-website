@@ -3,6 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { scrollToTargetAdjusted } from '../../../utils/blog';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -163,6 +164,11 @@ export default function PostBody({ content }: Content) {
               className={style.stickyNavLink}
               href={`#${section.headerId}`}
               key={section.headerTitle}
+              onClick={(e) => {
+                e.preventDefault();
+
+                scrollToTargetAdjusted(section.headerId);
+              }}
             >
               {section.headerTitle}
             </a>
