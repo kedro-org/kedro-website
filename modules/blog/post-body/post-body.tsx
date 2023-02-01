@@ -154,9 +154,7 @@ export default function PostBody({ content, slug }: Props) {
   return (
     <div className={style.postBodyWrapper}>
       <div className={style.postBody}>
-        <div>
-          {documentToReactComponents(json, renderOptions(links) as any)}
-        </div>
+        {documentToReactComponents(json, renderOptions(links) as any)}
         <hr className={style.bottomDivider} />
       </div>
       <div className={style.stickyNav}>

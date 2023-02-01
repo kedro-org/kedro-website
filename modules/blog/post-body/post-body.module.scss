@@ -26,6 +26,10 @@
       }
     }
 
+    &:not(:first-child) {
+      margin-top: 6.5rem;
+    }
+
     @include breakpoint(medium-up) {
       @include display-sm;
     }
