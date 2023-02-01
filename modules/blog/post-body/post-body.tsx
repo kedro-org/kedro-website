@@ -10,11 +10,12 @@ import Link from 'next/link';
 
 import style from './post-body.module.scss';
 
-type Content = {
+type Props = {
   content: {
     json: Document;
     links: any;
   };
+  slug: string;
 };
 
 type _Block = {
@@ -130,12 +131,14 @@ const renderOptions = (links: Links) => {
   };
 };
 
-export default function PostBody({ content }: Content) {
+export default function PostBody({ content, slug }: Props) {
   const { json, links } = content;
   const [navigationList, setNavigationList] = useState<NavigationList[]>([]);
 
   useEffect(() => {
     const _h2s = document.querySelectorAll("div[class^='post-body'] h2");
+
+    setNavigationList([]);
 
     _h2s.forEach((header: Element) => {
       setNavigationList((navigationList) => [
@@ -146,7 +149,7 @@ export default function PostBody({ content }: Content) {
         },
       ]);
     });
-  }, []);
+  }, [slug]);
 
   return (
     <div className={style.postBodyWrapper}>

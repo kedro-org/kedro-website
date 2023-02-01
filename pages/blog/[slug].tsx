@@ -31,6 +31,7 @@ type Post = {
   morePosts: PostSnippetTypes[];
   post: PostProps & PostSnippetTypes;
   preview: boolean;
+  slug: string;
 };
 
 const copyToClipboard = (str: string) => {
@@ -41,7 +42,7 @@ const copyToClipboard = (str: string) => {
   return Promise.reject('The Clipboard API is not available.');
 };
 
-export default function Post({ post, morePosts, preview }: Post) {
+export default function Post({ post, morePosts, preview, slug }: Post) {
   const router = useRouter();
   const postUrl = post?.slug
     ? `https://kedro.org/blog/${post.slug}`
@@ -81,7 +82,7 @@ export default function Post({ post, morePosts, preview }: Post) {
             </section>
             <section className={style.postOuter}>
               <div className={style.postInner}>
-                <PostBody content={post.content} />
+                <PostBody content={post.content} slug={slug} />
                 <AuthorDetail authorInfo={post.author} />
                 <div className={style.sharePostWrapper}>
                   <div className={style.sharePostTitle}>Share post:</div>
@@ -174,6 +175,7 @@ export async function getStaticProps({
       morePosts: data?.morePosts ?? null,
       post: data?.post ?? null,
       preview,
+      slug: params.slug,
     },
     revalidate: 10,
   };
