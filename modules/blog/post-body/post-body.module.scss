@@ -134,12 +134,19 @@
   }
 
   .stickyNavBackButton {
+    align-items: center;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: flex;
     font-weight: 700;
     margin: 0;
     padding: 0;
+
+    span {
+      margin: 0 0.5rem 0 0 !important;
+      width: 22px !important;
+    }
   }
 }
 

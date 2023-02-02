@@ -140,6 +140,12 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                     <Link href="/blog">
                       <a>
                         <button className={style.showMoreButton}>
+                          <Image
+                            alt="Back arrow"
+                            height={22}
+                            src="/images/back-arrow.svg"
+                            width={22}
+                          />
                           Back to Blog home
                         </button>
                       </a>

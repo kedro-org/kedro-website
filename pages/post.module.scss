@@ -67,11 +67,17 @@
   @include button($size: normal, $style: primary);
   @include text-sm;
 
+  align-items: center;
+  display: flex;
   margin: 3.125rem 0;
   font-weight: 700;
 
   @include breakpoint(small) {
     margin: 2rem;
+  }
+
+  span {
+    margin-right: 0.5rem !important;
   }
 }
 
