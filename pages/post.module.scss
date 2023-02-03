@@ -2,30 +2,25 @@
 @import '../styles/mixins';
 
 .featuredOuter {
-  background: $color-dark;
-  color: $color-font;
+  background: $color-font;
+  color: $color-dark;
 
   @include breakpoint(medium-up) {
     margin: $header-height -3.5rem 0;
-    padding: 7.25rem 3.5rem;
+    padding: 7.25rem 3.5rem 6rem;
   }
 
   @include breakpoint(small) {
-    padding: 0 1rem 1.5rem;
+    padding: 0 1rem 0;
     text-align: start;
   }
 }
 
-.secondaryOuter {
-  background: $color-bg-grey;
-  color: $color-font;
-}
-
-.secondaryOuter,
+.postOuter,
 .allBlogPostsOuter {
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 5rem 3.5rem;
+    padding: 0 3.5rem 5.375rem;
   }
 
   @include breakpoint(small) {
@@ -35,25 +30,25 @@
 }
 
 .featuredInner,
-.secondaryInner,
+.postInner,
 .allBlogPostsInner {
   margin: 0 auto;
   max-width: $blog-max-content;
 }
 
-.secondaryTitle {
-  @include display-xs;
-
-  font-weight: 500;
-  margin: 0 2rem 1rem;
+.postInner {
+  padding: 0 2rem;
 
   @include breakpoint(small) {
-    margin: 0 0 1.5rem;
+    padding: 0;
   }
 }
 
 .allBlogPostsInner {
   .secondaryTitle {
+    @include display-xs;
+
+    font-weight: 500;
     margin: 0 2rem 2rem;
 
     @include breakpoint(small) {
@@ -72,11 +67,17 @@
   @include button($size: normal, $style: primary);
   @include text-sm;
 
+  align-items: center;
+  display: flex;
   margin: 3.125rem 0;
   font-weight: 700;
 
   @include breakpoint(small) {
     margin: 2rem;
+  }
+
+  span {
+    margin-right: 0.5rem !important;
   }
 }
 
@@ -102,10 +103,38 @@
   }
 }
 
-.animationDelay1 {
-  animation-delay: 0.3s;
-}
+.sharePostWrapper {
+  margin-top: 1.5rem;
 
-.animationDelay2 {
-  animation-delay: 0.6s;
+  .sharePostTitle {
+    @include text-sm;
+
+    color: $color-grey-500;
+    margin-bottom: 0.875rem;
+  }
+
+  .sharePostIcons {
+    align-items: center;
+    display: flex;
+  }
+
+  .sharePostIcons a {
+    margin-right: 1.5rem;
+  }
+
+  .copyLink {
+    @include text-xs;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 0;
+
+    span {
+      margin-right: 0.25rem !important;
+    }
+  }
 }

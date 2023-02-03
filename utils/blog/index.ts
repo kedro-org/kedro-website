@@ -36,3 +36,23 @@ export const getTiltEffectValues = (
 
   return { valueX, valueY };
 };
+
+export const dateFormatting = (date: string | Date) => {
+  return new Date(date).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+};
+
+export const scrollToTargetAdjusted = (id: string) => {
+  const element = document.getElementById(id);
+  const headerOffset = 85;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    behavior: 'smooth',
+    top: offsetPosition,
+  });
+};

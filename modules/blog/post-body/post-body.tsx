@@ -1,24 +1,31 @@
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { scrollToTargetAdjusted } from '../../../utils/blog';
 
-interface Content {
+import Image from 'next/image';
+import Link from 'next/link';
+
+import style from './post-body.module.scss';
+
+type Props = {
   content: {
     json: Document;
     links: any;
   };
-}
+  slug: string;
+};
 
-interface _Block {
+type _Block = {
   sys: {
     id: string;
   };
   __typename: string;
-}
+};
 
-interface Links {
+type Links = {
   assets: {
     block: _Block[];
   };
@@ -26,9 +33,9 @@ interface Links {
     block: _Block[];
     inline: any[];
   };
-}
+};
 
-interface Node {
+type Node = {
   content: any[];
   data: {
     target: {
@@ -40,7 +47,16 @@ interface Node {
     };
   };
   nodeType: string;
-}
+};
+
+type NavigationList = {
+  headerId: string;
+  headerTitle: string;
+};
+
+const headerTextToIdString = (str: string) => {
+  return str.split(' ').join('-').toLowerCase();
+};
 
 const renderOptions = (links: Links) => {
   // Create an asset map
@@ -78,22 +94,104 @@ const renderOptions = (links: Links) => {
             </SyntaxHighlighter>
           );
         }
+
+        if (entry.__typename === 'Callout') {
+          return (
+            <div className={style.postBodyCallout}>
+              <h2 id={headerTextToIdString(entry.title)}>{entry.title}</h2>
+              <div>
+                {documentToReactComponents(
+                  entry.content.json,
+                  renderOptions(links) as any
+                )}
+              </div>
+            </div>
+          );
+        }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const asset = assetMap.get(node.data.target.sys.id);
 
-        return <Image src={asset.url} layout="fill" alt={asset.description} />;
+        return (
+          <div className={style.postBodyImgWrapper}>
+            <Image
+              alt={asset.description}
+              height={asset.height}
+              src={asset.url}
+              width={asset.width}
+            />
+            <div className={style.postBodyImgCaption}>{asset.title}</div>
+          </div>
+        );
+      },
+      [BLOCKS.HEADING_2]: (node: Node, children: [string]) => {
+        return <h2 id={headerTextToIdString(children[0])}>{children}</h2>;
       },
     },
   };
 };
 
-export default function PostBody({ content }: Content) {
+export default function PostBody({ content, slug }: Props) {
   const { json, links } = content;
+  const [navigationList, setNavigationList] = useState<NavigationList[]>([]);
+
+  useEffect(() => {
+    const _h2s = document.querySelectorAll("div[class^='post-body'] h2");
+
+    setNavigationList([]);
+
+    _h2s.forEach((header: Element) => {
+      setNavigationList((navigationList) => [
+        ...navigationList,
+        {
+          headerId: header.id,
+          headerTitle: header.textContent,
+        },
+      ]);
+    });
+  }, [slug]);
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div>{documentToReactComponents(json, renderOptions(links) as any)}</div>
+    <div className={style.postBodyWrapper}>
+      <div className={style.postBody}>
+        {documentToReactComponents(json, renderOptions(links) as any)}
+        <hr className={style.bottomDivider} />
+      </div>
+      <div className={style.stickyNav}>
+        <div className={style.stickyNavText}>On this page:</div>
+        {navigationList.map((section) => {
+          return (
+            <a
+              className={style.stickyNavLink}
+              href={`#${section.headerId}`}
+              key={section.headerTitle}
+              onClick={(e) => {
+                e.preventDefault();
+
+                scrollToTargetAdjusted(section.headerId);
+              }}
+            >
+              {section.headerTitle}
+            </a>
+          );
+        })}
+        <hr className={style.stickyNavBottomLine} />
+        <div className={style.stickyNavBackWrapper}>
+          <Link href="/blog">
+            <a>
+              <button className={style.stickyNavBackButton}>
+                <Image
+                  alt="Back arrow"
+                  height={22}
+                  src="/images/back-arrow.svg"
+                  width={22}
+                />
+                Back to Blog home
+              </button>
+            </a>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

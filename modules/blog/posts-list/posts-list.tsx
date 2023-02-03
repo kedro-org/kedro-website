@@ -3,17 +3,14 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Post } from '../../../pages/blog';
-import { dateFormatting } from '../../../utils/date-formatting';
-import {
-  tiltEffectSettings,
-  getTiltEffectValues,
-} from '../../../utils/get-tilt-effect-values';
+import { PostSnippet } from '../post-snippet';
+import { dateFormatting } from '../../../utils/blog';
+import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 
 import style from './posts-list.module.scss';
 
 type PostsList = {
-  post: Post;
+  post: PostSnippet;
 };
 
 const PostsList = ({ post }: PostsList) => {
@@ -58,22 +55,26 @@ const PostsList = ({ post }: PostsList) => {
       <p
         className={style.category}
       >{`${post.category} — ${post.readingTime} min read`}</p>
-      <Link href={`/blog/${post.slug}`} passHref>
-        <h2
-          className={style.title}
-          onMouseMove={onMouseMouse}
-          onMouseOut={onMouseLeave}
-          ref={titleRef}
-        >
-          {post.title}
-        </h2>
+      <Link href={`/blog/${post.slug}`}>
+        <a>
+          <h2
+            className={style.title}
+            onMouseMove={onMouseMouse}
+            onMouseOut={onMouseLeave}
+            ref={titleRef}
+          >
+            {post.title}
+          </h2>
+        </a>
       </Link>
       <p className={style.description}>{post.description}</p>
       <div className={style.authorWrapper}>
-        <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
-          <p className={style.author}>{post.author.name}</p>
+        <Link href={`/blog/author/${post.author.urlDisplayName}`}>
+          <a className={style.author}>{post.author.name}</a>
         </Link>
-        <p className={style.date}>{dateFormatting(post.date)}</p>
+        <p className={style.date}>
+          {dateFormatting(post.sys.firstPublishedAt)}
+        </p>
       </div>
     </div>
   );

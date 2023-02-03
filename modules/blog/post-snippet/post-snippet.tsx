@@ -1,24 +1,48 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import { dateFormatting } from '../../../utils/date-formatting';
-import {
-  tiltEffectSettings,
-  getTiltEffectValues,
-} from '../../../utils/get-tilt-effect-values';
+import { dateFormatting } from '../../../utils/blog';
+import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
+import { Author } from '../author-detail';
 
-import { Post } from '../../../pages/blog';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import style from './post-snippet.module.scss';
 
-interface PostHomeTypes {
-  imgPosition: string;
-  post: Post;
-  size: string;
-}
+export type PostSnippet = {
+  author: Author;
+  category: string;
+  coverImage: {
+    url: string;
+  };
+  date: string;
+  description: string;
+  excerpt: string;
+  featuredPost: boolean;
+  readingTime: number;
+  secondaryPost: boolean | null;
+  slug: string;
+  sys: {
+    firstPublishedAt: Date;
+    id: string;
+    publishedAt: Date;
+  };
+  title: string;
+};
 
-const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
+type PostSnippetProps = {
+  imgPosition: string;
+  onPostPage?: boolean;
+  post: PostSnippet;
+  size: string;
+};
+
+const PostSnippet = ({
+  imgPosition = 'right',
+  onPostPage = false,
+  post,
+  size,
+}: PostSnippetProps) => {
   const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -44,6 +68,7 @@ const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
     <div
       className={classNames(style.container, {
         [style.containerRowReverse]: imgPosition === 'left',
+        [style.containerOnPostPage]: onPostPage,
       })}
     >
       <div
@@ -54,36 +79,70 @@ const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
         <p
           className={style.category}
         >{`${post.category} — ${post.readingTime} min read`}</p>
-        <Link href={`/blog/${post.slug}`} passHref>
-          <div
-            className={style.titleWrapper}
-            onMouseMove={onMouseMouse}
-            onMouseOut={onMouseLeave}
-            ref={titleRef}
-          >
+        {onPostPage ? (
+          <div className={style.titleWrapper}>
             <h1
               className={classNames(style.title, {
-                [style.isHovered]: isTitleHovered,
+                [style.titleOnPostPage]: onPostPage,
               })}
             >
               {post.title}
             </h1>
             <p
               className={classNames(style.description, {
-                [style.isHovered]: isTitleHovered,
+                [style.descriptionOnPostPage]: onPostPage,
               })}
             >
               {post.description}
             </p>
           </div>
-        </Link>
-        <Link href={`/blog/author/${post.author.urlDisplayName}`} passHref>
-          <p className={style.author}>{post.author.name}</p>
-        </Link>
-        <p className={style.date}>{dateFormatting(post.date)}</p>
-        <Link href={`/blog/${post.slug}`} passHref>
-          <button className={style.button}>Read more</button>
-        </Link>
+        ) : (
+          <Link href={`/blog/${post.slug}`}>
+            <a>
+              <div
+                className={style.titleWrapper}
+                onMouseMove={onMouseMouse}
+                onMouseOut={onMouseLeave}
+                ref={titleRef}
+              >
+                <h1
+                  className={classNames(style.title, {
+                    [style.isHovered]: isTitleHovered,
+                  })}
+                >
+                  {post.title}
+                </h1>
+                <p
+                  className={classNames(style.description, {
+                    [style.isHovered]: isTitleHovered,
+                  })}
+                >
+                  {post.description}
+                </p>
+              </div>
+            </a>
+          </Link>
+        )}
+        {onPostPage ? (
+          <div className={style.publishedAt}>
+            {dateFormatting(post.sys.firstPublishedAt)} (last updated{' '}
+            {dateFormatting(post.sys.publishedAt)})
+          </div>
+        ) : (
+          <>
+            <Link href={`/blog/author/${post.author.urlDisplayName}`}>
+              <a className={style.author}>{post.author.name}</a>
+            </Link>
+            <p className={style.date}>
+              {dateFormatting(post.sys.firstPublishedAt)}
+            </p>
+            <Link href={`/blog/${post.slug}`}>
+              <a>
+                <button className={style.button}>Read more</button>
+              </a>
+            </Link>
+          </>
+        )}
       </div>
       <div
         className={classNames(style.image, {
@@ -98,10 +157,10 @@ const PostSnippet = ({ size, imgPosition = 'right', post }: PostHomeTypes) => {
         }}
       >
         <Image
-          src={post.coverImage.url}
           alt="cover image alt"
-          width={imgSize}
           height={imgSize}
+          src={post.coverImage.url}
+          width={imgSize}
         />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import useOnScreen from '../utils/hooks/useOnScreen';
 import Head from 'next/head';
+import { siteMetadata } from '../modules/shared/config';
 
 import CaseStudies from '../modules/index/case-studies';
 import Features from '../modules/index/features';
@@ -25,7 +26,28 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Kedro</title>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        <meta property="og:title" content="Kedro" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={siteMetadata.socialImage} />
+        <meta property="og:url" content={siteMetadata.socialUrl} />
+        <meta
+          content={siteMetadata.socialDescription}
+          property="og:description"
+        />
+        <meta property="og:site_name" content="Kedro" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          content={siteMetadata.socialDescription}
+          name="twitter:image:alt"
+        />
+        <meta content={siteMetadata.socialImage} name="twitter:image"></meta>
+        <meta name="twitter:title" content="Kedro"></meta>
+        <meta
+          name="twitter:description"
+          content={siteMetadata.socialDescription}
+        ></meta>
       </Head>
       {(!onScreen || isMobile) && <Header />}
       <Hero />

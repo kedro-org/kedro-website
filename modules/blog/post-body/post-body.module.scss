@@ -1,0 +1,203 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.postBodyWrapper {
+  display: flex;
+}
+
+.postBody {
+  @include text-lg;
+
+  color: $color-grey-900;
+  flex-shrink: 1;
+  max-width: 904px;
+  width: 100%;
+
+  h2 {
+    color: $color-dark;
+    font-weight: 500;
+    margin: 0 0 1.5rem;
+
+    &:not(:first-of-type) {
+      margin-top: 6.5rem;
+
+      @include breakpoint(small) {
+        margin-top: 3rem;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 6.5rem;
+    }
+
+    @include breakpoint(medium-up) {
+      @include display-sm;
+    }
+
+    @include breakpoint(small) {
+      @include display-xs;
+    }
+  }
+
+  pre {
+    @include breakpoint(medium-up) {
+      margin: 4.5rem 0 !important;
+    }
+
+    @include breakpoint(small) {
+      margin: 3rem 0 !important;
+    }
+  }
+
+  blockquote {
+    border-left: 2px solid $color-accent;
+    color: $color-slate;
+    font-style: italic;
+    font-weight: 500;
+    padding-left: 20px;
+
+    p {
+      margin: 0;
+    }
+
+    p:last-of-type {
+      @include text-md;
+
+      font-style: normal;
+      font-weight: 400;
+      margin-top: 2rem;
+    }
+
+    @include breakpoint(medium-up) {
+      @include display-sm;
+
+      line-height: 2.75rem;
+      margin: 4.5rem 0;
+    }
+
+    @include breakpoint(small) {
+      @include text-xl;
+
+      margin: 3rem 0;
+    }
+  }
+
+  p code {
+    background-color: $color-white-500;
+    color: $color-grey-900;
+    font-weight: 500;
+    padding: 4px 8px 6px;
+  }
+
+  ol > li p {
+    margin: 0;
+  }
+}
+
+.stickyNav {
+  @include text-sm;
+
+  border-top: 1px solid $color-grey-200;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 3;
+  height: 100%;
+  margin: 1rem 0 0 4rem;
+  padding: 2.25rem 0 0;
+  position: sticky;
+  top: calc($header-height + 1rem);
+  width: 100%;
+
+  @media (max-width: 1050px) {
+    display: none;
+  }
+
+  .stickyNavText {
+    color: $color-grey-500;
+  }
+
+  .stickyNavText,
+  .stickyNavLink {
+    margin-bottom: 0.75rem;
+  }
+
+  .stickyNavLink:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .stickyNavBottomLine {
+    background-color: $color-grey-200;
+    border: none;
+    height: 1px;
+    margin: 1.5rem 0 1.5rem;
+    width: 100%;
+  }
+
+  .stickyNavBackButton {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+
+    span {
+      margin: 0 0.5rem 0 0 !important;
+      width: 22px !important;
+    }
+  }
+}
+
+.postBodyImgWrapper {
+  @include breakpoint(medium-up) {
+    margin: 4.5rem 0;
+  }
+
+  @include breakpoint(small) {
+    margin: 3rem 0;
+  }
+
+  .postBodyImgCaption {
+    @include text-sm;
+  }
+}
+
+.postBodyCallout {
+  background-color: $color-white-100;
+  border-radius: 1rem;
+  margin: 4.5rem 0;
+  padding: 2rem 2rem 2.5rem;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(small) {
+    margin: 3rem 0;
+    padding: 1rem;
+  }
+
+  h2 {
+    @include breakpoint(small) {
+      margin: 0;
+
+      &:target::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.bottomDivider {
+  background-color: $color-white-300;
+  border: none;
+  height: 1px;
+  margin: 4.5rem 0 0;
+  width: 100%;
+
+  @include breakpoint(small) {
+    margin: 3rem 0 0;
+  }
+}

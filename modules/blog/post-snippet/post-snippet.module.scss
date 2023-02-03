@@ -9,7 +9,7 @@ $gap-mobile-version: 1rem;
   column-gap: 2rem;
   display: flex;
   justify-content: center;
-  padding: 0 1.35rem;
+  padding: 0 2rem;
 
   @include breakpoint(medium-only) {
     padding: 0 0.5rem;
@@ -20,6 +20,12 @@ $gap-mobile-version: 1rem;
     padding-top: 0;
     margin-bottom: 3.75rem;
     padding: 0;
+  }
+
+  &.containerOnPostPage {
+    @include breakpoint(small) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -49,8 +55,13 @@ $gap-mobile-version: 1rem;
   .title {
     @include display-2xl;
 
+    color: $color-font;
     font-weight: 500;
     margin-top: $gap;
+
+    &.titleOnPostPage {
+      color: $color-dark;
+    }
 
     @include breakpoint(medium-only) {
       @include display-xl;
@@ -67,6 +78,10 @@ $gap-mobile-version: 1rem;
 
     color: $color-grey-200;
     margin: $gap 0;
+
+    &.descriptionOnPostPage {
+      color: $color-grey-900;
+    }
 
     @include breakpoint(medium-only) {
       @include text-lg;
@@ -89,6 +104,7 @@ $gap-mobile-version: 1rem;
   .title {
     @include display-sm;
 
+    color: $color-font;
     font-weight: 500;
     margin-top: 1rem;
 
@@ -110,7 +126,7 @@ $gap-mobile-version: 1rem;
 }
 
 .imageMedium {
-  margin: 7rem 0;
+  margin: 6rem 0;
 
   @include breakpoint(small) {
     margin: 0;
@@ -121,6 +137,12 @@ $gap-mobile-version: 1rem;
   @include breakpoint(small) {
     width: 100vw;
   }
+}
+
+.publishedAt {
+  @include text-sm;
+
+  color: $color-grey-500;
 }
 
 .author,
@@ -141,6 +163,7 @@ $gap-mobile-version: 1rem;
 }
 
 .author {
+  color: $color-font;
   font-weight: 500;
   margin: 0;
 }
