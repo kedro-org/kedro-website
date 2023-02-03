@@ -53,17 +53,17 @@ export default function Header() {
           <div className={style.iconLinks}>
             <a
               className={style.link}
-              href="https://linen-discord.kedro.org/"
+              href="https://slack.kedro.org"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Image
-                alt="DiscordLogo"
+                alt="SlackLogo"
                 height={30}
-                src="/images/discord.svg"
+                src="/images/slack.svg"
                 width={30}
               />
-              <span className={style.iconText}>Discord</span>
+              <span className={style.iconText}>Slack</span>
             </a>
             <a
               className={style.link}

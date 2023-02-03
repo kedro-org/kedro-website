@@ -2,6 +2,7 @@ import { FeatureProps } from '../feature-details-card/feature-details-card';
 
 import dataCatalog1 from '../../../public/images/data-catalog-1.png';
 import dataCatalog2 from '../../../public/images/data-catalog-2.png';
+import expTracking from '../../../public/images/features_experiment_tracking.png';
 import flexibleDeployment from '../../../public/images/flexible_deployment.png';
 import integrations from '../../../public/images/features_integrations.png';
 import pipelineAbstraction from '../../../public/images/pipeline-abstraction.png';
@@ -135,5 +136,16 @@ export const hiddenContent: FeatureProps[] = [
     subtitle:
       'Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more.',
     title: 'Flexible Deployment',
+  },
+  {
+    altText: 'Experiment Tracking example',
+    assetPosition: 'right',
+    buttonLink:
+      'https://kedro.readthedocs.io/en/latest/logging/experiment_tracking.html',
+    buttonText: 'Enable experiment tracking',
+    imageSrc: expTracking,
+    subtitle:
+      'Experiment tracking records all the information you need to recreate and analyse a data science experiment.',
+    title: 'Experiment Tracking',
   },
 ];
