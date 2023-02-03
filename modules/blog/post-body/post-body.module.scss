@@ -108,7 +108,7 @@
   top: calc($header-height + 1rem);
   width: 100%;
 
-  @include breakpoint(small) {
+  @media (max-width: 1050px) {
     display: none;
   }
 
