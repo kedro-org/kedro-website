@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Head from 'next/head';
 import { getAllPostsForBlog } from '../lib/api';
 import { PostSnippet as PostSnippetTypes } from '../modules/blog/post-snippet';
+import { siteMetadata } from '../modules/shared/config';
 
 import Header from '../modules/shared/header';
 import PostsList from '../modules/blog/posts-list';
@@ -24,7 +25,31 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
   return (
     <>
       <Head>
-        <title>Blog | Kedro</title>
+        <title>The Kedro Blog | Kedro</title>
+        <meta
+          name="description"
+          content={'The Kedro Blog | ' + siteMetadata.socialDescription}
+        />
+        <meta property="og:title" content="The Kedro Blog | Kedro" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={siteMetadata.socialImage} />
+        <meta property="og:url" content={siteMetadata.socialUrl + 'blog'} />
+        <meta
+          content={'The Kedro Blog | ' + siteMetadata.socialDescription}
+          property="og:description"
+        />
+        <meta property="og:site_name" content="Kedro" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          content={siteMetadata.socialDescription}
+          name="twitter:image:alt"
+        />
+        <meta content={siteMetadata.socialImage} name="twitter:image"></meta>
+        <meta name="twitter:title" content="The Kedro Blog | Kedro"></meta>
+        <meta
+          name="twitter:description"
+          content={'The Kedro Blog | ' + siteMetadata.socialDescription}
+        ></meta>
       </Head>
       <Header />
       <section className={style.featuredOuter}>

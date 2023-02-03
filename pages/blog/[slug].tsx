@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
+import { siteMetadata } from '../../modules/shared/config';
 
 import AuthorDetail from '../../modules/blog/author-detail';
 import Head from 'next/head';
@@ -24,6 +25,9 @@ type PostProps = {
   content: {
     json: any;
     links: any;
+  };
+  socialImage: {
+    url: string;
   };
 };
 
@@ -60,8 +64,43 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
         <>
           <article>
             <Head>
-              <title>{post.title} | Kedro</title>
-              <meta property="og:image" content={post.coverImage.url} />
+              <title>{post.title} | Kedro Blog</title>
+              <meta
+                name="description"
+                content={post.excerpt || siteMetadata.socialDescription}
+              />
+              <meta
+                property="og:title"
+                content={`${post.title} | Kedro Blog`}
+              />
+              <meta property="og:type" content="website" />
+              <meta
+                property="og:image"
+                content={post.socialImage?.url || siteMetadata.socialImage}
+              />
+              <meta
+                property="og:url"
+                content={postUrl || siteMetadata.socialUrl}
+              />
+              <meta
+                content={post.excerpt || siteMetadata.socialDescription}
+                property="og:description"
+              />
+              <meta property="og:site_name" content="Kedro" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta
+                content={siteMetadata.socialDescription}
+                name="twitter:image:alt"
+              />
+              <meta
+                content={post.socialImage?.url || siteMetadata.socialImage}
+                name="twitter:image"
+              ></meta>
+              <meta name="twitter:title" content={post.title}></meta>
+              <meta
+                name="twitter:description"
+                content={post.excerpt || siteMetadata.socialDescription}
+              ></meta>
             </Head>
             <Header />
             <section className={style.featuredOuter}>
