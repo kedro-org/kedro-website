@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
@@ -38,19 +39,35 @@ type Post = {
   slug: string;
 };
 
-const copyToClipboard = (str: string) => {
-  if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-    return navigator.clipboard.writeText(str);
-  }
-
-  return Promise.reject('The Clipboard API is not available.');
-};
-
 export default function Post({ post, morePosts, preview, slug }: Post) {
+  const [isCopyLinkSelected, setIsCopyLinkSelected] = useState(false);
   const router = useRouter();
   const postUrl = post?.slug
     ? `https://kedro.org/blog/${post.slug}`
     : 'https://kedro.org';
+
+  const copyToClipboard = (str: string) => {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(str).then(
+        () => {
+          setIsCopyLinkSelected(true);
+        },
+        (reason) => {
+          console.error("Couldn't copy the link to the clipboard: " + reason);
+        }
+      );
+    }
+  };
+
+  useEffect(() => {
+    let clickTimeout = setTimeout(() => {
+      setIsCopyLinkSelected(false);
+    }, 2250);
+
+    return () => {
+      clearTimeout(clickTimeout);
+    };
+  }, [isCopyLinkSelected]);
 
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />;
@@ -160,7 +177,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         src="/images/copy-to-clipboard.svg"
                         width={17}
                       />
-                      Copy link
+                      {isCopyLinkSelected ? 'Link copied!' : 'Copy link'}
                     </button>
                   </div>
                 </div>
