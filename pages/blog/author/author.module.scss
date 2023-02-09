@@ -22,6 +22,7 @@
   }
 
   @include breakpoint(small) {
+    padding: 3rem 1rem 0 1rem;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     grid-template-areas:
@@ -31,10 +32,9 @@
   }
 }
 
-.authorInfo,
 .blogsList {
   @include breakpoint(small) {
-    padding: 3rem 1rem 0 1rem;
+    padding: 3.75rem 1rem 0 1rem;
   }
 }
 
@@ -101,6 +101,7 @@
 
   @include breakpoint(small) {
     padding: 0;
+    margin: 0;
   }
 }
 
