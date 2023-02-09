@@ -113,7 +113,10 @@
   @include button($size: normal, $style: primary);
   @include text-sm;
 
+  align-items: center;
   cursor: pointer;
+  display: flex;
   font-weight: 700;
+  gap: 0.8125rem;
   margin: 4.5rem 0 7.5rem 0;
 }

@@ -86,11 +86,19 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
               </section>
 
               <Link href="/blog" passHref>
-                <div className={style.buttonWrapper}>
-                  <button className={style.backButton}>
-                    Back to Blog home
-                  </button>
-                </div>
+                <a>
+                  <div className={style.buttonWrapper}>
+                    <button className={style.backButton}>
+                      <Image
+                        alt="Back arrow"
+                        height={22}
+                        src="/images/back-arrow.svg"
+                        width={22}
+                      />
+                      Back to Blog home
+                    </button>
+                  </div>
+                </a>
               </Link>
             </div>
           </article>
