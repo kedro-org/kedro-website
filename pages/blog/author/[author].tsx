@@ -2,8 +2,12 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
+import Image from 'next/image';
 
 import Header from '../../../modules/shared/header';
+import PostsList from '../../../modules/blog/posts-list';
+
+import style from './author.module.scss';
 
 import { getAllAuthors, getSingleAuthor } from '../../../lib/api';
 
@@ -37,9 +41,11 @@ interface Post {
 interface Author {
   authorInfo: {
     name: string;
+    bio: string;
     picture: {
       url: string;
     };
+    jobTitle: string;
   };
   authorsPosts: Post[];
 }
@@ -63,21 +69,56 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
               <meta property="og:image" content={authorInfo.picture.url} />
             </Head>
             <Header />
-            <h2 style={{ marginTop: 100 }}>
-              {authorInfo.name}&apos;s author page
-            </h2>
-            <div>
-              <p>Articles by them:</p>
-              <div>
-                {authorsPosts.map((post) => {
-                  return (
-                    <div key={post.slug}>
-                      <Link href={`/blog/${post.slug}`}>
-                        <a>{post.title}</a>
-                      </Link>
-                    </div>
-                  );
-                })}
+            <div className={style.authorWrapper}>
+              <section className={style.authorInfo}>
+                <div className={style.imageWrapper}>
+                  <Image
+                    src={authorInfo.picture.url}
+                    alt="author picture alt"
+                    width={160}
+                    height={160}
+                  />
+                </div>
+                {/* The contacts sections to be confirmed by the design team */}
+                {/* <div className={style.contacts}>
+                    <div className={style.circle} />
+                    <div className={style.circle} />
+                    <div className={style.circle} />
+                  </div> */}
+                <div className={style.info}>
+                  <p className={style.name}>{authorInfo.name}</p>
+                  <p className={style.jobTitle}>{authorInfo.jobTitle}</p>
+                </div>
+                <p className={style.bio}>{authorInfo.bio}</p>
+              </section>
+
+              <section className={style.blogsList}>
+                <p className={style.postsBy}>
+                  Posts by <strong>{authorInfo.name}</strong>
+                </p>
+                <div>
+                  {authorsPosts.map((post) => {
+                    return (
+                      <div key={post.slug}>
+                        <Link href={`/blog/${post.slug}`}>
+                          <a>
+                            <PostsList key={post.sys.id} post={post} />
+                          </a>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+
+              <div className={style.buttonWrapper}>
+                <Link href="/blog">
+                  <a>
+                    <button className={style.backButton}>
+                      Back to Blog home
+                    </button>
+                  </a>
+                </Link>
               </div>
             </div>
           </article>

@@ -1,0 +1,119 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.authorWrapper {
+  margin: $header-height auto 0 auto;
+  max-width: $blog-max-content;
+}
+
+.authorInfo {
+  display: grid;
+  grid-template-columns: 24.5rem 50rem;
+  grid-template-areas:
+    'imageWrapper contacts'
+    'info bio';
+
+  column-gap: 1.5rem;
+  padding: 5rem 2rem;
+
+  @include breakpoint(medium-only) {
+    grid-template-columns: 12.5rem 42rem;
+    column-gap: 0.5rem;
+  }
+
+  @include breakpoint(small) {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'imageWrapper contacts'
+      'info info'
+      'bio bio';
+  }
+}
+
+.authorInfo,
+.blogsList {
+  @include breakpoint(small) {
+    padding: 3rem 1rem 0 1rem;
+  }
+}
+
+.imageWrapper {
+  border-radius: 50%;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+  width: 160px;
+  border: 4px solid $color-font;
+  grid-area: imageWrapper;
+}
+
+.contacts {
+  display: flex;
+  gap: 1rem;
+  grid-area: contacts;
+  justify-content: flex-end;
+
+  @include breakpoint(small) {
+    align-items: end;
+    flex-direction: column;
+  }
+}
+
+.circle {
+  background-color: $color-white-500;
+  border-radius: 50%;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 40px;
+}
+
+.info {
+  grid-area: info;
+}
+
+.name {
+  @include display-xs();
+
+  font-weight: 500;
+  margin: 2rem 0 0 0;
+}
+
+.jobTitle {
+  @include text-xl();
+
+  margin: 0;
+}
+
+.bio {
+  @include text-xl();
+
+  color: $color-grey-900;
+  margin: 2rem 0 0;
+  grid-area: bio;
+}
+
+.postsBy {
+  @include text-xl();
+
+  padding: 0 2rem 3rem;
+
+  @include breakpoint(small) {
+    padding: 0;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.backButton {
+  @include button($size: normal, $style: primary);
+  @include text-sm;
+
+  font-weight: 700;
+
+  margin: 4.5rem 0 7.5rem 0;
+}
