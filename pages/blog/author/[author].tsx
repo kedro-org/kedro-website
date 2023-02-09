@@ -100,26 +100,20 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                   {authorsPosts.map((post) => {
                     return (
                       <div key={post.slug}>
-                        <Link href={`/blog/${post.slug}`}>
-                          <a>
-                            <PostsList key={post.sys.id} post={post} />
-                          </a>
-                        </Link>
+                        <PostsList key={post.sys.id} post={post} />
                       </div>
                     );
                   })}
                 </div>
               </section>
 
-              <div className={style.buttonWrapper}>
-                <Link href="/blog">
-                  <a>
-                    <button className={style.backButton}>
-                      Back to Blog home
-                    </button>
-                  </a>
-                </Link>
-              </div>
+              <Link href="/blog" passHref>
+                <div className={style.buttonWrapper}>
+                  <button className={style.backButton}>
+                    Back to Blog home
+                  </button>
+                </div>
+              </Link>
             </div>
           </article>
         </>
