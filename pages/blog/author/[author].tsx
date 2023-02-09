@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import Header from '../../../modules/shared/header';
 import PostsList from '../../../modules/blog/posts-list';
+import { PostSnippet } from '../../../modules/blog/post-snippet';
 
 import style from './author.module.scss';
 
@@ -13,29 +14,6 @@ import { getAllAuthors, getSingleAuthor } from '../../../lib/api';
 
 interface AuthorParams {
   author: string;
-}
-
-interface Post {
-  author: {
-    name: string;
-    picture: any;
-  };
-  content: {
-    json: any;
-    links: any;
-  };
-  coverImage: {
-    url: string;
-  };
-  date: string;
-  excerpt: string;
-  featuredPost: true;
-  secondaryPost: false;
-  slug: string;
-  sys: {
-    id: string;
-  };
-  title: string;
 }
 
 interface Author {
@@ -47,7 +25,7 @@ interface Author {
     };
     jobTitle: string;
   };
-  authorsPosts: Post[];
+  authorsPosts: PostSnippet[];
 }
 
 export default function Author({ authorInfo, authorsPosts }: Author) {
