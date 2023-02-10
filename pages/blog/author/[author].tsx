@@ -85,9 +85,9 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                 </div>
               </section>
 
-              <Link href="/blog" passHref>
-                <a>
-                  <div className={style.buttonWrapper}>
+              <div className={style.buttonWrapper}>
+                <Link href="/blog" passHref>
+                  <a>
                     <button className={style.backButton}>
                       <Image
                         alt="Back arrow"
@@ -97,9 +97,9 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                       />
                       Back to Blog home
                     </button>
-                  </div>
-                </a>
-              </Link>
+                  </a>
+                </Link>
+              </div>
             </div>
           </article>
         </>
