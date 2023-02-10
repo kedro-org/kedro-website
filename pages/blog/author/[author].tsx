@@ -35,13 +35,6 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const sortedDatePosts = authorsPosts.sort((a, b) => {
-    return (
-      new Date(b.sys.firstPublishedAt).valueOf() -
-      new Date(a.sys.firstPublishedAt).valueOf()
-    );
-  });
-
   return (
     <>
       {router.isFallback ? (
@@ -82,7 +75,7 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                   Posts by <strong>{authorInfo.name}</strong>
                 </p>
                 <div>
-                  {sortedDatePosts.map((post) => {
+                  {authorsPosts.map((post) => {
                     return (
                       <div key={post.slug}>
                         <PostsList key={post.sys.id} post={post} />
