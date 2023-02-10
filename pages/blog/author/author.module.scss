@@ -97,7 +97,8 @@
 .postsBy {
   @include text-xl();
 
-  padding: 0 2rem 3rem;
+  margin: 0;
+  padding: 0 2rem 2rem;
 
   @include breakpoint(small) {
     padding: 0;
