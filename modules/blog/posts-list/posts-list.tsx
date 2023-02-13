@@ -69,9 +69,11 @@ const PostsList = ({ post }: PostsList) => {
       </Link>
       <p className={style.description}>{post.description}</p>
       <div className={style.authorWrapper}>
-        <Link href={`/blog/author/${post.author.urlDisplayName}`}>
-          <a className={style.author}>{post.author.name}</a>
-        </Link>
+        {post.author && (
+          <Link href={`/blog/author/${post.author.urlDisplayName}`}>
+            <a className={style.author}>{post.author.name}</a>
+          </Link>
+        )}
         <p className={style.date}>
           {dateFormatting(post.sys.firstPublishedAt)}
         </p>
