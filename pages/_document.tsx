@@ -5,9 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="canonical" href="https://kedro.org/"></link>
         <meta
           name="description"
-          content="Kedro is an open-source Python framework for creating reproducible, maintainable and modular data-science code. It borrows concepts from software engineering and applies them to machine-learning code."
+          content="Kedro is an open-source Python framework for creating reproducible, maintainable and modular data-science code."
         />
 
         <meta property="og:title" content="Kedro" />
@@ -18,7 +19,7 @@ export default function Document() {
         />
         <meta property="og:url" content="https://kedro.org/" />
         <meta
-          content="A Python framework for creating reproducible, maintainable and modular data science code."
+          content="A Python framework for creating data science code."
           property="og:description"
         />
         <meta property="og:site_name" content="Kedro" />
@@ -32,6 +33,7 @@ export default function Document() {
           name="twitter:image"
         ></meta>
         <meta name="twitter:title" content="Kedro"></meta>
+        <meta name="twitter:site" content="@quantumblack" />
         <meta
           name="twitter:description"
           content="A Python framework for creating reproducible, maintainable and modular data science code."

@@ -141,7 +141,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Experiment Tracking example',
     assetPosition: 'right',
     buttonLink:
-      'https://kedro.readthedocs.io/en/latest/logging/experiment_tracking.html',
+      'https://kedro.readthedocs.io/en/latest/visualisation/experiment_tracking.html',
     buttonText: 'Enable experiment tracking',
     imageSrc: expTracking,
     subtitle:

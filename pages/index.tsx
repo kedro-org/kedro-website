@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Kedro</title>
+        <title>Kedro | A Python framework for creating data science code</title>
       </Head>
       {(!onScreen || isMobile) && <Header />}
       <Hero />
