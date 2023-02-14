@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="canonical" href="https://kedro.org/"></link>
         <meta
           name="description"
-          content="Kedro is an open-source Python framework for creating reproducible, maintainable and modular data-science code."
+          content="Kedro is an open source Python framework for creating reproducible, maintainable and modular data science code."
         />
 
         <meta property="og:title" content="Kedro" />
