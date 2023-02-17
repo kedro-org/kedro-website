@@ -33,7 +33,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
         <meta property="og:title" content="The Kedro Blog | Kedro" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={siteMetadata.socialImage} />
-        <meta property="og:url" content={siteMetadata.socialUrl + 'blog'} />
+        <meta property="og:url" content={siteMetadata.baseUrl + 'blog'} />
         <meta
           content={'The Kedro Blog | ' + siteMetadata.socialDescription}
           property="og:description"

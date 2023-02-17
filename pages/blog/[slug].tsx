@@ -97,7 +97,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
               />
               <meta
                 property="og:url"
-                content={postUrl || siteMetadata.socialUrl}
+                content={postUrl || siteMetadata.baseUrl}
               />
               <meta
                 content={post.excerpt || siteMetadata.socialDescription}
