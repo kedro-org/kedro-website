@@ -11,12 +11,12 @@ function generateRssFeed(posts: PostSnippetTypes[]) {
     id: siteMetadata.baseUrl,
     link: siteMetadata.baseUrl,
     language: 'en',
-    image: `${siteMetadata.baseUrl}images/kedro-logo.svg`,
-    favicon: `${siteMetadata.baseUrl}images/kedro-logo.svg`,
+    image: `${siteMetadata.baseUrl}images/kedro-logo.png`,
+    favicon: `${siteMetadata.baseUrl}images/kedro-logo.png`,
     copyright: '',
     updated: new Date(),
     feedLinks: {
-      rss: `${siteMetadata.baseUrl}rss`,
+      rss: `${siteMetadata.baseUrl}blog/rss`,
     },
   });
 
