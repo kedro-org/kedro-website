@@ -1,29 +1,37 @@
-/* eslint-disable camelcase */
-
-import RSS from 'rss';
+import { Feed } from 'feed';
 import { getAllPostsForBlog } from '../lib/api';
 import { GetServerSideProps } from 'next';
 import { PostSnippet as PostSnippetTypes } from '../modules/blog/post-snippet';
 import { siteMetadata } from '../modules/shared/config';
 
 function generateRssFeed(posts: PostSnippetTypes[]) {
-  const feedOptions = {
+  const feed = new Feed({
     title: 'The Kedro Blog | Kedro',
     description: siteMetadata.socialDescription,
-    site_url: siteMetadata.baseUrl,
-    feed_url: `${siteMetadata.baseUrl}rss`,
-    image_url: `${siteMetadata.baseUrl}images/kedro-logo.svg`,
-    pubDate: new Date(),
-  };
-
-  const feed = new RSS(feedOptions);
+    id: siteMetadata.baseUrl,
+    link: siteMetadata.baseUrl,
+    language: 'en',
+    image: `${siteMetadata.baseUrl}images/kedro-logo.svg`,
+    favicon: `${siteMetadata.baseUrl}images/kedro-logo.svg`,
+    copyright: '',
+    updated: new Date(),
+    feedLinks: {
+      rss: `${siteMetadata.baseUrl}rss`,
+    },
+  });
 
   posts.map((post) => {
-    feed.item({
+    feed.addItem({
       title: post.title,
       description: post.description,
-      url: `${siteMetadata.baseUrl}blog/${post.slug}`,
-      date: post.sys.firstPublishedAt,
+      id: `${siteMetadata.baseUrl}blog/${post.slug}`,
+      link: `${siteMetadata.baseUrl}blog/${post.slug}`,
+      date: new Date(post.sys.firstPublishedAt),
+      author: [
+        {
+          name: post.author.name,
+        },
+      ],
     });
   });
 
@@ -36,10 +44,10 @@ function rss() {
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const posts = await getAllPostsForBlog(false);
-  const rssFeed = generateRssFeed(posts);
+  const feed = generateRssFeed(posts);
 
   res.setHeader('Content-Type', 'text/xml');
-  res.write(rssFeed.xml({ indent: true }));
+  res.write(feed.rss2());
   res.end();
 
   return {
