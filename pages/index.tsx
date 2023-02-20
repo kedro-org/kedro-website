@@ -31,7 +31,7 @@ const Home = () => {
         <meta property="og:title" content="Kedro" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={siteMetadata.socialImage} />
-        <meta property="og:url" content={siteMetadata.socialUrl} />
+        <meta property="og:url" content={siteMetadata.baseUrl} />
         <meta
           content={siteMetadata.socialDescription}
           property="og:description"
