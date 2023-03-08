@@ -16,7 +16,7 @@ export default function ReadyToStart() {
             our introductory tutorial.
           </p>
           <a
-            href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+            href="https://docs.kedro.org/en/stable/get_started/install.html"
             target="_blank"
             rel="noopener noreferrer"
           >
