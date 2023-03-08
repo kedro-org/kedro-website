@@ -88,7 +88,7 @@ export const hiddenContent: FeatureProps[] = [
     assetClassName: 'pipelineAbstraction',
     assetPosition: 'left',
     buttonLink:
-      'https://docs.kedro.org/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
+      'https://docs.kedro.org/en/stable/nodes_and_pipelines/pipeline_introduction.html',
     buttonText: 'Build a pipeline',
     iframeList: [
       {
