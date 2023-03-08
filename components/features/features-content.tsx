@@ -21,7 +21,7 @@ export const shownContent: FeatureProps[] = [
   },
   {
     assetPosition: 'right',
-    buttonLink: 'https://docs.kedro.org/en/stable/05_data/01_data_catalog.html',
+    buttonLink: 'https://docs.kedro.org/en/stable/data/data_catalog.html',
     buttonText: 'Explore the data catalog',
     iframeList: [
       {
