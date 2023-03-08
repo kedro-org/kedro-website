@@ -30,7 +30,7 @@ export default function Header() {
           </a>
           <a
             className={style.link}
-            href="https://docs.kedro.org/en/stable/02_get_started/01_prerequisites.html"
+            href="https://docs.kedro.org/en/stable/get_started/install.html"
             rel="noopener noreferrer"
             target="_blank"
           >
