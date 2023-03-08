@@ -21,8 +21,7 @@ export const shownContent: FeatureProps[] = [
   },
   {
     assetPosition: 'right',
-    buttonLink:
-      'https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html',
+    buttonLink: 'https://docs.kedro.org/en/stable/05_data/01_data_catalog.html',
     buttonText: 'Explore the data catalog',
     iframeList: [
       {
@@ -63,7 +62,7 @@ export const shownContent: FeatureProps[] = [
   {
     assetPosition: 'right',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure',
+      'https://docs.kedro.org/en/stable/02_get_started/05_example_project.html#project-directory-structure',
     buttonText: 'View the project template',
     iframeList: [
       {
@@ -79,7 +78,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://kedro.readthedocs.io/en/stable/07_extend_kedro/05_create_kedro_starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
+      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/07_extend_kedro/05_create_kedro_starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
     title: 'Project Template',
   },
 ];
@@ -89,7 +88,7 @@ export const hiddenContent: FeatureProps[] = [
     assetClassName: 'pipelineAbstraction',
     assetPosition: 'left',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
+      'https://docs.kedro.org/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
     buttonText: 'Build a pipeline',
     iframeList: [
       {
@@ -130,7 +129,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Flexible Deployment example',
     assetPosition: 'left',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/10_deployment/01_deployment_guide.html',
+      'https://docs.kedro.org/en/stable/10_deployment/01_deployment_guide.html',
     buttonText: 'Choose your deployment target',
     imageSrc: flexibleDeployment,
     subtitle:
@@ -141,7 +140,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Experiment Tracking example',
     assetPosition: 'right',
     buttonLink:
-      'https://kedro.readthedocs.io/en/latest/visualisation/experiment_tracking.html',
+      'https://docs.kedro.org/en/stable/visualisation/experiment_tracking.html',
     buttonText: 'Enable experiment tracking',
     imageSrc: expTracking,
     subtitle:
