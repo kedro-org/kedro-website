@@ -129,7 +129,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Flexible Deployment example',
     assetPosition: 'left',
     buttonLink:
-      'https://docs.kedro.org/en/stable/10_deployment/01_deployment_guide.html',
+      'https://docs.kedro.org/en/stable/deployment/deployment_guide.html',
     buttonText: 'Choose your deployment target',
     imageSrc: flexibleDeployment,
     subtitle:
