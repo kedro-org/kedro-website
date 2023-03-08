@@ -152,13 +152,10 @@
 
   > a {
     text-decoration: underline;
-    text-decoration-color: $color-font;
-    transition: color $transition-time ease,
-      text-decoration-color $transition-time ease;
+    transition: color $transition-time ease;
 
     &:hover {
       color: $color-accent;
-      text-decoration-color: $color-accent;
     }
   }
 }

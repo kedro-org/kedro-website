@@ -9,7 +9,7 @@ export default function Hero() {
   const [showMoreFeatures, setShowMoreFeatures] = useState(false);
 
   return (
-    <section id="features" className={style.outer}>
+    <section className={style.outer} id="features">
       <div className={style.inner}>
         <h3 className={style.sectionTitle}>Features</h3>
         {shownContent.map((featureContent) => {

@@ -3,6 +3,7 @@ import useOnScreen from '../utils/hooks/useOnScreen';
 import Head from 'next/head';
 
 import CaseStudies from '../components/case-studies';
+import FAQ from '../components/faq';
 import Features from '../components/features';
 import Header from '../components/header';
 import Hero from '../components/hero';
@@ -31,6 +32,7 @@ const Home = () => {
       <Hero />
       <WhyKedro />
       <Features />
+      <FAQ />
       <CaseStudies />
       <CompaniesUsingKedro />
       <Testimonials />
