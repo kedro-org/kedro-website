@@ -62,7 +62,7 @@ export const shownContent: FeatureProps[] = [
   {
     assetPosition: 'right',
     buttonLink:
-      'https://docs.kedro.org/en/stable/02_get_started/05_example_project.html#project-directory-structure',
+      'https://docs.kedro.org/en/stable/get_started/kedro_concepts.html#kedro-project-directory-structure',
     buttonText: 'View the project template',
     iframeList: [
       {
