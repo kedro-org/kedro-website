@@ -112,7 +112,7 @@ export default function Hero() {
               </a>
             </motion.div>
             <a
-              href="https://docs.kedro.org/en/stable/03_tutorial/01_spaceflights_tutorial.html"
+              href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
               target="_blank"
               rel="noopener noreferrer"
             >
