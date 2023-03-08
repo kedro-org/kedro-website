@@ -85,7 +85,7 @@ export default function Hero() {
               whileHover="hover"
             >
               <a
-                href="https://docs.kedro.org/en/stable/02_get_started/01_prerequisites.html"
+                href="https://docs.kedro.org/en/stable/get_started/install.html"
                 target="_blank"
                 rel="noopener noreferrer"
               >
