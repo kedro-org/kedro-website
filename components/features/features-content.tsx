@@ -78,7 +78,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/07_extend_kedro/05_create_kedro_starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
+      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/kedro_project_setup/starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
     title: 'Project Template',
   },
 ];
