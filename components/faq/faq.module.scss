@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .outer {
-  background-color: $color-grey-border;
+  background-color: $color-bg-grey;
   padding: 5rem 0;
 
   @include breakpoint(medium-up) {
@@ -67,6 +67,14 @@
   }
 }
 
+.questions hr {
+  border: 0;
+  border-top: 1px solid $color-font-grey;
+  height: 1px;
+  margin: 0;
+  width: 100%;
+}
+
 .toggleAll {
   @include text-sm;
 
@@ -75,6 +83,7 @@
   margin-bottom: 0.75rem;
   text-align: right;
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .accordionWrapper {
@@ -83,12 +92,10 @@
 
 .accordionHeader {
   align-items: center;
-  border-top: 1px solid $color-font-grey;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  margin: 0 0 1.5rem;
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
 
   > h4 {
     @include text-xl;
@@ -114,6 +121,10 @@
     &:hover {
       color: $color-accent;
     }
+  }
+
+  p:first-of-type {
+    margin-top: 0;
   }
 
   > * {

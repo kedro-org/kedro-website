@@ -53,7 +53,8 @@ export default function FAQ() {
             showcase projects in the{' '}
             <a
               href="https://github.com/kedro-org/kedro-community"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               kedro-community
             </a>{' '}
@@ -65,18 +66,24 @@ export default function FAQ() {
             {areAllExpanded ? 'Collapse all' : 'Expand all'}
           </div>
           {faqContent.map((topic, index) => (
-            <div className={style.accordionWrapper} key={topic.question}>
-              <Accordion
-                index={index}
-                isExpanded={expandedArray[index]}
-                title={topic.question}
-                toggleAccordion={toggleAccordion}
-              >
-                <div className={style.answer}>
-                  <ReactMarkdown children={topic.answer} linkTarget="_blank" />
-                </div>
-              </Accordion>
-            </div>
+            <>
+              <hr />
+              <div className={style.accordionWrapper} key={topic.question}>
+                <Accordion
+                  index={index}
+                  isExpanded={expandedArray[index]}
+                  title={topic.question}
+                  toggleAccordion={toggleAccordion}
+                >
+                  <div className={style.answer}>
+                    <ReactMarkdown
+                      children={topic.answer}
+                      linkTarget="_blank"
+                    />
+                  </div>
+                </Accordion>
+              </div>
+            </>
           ))}
         </div>
       </div>
