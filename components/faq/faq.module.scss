@@ -87,6 +87,7 @@
 }
 
 .accordionWrapper {
+  overflow: hidden;
   width: 100%;
 }
 
@@ -123,7 +124,8 @@
     }
   }
 
-  p:first-of-type {
+  p:first-of-type,
+  ul {
     margin-top: 0;
   }
 
