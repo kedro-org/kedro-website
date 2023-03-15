@@ -40,7 +40,7 @@ export default function FAQ() {
     <section className={style.outer} id="faq">
       <div className={style.inner}>
         <div className={style.sticky}>
-          <h3>FAQ&apos;s</h3>
+          <h3>FAQs</h3>
           <p>
             You can find the{' '}
             <a href="https://slack.kedro.org/" target="_blank" rel="noreferrer">
