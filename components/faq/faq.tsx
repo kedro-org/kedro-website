@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faqContent } from './faq-content';
@@ -66,7 +66,7 @@ export default function FAQ() {
             {areAllExpanded ? 'Collapse all' : 'Expand all'}
           </div>
           {faqContent.map((topic, index) => (
-            <>
+            <React.Fragment key={topic.question}>
               <hr />
               <div className={style.accordionWrapper} key={topic.question}>
                 <Accordion
@@ -83,7 +83,7 @@ export default function FAQ() {
                   </div>
                 </Accordion>
               </div>
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

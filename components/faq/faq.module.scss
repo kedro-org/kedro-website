@@ -42,6 +42,7 @@
 
   @include breakpoint(small) {
     height: auto;
+    margin-bottom: 2.125rem;
     margin-right: 0;
     position: relative;
     top: auto;
@@ -69,7 +70,7 @@
 
 .questions hr {
   border: 0;
-  border-top: 1px solid $color-font-grey;
+  border-top: 1px solid $color-black-divider;
   height: 1px;
   margin: 0;
   width: 100%;
@@ -133,5 +134,9 @@
     @include text-md;
 
     max-width: 528px;
+
+    @include breakpoint(small) {
+      max-width: 85%;
+    }
   }
 }
