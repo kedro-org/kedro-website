@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .outer {
-  background-color: $color-bg-grey;
+  background-color: $color-dark;
   padding: 5rem 0 8rem;
 
   @include breakpoint(medium-up) {

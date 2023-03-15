@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import style from './header.module.scss';
 
@@ -9,15 +10,17 @@ export default function Header() {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <a href="#" className={style.logo}>
-          <Image
-            alt="KedroLogo"
-            height={30}
-            src="/images/kedro-logo.svg"
-            width={30}
-          />
-          <h4 className={style.logoText}>Kedro</h4>
-        </a>
+        <Link href="/" passHref>
+          <a className={style.logo}>
+            <Image
+              alt="KedroLogo"
+              height={30}
+              src="/images/kedro-logo.svg"
+              width={30}
+            />
+            <h4 className={style.logoText}>Kedro</h4>
+          </a>
+        </Link>
         <nav
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
@@ -27,6 +30,9 @@ export default function Header() {
           </a>
           <a href="#features" className={style.link}>
             Features
+          </a>
+          <a href="#faq" className={style.link}>
+            FAQs
           </a>
           <a
             className={style.link}

@@ -22,6 +22,9 @@ export default function Footer() {
           <a href="#features" className={style.link}>
             Features
           </a>
+          <a href="#faq" className={style.link}>
+            FAQs
+          </a>
           <a
             className={style.link}
             href="https://docs.kedro.org/en/stable/get_started/install.html"
