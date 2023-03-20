@@ -20,6 +20,10 @@
   @include text-md;
 
   font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .jobTitle {

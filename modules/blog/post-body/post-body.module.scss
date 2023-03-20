@@ -161,6 +161,10 @@
 
   .postBodyImgCaption {
     @include text-sm;
+
+    > p {
+      margin: 0;
+    }
   }
 }
 

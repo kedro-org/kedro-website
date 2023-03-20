@@ -108,6 +108,25 @@ const renderOptions = (links: Links) => {
             </div>
           );
         }
+
+        if (entry.__typename === 'Media') {
+          return (
+            <div className={style.postBodyImgWrapper}>
+              <Image
+                alt={entry.name}
+                height={entry.media.height}
+                src={entry.media.url}
+                width={entry.media.width}
+              />
+              <div className={style.postBodyImgCaption}>
+                {documentToReactComponents(
+                  entry.caption.json,
+                  renderOptions(links) as any
+                )}
+              </div>
+            </div>
+          );
+        }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const asset = assetMap.get(node.data.target.sys.id);

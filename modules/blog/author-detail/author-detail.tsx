@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import style from './author-detail.module.scss';
 
@@ -30,7 +31,9 @@ const AuthorDetail = ({ authorInfo }: Props) => {
         />
       </div>
       <div>
-        <div className={style.name}>{authorInfo.name}</div>
+        <Link href={`/blog/author/${authorInfo.urlDisplayName}`}>
+          <a className={style.name}>{authorInfo.name}</a>
+        </Link>
         <div className={style.jobTitle}>{authorInfo.jobTitle}</div>
       </div>
     </div>

@@ -46,10 +46,10 @@ const PostsList = ({ post }: PostsList) => {
         }}
       >
         <Image
-          src={post.coverImage.url}
           alt="cover image alt"
-          width={236}
           height={236}
+          src={post.coverImage.url}
+          width={236}
         />
       </div>
       <p
