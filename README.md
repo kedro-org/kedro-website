@@ -5,3 +5,7 @@
 ## What is this?
 
 A repository for the official home of Kedro (kedro.org).
+
+## Technology
+
+Built with Next.js. Blog content powered by Contentful.
