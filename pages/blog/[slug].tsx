@@ -121,13 +121,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
             </Head>
             <Header />
             <section className={style.featuredOuter}>
-              <div
-                className={classNames(
-                  style.featuredInner,
-                  style.animationWrapper,
-                  style.fadeInBottom
-                )}
-              >
+              <div className={style.featuredInner}>
                 <PostSnippet
                   imgPosition="right"
                   onPostPage
