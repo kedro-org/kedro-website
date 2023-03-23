@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, Document } from '@contentful/rich-text-types';
+import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { scrollToTargetAdjusted } from '../../../utils/blog';
@@ -45,6 +45,7 @@ type Node = {
         type: string;
       };
     };
+    uri: string;
   };
   nodeType: string;
 };
@@ -56,6 +57,10 @@ type NavigationList = {
 
 const headerTextToIdString = (str: string) => {
   return str.split(' ').join('-').toLowerCase();
+};
+
+const isSameHost = (str: string) => {
+  return str.includes('kedro.org');
 };
 
 const renderOptions = (links: Links) => {
@@ -145,6 +150,15 @@ const renderOptions = (links: Links) => {
       },
       [BLOCKS.HEADING_2]: (node: Node, children: [string]) => {
         return <h2 id={headerTextToIdString(children[0])}>{children}</h2>;
+      },
+      [INLINES.HYPERLINK]: (node: Node) => {
+        const targetValue = isSameHost(node.data.uri) ? '_self' : '_blank';
+
+        return (
+          <a href={node.data.uri} target={targetValue} rel="noreferrer">
+            {node.content[0].value}
+          </a>
+        );
       },
     },
   };
