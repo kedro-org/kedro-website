@@ -56,7 +56,7 @@ type NavigationList = {
 };
 
 const headerTextToIdString = (str: string) => {
-  return str.split(' ').join('-').toLowerCase();
+  return str.split(' ').join('-').toLowerCase().replace(/[\'?]/g, '').trim();
 };
 
 const isSameHost = (str: string) => {
@@ -199,8 +199,19 @@ export default function PostBody({ content, slug }: Props) {
               href={`#${section.headerId}`}
               key={section.headerTitle}
               onClick={(e) => {
-                e.preventDefault();
+                const sectionId = headerTextToIdString(section.headerTitle);
+                const currentUrl = window.location.href;
+                const existingHashIndex = currentUrl.indexOf('#');
+                const updatedUrl =
+                  existingHashIndex !== -1
+                    ? `${currentUrl.substring(
+                        0,
+                        existingHashIndex
+                      )}#${sectionId}`
+                    : `${currentUrl}#${sectionId}`;
 
+                e.preventDefault();
+                history.replaceState(null, null, updatedUrl);
                 scrollToTargetAdjusted(section.headerId);
               }}
             >
