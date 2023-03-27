@@ -25,15 +25,12 @@ export default function Header() {
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
         >
-          <a href="#why-kedro" className={style.link}>
-            Why Kedro?
-          </a>
-          <a href="#features" className={style.link}>
-            Features
-          </a>
-          <a href="#faq" className={style.link}>
-            FAQs
-          </a>
+          <Link href="/#why-kedro">
+            <a className={style.link}>Why Kedro?</a>
+          </Link>
+          <Link href="/#features">
+            <a className={style.link}>Features</a>
+          </Link>
           <a
             className={style.link}
             href="https://docs.kedro.org/en/stable/get_started/install.html"
