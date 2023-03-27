@@ -31,6 +31,9 @@ export default function Header() {
           <Link href="/#features">
             <a className={style.link}>Features</a>
           </Link>
+          <Link href="/#faq">
+            <a className={style.link}>Features</a>
+          </Link>
           <a
             className={style.link}
             href="https://docs.kedro.org/en/stable/get_started/install.html"
