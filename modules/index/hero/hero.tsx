@@ -74,7 +74,7 @@ export default function Hero() {
             </div>
           </h1>
           <h2 className={style.subtitle}>
-            Kedro is an open-sourced Python framework for creating maintainable
+            Kedro is an open sourced Python framework for creating maintainable
             and modular data science code.
           </h2>
           <div className={style.buttons}>
@@ -85,7 +85,7 @@ export default function Hero() {
               whileHover="hover"
             >
               <a
-                href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+                href="https://docs.kedro.org/en/stable/get_started/install.html"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -112,7 +112,7 @@ export default function Hero() {
               </a>
             </motion.div>
             <a
-              href="https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html"
+              href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
               target="_blank"
               rel="noopener noreferrer"
             >

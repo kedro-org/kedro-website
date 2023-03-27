@@ -21,7 +21,7 @@ describe('Hero', () => {
     render(<Hero />);
 
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
-      'Kedro is an open-sourced Python framework for creating maintainable and modular data science code.'
+      'Kedro is an open sourced Python framework for creating maintainable and modular data science code.'
     );
   });
 });

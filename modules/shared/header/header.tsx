@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <Link href="/">
+        <Link href="/" passHref>
           <a className={style.logo}>
             <Image
               alt="KedroLogo"
@@ -25,15 +25,18 @@ export default function Header() {
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
         >
-          <Link href="/#why-kedro">
-            <a className={style.link}>Why Kedro?</a>
-          </Link>
-          <Link href="/#features">
-            <a className={style.link}>Features</a>
-          </Link>
+          <a href="#why-kedro" className={style.link}>
+            Why Kedro?
+          </a>
+          <a href="#features" className={style.link}>
+            Features
+          </a>
+          <a href="#faq" className={style.link}>
+            FAQs
+          </a>
           <a
             className={style.link}
-            href="https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html"
+            href="https://docs.kedro.org/en/stable/get_started/install.html"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -41,7 +44,7 @@ export default function Header() {
           </a>
           <a
             className={style.link}
-            href="https://kedro.readthedocs.io/en/stable/"
+            href="https://docs.kedro.org/en/stable/"
             rel="noopener noreferrer"
             target="_blank"
           >

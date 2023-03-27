@@ -5,6 +5,7 @@ import { siteMetadata } from '../modules/shared/config';
 
 import CaseStudies from '../modules/index/case-studies';
 import Features from '../modules/index/features';
+import FAQ from '../modules/index/faq';
 import Header from '../modules/shared/header';
 import Hero from '../modules/index/hero';
 import CompaniesUsingKedro from '../modules/index/companies-using-kedro';
@@ -53,6 +54,7 @@ const Home = () => {
       <Hero />
       <WhyKedro />
       <Features />
+      <FAQ />
       <CaseStudies />
       <CompaniesUsingKedro />
       <Testimonials />

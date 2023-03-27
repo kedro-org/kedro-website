@@ -21,8 +21,7 @@ export const shownContent: FeatureProps[] = [
   },
   {
     assetPosition: 'right',
-    buttonLink:
-      'https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html',
+    buttonLink: 'https://docs.kedro.org/en/stable/data/data_catalog.html',
     buttonText: 'Explore the data catalog',
     iframeList: [
       {
@@ -63,13 +62,13 @@ export const shownContent: FeatureProps[] = [
   {
     assetPosition: 'right',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/02_get_started/05_example_project.html#project-directory-structure',
+      'https://docs.kedro.org/en/stable/get_started/kedro_concepts.html#kedro-project-directory-structure',
     buttonText: 'View the project template',
     iframeList: [
       {
         fallbackImg: projectTemplate,
         source:
-          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=application%2Fx-sh&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=1x&wm=false&code=project-template%2520%2520%2520%2520%2523%2520Project%2520folder%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520conf%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520files%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520data%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Local%2520project%2520data%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520docs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Documentation%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520logs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Logs%2520of%2520pipeline%2520runs%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520notebooks%2520%2520%2520%2520%2520%2520%2520%2523%2520Exploratory%2520Jupyter%2520notebooks%2520%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520pyproject.toml%2520%2520%2523%2520Identifies%2520the%2520project%2520root%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520setup.cfg%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520options%2520for%2520testing%2520and%2520linting%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520README.md%2520%2520%2520%2520%2520%2520%2520%2523%2520README.md%2520explaining%2520your%2520project%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520setup.cfg%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520options%2520for%2520testing%2520and%2520linting%250A%25E2%2594%2594%25E2%2594%2580%25E2%2594%2580%2520src%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Source%2520code%2520for%2520pipelines',
+          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=application%2Fx-sh&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=1x&wm=false&code=project-template%2520%2520%2520%2520%2523%2520Project%2520folder%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520conf%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520files%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520data%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Local%2520project%2520data%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520docs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Documentation%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520logs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Logs%2520of%2520pipeline%2520runs%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520notebooks%2520%2520%2520%2520%2520%2520%2520%2523%2520Exploratory%2520Jupyter%2520notebooks%2520%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520pyproject.toml%2520%2520%2523%2520Identifies%2520the%2520project%2520root%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520README.md%2520%2520%2520%2520%2520%2520%2520%2523%2520README.md%2520explaining%2520your%2520project%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520setup.cfg%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520options%2520for%2520testing%2520and%2520linting%250A%25E2%2594%2594%25E2%2594%2580%25E2%2594%2580%2520src%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Source%2520code%2520for%2520pipelines',
         style: {
           border: 0,
           height: '297px',
@@ -79,7 +78,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://kedro.readthedocs.io/en/stable/07_extend_kedro/05_create_kedro_starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
+      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/kedro_project_setup/starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
     title: 'Project Template',
   },
 ];
@@ -89,16 +88,16 @@ export const hiddenContent: FeatureProps[] = [
     assetClassName: 'pipelineAbstraction',
     assetPosition: 'left',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/06_nodes_and_pipelines/02_pipeline_introduction.html',
+      'https://docs.kedro.org/en/stable/nodes_and_pipelines/pipeline_introduction.html',
     buttonText: 'Build a pipeline',
     iframeList: [
       {
         fallbackImg: pipelineAbstraction,
         source:
-          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=python&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=import%2520pandas%2520as%2520pd%250Afrom%2520kedro.pipeline%2520import%2520pipeline%252C%2520node%250A%250Adef%2520clean_data%28weather_df%253A%2520pd.DataFrame%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520clean_weather_df%2520%253D%2520weather_df.drop%28%2522temperature%2522%252C%2520axis%253D1%29%250A%2520%2520%2520%2520return%2520clean_weather_df%250A%250Adef%2520join_meteoro_data%28%250A%2520%2520%2520%2520weather_df%253A%2520pd.DataFrame%252C%2520climate_df%253A%2520pd.DataFrame%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520weather_climate_df%2520%253D%2520weather_df.merge%28climate_df%252C%2520on%253D%255B%2522country_code%2522%252C%2520%2522area_code%2522%255D%252C%2520how%253D%2522inner%2522%29%250A%2520%2520%2520%2520return%2520weather_climate_df%250A%250Adata_processing_pipeline%2520%253D%2520pipeline%28%250A%2520%2520%2520%2520%255B%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Dclean_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%2522weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522clean_weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Djoin_meteoro_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%255B%2522clean_weather_data%2522%252C%2520%2522climate_change_data%2522%255D%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522weather_climate_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%250A%2520%2520%2520%2520%255D%250A%29',
+          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=python&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=import%2520pandas%2520as%2520pd%250Afrom%2520kedro.pipeline%2520import%2520pipeline%252C%2520node%250A%250A%250Adef%2520clean_data%28weather_df%253A%2520pd.DataFrame%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520clean_weather_df%2520%253D%2520weather_df.drop%28%2522temperature%2522%252C%2520axis%253D1%29%250A%2520%2520%2520%2520return%2520clean_weather_df%250A%250A%250Adef%2520join_meteoro_data%28%250A%2520%2520%2520%2520weather_df%253A%2520pd.DataFrame%252C%2520climate_df%253A%2520pd.DataFrame%250A%29%2520-%253E%2520pd.DataFrame%253A%250A%2520%2520%2520%2520weather_climate_df%2520%253D%2520weather_df.merge%28%250A%2520%2520%2520%2520%2520%2520%2520%2520climate_df%252C%2520on%253D%255B%2522country_code%2522%252C%2520%2522area_code%2522%255D%252C%2520how%253D%2522inner%2522%250A%2520%2520%2520%2520%29%250A%2520%2520%2520%2520return%2520weather_climate_df%250A%250A%250Adata_processing_pipeline%2520%253D%2520pipeline%28%250A%2520%2520%2520%2520%255B%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Dclean_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%2522weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522clean_weather_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520node%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520func%253Djoin_meteoro_data%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520inputs%253D%255B%2522clean_weather_data%2522%252C%2520%2522climate_change_data%2522%255D%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520outputs%253D%2522weather_climate_data%2522%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520%29%252C%250A%2520%2520%2520%2520%255D%250A%29',
         style: {
           border: 0,
-          height: '570px',
+          height: '715px',
           overflow: 'hidden',
           transform: 'scale(1)',
         },
@@ -130,7 +129,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Flexible Deployment example',
     assetPosition: 'left',
     buttonLink:
-      'https://kedro.readthedocs.io/en/stable/10_deployment/01_deployment_guide.html',
+      'https://docs.kedro.org/en/stable/deployment/deployment_guide.html',
     buttonText: 'Choose your deployment target',
     imageSrc: flexibleDeployment,
     subtitle:
@@ -141,7 +140,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Experiment Tracking example',
     assetPosition: 'right',
     buttonLink:
-      'https://kedro.readthedocs.io/en/latest/logging/experiment_tracking.html',
+      'https://docs.kedro.org/en/stable/visualisation/experiment_tracking.html',
     buttonText: 'Enable experiment tracking',
     imageSrc: expTracking,
     subtitle:

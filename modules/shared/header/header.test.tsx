@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  fireEvent,
-  getAllByRole,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Header from './index';
@@ -26,7 +20,7 @@ describe('Header', () => {
   it('displays the correct number of links', async () => {
     render(<Header />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(7);
+    expect(screen.getAllByRole('link')).toHaveLength(8);
   });
 
   it('opens and closes the menu when burger/close icon clicked', async () => {
