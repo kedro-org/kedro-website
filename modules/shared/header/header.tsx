@@ -32,7 +32,7 @@ export default function Header() {
             <a className={style.link}>Features</a>
           </Link>
           <Link href="/#faq">
-            <a className={style.link}>Features</a>
+            <a className={style.link}>FAQs</a>
           </Link>
           <a
             className={style.link}
