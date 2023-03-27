@@ -137,12 +137,12 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
-      featuredPost: data.filter(
-        (post: PostSnippetTypes) => post.featuredPost
-      )[0],
-      secondaryPosts: data
-        .filter((post: PostSnippetTypes) => post.secondaryPost)
-        .slice(0, 2),
+      featuredPost:
+        data.filter((post: PostSnippetTypes) => post?.featuredPost)[0] || null,
+      secondaryPosts:
+        data
+          .filter((post: PostSnippetTypes) => post?.secondaryPost)
+          .slice(0, 2) || null,
       allPosts: data,
       preview,
     },

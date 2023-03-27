@@ -64,6 +64,10 @@ const PostSnippet = ({
     setRotateY(0);
   };
 
+  if (post === null) {
+    return null;
+  }
+
   return (
     <div
       className={classNames(style.container, {
