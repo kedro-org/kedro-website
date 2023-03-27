@@ -4,7 +4,6 @@
 html,
 body {
   -webkit-font-smoothing: antialiased;
-  background: $color-dark;
   color: $color-font;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 16px;
@@ -19,7 +18,6 @@ body {
 }
 
 a {
-  color: $color-font;
   text-decoration: none;
 }
 

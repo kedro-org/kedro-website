@@ -1,17 +1,18 @@
 import React, { useRef } from 'react';
 import useOnScreen from '../utils/hooks/useOnScreen';
 import Head from 'next/head';
+import { siteMetadata } from '../modules/shared/config';
 
-import CaseStudies from '../components/case-studies';
-import FAQ from '../components/faq';
-import Features from '../components/features';
-import Header from '../components/header';
-import Hero from '../components/hero';
-import CompaniesUsingKedro from '../components/companies-using-kedro';
-import ReadyToStart from '../components/ready-to-start';
-import Testimonials from '../components/testimonials';
-import WhyKedro from '../components/why-kedro';
-import Footer from '../components/footer';
+import CaseStudies from '../modules/index/case-studies';
+import Features from '../modules/index/features';
+import FAQ from '../modules/index/faq';
+import Header from '../modules/shared/header';
+import Hero from '../modules/index/hero';
+import CompaniesUsingKedro from '../modules/index/companies-using-kedro';
+import ReadyToStart from '../modules/index/ready-to-start';
+import Testimonials from '../modules/index/testimonials';
+import WhyKedro from '../modules/index/why-kedro';
+import Footer from '../modules/index/footer';
 import { Size, useWindowSize } from '../utils/hooks/useWindowSize';
 
 const MOBILE_BREAKPOINT = 819;
@@ -26,7 +27,28 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Kedro | A Python framework for creating data science code</title>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        <meta property="og:title" content="Kedro" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={siteMetadata.socialImage} />
+        <meta property="og:url" content={siteMetadata.baseUrl} />
+        <meta
+          content={siteMetadata.socialDescription}
+          property="og:description"
+        />
+        <meta property="og:site_name" content="Kedro" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          content={siteMetadata.socialDescription}
+          name="twitter:image:alt"
+        />
+        <meta content={siteMetadata.socialImage} name="twitter:image"></meta>
+        <meta name="twitter:title" content="Kedro"></meta>
+        <meta
+          name="twitter:description"
+          content={siteMetadata.socialDescription}
+        ></meta>
       </Head>
       {(!onScreen || isMobile) && <Header />}
       <Hero />
@@ -40,6 +62,16 @@ const Home = () => {
       <div ref={footerRef}>
         <Footer />
       </div>
+      <style jsx global>{`
+        body {
+          background: #000;
+          color: #fff;
+        }
+
+        a {
+          color: #fff;
+        }
+      `}</style>
     </>
   );
 };

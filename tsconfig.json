@@ -20,7 +20,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/container/container.test.js"
+    "modules/container/container.test.js"
   ],
   "exclude": ["node_modules"]
 }

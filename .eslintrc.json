@@ -27,6 +27,12 @@
       }
     ],
     "no-var": ["error"],
-    "lines-between-class-members": ["error", "always"]
+    "lines-between-class-members": ["error", "always"],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": ["global", "jsx"]
+      }
+    ]
   }
 }
