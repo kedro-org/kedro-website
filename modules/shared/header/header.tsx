@@ -47,9 +47,9 @@ export default function Header() {
           >
             Documentation
           </a>
-          <Link href="/blog">
+          {/* <Link href="/blog">
             <a className={style.link}>Blog</a>
-          </Link>
+          </Link> */}
           <div className={style.iconLinks}>
             <a
               className={style.link}
