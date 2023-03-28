@@ -40,7 +40,6 @@ type Post = {
 };
 
 export default function Post({ post, morePosts, preview, slug }: Post) {
-  console.log('post: ', post);
   const [isCopyLinkSelected, setIsCopyLinkSelected] = useState(false);
   const router = useRouter();
   const postUrl = post?.slug
