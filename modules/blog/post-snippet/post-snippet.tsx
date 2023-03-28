@@ -13,6 +13,7 @@ export type PostSnippet = {
   author: Author;
   category: string;
   coverImage: {
+    title: string;
     url: string;
   };
   date: string;
@@ -161,8 +162,9 @@ const PostSnippet = ({
         }}
       >
         <Image
-          alt="cover image alt"
+          alt={post.coverImage.title || 'Generic image for blog post'}
           height={imgSize}
+          objectFit="cover"
           src={post.coverImage.url}
           width={imgSize}
         />
