@@ -4,4 +4,24 @@
     <loc>https://kedro.org/</loc>
     <lastmod>2022-11-15</lastmod>
   </url>
+  <url>
+    <loc>https://kedro.org/blog</loc>
+    <lastmod>2023-03-27</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/a-new-home-for-the-kedro-blog</loc>
+    <lastmod>2023-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/author/jo-stichbury</loc>
+    <lastmod>2023-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/experiment-tracking-with-kedro</loc>
+    <lastmod>2023-03-27</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/author/nero-okwa</loc>
+    <lastmod>2023-03-28</lastmod>
+  </url>
 </urlset>
