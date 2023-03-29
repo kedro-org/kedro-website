@@ -20,7 +20,7 @@ describe('Header', () => {
   it('displays the correct number of links', async () => {
     render(<Header />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(8);
+    expect(screen.getAllByRole('link')).toHaveLength(9);
   });
 
   it('opens and closes the menu when burger/close icon clicked', async () => {
