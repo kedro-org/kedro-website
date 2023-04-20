@@ -158,14 +158,14 @@ const renderOptions = (links: Links) => {
         const asset = assetMap.get(node.data.target.sys.id);
 
         return (
-          <div className={style.postBodyMediaWrapper}>
+          <div className={style.postBodyImgWrapper}>
             <Image
               alt={asset.description}
               height={asset.height}
               src={asset.url}
               width={asset.width}
             />
-            <div className={style.postBodyMediaCaption}>{asset.title}</div>
+            <div className={style.postBodyImgCaption}>{asset.title}</div>
           </div>
         );
       },
