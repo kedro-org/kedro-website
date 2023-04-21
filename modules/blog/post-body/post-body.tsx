@@ -132,6 +132,29 @@ const renderOptions = (links: Links) => {
             </div>
           );
         }
+
+        if (entry.__typename === 'Video') {
+          return (
+            <>
+              <div className={style.postBodyVideoWrapper}>
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  frameBorder="0"
+                  src={`https://www.youtube.com/embed/${
+                    entry.videoId
+                  }?controls=${+entry.showControls}`}
+                  title="YouTube video player"
+                />
+              </div>
+              {entry.description ? (
+                <div className={style.postBodyVideoCaption}>
+                  {entry.description}
+                </div>
+              ) : null}
+            </>
+          );
+        }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const asset = assetMap.get(node.data.target.sys.id);

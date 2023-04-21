@@ -158,13 +158,47 @@
   @include breakpoint(small) {
     margin: 3rem 0;
   }
+}
 
-  .postBodyImgCaption {
-    @include text-sm;
+.postBodyVideoWrapper {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
 
-    > p {
-      margin: 0;
-    }
+  @include breakpoint(medium-up) {
+    margin: 4.5rem 0;
+  }
+
+  @include breakpoint(small) {
+    margin: 3rem 0;
+  }
+
+  > iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.postBodyImgCaption,
+.postBodyVideoCaption {
+  @include text-sm;
+
+  > p {
+    margin: 0;
+  }
+}
+
+.postBodyVideoCaption {
+  @include breakpoint(medium-up) {
+    margin-top: -4.1rem;
+  }
+
+  @include breakpoint(small) {
+    margin-top: -2.6rem;
   }
 }
 
