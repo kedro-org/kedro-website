@@ -192,6 +192,16 @@
   }
 }
 
+.postBodyVideoCaption {
+  @include breakpoint(medium-up) {
+    margin-top: -4.1rem;
+  }
+
+  @include breakpoint(small) {
+    margin-top: -2.6rem;
+  }
+}
+
 .postBodyCallout {
   background-color: $color-white-100;
   border-radius: 1rem;
