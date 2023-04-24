@@ -143,7 +143,7 @@ const renderOptions = (links: Links) => {
                   frameBorder="0"
                   src={`https://www.youtube.com/embed/${
                     entry.videoId
-                  }?controls=${+entry.showControls}`}
+                  }?controls=${+entry.showControls}&start=${entry.startAt}`}
                   title="YouTube video player"
                 />
               </div>
