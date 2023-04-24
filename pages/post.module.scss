@@ -138,3 +138,18 @@
     }
   }
 }
+
+.pagePreviewWrapper {
+  background-color: $color-accent;
+  border-radius: 5px;
+  border: 2px solid $color-dark;
+  bottom: 10px;
+  padding: 10px;
+  position: fixed;
+  right: 10px;
+  z-index: 10;
+
+  > strong {
+    text-decoration: underline;
+  }
+}
