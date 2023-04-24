@@ -1,6 +1,9 @@
-// pages/api/revalidate.js
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   // should be secret, custom header coming in from Contentful
   let inboundRevalToken = req.headers['x-vercel-reval-key'];
 

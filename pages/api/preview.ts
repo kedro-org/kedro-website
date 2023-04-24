@@ -1,6 +1,10 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { getPreviewPostBySlug } from '../../lib/api';
 
-export default async function preview(req, res) {
+export default async function preview(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { secret, slug } = req.query;
 
   if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !slug) {
