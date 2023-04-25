@@ -20,6 +20,6 @@ describe('Footer', () => {
   it('displays the correct number of links', async () => {
     render(<Footer />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(10);
+    expect(screen.getAllByRole('link')).toHaveLength(11);
   });
 });
