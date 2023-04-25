@@ -24,4 +24,16 @@
     <loc>https://kedro.org/blog/author/nero-okwa</loc>
     <lastmod>2023-03-28</lastmod>
   </url>
+  <url>
+    <loc>https://kedro.org/blog/introducing-your-new-team-lead-kedro</loc>
+    <lastmod>2023-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/how-do-data-scientists-combine-kedro-and-databricks</loc>
+    <lastmod>2023-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://kedro.org/blog/news-from-the-kedro-technical-steering-committee</loc>
+    <lastmod>2023-04-25</lastmod>
+  </url>   
 </urlset>
