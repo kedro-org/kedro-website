@@ -10,22 +10,22 @@ import Link from 'next/link';
 
 import style from './post-body.module.scss';
 
-type Props = {
+interface Props {
   content: {
     json: Document;
     links: any;
   };
   slug: string;
-};
+}
 
-type _Block = {
+interface _Block {
   sys: {
     id: string;
   };
   __typename: string;
-};
+}
 
-type Links = {
+interface Links {
   assets: {
     block: _Block[];
   };
@@ -33,9 +33,9 @@ type Links = {
     block: _Block[];
     inline: any[];
   };
-};
+}
 
-type Node = {
+interface Node {
   content: any[];
   data: {
     target: {
@@ -48,15 +48,26 @@ type Node = {
     uri: string;
   };
   nodeType: string;
-};
+}
 
-type NavigationList = {
+interface NavigationList {
   headerId: string;
   headerTitle: string;
-};
+}
 
-const headerTextToIdString = (str: string) => {
-  return str.split(' ').join('-').toLowerCase().replace(/[\'?]/g, '').trim();
+const headerTextToIdString = (
+  text: string | { props: { children: string } }
+) => {
+  if (typeof text === 'object') {
+    return text.props.children
+      .split(' ')
+      .join('-')
+      .toLowerCase()
+      .replace(/[\'?]/g, '')
+      .trim();
+  } else {
+    return text.split(' ').join('-').toLowerCase().replace(/[\'?]/g, '').trim();
+  }
 };
 
 const isSameHost = (str: string) => {
