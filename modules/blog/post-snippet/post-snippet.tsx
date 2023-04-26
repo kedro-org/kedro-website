@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 import style from './post-snippet.module.scss';
 
-export type PostSnippet = {
+export interface PostSnippet {
   author: Author;
   category: string;
   coverImage: {
@@ -29,14 +29,14 @@ export type PostSnippet = {
     publishedAt: Date;
   };
   title: string;
-};
+}
 
-type PostSnippetProps = {
+interface PostSnippetProps {
   imgPosition: string;
   onPostPage?: boolean;
   post: PostSnippet;
   size: string;
-};
+}
 
 const PostSnippet = ({
   imgPosition = 'right',

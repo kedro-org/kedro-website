@@ -1,22 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { AuthorInfo } from '../../../pages/blog/author/[author]';
+
 import style from './author-detail.module.scss';
 
-export type Author = {
-  jobTitle: string;
-  name: string;
-  picture: {
-    height: number;
-    url: string;
-    width: number;
-  };
-  urlDisplayName: string;
-};
-
-type Props = {
-  authorInfo: Author;
-};
+interface Props {
+  authorInfo: AuthorInfo;
+}
 
 const AuthorDetail = ({ authorInfo }: Props) => {
   return (
