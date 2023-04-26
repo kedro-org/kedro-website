@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { dateFormatting } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
-import { Author } from '../author-detail';
+import { AuthorInfo } from '../../../pages/blog/author/[author]';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import Link from 'next/link';
 import style from './post-snippet.module.scss';
 
 export interface PostSnippet {
-  author: Author;
+  author: AuthorInfo;
   category: string;
   coverImage: {
     title: string;
