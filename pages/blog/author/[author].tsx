@@ -16,15 +16,20 @@ interface AuthorParams {
   author: string;
 }
 
-interface Author {
-  authorInfo: {
-    name: string;
-    bio: string;
-    picture: {
-      url: string;
-    };
-    jobTitle: string;
+export interface AuthorInfo {
+  bio: string;
+  jobTitle: string;
+  name: string;
+  picture: {
+    height: number;
+    url: string;
+    width: number;
   };
+  urlDisplayName: string;
+}
+
+interface Author {
+  authorInfo: AuthorInfo;
   authorsPosts: PostSnippet[];
 }
 
