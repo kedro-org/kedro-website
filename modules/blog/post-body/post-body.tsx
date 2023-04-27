@@ -234,7 +234,7 @@ export default function PostBody({ content, slug }: Props) {
   const { json, links } = content;
   const [navigationList, setNavigationList] = useState<NavigationList[]>([]);
   const [activeNavItem, setActiveNavItem] = useState<String>('');
-  let headerRefs = useRef<Map<string, HTMLHeadingElement>>(null);
+  const headerRefs = useRef<Map<string, HTMLHeadingElement>>(null);
 
   function getMap() {
     if (!headerRefs.current) {
