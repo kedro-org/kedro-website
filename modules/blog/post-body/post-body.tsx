@@ -255,7 +255,8 @@ export default function PostBody({ content, slug }: Props) {
   useEffect(() => {
     headerRefs.current.forEach((sectionRef) => {
       const observer = new IntersectionObserver(handleIntersection, {
-        threshold: 0.5,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: 1,
       });
 
       observer.observe(sectionRef);
@@ -314,6 +315,7 @@ export default function PostBody({ content, slug }: Props) {
                 e.preventDefault();
                 history.replaceState(null, null, updatedUrl);
                 scrollToTargetAdjusted(section.headerId);
+                // setActiveNavItem(`#${section.headerId}`);
               }}
             >
               {section.headerTitle}
