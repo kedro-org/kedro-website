@@ -75,7 +75,10 @@ const isSameHost = (str: string) => {
   return str.includes('kedro.org');
 };
 
-const renderOptions = (links: Links, getMap: any = new Map()) => {
+const renderOptions = (
+  links: Links,
+  getMap: () => Map<string, HTMLHeadingElement> = undefined
+) => {
   // Create an asset map
   const assetMap = new Map();
   // Loop through the assets and add them to the map
