@@ -92,6 +92,10 @@
   ol > li p {
     margin: 0;
   }
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .stickyNav {
@@ -119,6 +123,14 @@
   .stickyNavText,
   .stickyNavLink {
     margin-bottom: 0.75rem;
+  }
+
+  .stickyNavLinkActive {
+    font-weight: bold;
+  }
+
+  .stickyNavLink:hover {
+    text-decoration: underline;
   }
 
   .stickyNavLink:last-of-type {

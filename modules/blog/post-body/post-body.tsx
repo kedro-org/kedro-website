@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -74,7 +75,10 @@ const isSameHost = (str: string) => {
   return str.includes('kedro.org');
 };
 
-const renderOptions = (links: Links) => {
+const renderOptions = (
+  links: Links,
+  getMap: () => Map<string, HTMLHeadingElement> = undefined
+) => {
   // Create an asset map
   const assetMap = new Map();
   // Loop through the assets and add them to the map
@@ -114,7 +118,20 @@ const renderOptions = (links: Links) => {
         if (entry.__typename === 'Callout') {
           return (
             <div className={style.postBodyCallout}>
-              <h2 id={headerTextToIdString(entry.title)}>{entry.title}</h2>
+              <h2
+                id={headerTextToIdString(entry.title)}
+                ref={(node) => {
+                  const map = getMap();
+
+                  if (node) {
+                    map.set(headerTextToIdString(entry.title), node);
+                  } else {
+                    map.delete(headerTextToIdString(entry.title));
+                  }
+                }}
+              >
+                {entry.title}
+              </h2>
               <div>
                 {documentToReactComponents(
                   entry.content.json,
@@ -183,7 +200,22 @@ const renderOptions = (links: Links) => {
         );
       },
       [BLOCKS.HEADING_2]: (node: Node, children: [string]) => {
-        return <h2 id={headerTextToIdString(children[0])}>{children}</h2>;
+        return (
+          <h2
+            id={headerTextToIdString(children[0])}
+            ref={(node) => {
+              const map = getMap();
+
+              if (node) {
+                map.set(headerTextToIdString(children[0]), node);
+              } else {
+                map.delete(headerTextToIdString(children[0]));
+              }
+            }}
+          >
+            {children}
+          </h2>
+        );
       },
       [INLINES.HYPERLINK]: (node: Node) => {
         const targetValue = isSameHost(node.data.uri) ? '_self' : '_blank';
@@ -201,6 +233,39 @@ const renderOptions = (links: Links) => {
 export default function PostBody({ content, slug }: Props) {
   const { json, links } = content;
   const [navigationList, setNavigationList] = useState<NavigationList[]>([]);
+  const [activeNavItem, setActiveNavItem] = useState<String>('');
+  const headerRefs = useRef<Map<string, HTMLHeadingElement>>(null);
+
+  function getMap() {
+    if (!headerRefs.current) {
+      // Initialize the Map on first usage.
+      headerRefs.current = new Map();
+    }
+    return headerRefs.current;
+  }
+
+  const handleIntersection = useCallback((entries) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        setActiveNavItem('#' + entry.target.id);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    headerRefs.current.forEach((sectionRef) => {
+      const observer = new IntersectionObserver(handleIntersection, {
+        rootMargin: '0px 0px -70% 0px',
+        threshold: 1,
+      });
+
+      observer.observe(sectionRef);
+
+      return () => {
+        observer.disconnect();
+      };
+    });
+  }, [handleIntersection, slug]);
 
   useEffect(() => {
     const _h2s = document.querySelectorAll("div[class^='post-body'] h2");
@@ -221,7 +286,7 @@ export default function PostBody({ content, slug }: Props) {
   return (
     <div className={style.postBodyWrapper}>
       <div className={style.postBody}>
-        {documentToReactComponents(json, renderOptions(links) as any)}
+        {documentToReactComponents(json, renderOptions(links, getMap) as any)}
         <hr className={style.bottomDivider} />
       </div>
       <div className={style.stickyNav}>
@@ -229,7 +294,10 @@ export default function PostBody({ content, slug }: Props) {
         {navigationList.map((section) => {
           return (
             <a
-              className={style.stickyNavLink}
+              className={classNames(style.stickyNavLink, {
+                [style.stickyNavLinkActive]:
+                  activeNavItem === `#${section.headerId}`,
+              })}
               href={`#${section.headerId}`}
               key={section.headerTitle}
               onClick={(e) => {
@@ -247,6 +315,7 @@ export default function PostBody({ content, slug }: Props) {
                 e.preventDefault();
                 history.replaceState(null, null, updatedUrl);
                 scrollToTargetAdjusted(section.headerId);
+                // setActiveNavItem(`#${section.headerId}`);
               }}
             >
               {section.headerTitle}
