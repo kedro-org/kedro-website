@@ -59,8 +59,8 @@ const PostsList = ({ post }: PostsList) => {
         <a>
           <h2
             className={style.title}
-            onMouseMove={onMouseMouse}
-            onMouseOut={onMouseLeave}
+            onMouseEnter={onMouseMouse}
+            onMouseLeave={onMouseLeave}
             ref={titleRef}
           >
             {post.title}
