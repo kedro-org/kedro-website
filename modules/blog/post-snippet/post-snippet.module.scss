@@ -58,6 +58,7 @@ $gap-mobile-version: 1rem;
     color: $color-font;
     font-weight: 500;
     margin-top: $gap;
+    text-decoration-thickness: 3px;
 
     &.titleOnPostPage {
       color: $color-dark;
@@ -78,6 +79,7 @@ $gap-mobile-version: 1rem;
 
     color: $color-grey-200;
     margin: $gap 0;
+    text-decoration-thickness: 1px;
 
     &.descriptionOnPostPage {
       color: $color-grey-900;
