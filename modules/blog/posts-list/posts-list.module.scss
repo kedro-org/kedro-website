@@ -69,7 +69,7 @@
   grid-area: title;
   margin: 0;
 
-  @media (hover: hover) {
+  &:hover {
     text-decoration-line: underline;
   }
 
