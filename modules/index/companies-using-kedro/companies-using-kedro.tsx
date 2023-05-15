@@ -9,18 +9,36 @@ export default function CompaniesUsingKedro() {
     <section className={style.outer}>
       <div className={style.inner}>
         <span className={style.title}>Our community</span>
-        <ul className={style.list}>
-          {companies.map((company) => (
-            <li className={style.company} key={company.name}>
-              <Image
-                alt={`${company.name} logo`}
-                height="120px"
-                src={company.logo}
-                width="308px"
-              />
-            </li>
-          ))}
-        </ul>
+        <div className={style.wrapper}>
+          {/* <ul className={style.list}> */}
+          <div className={style.innerWrapper}>
+            <div className={style.carouselWrapper}>
+              {companies.map((company) => (
+                <div className={style.company} key={company.name}>
+                  <Image
+                    alt={`${company.name} logo`}
+                    height="120px"
+                    src={company.logo}
+                    width="308px"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className={style.carouselWrapper}>
+              {companies.map((company) => (
+                <div className={style.company} key={company.name}>
+                  <Image
+                    alt={`${company.name} logo`}
+                    height="120px"
+                    src={company.logo}
+                    width="308px"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* </ul> */}
+        </div>
       </div>
     </section>
   );
