@@ -9,30 +9,32 @@ export default function CompaniesUsingKedro() {
     <section className={style.outer}>
       <div className={style.inner}>
         <span className={style.title}>Our community</span>
-        <div className={style.wrapper}>
-          <div className={style.innerWrapper}>
-            <div className={style.carouselWrapper}>
+        <div className={style.bannerOuter}>
+          <div className={style.bannerInner}>
+            <div className={style.animateWrapper}>
               {companies.map((company) => (
-                <div className={style.company} key={company.name}>
-                  <Image
-                    alt={`${company.name} logo`}
-                    height="120px"
-                    src={company.logo}
-                    width="308px"
-                  />
-                </div>
+                <Image
+                  priority
+                  className={style.company}
+                  key={company.name}
+                  alt={`${company.name} logo`}
+                  height="120px"
+                  src={company.logo}
+                  width="308px"
+                />
               ))}
             </div>
-            <div className={style.carouselWrapper}>
+            <div className={style.animateWrapper}>
               {companies.map((company) => (
-                <div className={style.company} key={company.name}>
-                  <Image
-                    alt={`${company.name} logo`}
-                    height="120px"
-                    src={company.logo}
-                    width="308px"
-                  />
-                </div>
+                <Image
+                  priority
+                  className={style.company}
+                  key={company.name}
+                  alt={`${company.name} logo`}
+                  height="120px"
+                  src={company.logo}
+                  width="308px"
+                />
               ))}
             </div>
           </div>
