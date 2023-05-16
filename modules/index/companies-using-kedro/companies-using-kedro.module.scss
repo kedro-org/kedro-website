@@ -58,7 +58,7 @@
 
 .carouselAnimate {
   align-items: center;
-  animation: spin 50s linear infinite;
+  animation: slide 50s linear infinite;
   display: grid;
   flex-shrink: 0;
   gap: 0.5rem;
@@ -69,7 +69,7 @@
   position: relative;
 }
 
-@keyframes spin {
+@keyframes slide {
   0% {
     transform: translateX(0);
   }
