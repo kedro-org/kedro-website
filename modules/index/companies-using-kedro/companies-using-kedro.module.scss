@@ -16,7 +16,6 @@
 }
 
 .inner {
-  font-weight: 700;
   display: flex;
   white-space: nowrap;
   margin: 0 auto;
@@ -38,7 +37,7 @@
   }
 }
 
-.wrapper {
+.bannerOuter {
   overflow: hidden;
   width: 100%;
   mask-image: linear-gradient(
@@ -57,13 +56,13 @@
   );
 }
 
-.innerWrapper {
+.bannerInner {
   white-space: nowrap;
   display: flex;
   position: relative;
 }
 
-.carouselWrapper {
+.animateWrapper {
   gap: 0.5rem;
   justify-items: center;
   align-items: center;
@@ -73,10 +72,10 @@
   min-width: 100%;
   display: grid;
   position: relative;
-  animation: carouselspin 50s linear infinite;
+  animation: spin 50s linear infinite;
 }
 
-@keyframes carouselspin {
+@keyframes spin {
   0% {
     transform: translateX(0);
   }
