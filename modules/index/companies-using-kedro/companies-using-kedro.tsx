@@ -9,13 +9,15 @@ export default function CompaniesUsingKedro() {
     <section className={style.outer}>
       <div className={style.inner}>
         <div className={style.titleContainer}>
-          <span className={style.title}>Our community</span>
+          <span role="titleText" className={style.title}>
+            Our community
+          </span>
         </div>
         <div className={style.carouselWrapper}>
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                priority
+                loading="eager" // for Safari
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
@@ -28,7 +30,7 @@ export default function CompaniesUsingKedro() {
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                priority
+                loading="eager" // for Safari
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
