@@ -18,6 +18,11 @@
 .inner {
   display: flex;
   margin: 0 auto;
+
+  @include breakpoint(small) {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .titleContainer {
@@ -25,23 +30,25 @@
 
   .title {
     @include display-md;
+
+    font-weight: bold;
     line-height: 7rem;
-    font-weight: 500;
     padding-right: 2em;
+
     @include breakpoint(small) {
       font-size: 2rem;
-      line-height: 7.25rem;
       margin-bottom: 2.5rem;
-      padding-right: 1.5em;
+      padding: 0;
     }
   }
 }
 
 .carouselWrapper {
-  overflow: hidden;
-  width: 100%;
   display: flex;
+  overflow: hidden;
   position: relative;
+  width: 100%;
+
   @include carousel-gradient(
     $gradient-color: rgba(0, 0, 0, 0),
     $actual-color: rgba(0, 0, 0, 1),
@@ -50,16 +57,16 @@
 }
 
 .carouselAnimate {
-  gap: 0.5rem;
-  justify-items: center;
   align-items: center;
-  grid-template-rows: repeat(1, minmax(0, 1fr));
-  grid-auto-flow: column;
-  flex-shrink: 0;
-  min-width: 100%;
-  display: grid;
-  position: relative;
   animation: spin 50s linear infinite;
+  display: grid;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  justify-items: center;
+  min-width: 100%;
+  position: relative;
 }
 
 @keyframes spin {
