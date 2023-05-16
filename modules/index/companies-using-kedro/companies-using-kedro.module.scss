@@ -2,7 +2,7 @@
 @import '../../../styles/mixins';
 
 .outer {
-  background: $color-bg-grey;
+  background: $color-dark;
   padding: 7rem 0;
 
   @include breakpoint(medium-up) {
@@ -17,11 +17,9 @@
 
 .inner {
   font-weight: 700;
-  line-height: 7rem;
   display: flex;
   white-space: nowrap;
   margin: 0 auto;
-  max-width: 100vw;
   @include breakpoint(small) {
     font-size: 1.5rem;
     line-height: 3rem;
@@ -29,54 +27,17 @@
 }
 
 .title {
+  @include display-md;
+  line-height: 7rem;
   font-weight: 500;
-  font-size: 36px;
-  padding-right: 30px;
-  // margin-bottom: 6rem;
-  // text-align: center;
+  padding-right: 2em;
 
   @include breakpoint(small) {
     margin-bottom: 2.5rem;
-
-    padding: 0;
+    padding-right: 1.5em;
   }
 }
 
-// .list {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   grid-template-rows: 1fr 1fr 1fr 1fr;
-//   justify-items: start;
-//   list-style: none;
-//   margin: 0;
-//   padding: 0;
-
-//   @include breakpoint(small) {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
-
-// .wrapper {
-//   display: flex;
-//   margin: 0 auto;
-//   width: 100%;
-//   position: relative;
-//   div {
-//       height: 400px;
-//       min-width: 300px;
-//       margin-left: 0px;
-//       animation: slide 10s linear infinite;
-
-//   }
-//   &::after {
-//   content: "some";
-//   position: absolute;
-//   z-index: 1;
-//   background-image: linear-gradient(to right, $color-bg-grey, rgba(255, 255, 255, 0.571) 90%);
-//   width: 100%;
-//   height: 4em;
-//   }
-// }
 .wrapper {
   overflow: hidden;
   width: 100%;
@@ -114,14 +75,6 @@
   position: relative;
   animation: carouselspin 50s linear infinite;
 }
-// .wrapper::after {
-//   content: "";
-//   position: absolute;
-//   z-index: 1;
-//   background-image: linear-gradient(to right, $color-bg-grey, rgba(255, 255, 255, 0.571) 90%);
-//   width: 100%;
-//   height: 4em;
-// }
 
 @keyframes carouselspin {
   0% {
@@ -130,18 +83,4 @@
   100% {
     transform: translateX(-100%);
   }
-}
-
-.company {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.link {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
 }

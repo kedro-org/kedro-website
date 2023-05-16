@@ -10,7 +10,6 @@ export default function CompaniesUsingKedro() {
       <div className={style.inner}>
         <span className={style.title}>Our community</span>
         <div className={style.wrapper}>
-          {/* <ul className={style.list}> */}
           <div className={style.innerWrapper}>
             <div className={style.carouselWrapper}>
               {companies.map((company) => (
@@ -37,7 +36,6 @@ export default function CompaniesUsingKedro() {
               ))}
             </div>
           </div>
-          {/* </ul> */}
         </div>
       </div>
     </section>
