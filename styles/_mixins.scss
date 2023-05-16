@@ -240,3 +240,24 @@
   position: relative;
   width: 100%;
 }
+
+@mixin carousel-gradient(
+  $gradient-color: rgba(0, 0, 0, 0),
+  $actual-color: rgba(0, 0, 0, 1),
+  $direction: to right
+) {
+  mask-image: linear-gradient(
+    $direction,
+    $gradient-color 0%,
+    $actual-color 10%,
+    $actual-color 90%,
+    $gradient-color 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    $direction,
+    $gradient-color 0%,
+    $actual-color 10%,
+    $actual-color 90%,
+    $gradient-color 100%
+  );
+}

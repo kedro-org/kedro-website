@@ -17,53 +17,38 @@
 
 .inner {
   display: flex;
-  white-space: nowrap;
   margin: 0 auto;
-  @include breakpoint(small) {
-    font-size: 1.5rem;
-    line-height: 3rem;
+}
+
+.titleContainer {
+  white-space: nowrap;
+  .title {
+    @include display-md;
+    line-height: 7rem;
+    font-weight: 500;
+    padding-right: 2em;
+    @include breakpoint(small) {
+      font-size: 2rem;
+      line-height: 7.25rem;
+      margin-bottom: 2.5rem;
+      padding-right: 1.5em;
+    }
   }
 }
 
-.title {
-  @include display-md;
-  line-height: 7rem;
-  font-weight: 500;
-  padding-right: 2em;
-
-  @include breakpoint(small) {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-    padding-right: 1.5em;
-  }
-}
-
-.bannerOuter {
+.carouselWrapper {
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(0, 0, 0, 1) 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(0, 0, 0, 1) 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.bannerInner {
-  white-space: nowrap;
   display: flex;
   position: relative;
+  @include carousel-gradient(
+    $gradient-color: rgba(0, 0, 0, 0),
+    $actual-color: rgba(0, 0, 0, 1),
+    $direction: to right
+  );
 }
 
-.animateWrapper {
+.carouselAnimate {
   gap: 0.5rem;
   justify-items: center;
   align-items: center;
