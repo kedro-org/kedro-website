@@ -13,7 +13,7 @@ describe('Header', () => {
     render(<Header />);
 
     expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent(
-      'Kedro'
+      'kedro'
     );
   });
 

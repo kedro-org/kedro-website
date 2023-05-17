@@ -32,10 +32,9 @@
   @if $size == large {
     backface-visibility: hidden;
     border-radius: 4rem;
-    font-size: 1.5rem;
-    font-weight: 500;
-    height: 6.125rem;
-    padding: 0 4.5rem;
+    font-size: 1.25rem;
+    height: 3.75rem;
+    padding: 0 2.5rem;
     transform: translateZ(0);
     transition: opacity $transition-time ease, transform $transition-time ease;
 
@@ -173,22 +172,26 @@
 @mixin display-2xl {
   font-size: 4.5rem;
   font-weight: 500;
+  letter-spacing: $letter-spacing;
   line-height: 5rem;
   margin: 0;
 }
 
 @mixin display-xl {
   font-size: 3.75rem;
+  letter-spacing: $letter-spacing;
   line-height: 4.5rem;
 }
 
 @mixin display-lg {
   font-size: 3rem;
+  letter-spacing: $letter-spacing;
   line-height: 3.75rem;
 }
 
 @mixin display-md {
   font-size: 2.25rem;
+  letter-spacing: $letter-spacing;
   line-height: 2.75rem;
 }
 

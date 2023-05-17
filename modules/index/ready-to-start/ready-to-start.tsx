@@ -1,5 +1,5 @@
-import Media from '../../shared/media';
-import diamonds from '../../../public/images/ready-to-start.png';
+import Image from 'next/image';
+import readyToStart from '../../../public/images/ready-to-start.svg';
 
 import style from './ready-to-start.module.scss';
 
@@ -20,11 +20,11 @@ export default function ReadyToStart() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className={style.button}>Get Started</button>
+            <button className={style.button}>Get started</button>
           </a>
         </div>
         <div className={style.image}>
-          <Media alt="Kedro logo" image={diamonds} />
+          <Image alt="Kedro ready to start graphic" src={readyToStart} />
         </div>
       </div>
     </section>

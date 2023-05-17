@@ -97,7 +97,7 @@ export default function Hero() {
                     hover: { opacity: 0 },
                   }}
                 >
-                  Get Started
+                  Get started
                 </motion.button>
                 <motion.button
                   className={style.letsGo}
