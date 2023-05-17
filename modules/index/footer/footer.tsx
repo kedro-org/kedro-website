@@ -10,11 +10,11 @@ export default function Footer() {
         <a href="#" className={style.logo}>
           <Image
             alt="KedroLogo"
-            src="/images/kedro-logo.svg"
-            width={50}
-            height={50}
+            src="/images/kedro_logo.svg"
+            width={25}
+            height={25}
           />
-          <h4 className={style.logoText}>Kedro</h4>
+          <h4 className={style.logoText}>kedro</h4>
         </a>
         <nav className={style.menu}>
           <a href="#why-kedro" className={style.link}>
