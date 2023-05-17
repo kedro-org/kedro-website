@@ -38,9 +38,9 @@
 }
 
 .logoText {
-  color: $color-font;
-  font-size: 1.5rem;
-  font-weight: 700;
+  @include display-xs;
+
+  font-weight: 600;
   margin: 1rem 1rem 1rem 0.4rem;
 
   @include breakpoint(small) {
