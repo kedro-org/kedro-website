@@ -16,8 +16,13 @@
 }
 
 .inner {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'title media'
+    'content content';
+
   margin: 0 auto;
   max-width: $max-content;
   overflow: hidden;
@@ -28,6 +33,7 @@
 .title {
   @include h1;
 
+  grid-area: title;
   margin-bottom: 2.5rem;
 
   @include breakpoint(small) {
@@ -35,152 +41,11 @@
   }
 }
 
-.tabsWrapper {
-  margin: 0 auto 5rem;
-  position: relative;
-
-  @include breakpoint(medium-only) {
-    margin: 0 0 5rem 2rem;
-  }
-
-  @include breakpoint(small) {
-    margin: 0 auto 1.375rem;
-    width: 100%;
-  }
-}
-
-.list,
-.listItem {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-
-  @include breakpoint(medium-only) {
-    justify-content: flex-start;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  @include breakpoint(small) {
-    justify-content: flex-start;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    padding: 0 3rem;
-  }
-}
-
-.listItem {
-  @include h3;
-
-  align-items: flex-end;
-  border-bottom: 1px solid $color-font-grey;
-  color: $color-font-grey;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: 0 1rem 0.35rem;
-  position: relative;
-  transition: color $transition-time ease;
-  white-space: nowrap;
-  width: 100%;
-
-  &:first-of-type {
-    padding-left: 0;
-  }
-
-  &:last-of-type {
-    padding-right: 0;
-
-    @include breakpoint(small) {
-      margin-right: 1rem;
-    }
-  }
-
-  &.selected {
-    color: $color-font;
-  }
-
-  &:hover {
-    color: $color-font;
-  }
-
-  @include breakpoint(small) {
-    height: 40px;
-  }
-}
-
-.underline {
-  background: $color-font;
-  bottom: -1px;
-  height: 1px;
-  left: 0;
-  position: absolute;
-  right: 0;
-
-  @include breakpoint(small) {
-    bottom: -0.5px;
-  }
-}
-
-.tabContent {
-  @include h3;
-
-  margin: 0 auto 5rem;
-  max-width: 1000px;
-  min-height: 5.75rem;
-
-  @include breakpoint(medium-only) {
-    min-height: 7rem;
-    padding: 0 1rem;
-  }
-
-  @include breakpoint(small) {
-    margin-bottom: 3rem;
-    min-height: 9rem;
-    padding: 0 1rem;
-  }
-}
-
-.gradient {
-  @include breakpoint(medium-up) {
-    display: none;
-  }
-
-  @include breakpoint(small) {
-    background: linear-gradient(
-      90deg,
-      $color-bg-grey 17%,
-      rgba(30, 30, 31, 0) 100%
-    );
-    display: block;
-    height: 42px;
-    position: absolute;
-    top: 0;
-    width: 50px;
-
-    &:first-of-type {
-      left: 0;
-      transform: rotate(0);
-      z-index: 1;
-    }
-
-    &:last-of-type {
-      right: 0;
-      transform: rotate(-180deg);
-    }
-  }
-}
-
 .mediaWrapper {
   @include video-aspect-ratio;
 
+  grid-area: media;
+
   @include breakpoint(medium-only) {
     padding: 0 1rem;
   }
@@ -188,4 +53,26 @@
   @include breakpoint(small) {
     padding: 0 1rem;
   }
+}
+
+.contentWrapper {
+  grid-area: content;
+  margin-top: 4.063rem;
+  text-align: left;
+  width: 832px;
+}
+
+.contentBlock {
+  margin-bottom: 3rem;
+}
+
+.label {
+  @include display-xs;
+
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.description {
+  @include text-xl;
 }

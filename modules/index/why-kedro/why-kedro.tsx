@@ -11,45 +11,6 @@ export default function WhyKedro() {
     <section className={style.outer} id="why-kedro">
       <div className={style.inner}>
         <h3 className={style.title}>Why Kedro?</h3>
-        <div className={style.tabsWrapper}>
-          <div className={style.gradient}></div>
-          <ul className={style.list} role="tablist">
-            {tabData.map((item) => {
-              return (
-                <li
-                  aria-selected={item === selectedTab}
-                  key={item.label}
-                  className={
-                    item === selectedTab
-                      ? `${style.selected} ${style.listItem}`
-                      : style.listItem
-                  }
-                  onClick={() => setSelectedTab(item)}
-                  role="tab"
-                >
-                  {item.label}
-                  {item === selectedTab ? (
-                    <motion.div className={style.underline} layoutId="tab" />
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-          <div className={style.gradient}></div>
-        </div>
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <motion.p
-            animate={{ opacity: 1, y: 0 }}
-            className={style.tabContent}
-            exit={{ opacity: 0, y: -20 }}
-            initial={{ opacity: 0, y: 20 }}
-            key={selectedTab ? selectedTab.label : null}
-            role="tabpanel"
-            transition={{ duration: 0.1 }}
-          >
-            {selectedTab.description}
-          </motion.p>
-        </AnimatePresence>
         <div className={style.mediaWrapper}>
           <iframe
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -61,6 +22,16 @@ export default function WhyKedro() {
             title="YouTube video player"
             width="100%"
           ></iframe>
+        </div>
+        <div className={style.contentWrapper}>
+          {tabData.map((data, i) => {
+            return (
+              <div className={style.contentBlock} key={i}>
+                <div className={style.label}>{data.label}</div>
+                <div className={style.description}>{data.description}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
