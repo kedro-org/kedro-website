@@ -1,14 +1,14 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-$shared-element-width: 510px;
+$shared-element-width: 520px;
 
 .container {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   height: 700px;
-  margin: $header-height auto 0;
+  margin: ($header-height * 2) auto 7.5rem;
   max-width: $max-content;
   overflow: hidden;
   position: relative;
@@ -44,9 +44,15 @@ $shared-element-width: 510px;
 }
 
 .title {
-  @include h1;
+  @include display-2xl;
+
+  @include breakpoint(medium-only) {
+    @include display-xl;
+  }
 
   @include breakpoint(small) {
+    @include display-md;
+
     margin: 0 auto;
     max-width: 80%;
   }
@@ -78,9 +84,10 @@ $shared-element-width: 510px;
 }
 
 .subtitle {
-  @include h3;
+  @include text-xl;
 
-  margin: 1.5rem 0 4.5rem;
+  font-weight: 400;
+  margin: 2.25rem 0;
   max-width: $shared-element-width;
 
   @include breakpoint(small) {
@@ -99,12 +106,11 @@ $shared-element-width: 510px;
 }
 
 .buttonWrapper {
-  min-width: 9.375rem;
   overflow: hidden;
   position: relative;
 
   @include breakpoint(medium-up) {
-    margin-right: 1.9rem;
+    margin-right: 2rem;
   }
 
   @include breakpoint(small) {
@@ -135,16 +141,7 @@ $shared-element-width: 510px;
 .tutorial {
   @include button($style: outline);
 
-  padding: 0 1rem;
   transition: box-shadow $transition-time ease;
-
-  @include breakpoint(medium-up) {
-    width: 12.125rem;
-  }
-
-  @include breakpoint(small) {
-    width: 12.125rem;
-  }
 
   &:hover {
     box-shadow: inset 0 0 0 1px $color-font;
@@ -154,13 +151,15 @@ $shared-element-width: 510px;
 .image {
   position: absolute;
   right: 0;
-  top: 5rem;
-  width: 29rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 37rem;
 
   @include breakpoint(small) {
     left: 45%;
     right: unset;
     top: 23.5rem;
+    transform: translate(0, 0);
     width: 18rem;
   }
 }
