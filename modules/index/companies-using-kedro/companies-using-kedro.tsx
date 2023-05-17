@@ -27,6 +27,7 @@ export default function CompaniesUsingKedro() {
               />
             ))}
           </div>
+          {/* Repeating the companies block to create a circular animation */}
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
