@@ -27,7 +27,7 @@
 }
 
 .titleContainer {
-  margin-bottom: 1rem;
+  margin-bottom: 2.75rem;
   white-space: nowrap;
 
   @include breakpoint(small) {
@@ -37,8 +37,8 @@
   .title {
     @include display-md;
 
-    font-weight: bold;
-    line-height: 7rem;
+    font-weight: 500;
+    line-height: 2.75rem;
 
     @include breakpoint(small) {
       font-size: 2rem;
