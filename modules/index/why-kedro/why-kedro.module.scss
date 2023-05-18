@@ -16,25 +16,26 @@
 }
 
 .inner {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
-  grid-template-areas:
-    'title media'
-    'content content';
-
   margin: 0 auto;
   max-width: $max-content;
-  overflow: hidden;
   text-align: center;
   width: 100%;
+}
+
+.stickySection {
+  background-color: $color-bg-grey;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  position: sticky;
+  top: 3rem;
+  z-index: 1;
 }
 
 .title {
   @include h1;
 
-  grid-area: title;
   margin-bottom: 2.5rem;
+  text-align: left;
 
   @include breakpoint(small) {
     margin-bottom: 2rem;
@@ -43,8 +44,6 @@
 
 .mediaWrapper {
   @include video-aspect-ratio;
-
-  grid-area: media;
 
   @include breakpoint(medium-only) {
     padding: 0 1rem;
@@ -56,14 +55,14 @@
 }
 
 .contentWrapper {
-  grid-area: content;
   margin-top: 4.063rem;
   text-align: left;
-  width: 832px;
+  width: 100%;
 }
 
 .contentBlock {
   margin-bottom: 3rem;
+  width: 832px;
 }
 
 .label {
