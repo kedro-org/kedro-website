@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { tabData } from './why-kedro-data';
 
 import style from './why-kedro.module.scss';
 
 export default function WhyKedro() {
-  const [selectedTab, setSelectedTab] = useState(tabData[0]);
-
   return (
     <section className={style.outer} id="why-kedro">
       <div className={style.inner}>
