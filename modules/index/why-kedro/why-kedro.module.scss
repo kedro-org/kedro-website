@@ -29,6 +29,14 @@
   position: sticky;
   top: 3rem;
   z-index: 1;
+
+  @include breakpoint(medium-only) {
+    grid-template-columns: 100%;
+  }
+
+  @include breakpoint(small) {
+    grid-template-columns: 100%;
+  }
 }
 
 .title {
@@ -39,6 +47,7 @@
 
   @include breakpoint(small) {
     margin-bottom: 2rem;
+    text-align: center;
   }
 }
 
@@ -58,11 +67,20 @@
   margin-top: 4.063rem;
   text-align: left;
   width: 100%;
+
+  @include breakpoint(small) {
+    text-align: center;
+  }
 }
 
 .contentBlock {
   margin-bottom: 3rem;
   width: 832px;
+
+  @include breakpoint(small) {
+    width: 100%;
+    padding: 0 1rem;
+  }
 }
 
 .label {
@@ -70,8 +88,16 @@
 
   font-weight: 700;
   margin-bottom: 1rem;
+
+  @include breakpoint(small) {
+    @include text-lg;
+  }
 }
 
 .description {
   @include text-xl;
+
+  @include breakpoint(small) {
+    @include text-md;
+  }
 }
