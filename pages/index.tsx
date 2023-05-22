@@ -55,8 +55,8 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <FAQ />
-      <CaseStudies />
       <CompaniesUsingKedro />
+      <CaseStudies />
       <Testimonials />
       <ReadyToStart />
       <div ref={footerRef}>
