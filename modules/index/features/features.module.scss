@@ -3,6 +3,9 @@
 
 .outer {
   background-color: $color-dark;
+  background-image: url('../../../public/images/pipeline-viz-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
   padding: 5rem 0;
 
   @include breakpoint(medium-up) {
@@ -22,9 +25,10 @@
 }
 
 .sectionTitle {
-  @include h1;
+  @include display-xs;
 
-  margin-bottom: 6rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
   text-align: center;
 
   @include breakpoint(small) {
@@ -43,5 +47,5 @@
 }
 
 .button {
-  @include button($size: normal-pill, $style: primary);
+  @include button($size: normal-pill, $style: secondary);
 }

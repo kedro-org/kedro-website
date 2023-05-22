@@ -17,6 +17,7 @@ export interface FeatureProps {
     style?: Object;
   }[];
   imageSrc?: StaticImageData;
+  index?: number;
   posterSrc?: string;
   subtitle: string;
   title: string;
@@ -30,6 +31,7 @@ export default function FeatureDetailsCard({
   buttonLink,
   buttonText = undefined,
   iframeList,
+  index,
   imageSrc,
   posterSrc,
   subtitle,
@@ -47,6 +49,9 @@ export default function FeatureDetailsCard({
   return (
     <div className={`${style.container} ${style[assetPosition]}`}>
       <div className={style.text}>
+        {index !== 0 ? (
+          <span className={style.featureIndex}>–– 0{index}</span>
+        ) : null}
         <h4 className={style.title}>{title}</h4>
         <p
           className={style.subtitle}

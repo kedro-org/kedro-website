@@ -12,19 +12,21 @@ export default function Hero() {
     <section className={style.outer} id="features">
       <div className={style.inner}>
         <h3 className={style.sectionTitle}>Features</h3>
-        {shownContent.map((featureContent) => {
+        {shownContent.map((featureContent, index) => {
           return (
             <FeatureDetailsCard
               key={featureContent.title}
+              index={index}
               {...featureContent}
             />
           );
         })}
         <div style={{ display: showMoreFeatures ? 'block' : 'none' }}>
-          {hiddenContent.map((featureContent) => {
+          {hiddenContent.map((featureContent, index) => {
             return (
               <FeatureDetailsCard
                 key={featureContent.title}
+                index={shownContent.length + index}
                 {...featureContent}
               />
             );
