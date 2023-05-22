@@ -4,7 +4,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 386px;
+  max-width: 386px;
 
   @include breakpoint(medium-only) {
     margin: 0 3.5rem;
