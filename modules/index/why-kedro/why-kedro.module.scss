@@ -26,10 +26,10 @@
   background-color: $color-bg-grey;
   display: grid;
   grid-template-columns: 50% 50%;
+  padding-top: 1rem;
   position: sticky;
   top: 3.5rem;
   z-index: 1;
-  padding-top: 1rem;
 
   @include breakpoint(medium-only) {
     grid-template-columns: 100%;
