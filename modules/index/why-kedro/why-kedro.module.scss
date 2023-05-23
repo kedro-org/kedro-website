@@ -39,6 +39,22 @@
   }
 }
 
+.gradientBlock {
+  background-image: linear-gradient(to bottom, $color-bg-grey, transparent);
+  bottom: -60px;
+  height: 70px;
+  position: absolute;
+  width: $max-content;
+
+  @include breakpoint(medium-only) {
+    width: 100%;
+  }
+
+  @include breakpoint(small) {
+    width: 100%;
+  }
+}
+
 .title {
   @include h1;
 

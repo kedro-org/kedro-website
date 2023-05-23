@@ -21,6 +21,7 @@ export default function WhyKedro() {
               width="100%"
             ></iframe>
           </div>
+          <div className={style.gradientBlock}></div>
         </div>
         <div className={style.contentWrapper}>
           {tabData.map((data, i) => {
