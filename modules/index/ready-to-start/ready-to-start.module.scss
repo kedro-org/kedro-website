@@ -38,9 +38,11 @@
 }
 
 .sectionTitle {
-  @include h1;
+  @include display-2xl;
 
   @include breakpoint(small) {
+    @include display-md;
+
     margin-bottom: 2.5rem;
   }
 }

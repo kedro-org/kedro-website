@@ -3,11 +3,11 @@
 
 .outer {
   background-color: $color-bg-grey;
-  padding: 5rem 0;
+  padding: 7.5rem 0;
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 5rem 3.5rem;
+    padding: 7.5rem 3.5rem;
   }
 
   @include breakpoint(small) {

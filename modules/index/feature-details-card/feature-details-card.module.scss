@@ -15,6 +15,8 @@
 
     .title {
       @include display-md;
+
+      margin-bottom: 1.75rem;
     }
 
     .subtitle {

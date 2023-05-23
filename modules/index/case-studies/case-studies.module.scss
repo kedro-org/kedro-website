@@ -7,6 +7,7 @@
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
+    padding: 7.5rem 3.5rem;
   }
 
   @include breakpoint(small) {
@@ -21,6 +22,10 @@
   margin: 0 auto;
   max-width: $max-content;
 
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+  }
+
   @include breakpoint(small) {
     flex-direction: column;
   }
@@ -33,6 +38,12 @@
   margin: 0;
   margin-right: 4rem;
   width: 30%;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 2.5rem;
+    text-align: center;
+    width: 100%;
+  }
 
   @include breakpoint(small) {
     margin-bottom: 2.5rem;

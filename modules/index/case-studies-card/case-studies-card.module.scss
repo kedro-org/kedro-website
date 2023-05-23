@@ -19,14 +19,9 @@
 }
 
 .logo {
-  height: 100px;
+  height: 70px;
   position: relative;
-  width: 360px;
-
-  @include breakpoint(medium-only) {
-    height: 80px;
-    width: 280px;
-  }
+  width: 250px;
 
   @include breakpoint(small) {
     height: 60px;
