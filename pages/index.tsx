@@ -68,6 +68,10 @@ const Home = () => {
           color: #fff;
         }
 
+        p {
+          color: #c6cad3;
+        }
+
         a {
           color: #fff;
         }
