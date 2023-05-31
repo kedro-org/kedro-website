@@ -41,12 +41,11 @@
     }
 
     .asset {
-      border: 10px solid $color-dark;
       border-radius: 4px;
       margin-bottom: 4rem;
       margin-left: auto;
       margin-right: auto;
-      max-width: 842px;
+      max-width: 950px;
 
       @include breakpoint(small) {
         margin-bottom: 2.5rem;
