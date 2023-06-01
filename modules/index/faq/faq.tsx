@@ -49,14 +49,14 @@ export default function FAQ() {
             .
           </p>
           <p>
-            We also maintain a list of articles, podcasts, talks, and Kedro
+            We also maintain a list of extensions, plugins, articles, podcasts, talks, and Kedro
             showcase projects in the{' '}
             <a
-              href="https://github.com/kedro-org/kedro-community"
+              href="https://github.com/kedro-org/awesome-kedro"
               target="_blank"
               rel="noreferrer"
             >
-              kedro-community
+              awesome-kedro
             </a>{' '}
             repository.
           </p>
