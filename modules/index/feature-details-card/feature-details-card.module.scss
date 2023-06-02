@@ -26,7 +26,7 @@
       max-width: 832px;
 
       @include breakpoint(small) {
-        margin: 0 auto 2.5rem;
+        margin: 0 auto 1.5rem;
       }
     }
 
@@ -48,7 +48,7 @@
       max-width: 950px;
 
       @include breakpoint(small) {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
       }
     }
   }
