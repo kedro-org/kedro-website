@@ -2,6 +2,7 @@
 @import '../../../styles/mixins';
 
 $shared-element-width: 520px;
+$gap: 3rem;
 
 .container {
   align-items: center;
@@ -16,7 +17,6 @@ $shared-element-width: 520px;
   @include breakpoint(small) {
     align-items: center;
     flex-direction: column;
-    height: 580px;
     margin: $header-height auto 0;
     padding: 2.5rem 1rem 0;
     text-align: center;
@@ -25,6 +25,12 @@ $shared-element-width: 520px;
 
 .row {
   display: flex;
+
+  @include breakpoint(small) {
+    align-items: center;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
 }
 
 .info {
@@ -103,6 +109,7 @@ $shared-element-width: 520px;
   @include breakpoint(small) {
     align-items: center;
     flex-direction: column;
+    margin-bottom: $gap;
   }
 }
 
@@ -157,10 +164,8 @@ $shared-element-width: 520px;
   width: 37rem;
 
   @include breakpoint(small) {
-    left: 45%;
-    right: unset;
-    top: 23.5rem;
-    transform: translate(0, 0);
-    width: 18rem;
+    position: relative;
+    top: $gap;
+    width: 160px;
   }
 }
