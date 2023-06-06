@@ -56,7 +56,7 @@ export const shownContent: FeatureProps[] = [
     assetPosition: 'left',
     imageSrc: integrations,
     subtitle:
-      'Amazon SageMaker, Apache Airflow, Apache Spark, Azure ML, Dask, Databricks, Docker, fsspec, Jupyter Notebook, Kubeflow, Matplotlib, MLflow Plotly, Pandas and VertexAI.',
+      'Amazon SageMaker, Apache Airflow, Apache Spark, Azure ML, Dask, Databricks, Docker, fsspec, Jupyter Notebook, Kubeflow, Matplotlib, MLflow, Plotly, Pandas, VertexAI, and more.',
     title: 'Integrations',
   },
   {
