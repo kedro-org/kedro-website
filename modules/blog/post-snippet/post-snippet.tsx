@@ -2,15 +2,15 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { dateFormatting } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
-import { Author } from '../author-detail';
+import { AuthorInfo } from '../../../pages/blog/author/[author]';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import style from './post-snippet.module.scss';
 
-export type PostSnippet = {
-  author: Author;
+export interface PostSnippet {
+  author: AuthorInfo;
   category: string;
   coverImage: {
     title: string;
@@ -29,14 +29,14 @@ export type PostSnippet = {
     publishedAt: Date;
   };
   title: string;
-};
+}
 
-type PostSnippetProps = {
+interface PostSnippetProps {
   imgPosition: string;
   onPostPage?: boolean;
   post: PostSnippet;
   size: string;
-};
+}
 
 const PostSnippet = ({
   imgPosition = 'right',

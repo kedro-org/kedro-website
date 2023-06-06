@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import style from './footer.module.scss';
 
@@ -41,6 +42,9 @@ export default function Footer() {
           >
             Documentation
           </a>
+          <Link href="/blog">
+            <a className={style.link}>Blog</a>
+          </Link>
           <div className={style.iconLinks}>
             <a
               className={style.link}

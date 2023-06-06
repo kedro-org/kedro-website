@@ -31,6 +31,6 @@ export const faqContent = [
   },
   {
     question: 'How can I find out more about Kedro?',
-    answer: `You can find the [Kedro community on Slack](https://slack.kedro.org/).\n\nWe also maintain a list of articles, podcasts, talks, and Kedro showcase projects in the [kedro-community](https://github.com/kedro-org/kedro-community) repository.`,
+    answer: `You can find the [Kedro community on Slack](https://slack.kedro.org/).\n\nWe also maintain a list of extensions, plugins, articles, podcasts, talks, and Kedro showcase projects in the [awesome-kedro](https://github.com/kedro-org/awesome-kedro) repository.`,
   },
 ];

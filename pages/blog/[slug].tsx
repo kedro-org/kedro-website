@@ -17,11 +17,11 @@ import PostSnippet, {
 
 import style from '../post.module.scss';
 
-type Slug = {
+interface Slug {
   slug: string;
-};
+}
 
-type PostProps = {
+interface PostProps {
   content: {
     json: any;
     links: any;
@@ -29,14 +29,14 @@ type PostProps = {
   socialImage: {
     url: string;
   };
-};
+}
 
-type Post = {
+interface Post {
   morePosts: PostSnippetTypes[];
   post: PostProps & PostSnippetTypes;
   preview: boolean;
   slug: string;
-};
+}
 
 export default function Post({ post, morePosts, preview, slug }: Post) {
   const [isCopyLinkSelected, setIsCopyLinkSelected] = useState(false);
@@ -240,10 +240,10 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const postSlugs = await getAllPostsWithSlug();
 
   return {
     fallback: true,
-    paths: allPosts?.map(({ slug }: Slug) => `/blog/${slug}`) ?? [],
+    paths: postSlugs?.map(({ slug }: Slug) => `/blog/${slug}`) ?? [],
   };
 }
