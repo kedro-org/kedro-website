@@ -74,8 +74,7 @@ export default function Hero() {
             </div>
           </h1>
           <h2 className={style.subtitle}>
-            Kedro is an open sourced Python framework for creating maintainable
-            and modular data science code.
+            Kedro is a toolbox for production-ready data science.
           </h2>
           <div className={style.buttons}>
             <motion.div

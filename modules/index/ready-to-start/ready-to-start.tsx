@@ -10,10 +10,9 @@ export default function ReadyToStart() {
         <div className={style.text}>
           <h3 className={style.sectionTitle}>Ready to start?</h3>
           <p className={style.startText}>
-            You are ready to get going with the Kedro workflow. But first, head
-            to our documentation to learn how to install Kedro and then get up
-            to speed with concepts like nodes, pipelines, the data catalog in
-            our introductory tutorial.
+            Visit the introductory tutorial to learn how to install Kedro and
+            get up to speed with concepts like nodes, pipelines, and the data
+            catalog.
           </p>
           <a
             href="https://docs.kedro.org/en/stable/get_started/install.html"
