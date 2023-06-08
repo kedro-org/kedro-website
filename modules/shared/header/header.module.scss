@@ -38,10 +38,11 @@
 }
 
 .logoText {
+  @include display-xs;
+
   color: $color-font;
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin: 1rem;
+  font-weight: 600;
+  margin: 1rem 1rem 1rem 0.4rem;
 
   @include breakpoint(small) {
     margin: 0.5rem;
@@ -97,6 +98,7 @@
 .link {
   color: $color-font;
   display: flex;
+  font-weight: 500;
   margin: 1rem;
   transition: color $transition-time ease;
 

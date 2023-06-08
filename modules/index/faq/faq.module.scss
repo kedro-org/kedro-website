@@ -3,11 +3,11 @@
 
 .outer {
   background-color: $color-bg-grey;
-  padding: 5rem 0;
+  padding: 7.5rem 0;
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
-    padding: 5rem 3.5rem;
+    padding: 7.5rem 3.5rem;
   }
 
   @include breakpoint(small) {
@@ -25,18 +25,24 @@
   }
 }
 
+.sticky {
+  width: 25%;
+}
+
+.questions {
+  width: 75%;
+}
+
 .sticky,
 .questions {
-  width: 50%;
-
   @include breakpoint(small) {
     width: 100%;
   }
 }
 
 .sticky {
-  height: 200px;
-  margin-right: 2rem;
+  height: 260px;
+  margin-right: 4rem;
   position: sticky;
   top: $header-height + 20px;
 
@@ -49,8 +55,9 @@
   }
 
   h3 {
-    @include display-xs;
+    @include display-md;
 
+    font-weight: 500;
     margin: 0 0 1.75rem;
   }
 
@@ -100,9 +107,10 @@
   padding: 1.5rem 0;
 
   > h4 {
-    @include text-xl;
+    @include display-xs;
 
     flex-grow: 1;
+    font-weight: 500;
     margin: 0 2rem 0 0;
   }
 
@@ -131,9 +139,9 @@
   }
 
   > * {
-    @include text-md;
+    @include text-xl;
 
-    max-width: 528px;
+    max-width: 768px;
 
     @include breakpoint(small) {
       max-width: 85%;

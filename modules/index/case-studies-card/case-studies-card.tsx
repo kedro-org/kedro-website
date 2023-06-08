@@ -22,12 +22,11 @@ export default function CaseStudiesCard({
 }: Props) {
   return (
     <div className={style.container}>
+      <h4 className={style.title}>{title}</h4>
       <div className={style.logo} style={logoStyleAdjustments}>
         <Image alt="Case study logo" layout="fill" src={logo} />
       </div>
-
       <div className={style.textContainer}>
-        <h4 className={style.title}>{title}</h4>
         <p className={style.text}>{text}</p>
         <a href={linkUrl} rel="noopener noreferrer" target="_blank">
           <button className={style.button} role="button">

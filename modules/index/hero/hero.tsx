@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import Media from '../../shared/media';
-import hero from '../../../public/images/hero.webp';
+import hero from '../../../public/images/hero.svg';
 
 import style from './hero.module.scss';
 
@@ -74,8 +74,7 @@ export default function Hero() {
             </div>
           </h1>
           <h2 className={style.subtitle}>
-            Kedro is an open sourced Python framework for creating maintainable
-            and modular data science code.
+            Kedro is a toolbox for production-ready data science.
           </h2>
           <div className={style.buttons}>
             <motion.div
@@ -97,7 +96,7 @@ export default function Hero() {
                     hover: { opacity: 0 },
                   }}
                 >
-                  Get Started
+                  Get started
                 </motion.button>
                 <motion.button
                   className={style.letsGo}
@@ -121,12 +120,7 @@ export default function Hero() {
           </div>
         </div>
         <div className={style.image}>
-          <Media
-            alt="Kedro logo"
-            image={hero}
-            placeholder="empty"
-            priority={true}
-          />
+          <Image alt="Kedro hero graphic" priority={true} src={hero} />
         </div>
       </div>
     </section>

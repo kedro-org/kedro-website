@@ -5,21 +5,21 @@
 @mixin button($size: normal, $style: primary) {
   border-radius: 4rem;
   cursor: pointer;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  letter-spacing: $letter-spacing;
-  min-width: 9.375rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  min-width: 8rem;
 
   @if $size == normal {
-    font-size: 1rem;
-    height: 3rem;
-    padding: 0 2rem;
+    font-size: 0.875rem;
+    height: 2.75rem;
+    padding: 0 1.5rem;
   }
 
   @if $size == normal-pill {
     backface-visibility: hidden;
     border-radius: 4rem;
     font-size: 1rem;
-    height: 3rem;
+    height: 2.75rem;
     padding: 0 2.5rem;
     transform: translateZ(0);
     transition: opacity $transition-time ease, transform $transition-time ease;
@@ -32,10 +32,9 @@
   @if $size == large {
     backface-visibility: hidden;
     border-radius: 4rem;
-    font-size: 1.5rem;
-    font-weight: 500;
-    height: 6.125rem;
-    padding: 0 4.5rem;
+    font-size: 1.25rem;
+    height: 3.75rem;
+    padding: 0 2.5rem;
     transform: translateZ(0);
     transition: opacity $transition-time ease, transform $transition-time ease;
 
@@ -64,7 +63,7 @@
 
   @if $style == outline {
     background: none;
-    border: 2px solid $color-font;
+    border: 1px solid $color-font;
     color: $color-font;
   }
 
@@ -80,7 +79,6 @@
     line-height: 1.375rem;
     min-width: unset;
     padding: 0;
-    padding-bottom: 3.5px;
     transform: translateZ(0);
     transition: border-bottom-color $transition-time ease,
       color $transition-time ease, opacity $transition-time ease,
@@ -130,7 +128,7 @@
 
 @mixin h1 {
   font-size: 4.5rem;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 90px;
   margin: 0;
 
@@ -172,22 +170,27 @@
 
 @mixin display-2xl {
   font-size: 4.5rem;
-  line-height: 5.625rem;
+  font-weight: 500;
+  letter-spacing: $letter-spacing;
+  line-height: 5rem;
   margin: 0;
 }
 
 @mixin display-xl {
   font-size: 3.75rem;
+  letter-spacing: $letter-spacing;
   line-height: 4.5rem;
 }
 
 @mixin display-lg {
   font-size: 3rem;
+  letter-spacing: $letter-spacing;
   line-height: 3.75rem;
 }
 
 @mixin display-md {
   font-size: 2.25rem;
+  letter-spacing: $letter-spacing;
   line-height: 2.75rem;
 }
 
@@ -239,4 +242,25 @@
   height: 100%;
   position: relative;
   width: 100%;
+}
+
+@mixin carousel-gradient(
+  $gradient-color: rgba(0, 0, 0, 0),
+  $actual-color: rgba(0, 0, 0, 1),
+  $direction: to right
+) {
+  mask-image: linear-gradient(
+    $direction,
+    $gradient-color 0%,
+    $actual-color 10%,
+    $actual-color 90%,
+    $gradient-color 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    $direction,
+    $gradient-color 0%,
+    $actual-color 10%,
+    $actual-color 90%,
+    $gradient-color 100%
+  );
 }

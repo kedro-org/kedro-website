@@ -13,7 +13,7 @@ describe('Footer', () => {
     render(<Footer />);
 
     expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent(
-      'Kedro'
+      'kedro'
     );
   });
 

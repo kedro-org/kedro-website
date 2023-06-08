@@ -1,7 +1,7 @@
 export const faqContent = [
   {
     question: 'What is Kedro?',
-    answer: `Kedro is an open-source Python framework hosted by the Linux Foundation ([LF AI & Data](https://lfaidata.foundation/)). Kedro standardises how data science code is created to ensure it is reproducible, maintainable, and modular; it uses software engineering best practices to help you build production-ready data science code.`,
+    answer: `Kedro is an open-source Python framework hosted by the Linux Foundation ([LF AI & Data](https://lfaidata.foundation/)). Kedro uses software engineering best practices to help you build production-ready data science code.`,
   },
   {
     question: 'What does Kedro do?',
@@ -27,10 +27,10 @@ export const faqContent = [
   },
   {
     question: "What's Kedro's origin story?",
-    answer: `Kedro was born at QuantumBlack to solve the challenges faced regularly in data science projects. Its latest iteration is an incubating project within [https://lfaidata.foundation/](https://lfaidata.foundation/).`,
+    answer: `Kedro was born at QuantumBlack to reduce technical debt in data science experiments, making an easier transition from experimentation to production. The latest iteration of Kedro is an incubating project within [https://lfaidata.foundation/](https://lfaidata.foundation/).`,
   },
   {
     question: 'How can I find out more about Kedro?',
-    answer: `You can find the [Kedro community on Slack](https://slack.kedro.org/).\n\nWe also maintain a list of extensions, plugins, articles, podcasts, talks, and Kedro showcase projects in the [awesome-kedro](https://github.com/kedro-org/awesome-kedro) repository.`,
+    answer: `You can find the [Kedro community on Slack](https://slack.kedro.org/). Discussions from the [Slack channels are also archived online](https://www.linen.dev/s/kedro), as are those from an [earlier set of Discord channels](https://linen-discord.kedro.org/).`,
   },
 ];

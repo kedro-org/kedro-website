@@ -2,7 +2,7 @@
 *** Colors
 **/
 
-$color-accent: #ffbc00;
+$color-accent: #ffc900;
 $color-dark: #000000;
 $color-bg-grey: #1e1e1f;
 $color-font-dark: #0b0b0b;
@@ -12,6 +12,7 @@ $color-grey-border: #434343;
 $color-grey-200: #d5d8da;
 $color-grey-500: #97a0a6;
 $color-grey-900: #4c5b64;
+$color-black-600: #323232;
 $color-black-700: #242424;
 $color-white-100: #f9f9fa;
 $color-white-200: #f2f3f4;
@@ -20,13 +21,14 @@ $color-white-500: #dfe2e4;
 $color-white-900: #c6cace;
 $color-slate: #2a3b46;
 $color-black-divider: #636363;
+$color-black-0: #989898;
 
 /**
 *** Dimensions
 **/
 
-$letter-spacing: 0.01875rem; // 0.3px
-$max-content: 1235px;
+$letter-spacing: -0.02em;
+$max-content: 1216px;
 $blog-max-content: 1280px;
 $header-height: 60px;
 

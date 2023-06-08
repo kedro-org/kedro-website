@@ -83,10 +83,12 @@
   }
 
   p code {
-    background-color: $color-white-500;
+    background-color: $color-white-300;
+    border-radius: 4px;
     color: $color-grey-900;
+    font-size: 90%;
     font-weight: 500;
-    padding: 4px 8px 6px;
+    padding: 3px 4px;
   }
 
   ol > li p {

@@ -2,11 +2,12 @@
 @import '../../../styles/mixins';
 
 .outer {
-  background-color: $color-dark;
-  padding: 5rem 0 8rem;
+  background-color: $color-bg-grey;
+  padding: 7.5rem 0;
 
   @include breakpoint(medium-up) {
     margin: 0 -3.5rem;
+    padding: 7.5rem 3.5rem;
   }
 
   @include breakpoint(small) {
@@ -15,12 +16,15 @@
 }
 
 .inner {
-  align-items: center;
+  align-items: baseline;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   max-width: $max-content;
+
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+  }
 
   @include breakpoint(small) {
     flex-direction: column;
@@ -28,14 +32,24 @@
 }
 
 .sectionTitle {
-  @include h1;
+  @include display-md;
 
-  margin-bottom: 8rem;
-  text-align: center;
+  font-weight: 500;
+  margin: 0;
+  margin-right: 4rem;
+  width: 30%;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 2.5rem;
+    text-align: center;
+    width: 100%;
+  }
 
   @include breakpoint(small) {
     margin-bottom: 2.5rem;
     padding: 0;
+    text-align: center;
+    width: 100%;
   }
 }
 

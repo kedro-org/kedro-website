@@ -14,11 +14,11 @@ export default function Header() {
           <a className={style.logo}>
             <Image
               alt="KedroLogo"
-              height={30}
-              src="/images/kedro-logo.svg"
-              width={30}
+              height={25}
+              src="/images/kedro_logo.svg"
+              width={25}
             />
-            <h4 className={style.logoText}>Kedro</h4>
+            <h4 className={style.logoText}>kedro</h4>
           </a>
         </Link>
         <nav

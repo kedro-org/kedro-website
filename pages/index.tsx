@@ -55,8 +55,8 @@ const Home = () => {
       <WhyKedro />
       <Features />
       <FAQ />
-      <CaseStudies />
       <CompaniesUsingKedro />
+      <CaseStudies />
       <Testimonials />
       <ReadyToStart />
       <div ref={footerRef}>
@@ -66,6 +66,10 @@ const Home = () => {
         body {
           background: #000;
           color: #fff;
+        }
+
+        p {
+          color: #c6cad3;
         }
 
         a {

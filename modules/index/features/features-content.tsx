@@ -16,7 +16,7 @@ export const shownContent: FeatureProps[] = [
     buttonText: 'Explore Live Demo',
     imageSrc: vizScreenshot,
     subtitle:
-      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank"> Kedro&#39;s pipeline visualisation plugin</a> shows a blueprint of your developing data and machine-learning workflows, provides data lineage, keeps track of machine-learning experiments and makes it easier to collaborate with business stakeholders.',
+      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank">Kedro-Viz</a> is a blueprint of your data and machine-learning workflows. It provides data lineage, keeps track of machine-learning experiments, and makes it easier to collaborate with business stakeholders.',
     title: 'Pipeline Visualisation',
   },
   {
@@ -48,7 +48,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'A series of lightweight data connectors used to save and load data across many different file formats and file systems. Supported file formats include Pandas, Spark, Dask, NetworkX, Pickle, Plotly, Matplotlib and many more. The Data Catalog supports S3, GCP, Azure, sFTP, DBFS and local filesystems. The Data Catalog also includes data and model snapshots for file-based systems.',
+      'A series of lightweight data connectors used to save and load data across many different file formats and file systems. The Data Catalog supports S3, GCP, Azure, sFTP, DBFS, and local filesystems. Supported file formats include Pandas, Spark, Dask, NetworkX, Pickle, Plotly, Matplotlib, and many more. The Data Catalog also includes data and model snapshots for file-based systems.',
     title: 'Data Catalog',
   },
   {
@@ -56,7 +56,7 @@ export const shownContent: FeatureProps[] = [
     assetPosition: 'left',
     imageSrc: integrations,
     subtitle:
-      'Apache Spark, Pandas, Dask, Matplotlib, Plotly, fsspec, Apache Airflow, Jupyter Notebook and Docker.',
+      'Amazon SageMaker, Apache Airflow, Apache Spark, Azure ML, Dask, Databricks, Docker, fsspec, Jupyter Notebook, Kubeflow, Matplotlib, MLflow, Plotly, Pandas, VertexAI, and more.',
     title: 'Integrations',
   },
   {

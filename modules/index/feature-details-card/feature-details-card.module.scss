@@ -13,17 +13,25 @@
   &.center {
     text-align: center;
 
+    .title {
+      @include display-md;
+
+      margin-bottom: 1.75rem;
+    }
+
     .subtitle {
-      margin: 0 auto 6.75rem;
-      max-width: 1000px;
+      @include text-xl;
+
+      margin: 0 auto 1rem;
+      max-width: 832px;
 
       @include breakpoint(small) {
-        margin: 0 auto 2.5rem;
+        margin: 0 auto 1.5rem;
       }
     }
 
     .button {
-      @include button($size: large, $style: primary);
+      @include button($style: primary);
 
       margin-bottom: 3.125rem;
 
@@ -33,10 +41,14 @@
     }
 
     .asset {
-      margin-bottom: 5.25rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 950px;
 
       @include breakpoint(small) {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
       }
     }
   }
@@ -98,7 +110,7 @@
     }
 
     .subtitle {
-      margin-bottom: 2.75rem;
+      margin-bottom: 2rem;
 
       @include breakpoint(small) {
         margin-bottom: 2.5rem;
@@ -131,11 +143,20 @@
   }
 }
 
-.title {
-  @include h2;
+.featureIndex {
+  @include text-xl;
 
+  color: $color-black-divider;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  @include display-xs;
+
+  font-weight: 500;
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @include breakpoint(small) {
     letter-spacing: $letter-spacing;
@@ -144,13 +165,16 @@
 }
 
 .subtitle {
-  @include h3;
+  @include text-xl;
+
+  color: $color-white-900;
 
   @include breakpoint(small) {
     padding: 0 1rem;
   }
 
   > a {
+    color: $color-white-900;
     text-decoration: underline;
     transition: color $transition-time ease;
 
