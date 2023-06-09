@@ -115,7 +115,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className={style.tutorial}>Take the Tutorial</button>
+              <button className={style.tutorial}>Take the tutorial</button>
             </a>
           </div>
         </div>
