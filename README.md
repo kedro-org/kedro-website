@@ -4,7 +4,7 @@
 
 ## What is this?
 
-A repository for the official home of [Kedro](https://kedro.org/).
+A repository for the official home of [Kedro](https://kedro.org/) and the [Kedro Blog](https://blog.kedro.org/).
 
 ## Technology
 
