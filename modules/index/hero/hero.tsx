@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import hero from '../../../public/images/hero.svg';
+import hero from '../../../public/images/hero-update.svg';
 
 import style from './hero.module.scss';
 

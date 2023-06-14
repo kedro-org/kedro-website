@@ -1,0 +1,26 @@
+<svg width="592" height="592" viewBox="0 0 592 592" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="296" height="296" fill="#151515"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M73.9999 150.574L148 224.574L222 150.574L73.9999 150.574ZM222 150.574L148 76.574L74 150.574H222Z" fill="black"/>
+<rect x="296" width="296" height="296" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M296 148L444 296L592 148L444 -0.000159796L296 148Z" fill="#00FFBC"/>
+<rect y="592" width="296" height="296" transform="rotate(-90 0 592)" fill="black"/>
+<mask id="mask0_2075_6680" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="296" width="296" height="296">
+<rect y="592" width="296" height="296" transform="rotate(-90 0 592)" fill="black"/>
+</mask>
+<g mask="url(#mask0_2075_6680)">
+<circle cx="296" cy="296" r="296" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 592 592)" fill="#151515"/>
+</g>
+<rect x="296" y="296" width="296" height="296" fill="#151515"/>
+<mask id="mask1_2075_6680" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="296" y="296" width="296" height="296">
+<rect x="592" y="296" width="296" height="296" transform="rotate(90 592 296)" fill="#00FFBC"/>
+</mask>
+<g mask="url(#mask1_2075_6680)">
+<rect x="651.029" y="275.857" width="29.6" height="530.87" transform="rotate(45 651.029 275.857)" fill="black"/>
+<rect x="734.75" y="359.579" width="29.6" height="530.87" transform="rotate(45 734.75 359.579)" fill="black"/>
+<rect x="692.89" y="317.719" width="29.6" height="530.87" transform="rotate(45 692.89 317.719)" fill="black"/>
+<rect x="609.168" y="233.997" width="29.6" height="530.87" transform="rotate(45 609.168 233.997)" fill="black"/>
+<rect x="567.308" y="192.136" width="29.6" height="530.87" transform="rotate(45 567.308 192.136)" fill="black"/>
+<rect x="525.446" y="150.276" width="29.6" height="530.87" transform="rotate(45 525.446 150.276)" fill="black"/>
+<rect x="483.586" y="108.415" width="29.6" height="530.87" transform="rotate(45 483.586 108.415)" fill="black"/>
+</g>
+</svg>
