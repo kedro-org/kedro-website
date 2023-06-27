@@ -47,6 +47,11 @@
     @include breakpoint(small) {
       margin: 3rem 0 !important;
     }
+
+    code {
+      background: inherit !important;
+      color: $color-grey-900 !important;
+    }
   }
 
   blockquote {
@@ -83,7 +88,7 @@
   }
 
   p code {
-    background-color: $color-white-300;
+    background-color: $color-white-200;
     border-radius: 4px;
     color: $color-grey-900;
     font-size: 90%;

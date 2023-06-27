@@ -106,6 +106,7 @@ const renderOptions = (
         if (entry.__typename === 'CodeSnippet') {
           return (
             <SyntaxHighlighter
+              customStyle={{ background: '#f2f3f4' }}
               language={entry.codeLanguage}
               style={materialLight}
               showLineNumbers
