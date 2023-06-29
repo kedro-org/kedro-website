@@ -162,6 +162,26 @@ const renderOptions = (
           );
         }
 
+        if (entry.__typename === 'LinkedImage') {
+          return (
+            <div className={style.postBodyImgWrapper}>
+              <a href={entry.url} rel="noreferrer" target="_blank">
+                <Image
+                  alt={entry.name || ''}
+                  height={entry.image.height}
+                  src={entry.image.url}
+                  width={entry.image.width}
+                />
+              </a>
+              {entry?.linkedCaption ? (
+                <div className={style.postBodyImgCaption}>
+                  {entry.linkedCaption}
+                </div>
+              ) : null}
+            </div>
+          );
+        }
+
         if (entry.__typename === 'Video') {
           return (
             <>

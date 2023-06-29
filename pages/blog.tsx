@@ -132,7 +132,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
   );
 };
 
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps({ preview = true }) {
   const data = await getAllPostsForBlog(preview);
 
   return {
