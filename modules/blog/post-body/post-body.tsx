@@ -165,7 +165,11 @@ const renderOptions = (
         if (entry.__typename === 'LinkedImage') {
           return (
             <div className={style.postBodyImgWrapper}>
-              <a href={entry.url} rel="noreferrer" target="_blank">
+              <a
+                href={entry.url}
+                rel="noreferrer"
+                target={entry.openInNewTab ? '_blank' : '_self'}
+              >
                 <Image
                   alt={entry.name}
                   height={entry.image.height}
