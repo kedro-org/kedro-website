@@ -126,48 +126,6 @@
 *** Headings
 **/
 
-@mixin h1 {
-  font-size: 4.5rem;
-  font-weight: 500;
-  line-height: 90px;
-  margin: 0;
-
-  @include breakpoint(small) {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-}
-
-@mixin h2 {
-  font-size: 2.5rem;
-
-  @include breakpoint(small) {
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-  }
-}
-
-@mixin h3 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.6875rem;
-
-  @include breakpoint(small) {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-}
-
-@mixin h4 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.4;
-}
-
-/**
-*** New Headings
-**/
-
 @mixin display-2xl {
   font-size: 4.5rem;
   font-weight: 500;
