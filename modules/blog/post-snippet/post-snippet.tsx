@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { dateFormatting } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 import { AuthorInfo } from '../../../pages/blog/author/[author]';
+import PostCategoryLinks from '../post-category-links';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -81,9 +82,10 @@ const PostSnippet = ({
           [style.infoMedium]: size === 'medium',
         })}
       >
-        <p
-          className={style.category}
-        >{`${post.category} — ${post.readingTime} min read`}</p>
+        <p className={style.category}>
+          <PostCategoryLinks categories={post.category} />
+          {` — ${post.readingTime} min read`}
+        </p>
         {onPostPage ? (
           <div className={style.titleWrapper}>
             <h1
