@@ -16,12 +16,12 @@ interface CategoryParams {
   category: string;
 }
 
-interface Author {
+interface Category {
   category: CategoryParams;
   categoryPosts: PostSnippet[];
 }
 
-export default function Author({ category, categoryPosts }: Author) {
+export default function Category({ category, categoryPosts }: Category) {
   const router = useRouter();
 
   if (!router.isFallback && !category) {
