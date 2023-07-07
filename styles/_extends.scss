@@ -1,0 +1,31 @@
+@import './variables';
+@import './mixins';
+
+.wrapper {
+  margin: $header-height auto 0 auto;
+  max-width: $blog-max-content;
+}
+
+.postByAuthorAndCategory {
+  @include text-xl();
+
+  margin: 0;
+  padding: 0 2rem 2rem;
+
+  @include breakpoint(small) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.backToBlogButton {
+  @include button($size: normal, $style: primary);
+  @include text-sm;
+
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  gap: 0.8125rem;
+  margin: 4.5rem 0 7.5rem 0;
+}

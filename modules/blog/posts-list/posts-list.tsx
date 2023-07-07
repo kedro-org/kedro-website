@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import PostCategoryLinks from '../post-category-links';
 import { PostSnippet } from '../post-snippet';
 import { dateFormatting } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
@@ -19,7 +20,7 @@ const PostsList = ({ post }: PostsList) => {
   const [rotateY, setRotateY] = useState(0);
   const titleRef = useRef(null);
 
-  const onMouseMouse = (event: React.MouseEvent) => {
+  const onMouseEnter = (event: React.MouseEvent) => {
     setIsTitleHovered(true);
     const { valueX, valueY } = getTiltEffectValues(titleRef, event);
 
@@ -52,14 +53,15 @@ const PostsList = ({ post }: PostsList) => {
           width={236}
         />
       </div>
-      <p
-        className={style.category}
-      >{`${post.category} — ${post.readingTime} min read`}</p>
+      <p className={style.category}>
+        <PostCategoryLinks categories={post.category} />
+        {` — ${post.readingTime} min read`}
+      </p>
       <Link href={`/blog/${post.slug}`}>
         <a>
           <h2
             className={style.title}
-            onMouseEnter={onMouseMouse}
+            onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             ref={titleRef}
           >

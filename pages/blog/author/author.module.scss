@@ -1,9 +1,9 @@
+@use '../../../styles/extends';
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
 .authorWrapper {
-  margin: $header-height auto 0 auto;
-  max-width: $blog-max-content;
+  @extend .wrapper;
 }
 
 .authorInfo {
@@ -97,15 +97,7 @@
 }
 
 .postsBy {
-  @include text-xl();
-
-  margin: 0;
-  padding: 0 2rem 2rem;
-
-  @include breakpoint(small) {
-    padding: 0;
-    margin: 0;
-  }
+  @extend .postByAuthorAndCategory;
 }
 
 .buttonWrapper {
@@ -114,13 +106,5 @@
 }
 
 .backButton {
-  @include button($size: normal, $style: primary);
-  @include text-sm;
-
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  font-weight: 700;
-  gap: 0.8125rem;
-  margin: 4.5rem 0 7.5rem 0;
+  @extend .backToBlogButton;
 }

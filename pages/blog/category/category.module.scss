@@ -1,0 +1,27 @@
+@use '../../../styles/extends';
+@import '../../../styles/mixins';
+
+.categoryWrapper {
+  @extend .wrapper;
+}
+
+.blogsList {
+  @include breakpoint(small) {
+    padding: 3.75rem 1rem 0 1rem;
+  }
+}
+
+.postsBy {
+  @extend .postByAuthorAndCategory;
+
+  padding: 5rem 2rem 2rem;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.backButton {
+  @extend .backToBlogButton;
+}
