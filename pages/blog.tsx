@@ -50,6 +50,12 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           name="twitter:description"
           content={'The Kedro Blog | ' + siteMetadata.socialDescription}
         ></meta>
+        <link
+          href="/blog/rss"
+          rel="alternate"
+          title="RSS feed for kedro.org/blog"
+          type="application/rss+xml"
+        />
       </Head>
       <Header />
       <section className={style.featuredOuter}>
