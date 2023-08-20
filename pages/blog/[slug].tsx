@@ -110,6 +110,12 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
               name="twitter:description"
               content={post.excerpt || siteMetadata.socialDescription}
             ></meta>
+            <link
+              href="/blog/rss"
+              rel="alternate"
+              title="RSS feed for kedro.org/blog"
+              type="application/rss+xml"
+            />
           </Head>
           <article>
             <Header />
