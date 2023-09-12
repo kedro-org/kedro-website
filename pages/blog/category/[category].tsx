@@ -17,7 +17,7 @@ interface CategoryParams {
 }
 
 interface Category {
-  category: CategoryParams;
+  category: String;
   categoryPosts: PostSnippet[];
 }
 

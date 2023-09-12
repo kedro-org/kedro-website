@@ -281,13 +281,16 @@ export default function PostBody({ content, slug }: Props) {
     return headerRefs.current;
   }
 
-  const handleIntersection = useCallback((entries) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        setActiveNavItem('#' + entry.target.id);
-      }
-    });
-  }, []);
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          setActiveNavItem('#' + entry.target.id);
+        }
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     headerRefs.current.forEach((sectionRef) => {
