@@ -23,7 +23,7 @@ export const faqContent = [
   },
   {
     question: "I'm a Product Lead, and my team wants to use Kedro. Why?",
-    answer: `- **Kedro promotes teamwork.** It offers an ability to scale analytics across an organisation with standardised team workflows. Stakeholders can use Kedro-Viz blueprints to understand pipeline workflows even as you build them.\n - **Production-ready code is closer than ever.** You no longer face delays caused by refactoring a proof of concept into production-quality code./n- **Modular pipelines mean reusable code.** Standardisation and separation of concerns make it possible to reuse your analytics code in future projects.`,
+    answer: `- **Kedro promotes teamwork.** It offers an ability to scale analytics across an organisation with standardised team workflows. Stakeholders can use Kedro-Viz blueprints to understand pipeline workflows even as you build them.\n - **Production-ready code is closer than ever.** You no longer face delays caused by refactoring a proof of concept into production-quality code.\n- **Modular pipelines mean reusable code.** Standardisation and separation of concerns make it possible to reuse your analytics code in future projects.`,
   },
   {
     question: "What's Kedro's origin story?",
