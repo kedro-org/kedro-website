@@ -28,7 +28,12 @@ const TestimonialCard = ({ testimonial }: Props) => {
         className={cardStyle.logo + ' ' + overrideStyle.logo}
         style={{ maxWidth: testimonial.logoWidth }}
       >
-        <Image alt="Testimonial logo" layout="fill" src={testimonial.logo} />
+        <Image
+          alt="Testimonial logo"
+          src={testimonial.logo}
+          fill
+          sizes="100vw"
+        />
       </div>
       <p className={cardStyle.user}>
         {testimonial.user},{' '}

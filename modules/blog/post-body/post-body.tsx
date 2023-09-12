@@ -151,6 +151,10 @@ const renderOptions = (
                 height={entry.media.height}
                 src={entry.media.url}
                 width={entry.media.width}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <div className={style.postBodyImgCaption}>
                 {documentToReactComponents(
@@ -175,6 +179,10 @@ const renderOptions = (
                   height={entry.image.height}
                   src={entry.image.url}
                   width={entry.image.width}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </a>
               {entry?.linkedCaption ? (
@@ -219,6 +227,10 @@ const renderOptions = (
               height={asset.height}
               src={asset.url}
               width={asset.width}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
             <div className={style.postBodyImgCaption}>{asset.title}</div>
           </div>
@@ -350,17 +362,19 @@ export default function PostBody({ content, slug }: Props) {
         <hr className={style.stickyNavBottomLine} />
         <div className={style.stickyNavBackWrapper}>
           <Link href="/blog">
-            <a>
-              <button className={style.stickyNavBackButton}>
-                <Image
-                  alt="Back arrow"
-                  height={22}
-                  src="/images/back-arrow.svg"
-                  width={22}
-                />
-                Back to Blog home
-              </button>
-            </a>
+            <button className={style.stickyNavBackButton}>
+              <Image
+                alt="Back arrow"
+                height={22}
+                src="/images/back-arrow.svg"
+                width={22}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
+              />
+              Back to Blog home
+            </button>
           </Link>
         </div>
       </div>

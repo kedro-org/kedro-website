@@ -146,6 +146,10 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         height={22}
                         src="/images/twitter-logo.svg"
                         width={27}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                     </a>
                     <a
@@ -158,6 +162,10 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         height={27}
                         src="/images/linkedin-logo.svg"
                         width={27}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                     </a>
                     <button
@@ -169,6 +177,10 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         height={17}
                         src="/images/copy-to-clipboard.svg"
                         width={17}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                       {isCopyLinkSelected ? 'Link copied!' : 'Copy link'}
                     </button>
@@ -187,17 +199,19 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                     })}
                   <div className={style.buttonWrapper}>
                     <Link href="/blog">
-                      <a>
-                        <button className={style.showMoreButton}>
-                          <Image
-                            alt="Back arrow"
-                            height={22}
-                            src="/images/back-arrow.svg"
-                            width={22}
-                          />
-                          Back to Blog home
-                        </button>
-                      </a>
+                      <button className={style.showMoreButton}>
+                        <Image
+                          alt="Back arrow"
+                          height={22}
+                          src="/images/back-arrow.svg"
+                          width={22}
+                          style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                          }}
+                        />
+                        Back to Blog home
+                      </button>
                     </Link>
                   </div>
                 </div>

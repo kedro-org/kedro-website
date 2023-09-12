@@ -9,8 +9,8 @@ const PostCategoryLinks = ({ categories }: { categories: string }) => {
   const links = postCategories.map((category: string, index: number) => {
     return (
       <React.Fragment key={category}>
-        <Link href={`/blog/category/${category}`}>
-          <a style={{ color: 'inherit' }}>{category}</a>
+        <Link href={`/blog/category/${category}`} style={{ color: 'inherit' }}>
+          {category}
         </Link>
         {postCategories.length > index + 1 ? ', ' : ''}
       </React.Fragment>

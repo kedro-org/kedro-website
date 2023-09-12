@@ -24,7 +24,7 @@ export default function CaseStudiesCard({
     <div className={style.container}>
       <h4 className={style.title}>{title}</h4>
       <div className={style.logo} style={logoStyleAdjustments}>
-        <Image alt="Case study logo" layout="fill" src={logo} />
+        <Image alt="Case study logo" src={logo} fill sizes="100vw" />
       </div>
       <div className={style.textContainer}>
         <p className={style.text}>{text}</p>

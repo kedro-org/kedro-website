@@ -17,13 +17,18 @@ export default function CompaniesUsingKedro() {
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                loading="eager" // for Safari
+                // for Safari
+                loading="eager"
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
-                height="120px"
+                height={120}
                 src={company.logo}
-                width="308px"
+                width={308}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
             ))}
           </div>
@@ -31,13 +36,18 @@ export default function CompaniesUsingKedro() {
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                loading="eager" // for Safari
+                // for Safari
+                loading="eager"
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
-                height="120px"
+                height={120}
                 src={company.logo}
-                width="308px"
+                width={308}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
             ))}
           </div>

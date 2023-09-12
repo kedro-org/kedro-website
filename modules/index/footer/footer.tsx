@@ -13,6 +13,10 @@ export default function Footer() {
             src="/images/kedro_logo.svg"
             width={25}
             height={25}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
           />
           <h4 className={style.logoText}>kedro</h4>
         </a>
@@ -42,8 +46,8 @@ export default function Footer() {
           >
             Documentation
           </a>
-          <Link href="/blog">
-            <a className={style.link}>Blog</a>
+          <Link href="/blog" className={style.link}>
+            Blog
           </Link>
           <div className={style.iconLinks}>
             <a
@@ -57,6 +61,10 @@ export default function Footer() {
                 height={30}
                 src="/images/slack.svg"
                 width={30}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <span className={style.iconText}>Slack</span>
             </a>
@@ -71,6 +79,10 @@ export default function Footer() {
                 height={30}
                 src="/images/github.svg"
                 width={30}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <span className={style.iconText}> Github</span>
             </a>
@@ -86,6 +98,10 @@ export default function Footer() {
               height={30}
               src="/images/linux-foundation-logo.svg"
               width={90}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </a>
           <a
@@ -99,6 +115,10 @@ export default function Footer() {
               height={30}
               src="/images/netlify-logo.svg"
               width={67}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </a>
         </nav>

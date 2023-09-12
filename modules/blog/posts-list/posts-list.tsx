@@ -51,6 +51,10 @@ const PostsList = ({ post }: PostsList) => {
           height={236}
           src={post.coverImage.url}
           width={236}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </div>
       <p className={style.category}>
@@ -58,22 +62,23 @@ const PostsList = ({ post }: PostsList) => {
         {` — ${post.readingTime} min read`}
       </p>
       <Link href={`/blog/${post.slug}`}>
-        <a>
-          <h2
-            className={style.title}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            ref={titleRef}
-          >
-            {post.title}
-          </h2>
-        </a>
+        <h2
+          className={style.title}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          ref={titleRef}
+        >
+          {post.title}
+        </h2>
       </Link>
       <p className={style.description}>{post.description}</p>
       <div className={style.authorWrapper}>
         {post.author && (
-          <Link href={`/blog/author/${post.author.urlDisplayName}`}>
-            <a className={style.author}>{post.author.name}</a>
+          <Link
+            href={`/blog/author/${post.author.urlDisplayName}`}
+            className={style.author}
+          >
+            {post.author.name}
           </Link>
         )}
         <p className={style.date}>

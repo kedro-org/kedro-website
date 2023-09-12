@@ -10,29 +10,31 @@ export default function Header() {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <Link href="/" passHref>
-          <a className={style.logo}>
-            <Image
-              alt="KedroLogo"
-              height={25}
-              src="/images/kedro_logo.svg"
-              width={25}
-            />
-            <h4 className={style.logoText}>kedro</h4>
-          </a>
+        <Link href="/" passHref className={style.logo}>
+          <Image
+            alt="KedroLogo"
+            height={25}
+            src="/images/kedro_logo.svg"
+            width={25}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
+          <h4 className={style.logoText}>kedro</h4>
         </Link>
         <nav
           className={menuOpen ? `${style.menu} ${style.active}` : style.menu}
           onClick={() => setMenuOpen(false)}
         >
-          <Link href="/#why-kedro">
-            <a className={style.link}>Why Kedro?</a>
+          <Link href="/#why-kedro" className={style.link}>
+            Why Kedro?
           </Link>
-          <Link href="/#features">
-            <a className={style.link}>Features</a>
+          <Link href="/#features" className={style.link}>
+            Features
           </Link>
-          <Link href="/#faq">
-            <a className={style.link}>FAQs</a>
+          <Link href="/#faq" className={style.link}>
+            FAQs
           </Link>
           <a
             className={style.link}
@@ -50,8 +52,8 @@ export default function Header() {
           >
             Documentation
           </a>
-          <Link href="/blog">
-            <a className={style.link}>Blog</a>
+          <Link href="/blog" className={style.link}>
+            Blog
           </Link>
           <div className={style.iconLinks}>
             <a
@@ -65,6 +67,10 @@ export default function Header() {
                 height={30}
                 src="/images/slack.svg"
                 width={30}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <span className={style.iconText}>Slack</span>
             </a>
@@ -79,6 +85,10 @@ export default function Header() {
                 height={30}
                 src="/images/github.svg"
                 width={30}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <span className={style.iconText}> Github</span>
             </a>
@@ -95,6 +105,10 @@ export default function Header() {
               height={15}
               src="/images/close.svg"
               width={15}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           ) : (
             <Image
@@ -102,6 +116,10 @@ export default function Header() {
               height={25}
               src="/images/burger.svg"
               width={25}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           )}
         </button>

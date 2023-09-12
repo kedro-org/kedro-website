@@ -57,17 +57,19 @@ export default function Category({ category, categoryPosts }: Category) {
 
               <div className={style.buttonWrapper}>
                 <Link href="/blog" passHref>
-                  <a>
-                    <button className={style.backButton}>
-                      <Image
-                        alt="Back arrow"
-                        height={22}
-                        src="/images/back-arrow.svg"
-                        width={22}
-                      />
-                      Back to Blog home
-                    </button>
-                  </a>
+                  <button className={style.backButton}>
+                    <Image
+                      alt="Back arrow"
+                      height={22}
+                      src="/images/back-arrow.svg"
+                      width={22}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
+                    />
+                    Back to Blog home
+                  </button>
                 </Link>
               </div>
             </div>

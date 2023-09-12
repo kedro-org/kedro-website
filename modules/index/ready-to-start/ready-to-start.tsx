@@ -23,7 +23,14 @@ export default function ReadyToStart() {
           </a>
         </div>
         <div className={style.image}>
-          <Image alt="Kedro ready to start graphic" src={readyToStart} />
+          <Image
+            alt="Kedro ready to start graphic"
+            src={readyToStart}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
         </div>
       </div>
     </section>

@@ -120,7 +120,15 @@ export default function Hero() {
           </div>
         </div>
         <div className={style.image}>
-          <Image alt="Kedro hero graphic" priority={true} src={hero} />
+          <Image
+            alt="Kedro hero graphic"
+            priority={true}
+            src={hero}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
         </div>
       </div>
     </section>
