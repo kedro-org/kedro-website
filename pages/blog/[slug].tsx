@@ -14,6 +14,7 @@ import PostsList from '../../modules/blog/posts-list';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
 } from '../../modules/blog/post-snippet';
+import { defaultImageStyle } from '../../utils/blog';
 
 import style from '../post.module.scss';
 
@@ -145,11 +146,8 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="Twitter logo"
                         height={22}
                         src="/images/twitter-logo.svg"
+                        style={defaultImageStyle}
                         width={27}
-                        style={{
-                          maxWidth: '100%',
-                          height: 'auto',
-                        }}
                       />
                     </a>
                     <a
@@ -161,11 +159,8 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="LinkedIn logo"
                         height={27}
                         src="/images/linkedin-logo.svg"
+                        style={defaultImageStyle}
                         width={27}
-                        style={{
-                          maxWidth: '100%',
-                          height: 'auto',
-                        }}
                       />
                     </a>
                     <button
@@ -176,11 +171,8 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="Copy icon"
                         height={17}
                         src="/images/copy-to-clipboard.svg"
+                        style={defaultImageStyle}
                         width={17}
-                        style={{
-                          maxWidth: '100%',
-                          height: 'auto',
-                        }}
                       />
                       {isCopyLinkSelected ? 'Link copied!' : 'Copy link'}
                     </button>
@@ -204,11 +196,8 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                           alt="Back arrow"
                           height={22}
                           src="/images/back-arrow.svg"
+                          style={defaultImageStyle}
                           width={22}
-                          style={{
-                            maxWidth: '100%',
-                            height: 'auto',
-                          }}
                         />
                         Back to Blog home
                       </button>

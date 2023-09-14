@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import Image from 'next/image';
 
@@ -33,10 +34,7 @@ export default function Media({
         placeholder={placeholder}
         priority={priority}
         src={image}
-        style={{
-          maxWidth: '100%',
-          height: 'auto',
-        }}
+        style={defaultImageStyle}
       />
     );
   }

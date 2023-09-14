@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Header from '../../../modules/shared/header';
 import PostsList from '../../../modules/blog/posts-list';
 import { PostSnippet } from '../../../modules/blog/post-snippet';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './author.module.scss';
 
@@ -63,14 +64,11 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
               <section className={style.authorInfo}>
                 <div className={style.imageWrapper}>
                   <Image
-                    src={authorInfo.picture.url}
                     alt="author picture alt"
-                    width={160}
                     height={160}
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
+                    src={authorInfo.picture.url}
+                    style={defaultImageStyle}
+                    width={160}
                   />
                 </div>
                 {/* The contacts sections to be confirmed by the design team */}
@@ -108,11 +106,8 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
                       alt="Back arrow"
                       height={22}
                       src="/images/back-arrow.svg"
+                      style={defaultImageStyle}
                       width={22}
-                      style={{
-                        maxWidth: '100%',
-                        height: 'auto',
-                      }}
                     />
                     Back to Blog home
                   </button>

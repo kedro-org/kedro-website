@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import PostCategoryLinks from '../post-category-links';
 import { PostSnippet } from '../post-snippet';
-import { dateFormatting } from '../../../utils/blog';
+import { dateFormatting, defaultImageStyle } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 
 import style from './posts-list.module.scss';
@@ -50,11 +50,8 @@ const PostsList = ({ post }: PostsList) => {
           alt="cover image alt"
           height={236}
           src={post.coverImage.url}
+          style={defaultImageStyle}
           width={236}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-          }}
         />
       </div>
       <p className={style.category}>

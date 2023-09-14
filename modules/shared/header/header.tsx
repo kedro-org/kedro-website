@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { defaultImageStyle } from '../../../utils/blog';
+
 import style from './header.module.scss';
 
 export default function Header() {
@@ -15,11 +17,8 @@ export default function Header() {
             alt="KedroLogo"
             height={25}
             src="/images/kedro_logo.svg"
+            style={defaultImageStyle}
             width={25}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
           />
           <h4 className={style.logoText}>kedro</h4>
         </Link>
@@ -66,11 +65,8 @@ export default function Header() {
                 alt="SlackLogo"
                 height={30}
                 src="/images/slack.svg"
+                style={defaultImageStyle}
                 width={30}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
               <span className={style.iconText}>Slack</span>
             </a>
@@ -84,11 +80,8 @@ export default function Header() {
                 alt="GithubLogo"
                 height={30}
                 src="/images/github.svg"
+                style={defaultImageStyle}
                 width={30}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
               <span className={style.iconText}> Github</span>
             </a>
@@ -104,22 +97,16 @@ export default function Header() {
               alt="CloseIcon"
               height={15}
               src="/images/close.svg"
+              style={defaultImageStyle}
               width={15}
-              style={{
-                maxWidth: '100%',
-                height: 'auto',
-              }}
             />
           ) : (
             <Image
               alt="BurgerIcon"
               height={25}
               src="/images/burger.svg"
+              style={defaultImageStyle}
               width={25}
-              style={{
-                maxWidth: '100%',
-                height: 'auto',
-              }}
             />
           )}
         </button>

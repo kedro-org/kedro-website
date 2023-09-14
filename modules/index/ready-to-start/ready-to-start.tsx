@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { defaultImageStyle } from '../../../utils/blog';
+
 import readyToStart from '../../../public/images/ready-to-start.svg';
 
 import style from './ready-to-start.module.scss';
@@ -26,10 +28,7 @@ export default function ReadyToStart() {
           <Image
             alt="Kedro ready to start graphic"
             src={readyToStart}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
+            style={defaultImageStyle}
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { companies } from './companies-using-kedro-content';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './companies-using-kedro.module.scss';
 
@@ -24,11 +25,8 @@ export default function CompaniesUsingKedro() {
                 alt={`${company.name} logo`}
                 height={120}
                 src={company.logo}
+                style={defaultImageStyle}
                 width={308}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
             ))}
           </div>
@@ -43,11 +41,8 @@ export default function CompaniesUsingKedro() {
                 alt={`${company.name} logo`}
                 height={120}
                 src={company.logo}
+                style={defaultImageStyle}
                 width={308}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
             ))}
           </div>

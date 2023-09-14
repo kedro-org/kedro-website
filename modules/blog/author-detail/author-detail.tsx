@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AuthorInfo } from '../../../pages/blog/author/[author]';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './author-detail.module.scss';
 
@@ -18,11 +19,8 @@ const AuthorDetail = ({ authorInfo }: Props) => {
           className={style.image}
           height={authorInfo.picture.height}
           src={authorInfo.picture.url}
+          style={defaultImageStyle}
           width={authorInfo.picture.width}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-          }}
         />
       </div>
       <div>

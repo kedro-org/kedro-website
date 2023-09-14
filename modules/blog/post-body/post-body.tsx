@@ -4,7 +4,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { scrollToTargetAdjusted } from '../../../utils/blog';
+import { defaultImageStyle, scrollToTargetAdjusted } from '../../../utils/blog';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -150,11 +150,8 @@ const renderOptions = (
                 alt={entry.name}
                 height={entry.media.height}
                 src={entry.media.url}
+                style={defaultImageStyle}
                 width={entry.media.width}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
               <div className={style.postBodyImgCaption}>
                 {documentToReactComponents(
@@ -178,11 +175,8 @@ const renderOptions = (
                   alt={entry.name}
                   height={entry.image.height}
                   src={entry.image.url}
+                  style={defaultImageStyle}
                   width={entry.image.width}
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
                 />
               </a>
               {entry?.linkedCaption ? (
@@ -226,11 +220,8 @@ const renderOptions = (
               alt={asset.description}
               height={asset.height}
               src={asset.url}
+              style={defaultImageStyle}
               width={asset.width}
-              style={{
-                maxWidth: '100%',
-                height: 'auto',
-              }}
             />
             <div className={style.postBodyImgCaption}>{asset.title}</div>
           </div>
@@ -370,11 +361,8 @@ export default function PostBody({ content, slug }: Props) {
                 alt="Back arrow"
                 height={22}
                 src="/images/back-arrow.svg"
+                style={defaultImageStyle}
                 width={22}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
               Back to Blog home
             </button>

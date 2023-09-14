@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import { dateFormatting } from '../../../utils/blog';
+import { dateFormatting, defaultImageStyle } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 import { AuthorInfo } from '../../../pages/blog/author/[author]';
 import PostCategoryLinks from '../post-category-links';
@@ -166,12 +166,8 @@ const PostSnippet = ({
           alt={post.coverImage.title || 'Generic image for blog post'}
           height={imgSize}
           src={post.coverImage.url}
+          style={{ ...defaultImageStyle, objectFit: 'cover' }}
           width={imgSize}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            objectFit: 'cover',
-          }}
         />
       </div>
     </div>

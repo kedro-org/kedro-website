@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Header from '../../../modules/shared/header';
 import PostsList from '../../../modules/blog/posts-list';
 import { PostSnippet } from '../../../modules/blog/post-snippet';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './category.module.scss';
 
@@ -62,11 +63,8 @@ export default function Category({ category, categoryPosts }: Category) {
                       alt="Back arrow"
                       height={22}
                       src="/images/back-arrow.svg"
+                      style={defaultImageStyle}
                       width={22}
-                      style={{
-                        maxWidth: '100%',
-                        height: 'auto',
-                      }}
                     />
                     Back to Blog home
                   </button>
