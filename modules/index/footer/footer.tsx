@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { defaultImageStyle } from '../../../utils/blog';
+
 import style from './footer.module.scss';
 
 export default function Footer() {
@@ -10,9 +12,10 @@ export default function Footer() {
         <a href="#" className={style.logo}>
           <Image
             alt="KedroLogo"
-            src="/images/kedro_logo.svg"
-            width={25}
             height={25}
+            src="/images/kedro_logo.svg"
+            style={defaultImageStyle}
+            width={25}
           />
           <h4 className={style.logoText}>kedro</h4>
         </a>
@@ -42,8 +45,8 @@ export default function Footer() {
           >
             Documentation
           </a>
-          <Link href="/blog">
-            <a className={style.link}>Blog</a>
+          <Link href="/blog" className={style.link}>
+            Blog
           </Link>
           <div className={style.iconLinks}>
             <a
@@ -56,6 +59,7 @@ export default function Footer() {
                 alt="SlackLogo"
                 height={30}
                 src="/images/slack.svg"
+                style={defaultImageStyle}
                 width={30}
               />
               <span className={style.iconText}>Slack</span>
@@ -70,6 +74,7 @@ export default function Footer() {
                 alt="GithubLogo"
                 height={30}
                 src="/images/github.svg"
+                style={defaultImageStyle}
                 width={30}
               />
               <span className={style.iconText}> Github</span>
@@ -85,6 +90,7 @@ export default function Footer() {
               alt="Linux Foundation logo"
               height={30}
               src="/images/linux-foundation-logo.svg"
+              style={defaultImageStyle}
               width={90}
             />
           </a>
@@ -98,6 +104,7 @@ export default function Footer() {
               alt="Deploys by Netlify"
               height={30}
               src="/images/netlify-logo.svg"
+              style={defaultImageStyle}
               width={67}
             />
           </a>

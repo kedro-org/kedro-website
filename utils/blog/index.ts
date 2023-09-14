@@ -56,3 +56,8 @@ export const scrollToTargetAdjusted = (id: string) => {
     top: offsetPosition,
   });
 };
+
+export const defaultImageStyle = {
+  height: 'auto',
+  maxWidth: '100%',
+};

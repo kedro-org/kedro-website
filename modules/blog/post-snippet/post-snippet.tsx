@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import { dateFormatting } from '../../../utils/blog';
+import { dateFormatting, defaultImageStyle } from '../../../utils/blog';
 import { tiltEffectSettings, getTiltEffectValues } from '../../../utils/blog';
 import { AuthorInfo } from '../../../pages/blog/author/[author]';
 import PostCategoryLinks from '../post-category-links';
@@ -105,29 +105,27 @@ const PostSnippet = ({
           </div>
         ) : (
           <Link href={`/blog/${post.slug}`}>
-            <a>
-              <div
-                className={style.titleWrapper}
-                onMouseMove={onMouseMouse}
-                onMouseOut={onMouseLeave}
-                ref={titleRef}
+            <div
+              className={style.titleWrapper}
+              onMouseMove={onMouseMouse}
+              onMouseOut={onMouseLeave}
+              ref={titleRef}
+            >
+              <h1
+                className={classNames(style.title, {
+                  [style.isHovered]: isTitleHovered,
+                })}
               >
-                <h1
-                  className={classNames(style.title, {
-                    [style.isHovered]: isTitleHovered,
-                  })}
-                >
-                  {post.title}
-                </h1>
-                <p
-                  className={classNames(style.description, {
-                    [style.isHovered]: isTitleHovered,
-                  })}
-                >
-                  {post.description}
-                </p>
-              </div>
-            </a>
+                {post.title}
+              </h1>
+              <p
+                className={classNames(style.description, {
+                  [style.isHovered]: isTitleHovered,
+                })}
+              >
+                {post.description}
+              </p>
+            </div>
           </Link>
         )}
         {onPostPage ? (
@@ -137,16 +135,17 @@ const PostSnippet = ({
           </div>
         ) : (
           <>
-            <Link href={`/blog/author/${post.author.urlDisplayName}`}>
-              <a className={style.author}>{post.author.name}</a>
+            <Link
+              href={`/blog/author/${post.author.urlDisplayName}`}
+              className={style.author}
+            >
+              {post.author.name}
             </Link>
             <p className={style.date}>
               {dateFormatting(post.sys.firstPublishedAt)}
             </p>
             <Link href={`/blog/${post.slug}`}>
-              <a>
-                <button className={style.button}>Read more</button>
-              </a>
+              <button className={style.button}>Read more</button>
             </Link>
           </>
         )}
@@ -166,8 +165,8 @@ const PostSnippet = ({
         <Image
           alt={post.coverImage.title || 'Generic image for blog post'}
           height={imgSize}
-          objectFit="cover"
           src={post.coverImage.url}
+          style={{ ...defaultImageStyle, objectFit: 'cover' }}
           width={imgSize}
         />
       </div>

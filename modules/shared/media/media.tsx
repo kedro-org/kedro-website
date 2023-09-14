@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import Image from 'next/image';
 
@@ -7,7 +8,6 @@ import style from './media.module.scss';
 type Props = {
   alt?: string;
   image?: StaticImageData | any;
-  layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   placeholder?: 'blur' | 'empty';
   poster?: string;
   priority?: boolean;
@@ -17,7 +17,6 @@ type Props = {
 export default function Media({
   alt,
   image,
-  layout = 'intrinsic',
   placeholder = 'blur',
   poster,
   priority = false,
@@ -32,10 +31,10 @@ export default function Media({
     return (
       <Image
         alt={alt}
-        layout={layout}
         placeholder={placeholder}
         priority={priority}
         src={image}
+        style={defaultImageStyle}
       />
     );
   }

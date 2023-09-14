@@ -14,6 +14,7 @@ import PostsList from '../../modules/blog/posts-list';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
 } from '../../modules/blog/post-snippet';
+import { defaultImageStyle } from '../../utils/blog';
 
 import style from '../post.module.scss';
 
@@ -145,6 +146,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="Twitter logo"
                         height={22}
                         src="/images/twitter-logo.svg"
+                        style={defaultImageStyle}
                         width={27}
                       />
                     </a>
@@ -157,6 +159,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="LinkedIn logo"
                         height={27}
                         src="/images/linkedin-logo.svg"
+                        style={defaultImageStyle}
                         width={27}
                       />
                     </a>
@@ -168,6 +171,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                         alt="Copy icon"
                         height={17}
                         src="/images/copy-to-clipboard.svg"
+                        style={defaultImageStyle}
                         width={17}
                       />
                       {isCopyLinkSelected ? 'Link copied!' : 'Copy link'}
@@ -187,17 +191,16 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                     })}
                   <div className={style.buttonWrapper}>
                     <Link href="/blog">
-                      <a>
-                        <button className={style.showMoreButton}>
-                          <Image
-                            alt="Back arrow"
-                            height={22}
-                            src="/images/back-arrow.svg"
-                            width={22}
-                          />
-                          Back to Blog home
-                        </button>
-                      </a>
+                      <button className={style.showMoreButton}>
+                        <Image
+                          alt="Back arrow"
+                          height={22}
+                          src="/images/back-arrow.svg"
+                          style={defaultImageStyle}
+                          width={22}
+                        />
+                        Back to Blog home
+                      </button>
                     </Link>
                   </div>
                 </div>

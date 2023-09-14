@@ -4,7 +4,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { scrollToTargetAdjusted } from '../../../utils/blog';
+import { defaultImageStyle, scrollToTargetAdjusted } from '../../../utils/blog';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -150,6 +150,7 @@ const renderOptions = (
                 alt={entry.name}
                 height={entry.media.height}
                 src={entry.media.url}
+                style={defaultImageStyle}
                 width={entry.media.width}
               />
               <div className={style.postBodyImgCaption}>
@@ -174,6 +175,7 @@ const renderOptions = (
                   alt={entry.name}
                   height={entry.image.height}
                   src={entry.image.url}
+                  style={defaultImageStyle}
                   width={entry.image.width}
                 />
               </a>
@@ -218,6 +220,7 @@ const renderOptions = (
               alt={asset.description}
               height={asset.height}
               src={asset.url}
+              style={defaultImageStyle}
               width={asset.width}
             />
             <div className={style.postBodyImgCaption}>{asset.title}</div>
@@ -269,13 +272,16 @@ export default function PostBody({ content, slug }: Props) {
     return headerRefs.current;
   }
 
-  const handleIntersection = useCallback((entries) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        setActiveNavItem('#' + entry.target.id);
-      }
-    });
-  }, []);
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          setActiveNavItem('#' + entry.target.id);
+        }
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     headerRefs.current.forEach((sectionRef) => {
@@ -350,17 +356,16 @@ export default function PostBody({ content, slug }: Props) {
         <hr className={style.stickyNavBottomLine} />
         <div className={style.stickyNavBackWrapper}>
           <Link href="/blog">
-            <a>
-              <button className={style.stickyNavBackButton}>
-                <Image
-                  alt="Back arrow"
-                  height={22}
-                  src="/images/back-arrow.svg"
-                  width={22}
-                />
-                Back to Blog home
-              </button>
-            </a>
+            <button className={style.stickyNavBackButton}>
+              <Image
+                alt="Back arrow"
+                height={22}
+                src="/images/back-arrow.svg"
+                style={defaultImageStyle}
+                width={22}
+              />
+              Back to Blog home
+            </button>
           </Link>
         </div>
       </div>

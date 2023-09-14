@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Header from '../../../modules/shared/header';
 import PostsList from '../../../modules/blog/posts-list';
 import { PostSnippet } from '../../../modules/blog/post-snippet';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './author.module.scss';
 
@@ -63,18 +64,19 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
               <section className={style.authorInfo}>
                 <div className={style.imageWrapper}>
                   <Image
-                    src={authorInfo.picture.url}
                     alt="author picture alt"
-                    width={160}
                     height={160}
+                    src={authorInfo.picture.url}
+                    style={defaultImageStyle}
+                    width={160}
                   />
                 </div>
                 {/* The contacts sections to be confirmed by the design team */}
                 {/* <div className={style.contacts}>
-                    <div className={style.circle} />
-                    <div className={style.circle} />
-                    <div className={style.circle} />
-                  </div> */}
+                  <div className={style.circle} />
+                  <div className={style.circle} />
+                  <div className={style.circle} />
+                </div> */}
                 <div className={style.info}>
                   <p className={style.name}>{authorInfo.name}</p>
                   <p className={style.jobTitle}>{authorInfo.jobTitle}</p>
@@ -99,17 +101,16 @@ export default function Author({ authorInfo, authorsPosts }: Author) {
 
               <div className={style.buttonWrapper}>
                 <Link href="/blog" passHref>
-                  <a>
-                    <button className={style.backButton}>
-                      <Image
-                        alt="Back arrow"
-                        height={22}
-                        src="/images/back-arrow.svg"
-                        width={22}
-                      />
-                      Back to Blog home
-                    </button>
-                  </a>
+                  <button className={style.backButton}>
+                    <Image
+                      alt="Back arrow"
+                      height={22}
+                      src="/images/back-arrow.svg"
+                      style={defaultImageStyle}
+                      width={22}
+                    />
+                    Back to Blog home
+                  </button>
                 </Link>
               </div>
             </div>

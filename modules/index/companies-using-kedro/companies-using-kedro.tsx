@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { companies } from './companies-using-kedro-content';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import style from './companies-using-kedro.module.scss';
 
@@ -17,13 +18,15 @@ export default function CompaniesUsingKedro() {
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                loading="eager" // for Safari
+                // for Safari
+                loading="eager"
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
-                height="120px"
+                height={120}
                 src={company.logo}
-                width="308px"
+                style={defaultImageStyle}
+                width={308}
               />
             ))}
           </div>
@@ -31,13 +34,15 @@ export default function CompaniesUsingKedro() {
           <div className={style.carouselAnimate}>
             {companies.map((company) => (
               <Image
-                loading="eager" // for Safari
+                // for Safari
+                loading="eager"
                 className={style.company}
                 key={company.name}
                 alt={`${company.name} logo`}
-                height="120px"
+                height={120}
                 src={company.logo}
-                width="308px"
+                style={defaultImageStyle}
+                width={308}
               />
             ))}
           </div>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { defaultImageStyle } from '../../../utils/blog';
 
 import hero from '../../../public/images/hero-update.svg';
 
@@ -120,7 +121,12 @@ export default function Hero() {
           </div>
         </div>
         <div className={style.image}>
-          <Image alt="Kedro hero graphic" priority={true} src={hero} />
+          <Image
+            alt="Kedro hero graphic"
+            priority={true}
+            src={hero}
+            style={defaultImageStyle}
+          />
         </div>
       </div>
     </section>

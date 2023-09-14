@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { defaultImageStyle } from '../../../utils/blog';
+
 import readyToStart from '../../../public/images/ready-to-start.svg';
 
 import style from './ready-to-start.module.scss';
@@ -23,7 +25,11 @@ export default function ReadyToStart() {
           </a>
         </div>
         <div className={style.image}>
-          <Image alt="Kedro ready to start graphic" src={readyToStart} />
+          <Image
+            alt="Kedro ready to start graphic"
+            src={readyToStart}
+            style={defaultImageStyle}
+          />
         </div>
       </div>
     </section>

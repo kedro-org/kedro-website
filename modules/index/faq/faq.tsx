@@ -49,8 +49,8 @@ export default function FAQ() {
             .
           </p>
           <p>
-            We also maintain a list of extensions, plugins, articles, podcasts, talks, and Kedro
-            showcase projects in the{' '}
+            We also maintain a list of extensions, plugins, articles, podcasts,
+            talks, and Kedro showcase projects in the{' '}
             <a
               href="https://github.com/kedro-org/awesome-kedro"
               target="_blank"
