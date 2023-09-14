@@ -45,6 +45,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
   const postUrl = post?.slug
     ? `https://kedro.org/blog/${post.slug}`
     : 'https://kedro.org';
+  const mastodonContent = 'See more: https://social.lfx.dev/@kedro';
 
   const copyToClipboard = (str: string) => {
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
@@ -138,14 +139,14 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                   <div className={style.sharePostTitle}>Share post:</div>
                   <div className={style.sharePostIcons}>
                     <a
-                      href={`https://twitter.com/intent/tweet?text=${postUrl}`}
+                      href={`https://mastodonshare.com/?text=${mastodonContent}&?url=${postUrl}`}
                       rel="noreferrer"
                       target="_blank"
                     >
                       <Image
-                        alt="Twitter logo"
+                        alt="Mastodon logo"
                         height={22}
-                        src="/images/twitter-logo.svg"
+                        src="/images/mastodon-logo.svg"
                         style={defaultImageStyle}
                         width={27}
                       />
