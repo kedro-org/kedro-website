@@ -14,7 +14,10 @@ import PostsList from '../../modules/blog/posts-list';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
 } from '../../modules/blog/post-snippet';
-import { defaultImageStyle } from '../../utils/blog';
+import {
+  defaultImageStyle,
+  generateMastodonShareContent,
+} from '../../utils/blog';
 
 import style from '../post.module.scss';
 
@@ -138,7 +141,11 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                   <div className={style.sharePostTitle}>Share post:</div>
                   <div className={style.sharePostIcons}>
                     <a
-                      href={`https://mastodonshare.com/?text=${generateMastodonShareContent(post.title, post.category, postUrl)}&?url=${postUrl}`}
+                      href={`https://mastodonshare.com/?text=${generateMastodonShareContent(
+                        post.title,
+                        post.category,
+                        postUrl
+                      )}&?url=${postUrl}`}
                       rel="noreferrer"
                       target="_blank"
                     >
@@ -227,22 +234,6 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
     </>
   );
 }
-
-export const generateMastodonShareContent = (postTitle: string, postCategory: string, postUrl: string) => {
-  let sharingText = `I read this article on the Kedro blog: ${postTitle} ${postUrl} by @kedro@social.lfx.dev%0A%0A`;
-
-  let hashtags = '%23kedro %23kedroviz %23python %23pydata %23datascience ';
-
-  const additionalHashtags = postCategory.split(",");
-  for (let category of additionalHashtags) {
-    hashtags = hashtags.concat(`%23${category.toLowerCase().trimStart()} `);
-  }
-
-  sharingText = sharingText.concat(hashtags).trim();
-
-  return sharingText;
-}
-
 
 export async function getStaticProps({
   params,
