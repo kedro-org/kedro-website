@@ -45,7 +45,6 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
   const postUrl = post?.slug
     ? `https://kedro.org/blog/${post.slug}`
     : 'https://kedro.org';
-  const mastodonContent = 'See more: https://social.lfx.dev/@kedro';
 
   const copyToClipboard = (str: string) => {
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
@@ -139,7 +138,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                   <div className={style.sharePostTitle}>Share post:</div>
                   <div className={style.sharePostIcons}>
                     <a
-                      href={`https://mastodonshare.com/?text=${mastodonContent}&?url=${postUrl}`}
+                      href={`https://mastodonshare.com/?text=${generateMastodonShareContent(post.title, post.category, postUrl)}&?url=${postUrl}`}
                       rel="noreferrer"
                       target="_blank"
                     >
@@ -228,6 +227,22 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
     </>
   );
 }
+
+export const generateMastodonShareContent = (postTitle: string, postCategory: string, postUrl: string) => {
+  let sharingText = `I read this article on the Kedro blog: ${postTitle} ${postUrl} by @kedro@social.lfx.dev%0A%0A`;
+
+  let hashtags = '%23kedro %23kedroviz %23python %23pydata %23datascience ';
+
+  const additionalHashtags = postCategory.split(",");
+  for (let category of additionalHashtags) {
+    hashtags = hashtags.concat(`%23${category.toLowerCase().trimStart()} `);
+  }
+
+  sharingText = sharingText.concat(hashtags).trim();
+
+  return sharingText;
+}
+
 
 export async function getStaticProps({
   params,
