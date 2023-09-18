@@ -14,7 +14,10 @@ import PostsList from '../../modules/blog/posts-list';
 import PostSnippet, {
   PostSnippet as PostSnippetTypes,
 } from '../../modules/blog/post-snippet';
-import { defaultImageStyle } from '../../utils/blog';
+import {
+  defaultImageStyle,
+  generateMastodonShareContent,
+} from '../../utils/blog';
 
 import style from '../post.module.scss';
 
@@ -138,14 +141,18 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                   <div className={style.sharePostTitle}>Share post:</div>
                   <div className={style.sharePostIcons}>
                     <a
-                      href={`https://twitter.com/intent/tweet?text=${postUrl}`}
+                      href={`https://mastodonshare.com/?text=${generateMastodonShareContent(
+                        post.title,
+                        post.category,
+                        postUrl
+                      )}&?url=${postUrl}`}
                       rel="noreferrer"
                       target="_blank"
                     >
                       <Image
-                        alt="Twitter logo"
+                        alt="Mastodon logo"
                         height={22}
-                        src="/images/twitter-logo.svg"
+                        src="/images/mastodon-logo.svg"
                         style={defaultImageStyle}
                         width={27}
                       />

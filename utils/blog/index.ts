@@ -57,6 +57,25 @@ export const scrollToTargetAdjusted = (id: string) => {
   });
 };
 
+export const generateMastodonShareContent = (
+  postTitle: string,
+  postCategory: string,
+  postUrl: string
+) => {
+  let sharingText = `I read this article on the Kedro blog: ${postTitle} ${postUrl} by @kedro@social.lfx.dev%0A%0A`;
+
+  let hashtags = '%23kedro %23kedroviz %23python %23pydata %23datascience ';
+
+  const additionalHashtags = postCategory.split(',');
+  for (let category of additionalHashtags) {
+    hashtags = hashtags.concat(`%23${category.toLowerCase().trimStart()} `);
+  }
+
+  sharingText = sharingText.concat(hashtags).trim();
+
+  return sharingText;
+};
+
 export const defaultImageStyle = {
   height: 'auto',
   maxWidth: '100%',
