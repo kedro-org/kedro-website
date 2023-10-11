@@ -27,7 +27,7 @@ export const shownContent: FeatureProps[] = [
       {
         fallbackImg: dataCatalog1,
         source:
-          'https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=sharp&l=yaml&width=660&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=1x&wm=false&code=%2523%2520Load%2520a%2520Spark%2520DataFrame%2520on%2520S3%250A%250Aflight_patterns%253A%250A%2520%2520type%253A%2520spark.SparkDataset%250A%2520%2520filepath%253A%2520s3a%253A%252F%252Fyour_bucket%252Fdata%252F01_raw%252Fflight_patterns*%250A%2520%2520credentials%253A%2520dev_s3%250A%2520%2520file_format%253A%2520csv',
+          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=yaml&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523%2520Load%2520a%2520Spark%2520DataFrame%2520on%2520S3%250A%250Aflight_patterns%253A%250A%2520%2520type%253A%2520spark.SparkDataset%250A%2520%2520filepath%253A%2520s3a%253A%252F%252Fyour_bucket%252Fdata%252F01_raw%252Fflight_patterns*%250A%2520%2520credentials%253A%2520dev_s3%250A%2520%2520file_format%253A%2520csv',
         style: {
           border: 0,
           height: '204px',
