@@ -77,7 +77,22 @@ export default function Footer() {
                 style={defaultImageStyle}
                 width={30}
               />
-              <span className={style.iconText}> Github</span>
+              <span className={style.iconText}>Github</span>
+            </a>
+            <a
+              className={style.link}
+              href="https://www.youtube.com/@kedro-python"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                alt="YouTubeLogo"
+                height={40}
+                src="/images/youtube_social_circle_dark.png"
+                style={defaultImageStyle}
+                width={40}
+              />
+              <span className={style.iconText}>YouTube</span>
             </a>
           </div>
           <a

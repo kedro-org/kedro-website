@@ -80,6 +80,7 @@
   justify-content: center;
 
   @include breakpoint(small) {
+    align-items: center;
     flex-direction: column;
   }
 }
@@ -91,11 +92,11 @@
   @include breakpoint(small) {
     display: block;
     margin-left: 0.8rem;
-    margin-top: 0.3rem;
   }
 }
 
 .link {
+  align-items: center;
   color: $color-font;
   display: flex;
   font-weight: 500;

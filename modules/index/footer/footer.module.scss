@@ -69,6 +69,7 @@
   justify-content: center;
 
   @include breakpoint(small) {
+    align-items: center;
     flex-direction: column;
   }
 }
@@ -78,9 +79,10 @@
   display: none;
 
   @include breakpoint(small) {
+    align-items: center;
     display: flex;
     margin-left: 0.8rem;
-    margin-top: 0.3rem;
+    margin-top: -0.15rem;
   }
 }
 
