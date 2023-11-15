@@ -22,6 +22,17 @@ export default function ReadyToStart() {
           <p className={style.startText}>
             <code>conda install -c conda-forge kedro</code>
           </p>
+          <p className={style.startText}>
+            For more details, see the{' '}
+            <a
+              href="https://docs.kedro.org/en/stable/get_started/install.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              set up documentation
+            </a>{' '}
+            or watch the video.
+          </p>
           <a
             href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
             target="_blank"
