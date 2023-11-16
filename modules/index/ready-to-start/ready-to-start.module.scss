@@ -57,6 +57,21 @@
   @include breakpoint(small) {
     margin: 2.5rem auto 1.5rem;
   }
+
+  code {
+    font-size: 90%;
+    font-weight: 600;
+  }
+
+  a {
+    color: $color-black-600;
+    text-decoration: underline;
+    transition: color $transition-time ease;
+
+    &:hover {
+      color: $color-font;
+    }
+  }
 }
 
 .button {
