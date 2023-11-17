@@ -12,16 +12,33 @@ export default function ReadyToStart() {
         <div className={style.text}>
           <h3 className={style.sectionTitle}>Ready to start?</h3>
           <p className={style.startText}>
-            Visit the introductory tutorial to learn how to install Kedro and
-            get up to speed with concepts like nodes, pipelines, and the data
-            catalog.
+            Kedro is an open-source project. Go ahead and install it with pip or
+            conda:
+          </p>
+          <p className={style.startText}>
+            <code>pip install kedro</code>
+          </p>
+          <p className={style.startText}>or</p>
+          <p className={style.startText}>
+            <code>conda install -c conda-forge kedro</code>
+          </p>
+          <p className={style.startText}>
+            For more details, see the{' '}
+            <a
+              href="https://docs.kedro.org/en/stable/get_started/install.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              set up documentation
+            </a>{' '}
+            or watch the video.
           </p>
           <a
-            href="https://docs.kedro.org/en/stable/get_started/install.html"
+            href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className={style.button}>Get started</button>
+            <button className={style.button}>Take the tutorial</button>
           </a>
         </div>
         <div className={style.image}>

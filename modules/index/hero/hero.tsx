@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { defaultImageStyle } from '../../../utils/blog';
@@ -84,11 +85,7 @@ export default function Hero() {
               initial="hidden"
               whileHover="hover"
             >
-              <a
-                href="https://docs.kedro.org/en/stable/get_started/install.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/#get-started" className={style.link} passHref>
                 <motion.button
                   className={style.start}
                   transition={buttonTransition}
@@ -109,15 +106,8 @@ export default function Hero() {
                 >
                   Let&apos;s go!
                 </motion.button>
-              </a>
+              </Link>
             </motion.div>
-            <a
-              href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className={style.tutorial}>Take the tutorial</button>
-            </a>
           </div>
         </div>
         <div className={style.image}>
