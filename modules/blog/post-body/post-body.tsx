@@ -4,7 +4,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { defaultImageStyle, scrollToTargetAdjusted } from '../../../utils/blog';
+import {
+  defaultImageStyle,
+  imageSpacing,
+  scrollToTargetAdjusted,
+} from '../../../utils/blog';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -346,7 +350,6 @@ export default function PostBody({ content, slug }: Props) {
                 e.preventDefault();
                 history.replaceState(null, null, updatedUrl);
                 scrollToTargetAdjusted(section.headerId);
-                // setActiveNavItem(`#${section.headerId}`);
               }}
             >
               {section.headerTitle}
@@ -355,13 +358,13 @@ export default function PostBody({ content, slug }: Props) {
         })}
         <hr className={style.stickyNavBottomLine} />
         <div className={style.stickyNavBackWrapper}>
-          <Link href="/blog">
+          <Link href="/blog" passHref>
             <button className={style.stickyNavBackButton}>
               <Image
                 alt="Back arrow"
                 height={22}
                 src="/images/back-arrow.svg"
-                style={defaultImageStyle}
+                style={Object.assign({}, defaultImageStyle, imageSpacing)}
                 width={22}
               />
               Back to Blog home

@@ -16,6 +16,7 @@ import PostSnippet, {
 } from '../../modules/blog/post-snippet';
 import {
   defaultImageStyle,
+  imageSpacing,
   generateMastodonShareContent,
 } from '../../utils/blog';
 
@@ -197,13 +198,17 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
                       return <PostsList key={post.sys.id} post={post} />;
                     })}
                   <div className={style.buttonWrapper}>
-                    <Link href="/blog">
+                    <Link href="/blog" passHref>
                       <button className={style.showMoreButton}>
                         <Image
                           alt="Back arrow"
                           height={22}
                           src="/images/back-arrow.svg"
-                          style={defaultImageStyle}
+                          style={Object.assign(
+                            {},
+                            defaultImageStyle,
+                            imageSpacing
+                          )}
                           width={22}
                         />
                         Back to Blog home

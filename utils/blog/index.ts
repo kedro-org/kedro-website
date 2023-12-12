@@ -80,3 +80,7 @@ export const defaultImageStyle = {
   height: 'auto',
   maxWidth: '100%',
 };
+
+export const imageSpacing = {
+  marginRight: '6px',
+};
