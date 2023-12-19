@@ -26,17 +26,25 @@ export default function ReadyToStart() {
             For more details, see the{' '}
             <a
               href="https://docs.kedro.org/en/stable/get_started/install.html"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               set up documentation
             </a>{' '}
-            or watch the video.
+            or{' '}
+            <a
+              href="https://www.youtube.com/playlist?list=PL-JJgymPjK5LddZXbIzp9LWurkLGgB-nY"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              watch the video
+            </a>
+            .
           </p>
           <a
             href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             <button className={style.button}>Take the tutorial</button>
           </a>
