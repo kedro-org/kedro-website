@@ -49,7 +49,7 @@ export default function Post({ post, morePosts, preview, slug }: Post) {
   const postUrl = post?.slug
     ? `https://kedro.org/blog/${post.slug}`
     : 'https://kedro.org';
-  const postTitle = `${post.title} | Kedro Blog`;
+  const postTitle = `${post?.title} | Kedro Blog`;
 
   const copyToClipboard = (str: string) => {
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
