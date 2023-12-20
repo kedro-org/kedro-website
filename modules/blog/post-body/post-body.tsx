@@ -273,6 +273,7 @@ export default function PostBody({ content, slug }: Props) {
       // Initialize the Map on first usage.
       headerRefs.current = new Map();
     }
+
     return headerRefs.current;
   }
 
@@ -288,7 +289,7 @@ export default function PostBody({ content, slug }: Props) {
   );
 
   useEffect(() => {
-    headerRefs.current.forEach((sectionRef) => {
+    headerRefs.current?.forEach((sectionRef) => {
       const observer = new IntersectionObserver(handleIntersection, {
         rootMargin: '0px 0px -70% 0px',
         threshold: 1,

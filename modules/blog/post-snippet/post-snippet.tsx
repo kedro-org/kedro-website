@@ -104,7 +104,7 @@ const PostSnippet = ({
             </p>
           </div>
         ) : (
-          <Link href={`/blog/${post.slug}`}>
+          <Link href={`/blog/${post.slug}`} passHref>
             <div
               className={style.titleWrapper}
               onMouseMove={onMouseMouse}
@@ -144,7 +144,7 @@ const PostSnippet = ({
             <p className={style.date}>
               {dateFormatting(post.sys.firstPublishedAt)}
             </p>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/blog/${post.slug}`} passHref>
               <button className={style.button}>Read more</button>
             </Link>
           </>
@@ -165,6 +165,7 @@ const PostSnippet = ({
         <Image
           alt={post.coverImage.title || 'Generic image for blog post'}
           height={imgSize}
+          priority={onPostPage ? true : false}
           src={post.coverImage.url}
           style={{ ...defaultImageStyle, objectFit: 'cover' }}
           width={imgSize}
