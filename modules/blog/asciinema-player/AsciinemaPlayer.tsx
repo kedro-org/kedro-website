@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'asciinema-player/dist/bundle/asciinema-player.css';
 
 type AsciinemaPlayerProps = {
