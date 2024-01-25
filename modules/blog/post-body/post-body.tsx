@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import classNames from 'classnames';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document, INLINES } from '@contentful/rich-text-types';
@@ -10,8 +12,7 @@ import {
   scrollToTargetAdjusted,
 } from '../../../utils/blog';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import AsciinemaPlayer from '../asciinema-player';
 
 import style from './post-body.module.scss';
 
@@ -199,7 +200,6 @@ const renderOptions = (
                 <iframe
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  frameBorder="0"
                   src={`https://www.youtube.com/embed/${
                     entry.videoId
                   }?controls=${+entry.showControls}&start=${entry.startAt}`}
@@ -213,6 +213,10 @@ const renderOptions = (
               ) : null}
             </>
           );
+        }
+
+        if (entry.__typename === 'AsciinemaCapture') {
+          return <AsciinemaPlayer src={entry.castFile.url} />;
         }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
