@@ -21,7 +21,8 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
     "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.49.7"
+    "sass": "^1.49.7",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
