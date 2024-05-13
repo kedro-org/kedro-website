@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { getAllPostsForBlog } from '../lib/api';
 import { PostSnippet as PostSnippetTypes } from '../modules/blog/post-snippet';
 import { siteMetadata } from '../modules/shared/config';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import Header from '../modules/shared/header';
 import PostsList from '../modules/blog/posts-list';
@@ -23,7 +24,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
   const [allPostsLength, setAllPostLength] = useState(defaultLength);
 
   return (
-    <>
+    <ErrorBoundary fallback={<div>Something went wrong</div>}>
       <Head>
         <title>The Kedro Blog | Kedro</title>
         <meta
@@ -134,7 +135,7 @@ const Blog = ({ featuredPost, secondaryPosts, allPosts }: PostTypes) => {
           color: #000;
         }
       `}</style>
-    </>
+    </ErrorBoundary>
   );
 };
 
