@@ -8,6 +8,7 @@ import integrations from '../../../public/images/features_integrations.png';
 import pipelineAbstraction from '../../../public/images/pipeline-abstraction.png';
 import projectTemplate from '../../../public/images/project-template.png';
 import vizScreenshot from '../../../public/images/viz-screenshot.png';
+import kedroVscode from '../../../public/images/features_vscode.png';
 
 export const shownContent: FeatureProps[] = [
   {
@@ -81,12 +82,23 @@ export const shownContent: FeatureProps[] = [
       'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/kedro_project_setup/starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
     title: 'Project Template',
   },
+  {
+    altText: 'Kedro VSCode example',
+    assetPosition: 'left',
+    imageSrc: kedroVscode,
+    buttonLink:
+      'https://marketplace.visualstudio.com/items?itemName=kedro.Kedro',
+    buttonText: 'Install extension',
+    subtitle:
+      'The extension integrates Kedro projects with Visual Studio Code, providing features like enhanced code navigation and autocompletion for seamless development.',
+    title: 'Dedicated IDE support',
+  },
 ];
 
 export const hiddenContent: FeatureProps[] = [
   {
     assetClassName: 'pipelineAbstraction',
-    assetPosition: 'left',
+    assetPosition: 'right',
     buttonLink:
       'https://docs.kedro.org/en/stable/nodes_and_pipelines/pipeline_introduction.html',
     buttonText: 'Build a pipeline',
@@ -109,7 +121,7 @@ export const hiddenContent: FeatureProps[] = [
   },
   {
     assetClassName: 'youtube',
-    assetPosition: 'right',
+    assetPosition: 'left',
     iframeList: [
       {
         source:
@@ -127,7 +139,7 @@ export const hiddenContent: FeatureProps[] = [
   },
   {
     altText: 'Flexible Deployment example',
-    assetPosition: 'left',
+    assetPosition: 'right',
     buttonLink:
       'https://docs.kedro.org/en/stable/deployment/deployment_guide.html',
     buttonText: 'Choose your deployment target',
@@ -138,7 +150,7 @@ export const hiddenContent: FeatureProps[] = [
   },
   {
     altText: 'Experiment Tracking example',
-    assetPosition: 'right',
+    assetPosition: 'left',
     buttonLink:
       'https://docs.kedro.org/en/stable/visualisation/experiment_tracking.html',
     buttonText: 'Enable experiment tracking',
