@@ -1,0 +1,37 @@
+{
+    "allowed": [
+      "Googlebot",
+      "Bingbot",
+      "Applebot",
+      "ChatGPT",
+      "ChatGPT-User"
+    ],
+    "disallowed": [
+      "Claude-Web",
+      "ClaudeBot",
+      "AI2Bot",
+      "anthropic-ai",
+      "AwarioRssBot",
+      "AwarioSmartBot",
+      "Bytespider",
+      "CCBot",
+      "diffbot",
+      "PerplexityBot",
+      "Omgili",
+      "ImagesiftBot",
+      "Youbot",
+      "Applebot-Extended",
+      "Facebookbot",
+      "FacebookBot",
+      "Meta-ExternalAgent",
+      "Meta-ExternalFetcher",
+      "Kangaroo Bot",
+      "Timpibot",
+      "Webzio-Extended",
+      "DuckAssistBot",
+      "OAI-SearchBot",
+      "Amazonbot",
+      "Google-Extended"
+    ]
+  }
+  
