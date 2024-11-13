@@ -1,5 +1,5 @@
 import { Config } from "@netlify/edge-functions";
-import agents from "../../agents.json";
+import agents from "../../agents.json" assert { type: "json" };
 
 /* eslint-disable import/no-anonymous-default-export */
 
