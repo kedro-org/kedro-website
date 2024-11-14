@@ -4,11 +4,12 @@
       "Bingbot",
       "Applebot",
       "ChatGPT",
-      "ChatGPT-User"
-    ],
-    "disallowed": [
+      "ChatGPT-User",
       "Claude-Web",
       "ClaudeBot",
+      "PerplexityBot"
+    ],
+    "disallowed": [
       "AI2Bot",
       "anthropic-ai",
       "AwarioRssBot",
@@ -16,7 +17,6 @@
       "Bytespider",
       "CCBot",
       "diffbot",
-      "PerplexityBot",
       "Omgili",
       "ImagesiftBot",
       "Youbot",
