@@ -2,7 +2,7 @@
   "name": "kedro-website",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "node ./generateRobotsTxt.js && next build",
     "dev": "next dev",
     "format": "prettier --write .",
     "lint": "next lint",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@netlify/edge-functions": "^2.11.0",
     "classnames": "^2.3.2",
     "framer-motion": "^6.2.7",
     "next": "^14.2.12",
