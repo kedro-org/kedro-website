@@ -7,11 +7,11 @@
       "ChatGPT-User",
       "Claude-Web",
       "ClaudeBot",
-      "PerplexityBot"
+      "PerplexityBot",
+      "anthropic-ai"
     ],
     "disallowed": [
       "AI2Bot",
-      "anthropic-ai",
       "AwarioRssBot",
       "AwarioSmartBot",
       "Bytespider",
