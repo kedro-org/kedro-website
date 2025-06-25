@@ -148,15 +148,4 @@ export const hiddenContent: FeatureProps[] = [
       'Deployment strategies that include single or distributed-machine deployment as well as additional support for deploying on Argo, Prefect, Kubeflow, AWS Batch, AWS Sagemaker, Databricks, Dask and more.',
     title: 'Flexible Deployment',
   },
-  {
-    altText: 'Experiment Tracking example',
-    assetPosition: 'left',
-    buttonLink:
-      'https://docs.kedro.org/en/stable/visualisation/experiment_tracking.html',
-    buttonText: 'Enable experiment tracking',
-    imageSrc: expTracking,
-    subtitle:
-      'Experiment tracking records all the information you need to recreate and analyse a data science experiment.',
-    title: 'Experiment Tracking',
-  },
 ];
