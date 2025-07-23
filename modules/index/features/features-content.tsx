@@ -22,7 +22,7 @@ export const shownContent: FeatureProps[] = [
   },
   {
     assetPosition: 'right',
-    buttonLink: 'https://docs.kedro.org/en/stable/data/data_catalog.html',
+    buttonLink: 'https://docs.kedro.org/en/stable/catalog-data/data_catalog/',
     buttonText: 'Explore the data catalog',
     iframeList: [
       {
@@ -63,7 +63,7 @@ export const shownContent: FeatureProps[] = [
   {
     assetPosition: 'right',
     buttonLink:
-      'https://docs.kedro.org/en/stable/get_started/kedro_concepts.html#kedro-project-directory-structure',
+      'https://docs.kedro.org/en/stable/getting-started/kedro_concepts/#kedro-project-directory-structure',
     buttonText: 'View the project template',
     iframeList: [
       {
@@ -79,7 +79,7 @@ export const shownContent: FeatureProps[] = [
       },
     ],
     subtitle:
-      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/kedro_project_setup/starters.html" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
+      'You can standardise how configuration, source code, tests, documentation, and notebooks are organised with an adaptable, easy-to-use project template. <a href="https://docs.kedro.org/en/stable/create/starters/" rel="noopener noreferrer" target="_blank" >Create your cookie cutter project templates with Starters.',
     title: 'Project Template',
   },
   {
@@ -100,7 +100,7 @@ export const hiddenContent: FeatureProps[] = [
     assetClassName: 'pipelineAbstraction',
     assetPosition: 'right',
     buttonLink:
-      'https://docs.kedro.org/en/stable/nodes_and_pipelines/pipeline_introduction.html',
+      'https://docs.kedro.org/en/stable/build/pipeline_introduction/',
     buttonText: 'Build a pipeline',
     iframeList: [
       {
@@ -141,7 +141,7 @@ export const hiddenContent: FeatureProps[] = [
     altText: 'Flexible Deployment example',
     assetPosition: 'right',
     buttonLink:
-      'https://docs.kedro.org/en/stable/deployment/deployment_guide.html',
+      'https://docs.kedro.org/en/stable/deploy/',
     buttonText: 'Choose your deployment target',
     imageSrc: flexibleDeployment,
     subtitle:
