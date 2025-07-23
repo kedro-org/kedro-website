@@ -25,7 +25,7 @@ export default function ReadyToStart() {
           <p className={style.startText}>
             For more details, see the{' '}
             <a
-              href="https://docs.kedro.org/en/stable/get_started/install.html"
+              href="https://docs.kedro.org/en/stable/getting-started/install/"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -42,7 +42,7 @@ export default function ReadyToStart() {
             .
           </p>
           <a
-            href="https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html"
+            href="https://docs.kedro.org/en/stable/tutorials/spaceflights_tutorial/"
             rel="noopener noreferrer"
             target="_blank"
           >
