@@ -17,7 +17,7 @@ export const shownContent: FeatureProps[] = [
     buttonText: 'Explore Live Demo',
     imageSrc: vizScreenshot,
     subtitle:
-      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank">Kedro-Viz</a> is a blueprint of your data and machine-learning workflows. It provides data lineage, keeps track of machine-learning experiments, and makes it easier to collaborate with business stakeholders.',
+      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank">Kedro-Viz</a> is a blueprint of your data and machine-learning workflows. It provides data lineage, surfaces detailed pipeline execution information such as execution time, node status, dataset statistics, and makes it easier to collaborate with business stakeholders.',
     title: 'Pipeline Visualisation',
   },
   {
