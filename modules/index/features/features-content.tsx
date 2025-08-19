@@ -17,7 +17,7 @@ export const shownContent: FeatureProps[] = [
     buttonText: 'Explore Live Demo',
     imageSrc: vizScreenshot,
     subtitle:
-      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank">Kedro-Viz</a> is a blueprint of your data and machine-learning workflows. It provides data lineage, keeps track of machine-learning experiments, and makes it easier to collaborate with business stakeholders.',
+      '<a href="https://github.com/kedro-org/kedro-viz" rel="noopener noreferrer" target="_blank">Kedro-Viz</a> is a blueprint of your data and machine-learning workflows. It provides data lineage, surfaces detailed pipeline execution information such as execution time, node status, dataset statistics, and makes it easier to collaborate with business stakeholders.',
     title: 'Pipeline Visualisation',
   },
   {
@@ -68,8 +68,7 @@ export const shownContent: FeatureProps[] = [
     iframeList: [
       {
         fallbackImg: projectTemplate,
-        source:
-          'https://carbon.now.sh/embed?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=application%2Fx-sh&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=1x&wm=false&code=project-template%2520%2520%2520%2520%2523%2520Project%2520folder%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520conf%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Configuration%2520files%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520data%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Local%2520project%2520data%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520docs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Documentation%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520logs%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Logs%2520of%2520pipeline%2520runs%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520notebooks%2520%2520%2520%2520%2520%2520%2520%2523%2520Exploratory%2520Jupyter%2520notebooks%2520%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520pyproject.toml%2520%2520%2523%2520Project%2520metadata%2520and%2520linter%2520configuration%250A%25E2%2594%259C%25E2%2594%2580%25E2%2594%2580%2520README.md%2520%2520%2520%2520%2520%2520%2520%2523%2520README.md%2520explaining%2520your%2520project%250A%25E2%2594%2594%25E2%2594%2580%25E2%2594%2580%2520src%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2523%2520Source%2520code%2520for%2520pipelines',
+        source: 'https://carbon.now.sh/embed/3tXwSPVRBlveXuxa0w6U?bg=rgba%28187%2C187%2C187%2C0%29&t=seti&wt=sharp&l=application%2Fx-sh&width=660&ds=false&dsyoff=3px&dsblur=13px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=1x&wm=false',
         style: {
           border: 0,
           height: '297px',

@@ -5,7 +5,7 @@ export const faqContent = [
   },
   {
     question: 'What does Kedro do?',
-    answer: `A Kedro project is scaffolding to help you build complex data and machine-learning pipelines. It uses best practices to help you create clean data science code with the result that you spend less time on the tedious "plumbing".\n\nKedro helps you version data, run incremental computations, and automate your pipeline running- order resolution. And, in combination with Kedro-Viz, it gives you a blueprint of your developing data and machine-learning workflows, provides data lineage, keeps track of machine-learning experiments, and makes it easier to communicate with business stakeholders.`,
+    answer: `A Kedro project is scaffolding to help you build complex data and machine-learning pipelines. It uses best practices to help you create clean data science code with the result that you spend less time on the tedious "plumbing".\n\nKedro helps you version data, run incremental computations, and automate your pipeline running- order resolution. And, in combination with Kedro-Viz, it gives you a blueprint of your data and machine-learning workflows. It provides data lineage, surfaces detailed pipeline execution information such as execution time, node status, dataset statistics, and makes it easier to communicate with business stakeholders.`,
   },
   {
     question: 'Is Kedro an orchestrator?',
