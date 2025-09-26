@@ -72,11 +72,11 @@ export default function Hero() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              data science solved
+              data analytics solved
             </div>
           </h1>
           <h2 className={style.subtitle}>
-            Kedro is a toolbox for production-ready data science.
+            Kedro is a toolbox for production-ready data analytics.
           </h2>
           <div className={style.buttons}>
             <motion.div
