@@ -64,7 +64,7 @@ export const generateMastodonShareContent = (
 ) => {
   let sharingText = `I read this article on the Kedro blog: ${postTitle} ${postUrl} by @kedro@social.lfx.dev%0A%0A`;
 
-  let hashtags = '%23kedro %23kedroviz %23python %23pydata %23datascience ';
+  let hashtags = '%23kedro %23kedroviz %23python %23pydata %23dataanalytics %23dataengineering %23datascience ';
 
   const additionalHashtags = postCategory.split(',');
   for (let category of additionalHashtags) {
