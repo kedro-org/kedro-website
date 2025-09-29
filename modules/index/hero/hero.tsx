@@ -8,7 +8,7 @@ import hero from '../../../public/images/hero-update.svg';
 
 import style from './hero.module.scss';
 
-const headerText = ['Maintainable', 'Modular'];
+const headerText = ['Reproducible', 'Maintainable', 'Modular'];
 
 const headerVariants = {
   enter: (wordIndex: number) => {
