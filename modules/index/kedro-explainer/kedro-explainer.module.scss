@@ -1,0 +1,69 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.video {
+  width: inherit;
+}
+
+.outer {
+  background: $color-bg-grey-light;
+
+  @include breakpoint(medium-up) {
+    margin: 0 -3.5rem;
+    padding: 7.5rem 3.5rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 2.5rem 0rem 5rem;
+    text-align: center;
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: $max-content;
+  text-align: center;
+  width: 100%;
+}
+
+.mainSection {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-top: 1rem;
+
+  @include breakpoint(medium-only) {
+    grid-template-columns: 100%;
+  }
+
+  @include breakpoint(small) {
+    grid-template-columns: 100%;
+  }
+}
+
+.title {
+  font-weight: 500;
+  text-align: center;
+  align-content: center;
+
+  @include breakpoint(medium-only) {
+    margin-top: 1rem;
+  }
+
+  @include breakpoint(small) {
+    margin: 1rem 0 2rem 0;
+  }
+}
+
+.mediaWrapper {
+  @include video-aspect-ratio;
+
+  @include breakpoint(medium-only) {
+    justify-self: center;
+    padding: 0 1rem;
+    width: 70%;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 1rem;
+  }
+}
