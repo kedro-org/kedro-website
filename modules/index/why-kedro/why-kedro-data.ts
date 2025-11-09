@@ -1,7 +1,7 @@
 export const tabData = [
   {
     description:
-      'Kedro is the foundation for clean data engineering and data science code. It borrows concepts from software engineering and applies them to data analytics projects.',
+      'Kedro is the foundation for clean data engineering and data science code. It borrows concepts from software engineering and applies them to building data pipelines.',
     label: 'Clean Code',
   },
   {
@@ -11,7 +11,7 @@ export const tabData = [
   },
   {
     description:
-      'Kedro standardises how data analytics code is created and ensures teams collaborate to solve problems easily.',
+      'Kedro standardises how data engineering and data science code is created and ensures teams collaborate to solve problems easily.',
     label: 'Standardisation',
   },
   {

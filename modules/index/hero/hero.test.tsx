@@ -13,7 +13,7 @@ describe('Hero', () => {
     render(<Hero />);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'Maintainabledata analytics solved'
+      'Maintainabledata pipelines solved'
     );
   });
 
@@ -21,7 +21,7 @@ describe('Hero', () => {
     render(<Hero />);
 
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
-      'Kedro is a toolbox for production-ready data analytics.'
+      'Kedro is a toolbox for production-ready data pipelines.'
     );
   });
 });
