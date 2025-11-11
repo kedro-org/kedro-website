@@ -12,6 +12,7 @@ import CompaniesUsingKedro from '../modules/index/companies-using-kedro';
 import ReadyToStart from '../modules/index/ready-to-start';
 import Testimonials from '../modules/index/testimonials';
 import WhyKedro from '../modules/index/why-kedro';
+import KedroExplainer from '../modules/index/kedro-explainer';
 import Footer from '../modules/index/footer';
 import { Size, useWindowSize } from '../utils/hooks/useWindowSize';
 
@@ -53,6 +54,7 @@ const Home = () => {
       {(!onScreen || isMobile) && <Header />}
       <Hero />
       <WhyKedro />
+      <KedroExplainer />
       <Features />
       <FAQ />
       <CompaniesUsingKedro />
