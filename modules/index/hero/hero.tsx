@@ -46,11 +46,11 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex(wordIndex === 0 ? 1 : 0);
+      setWordIndex((i) => (i + 1) % headerText.length);
     }, 4250);
 
     return () => clearInterval(interval);
-  });
+  }, []);
 
   return (
     <section className={style.container}>
