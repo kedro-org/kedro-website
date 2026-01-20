@@ -31,6 +31,6 @@ export const faqContent = [
   },
   {
     question: 'How can I find out more about Kedro?',
-    answer: `You can find the [Kedro community on Slack](https://slack.kedro.org/). Discussions from the [Slack channels are also archived online](https://linen-slack.kedro.org/), as are those from an [earlier set of Discord channels](https://linen-discord.kedro.org/).`,
+    answer: `You can find the [Kedro community on Slack](https://kedro-org.slack.com/join/shared_invite/zt-3mloycxx0-8uXHeLkYOJgWSf5865WKTw#/shared-invite/email). Discussions from the [Slack channels are also archived online](https://linen-slack.kedro.org/), as are those from an [earlier set of Discord channels](https://linen-discord.kedro.org/).`,
   },
 ];
