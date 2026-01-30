@@ -99,15 +99,15 @@
   }
 
   function isLocalhost(hostname) {
-    const h = hostname || window.location.hostname;
-    return h === 'localhost' || h === '127.0.0.1';
+    const host = hostname || window.location.hostname;
+    return host === 'localhost' || host === '127.0.0.1';
   }
 
   function isKedroDomain(hostname) {
-    const h = hostname || window.location.hostname;
-    return h === 'kedro.org' ||
-      h === 'www.kedro.org' ||
-      h.endsWith('.kedro.org');
+    const host = hostname || window.location.hostname;
+    return host === 'kedro.org' ||
+      host === 'www.kedro.org' ||
+      host.endsWith('.kedro.org');
   }
 
   // ============================================
@@ -623,7 +623,7 @@
     // Check if consent cookie exists
     const consentCookie = document.cookie
       .split(';')
-      .find((c) => c.trim().startsWith(`${CONFIG.cookieName}=`));
+      .find((cookie) => cookie.trim().startsWith(`${CONFIG.cookieName}=`));
 
     // If no consent cookie but Heap cookies exist, clear them
     if (!consentCookie && hasHeapCookies()) {
