@@ -1,5 +1,3 @@
-<<<<<<< Current (Your changes)
-=======
 /**
  * Kedro Ecosystem Consent Management
  * ===================================
@@ -20,9 +18,9 @@
   // CONSTANTS
   // ============================================
 
-  var LOG_PREFIX = '[kedro-consent]';
+  const LOG_PREFIX = '[kedro-consent]';
 
-  var HEAP_METHODS = [
+  const HEAP_METHODS = [
     'addEventProperties',
     'addUserProperties',
     'clearEventProperties',
@@ -34,7 +32,7 @@
     'unsetEventProperty'
   ];
 
-  var CONFIG = {
+  const CONFIG = {
     revision: 1,
     cookieName: 'kedro_cc',
     cookieExpiry: 182, // ~6 months
@@ -43,7 +41,7 @@
   };
 
   // Heap App IDs mapped by hostname/path pattern
-  var HEAP_IDS = {
+  const HEAP_IDS = {
     'kedro.org': { prod: '666783228', dev: '801262615' },
     'demo.kedro.org': { prod: '2388822444' },
     'demo.kedro.org/kedro-builder': { prod: '4039408868' },
@@ -52,7 +50,7 @@
     'docs.kedro.org/projects/kedro-datasets': { prod: '1625763777', dev: '2164194004' }
   };
 
-  var COLORS = {
+  const COLORS = {
     accent: '#ffc900',
     accentHover: '#e6b500',
     bgGrey: '#1e1e1f',
@@ -85,16 +83,15 @@
   }
 
   function isLocalhost(hostname) {
-    var h = hostname || window.location.hostname;
+    const h = hostname || window.location.hostname;
     return h === 'localhost' || h === '127.0.0.1';
   }
 
-  // Avoid endsWith for older browser compatibility
   function isKedroDomain(hostname) {
-    var h = hostname || window.location.hostname;
+    const h = hostname || window.location.hostname;
     return h === 'kedro.org' ||
       h === 'www.kedro.org' ||
-      h.slice(-10) === '.kedro.org';
+      h.endsWith('.kedro.org');
   }
 
   // ============================================
@@ -114,14 +111,14 @@
     }
 
     // Preserve any existing queue
-    var queue = Array.isArray(window.heap) ? window.heap : [];
+    const queue = Array.isArray(window.heap) ? window.heap : [];
     window.heap = queue;
     window.heap.stubbed = true;
 
     // Stub all Heap methods to queue calls
-    HEAP_METHODS.forEach(function (method) {
-      window.heap[method] = function () {
-        queue.push([method].concat(Array.prototype.slice.call(arguments)));
+    HEAP_METHODS.forEach((method) => {
+      window.heap[method] = (...args) => {
+        queue.push([method, ...args]);
       };
     });
   }
@@ -134,25 +131,25 @@
   // ============================================
 
   function getEnvironment() {
-    var hostname = window.location.hostname;
-    var pathname = window.location.pathname;
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
 
     // Only docs.kedro.org uses dev environment for /latest/
-    if (hostname === 'docs.kedro.org' && pathname.indexOf('/latest/') !== -1) {
+    if (hostname === 'docs.kedro.org' && pathname.includes('/latest/')) {
       return 'dev';
     }
     return 'prod';
   }
 
   function getHeapAppId() {
-    var hostname = window.location.hostname;
+    let hostname = window.location.hostname;
 
     if (isLocalhost(hostname)) {
       return CONFIG.defaultHeapId;
     }
 
-    var pathname = window.location.pathname;
-    var env = getEnvironment();
+    const pathname = window.location.pathname;
+    const env = getEnvironment();
 
     // Handle www prefix
     if (hostname === 'www.kedro.org') {
@@ -160,25 +157,22 @@
     }
 
     // Try path-specific match first (more specific)
-    var pathKeys = Object.keys(HEAP_IDS).filter(function (key) {
-      return key.indexOf('/') !== -1;
-    });
+    const pathKeys = Object.keys(HEAP_IDS).filter((key) => key.includes('/'));
 
-    for (var i = 0; i < pathKeys.length; i++) {
-      var key = pathKeys[i];
-      var parts = key.split('/');
-      var keyHost = parts[0];
-      var keyPath = '/' + parts.slice(1).join('/');
+    for (const key of pathKeys) {
+      const parts = key.split('/');
+      const keyHost = parts[0];
+      const keyPath = `/${parts.slice(1).join('/')}`;
 
-      if (hostname === keyHost && pathname.indexOf(keyPath) === 0) {
-        var config = HEAP_IDS[key];
+      if (hostname === keyHost && pathname.startsWith(keyPath)) {
+        const config = HEAP_IDS[key];
         return config[env] || config.prod || CONFIG.defaultHeapId;
       }
     }
 
     // Try hostname-only match
     if (HEAP_IDS[hostname]) {
-      var hostConfig = HEAP_IDS[hostname];
+      const hostConfig = HEAP_IDS[hostname];
       return hostConfig[env] || hostConfig.prod || CONFIG.defaultHeapId;
     }
 
@@ -195,7 +189,7 @@
    * Returns '.kedro.org' for production to enable cross-subdomain sharing.
    */
   function getCookieDomain() {
-    var hostname = window.location.hostname;
+    const hostname = window.location.hostname;
 
     // Localhost - omit domain attribute (return null)
     if (isLocalhost(hostname)) {
@@ -213,17 +207,17 @@
 
   function clearHeapCookies() {
     try {
-      var cookieDomain = getCookieDomain();
-      var hostname = window.location.hostname;
-      var domains = cookieDomain ? [cookieDomain, hostname] : [hostname];
-      var cookies = document.cookie.split(';');
+      const cookieDomain = getCookieDomain();
+      const hostname = window.location.hostname;
+      const domains = cookieDomain ? [cookieDomain, hostname] : [hostname];
+      const cookies = document.cookie.split(';');
 
-      cookies.forEach(function (cookie) {
-        var name = cookie.split('=')[0].trim();
-        if (name.indexOf('_hp') === 0) {
-          domains.forEach(function (domain) {
-            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + domain;
-            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+      cookies.forEach((cookie) => {
+        const name = cookie.split('=')[0].trim();
+        if (name.startsWith('_hp')) {
+          domains.forEach((domain) => {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain}`;
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
           });
         }
       });
@@ -238,8 +232,8 @@
   // ============================================
 
   function loadAsset(type, url) {
-    return new Promise(function (resolve, reject) {
-      var el;
+    return new Promise((resolve, reject) => {
+      let el;
 
       if (type === 'css') {
         el = document.createElement('link');
@@ -247,7 +241,7 @@
         el.href = url;
         el.onload = resolve;
         // Don't block consent init if CSS fails - just log and continue
-        el.onerror = function () {
+        el.onerror = () => {
           logError('Failed to load CSS:', url);
           resolve(); // Resolve anyway to not block initialization
         };
@@ -255,9 +249,9 @@
         el = document.createElement('script');
         el.src = url;
         el.onload = resolve;
-        el.onerror = function () {
+        el.onerror = () => {
           logError('Failed to load script:', url);
-          reject(new Error('Script load failed: ' + url));
+          reject(new Error(`Script load failed: ${url}`));
         };
       }
 
@@ -270,7 +264,7 @@
   // ============================================
 
   function loadHeap() {
-    var appId = getHeapAppId();
+    const appId = getHeapAppId();
 
     if (!appId) {
       log('Heap disabled for this environment');
@@ -290,9 +284,9 @@
     window.kedroHeapLoading = true;
 
     // Preserve queued calls before replacing heap object
-    var queuedCalls = Array.isArray(window.heap) ? window.heap.slice() : [];
-    var wasStubbed = window.heap && window.heap.stubbed;
-    var replayed = false;
+    const queuedCalls = Array.isArray(window.heap) ? window.heap.slice() : [];
+    const wasStubbed = window.heap && window.heap.stubbed;
+    let replayed = false;
 
     function replayQueuedCalls() {
       if (replayed || !wasStubbed || queuedCalls.length === 0) {
@@ -300,13 +294,12 @@
       }
       replayed = true;
 
-      log('Replaying ' + queuedCalls.length + ' queued Heap calls');
-      queuedCalls.forEach(function (call) {
+      log(`Replaying ${queuedCalls.length} queued Heap calls`);
+      queuedCalls.forEach((call) => {
         if (Array.isArray(call) && call.length > 0) {
-          var method = call[0];
-          var args = call.slice(1);
+          const [method, ...args] = call;
           if (window.heap && typeof window.heap[method] === 'function') {
-            window.heap[method].apply(window.heap, args);
+            window.heap[method](...args);
           }
         }
       });
@@ -321,23 +314,23 @@
     };
 
     // Create method stubs for Heap's async loading
-    HEAP_METHODS.forEach(function (method) {
-      window.heap[method] = function () {
-        window.heap.push([method].concat(Array.prototype.slice.call(arguments)));
+    HEAP_METHODS.forEach((method) => {
+      window.heap[method] = (...args) => {
+        window.heap.push([method, ...args]);
       };
     });
 
     // Load Heap script
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://cdn.heapanalytics.com/js/heap-' + appId + '.js';
+    script.src = `https://cdn.heapanalytics.com/js/heap-${appId}.js`;
 
     // Replay queued calls when Heap script actually loads
-    script.onload = function () {
+    script.onload = () => {
       replayQueuedCalls();
     };
 
-    script.onerror = function () {
+    script.onerror = () => {
       logError('Failed to load Heap script');
       window.kedroHeapLoading = false;
     };
@@ -364,25 +357,25 @@
   // ============================================
 
   function injectCustomStyles() {
-    var styles = [
+    const styles = [
       '/* Kedro Consent Branding */',
       ':root {',
-      '  --cc-bg: ' + COLORS.bgGrey + ';',
-      '  --cc-primary-color: ' + COLORS.fontWhite + ';',
-      '  --cc-secondary-color: ' + COLORS.fontGrey + ';',
-      '  --cc-btn-primary-bg: ' + COLORS.accent + ';',
-      '  --cc-btn-primary-color: ' + COLORS.fontDark + ';',
-      '  --cc-btn-primary-hover-bg: ' + COLORS.accentHover + ';',
-      '  --cc-btn-primary-hover-color: ' + COLORS.fontDark + ';',
-      '  --cc-btn-secondary-bg: ' + COLORS.bgGreyLight + ';',
-      '  --cc-btn-secondary-color: ' + COLORS.fontWhite + ';',
-      '  --cc-btn-secondary-hover-bg: ' + COLORS.bgGreyHover + ';',
-      '  --cc-btn-secondary-hover-color: ' + COLORS.fontWhite + ';',
-      '  --cc-separator-border-color: ' + COLORS.greyBorder + ';',
-      '  --cc-cookie-category-block-bg: ' + COLORS.bgGreyLight + ';',
-      '  --cc-cookie-category-block-hover-bg: ' + COLORS.bgGreyHover + ';',
-      '  --cc-toggle-readonly-bg: ' + COLORS.accent + ';',
-      '  --cc-toggle-on-bg: ' + COLORS.accent + ';',
+      `  --cc-bg: ${COLORS.bgGrey};`,
+      `  --cc-primary-color: ${COLORS.fontWhite};`,
+      `  --cc-secondary-color: ${COLORS.fontGrey};`,
+      `  --cc-btn-primary-bg: ${COLORS.accent};`,
+      `  --cc-btn-primary-color: ${COLORS.fontDark};`,
+      `  --cc-btn-primary-hover-bg: ${COLORS.accentHover};`,
+      `  --cc-btn-primary-hover-color: ${COLORS.fontDark};`,
+      `  --cc-btn-secondary-bg: ${COLORS.bgGreyLight};`,
+      `  --cc-btn-secondary-color: ${COLORS.fontWhite};`,
+      `  --cc-btn-secondary-hover-bg: ${COLORS.bgGreyHover};`,
+      `  --cc-btn-secondary-hover-color: ${COLORS.fontWhite};`,
+      `  --cc-separator-border-color: ${COLORS.greyBorder};`,
+      `  --cc-cookie-category-block-bg: ${COLORS.bgGreyLight};`,
+      `  --cc-cookie-category-block-hover-bg: ${COLORS.bgGreyHover};`,
+      `  --cc-toggle-readonly-bg: ${COLORS.accent};`,
+      `  --cc-toggle-on-bg: ${COLORS.accent};`,
       '  --cc-overlay-bg: rgba(0, 0, 0, 0.65);',
       '}',
       '',
@@ -400,7 +393,7 @@
       '}'
     ];
 
-    var styleEl = document.createElement('style');
+    const styleEl = document.createElement('style');
     styleEl.id = 'kedro-consent-styles';
     styleEl.textContent = styles.join('\n');
     document.head.appendChild(styleEl);
@@ -411,10 +404,10 @@
   // ============================================
 
   function getCookieConsentConfig() {
-    var cookieDomain = getCookieDomain();
+    const cookieDomain = getCookieDomain();
 
     // Build cookie config - only include domain if valid
-    var cookieConfig = {
+    const cookieConfig = {
       name: CONFIG.cookieName,
       path: '/',
       secure: window.location.protocol === 'https:',
@@ -486,7 +479,6 @@
         acceptAllBtn: 'Accept All',
         acceptNecessaryBtn: 'Reject All',
         showPreferencesBtn: 'Manage Preferences'
-        // Footer removed to avoid 404 on privacy policy link
       },
       preferencesModal: {
         title: 'Cookie Preferences',
@@ -543,7 +535,7 @@
   function handleConsentChange(param) {
     log('Consent changed:', param.changedCategories);
 
-    if (param.changedCategories.indexOf('analytics') !== -1) {
+    if (param.changedCategories.includes('analytics')) {
       if (CookieConsent.acceptedCategory('analytics')) {
         loadHeap();
       } else {
@@ -567,15 +559,15 @@
   }
 
   function bootstrap() {
-    var vendorUrl = CONFIG.vendorBaseUrl;
+    const vendorUrl = CONFIG.vendorBaseUrl;
 
-    loadAsset('css', vendorUrl + '/cookieconsent.css')
-      .then(function () {
+    loadAsset('css', `${vendorUrl}/cookieconsent.css`)
+      .then(() => {
         injectCustomStyles();
-        return loadAsset('script', vendorUrl + '/cookieconsent.umd.js');
+        return loadAsset('script', `${vendorUrl}/cookieconsent.umd.js`);
       })
       .then(initCookieConsent)
-      .catch(function (error) {
+      .catch((error) => {
         logError('Failed to initialize:', error);
         // Fail-safe: Don't load Heap if consent system fails
       });
@@ -596,4 +588,3 @@
   }
 
 })();
->>>>>>> Incoming (Background Agent changes)
