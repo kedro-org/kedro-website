@@ -16,7 +16,6 @@ Centralized consent management script for the Kedro ecosystem.
 ```
 consent/
 ├── kedro-consent.js          # Main consent script
-├── kedro-consent.css         # Custom branding styles (reference)
 ├── README.md                 # This file
 └── vendor/
     ├── cookieconsent.css     # CookieConsent v3 stylesheet
