@@ -1,5 +1,3 @@
-<<<<<<< Current (Your changes)
-=======
 # Kedro Consent Management
 
 Centralized consent management script for the Kedro ecosystem.
@@ -17,8 +15,7 @@ Centralized consent management script for the Kedro ecosystem.
 
 ```
 consent/
-├── kedro-consent.js          # Main consent script
-├── kedro-consent.css         # Custom branding styles (reference)
+├── kedro-consent.js          # Main consent script (includes branding styles)
 ├── README.md                 # This file
 └── vendor/
     ├── cookieconsent.css     # CookieConsent v3 stylesheet
@@ -148,4 +145,3 @@ When privacy policy changes:
 ### Invalid cookie errors on localhost
 - Ensure `getCookieDomain()` returns `null` for localhost
 - Check browser dev tools Application > Cookies
->>>>>>> Incoming (Background Agent changes)
