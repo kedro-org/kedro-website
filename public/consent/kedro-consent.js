@@ -36,9 +36,25 @@
     revision: 1,
     cookieName: 'kedro_cc',
     cookieExpiry: 182, // ~6 months
-    vendorBaseUrl: 'https://kedro.org/consent/vendor',
     defaultHeapId: '4039408868'
   };
+
+  /**
+   * Get the base URL for vendor assets.
+   * - On localhost: use relative path (local files)
+   * - On production: use absolute kedro.org URL
+   */
+  function getVendorBaseUrl() {
+    const hostname = window.location.hostname;
+    
+    // Localhost - use relative path for local development
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return '/consent/vendor';
+    }
+    
+    // Production - always load from kedro.org (single source of truth)
+    return 'https://kedro.org/consent/vendor';
+  }
 
   // Heap App IDs mapped by hostname/path pattern
   const HEAP_IDS = {
@@ -68,9 +84,9 @@
 
   function log(message, data) {
     if (data !== undefined) {
-      console.log(LOG_PREFIX, message, data);
+      console.debug(LOG_PREFIX, message, data);
     } else {
-      console.log(LOG_PREFIX, message);
+      console.debug(LOG_PREFIX, message);
     }
   }
 
@@ -205,23 +221,40 @@
     return null;
   }
 
+  /**
+   * Check if any Heap cookies exist.
+   */
+  function hasHeapCookies() {
+    const cookies = document.cookie.split(';');
+    return cookies.some((cookie) => cookie.trim().startsWith('_hp'));
+  }
+
+  /**
+   * Clear all Heap cookies (_hp*).
+   * Called when user withdraws consent or when no valid consent exists.
+   */
   function clearHeapCookies() {
     try {
       const cookieDomain = getCookieDomain();
       const hostname = window.location.hostname;
       const domains = cookieDomain ? [cookieDomain, hostname] : [hostname];
       const cookies = document.cookie.split(';');
+      let cleared = false;
 
       cookies.forEach((cookie) => {
         const name = cookie.split('=')[0].trim();
         if (name.startsWith('_hp')) {
+          cleared = true;
           domains.forEach((domain) => {
             document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain}`;
             document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
           });
         }
       });
-      log('Heap cookies cleared');
+
+      if (cleared) {
+        log('Heap cookies cleared');
+      }
     } catch (e) {
       logError('Failed to clear Heap cookies:', e);
     }
@@ -325,23 +358,22 @@
     script.async = true;
     script.src = `https://cdn.heapanalytics.com/js/heap-${appId}.js`;
 
-    // Replay queued calls when Heap script actually loads
     script.onload = () => {
       replayQueuedCalls();
+      window.kedroAnalyticsReady = true;
+      dispatchReadyEvent();
+      log('Heap loaded with App ID:', appId);
     };
 
     script.onerror = () => {
       logError('Failed to load Heap script');
       window.kedroHeapLoading = false;
+      
+      // Dispatch failure event so listeners know Heap won't load
+      dispatchAnalyticsFailedEvent();
     };
 
     document.head.appendChild(script);
-
-    // Notify listeners
-    window.kedroAnalyticsReady = true;
-    dispatchReadyEvent();
-
-    log('Heap loaded with App ID:', appId);
   }
 
   function dispatchReadyEvent() {
@@ -349,6 +381,14 @@
       window.dispatchEvent(new CustomEvent('kedro:analytics:ready'));
     } catch (e) {
       logWarn('Could not dispatch analytics ready event');
+    }
+  }
+
+  function dispatchAnalyticsFailedEvent() {
+    try {
+      window.dispatchEvent(new CustomEvent('kedro:analytics:failed'));
+    } catch (e) {
+      // Silently fail
     }
   }
 
@@ -475,15 +515,15 @@
     return {
       consentModal: {
         title: 'We value your privacy',
-        description: 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of analytics cookies.',
-        acceptAllBtn: 'Accept All',
-        acceptNecessaryBtn: 'Reject All',
+        description: 'We use analytics cookies to understand how you use our website and improve your experience. You can accept or decline analytics cookies below.',
+        acceptAllBtn: 'Accept Analytics',
+        acceptNecessaryBtn: 'Decline Analytics',
         showPreferencesBtn: 'Manage Preferences'
       },
       preferencesModal: {
         title: 'Cookie Preferences',
-        acceptAllBtn: 'Accept All',
-        acceptNecessaryBtn: 'Reject All',
+        acceptAllBtn: 'Accept Analytics',
+        acceptNecessaryBtn: 'Decline Analytics',
         savePreferencesBtn: 'Save Preferences',
         closeIconLabel: 'Close',
         sections: [
@@ -493,8 +533,23 @@
           },
           {
             title: 'Strictly Necessary Cookies',
-            description: 'These cookies are essential for the website to function properly. They cannot be disabled.',
-            linkedCategory: 'necessary'
+            description: 'This category includes only the consent preference cookie that remembers your choice. No other cookies are set without your permission.',
+            linkedCategory: 'necessary',
+            cookieTable: {
+              caption: 'Necessary cookies',
+              headers: {
+                name: 'Name',
+                domain: 'Domain',
+                description: 'Description',
+                expiration: 'Expiration'
+              },
+              body: [{
+                name: CONFIG.cookieName,
+                domain: '.kedro.org',
+                description: 'Stores your cookie consent preferences.',
+                expiration: '6 months'
+              }]
+            }
           },
           {
             title: 'Analytics Cookies',
@@ -554,12 +609,31 @@
       return;
     }
 
+    clearOrphanedHeapCookies();
+
     CookieConsent.run(getCookieConsentConfig());
     log('CookieConsent initialized');
   }
 
+  /**
+   * Clear Heap cookies if they exist without valid analytics consent.
+   * Handles edge cases where consent cookie is missing/expired but Heap cookies remain.
+   */
+  function clearOrphanedHeapCookies() {
+    // Check if consent cookie exists
+    const consentCookie = document.cookie
+      .split(';')
+      .find((c) => c.trim().startsWith(`${CONFIG.cookieName}=`));
+
+    // If no consent cookie but Heap cookies exist, clear them
+    if (!consentCookie && hasHeapCookies()) {
+      log('Clearing orphaned Heap cookies (no valid consent found)');
+      clearHeapCookies();
+    }
+  }
+
   function bootstrap() {
-    const vendorUrl = CONFIG.vendorBaseUrl;
+    const vendorUrl = getVendorBaseUrl();
 
     loadAsset('css', `${vendorUrl}/cookieconsent.css`)
       .then(() => {
