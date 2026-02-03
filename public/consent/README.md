@@ -22,16 +22,6 @@ consent/
     └── cookieconsent.umd.js  # CookieConsent v3 library
 ```
 
-## Setup: Download Vendor Files
-
-```bash
-cd public/consent/vendor
-
-# Download CookieConsent v3.0.1
-curl -o cookieconsent.umd.js https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js
-curl -o cookieconsent.css https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css
-```
-
 ## Usage
 
 ### In kedro.org (this site)
@@ -134,29 +124,3 @@ When privacy policy changes:
 
 1. Increment `CONFIG.revision` in `kedro-consent.js`
 2. Deploy - users will be re-prompted for consent
-
-## Testing Checklist
-
-- [ ] Banner appears on first visit (incognito)
-- [ ] No Heap cookies (`_hp*`) before consent
-- [ ] Heap loads after accepting
-- [ ] Heap cookies appear after accepting
-- [ ] Rejecting prevents Heap loading
-- [ ] Withdrawing consent clears Heap cookies
-- [ ] Consent persists across navigations
-- [ ] Cross-subdomain consent works
-- [ ] Works on localhost (no invalid cookie errors)
-
-## Troubleshooting
-
-### Banner not appearing
-- Check browser console for `[kedro-consent]` errors
-- Verify vendor files exist and are accessible
-
-### Heap not loading after consent
-- Check for `[kedro-consent] Heap loaded with App ID:` log
-- Verify consent cookie exists with analytics accepted
-
-### Invalid cookie errors on localhost
-- Ensure `getCookieDomain()` returns `null` for localhost
-- Check browser dev tools Application > Cookies
