@@ -520,14 +520,14 @@
       consentModal: {
         title: 'We value your privacy',
         description: 'We use analytics cookies to understand how you use our website and improve your experience. You can accept or decline analytics cookies below.',
-        acceptAllBtn: 'Accept Analytics',
-        acceptNecessaryBtn: 'Decline Analytics',
+        acceptAllBtn: 'Accept all',
+        acceptNecessaryBtn: 'Decline all',
         showPreferencesBtn: 'Manage Preferences'
       },
       preferencesModal: {
         title: 'Cookie Preferences',
-        acceptAllBtn: 'Accept Analytics',
-        acceptNecessaryBtn: 'Decline Analytics',
+        acceptAllBtn: 'Accept all',
+        acceptNecessaryBtn: 'Decline all',
         savePreferencesBtn: 'Save Preferences',
         closeIconLabel: 'Close',
         sections: [
