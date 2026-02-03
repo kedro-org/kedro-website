@@ -62,7 +62,7 @@ extra_javascript:
 | kedro.org | Prod | 666783228 |
 | kedro.org | Dev | 801262615 |
 | demo.kedro.org | Prod | 2388822444 |
-| demo.kedro.org/kedro-builder | Dev | 4039408868 |
+| demo.kedro.org/kedro-builder | Prod | 4039408868 |
 | docs.kedro.org | Prod (stable) | 537308175 |
 | docs.kedro.org | Dev (latest) | 2164194004 |
 | docs.kedro.org/projects/kedro-viz | Prod | 522942930 |
@@ -83,6 +83,16 @@ heap.track('PAGE_VIEW', { page: '/home' });
 window.addEventListener('kedro:analytics:ready', function() {
   console.log('Heap is ready');
 });
+
+// Listen for analytics failure (optional)
+window.addEventListener('kedro:analytics:failed', function() {
+  console.log('Heap failed to load');
+});
+
+// Check if already ready (synchronous)
+if (window.kedroAnalyticsReady) {
+  // Heap is loaded
+}
 ```
 
 ## Key Implementation Details
@@ -98,6 +108,11 @@ window.addEventListener('kedro:analytics:ready', function() {
 - Checks `window.heap.loaded` to prevent re-initialization
 - Uses `window.kedroHeapLoading` flag to prevent duplicate loads
 - Replays queued calls on `script.onload` (not setTimeout)
+
+### CookieConsent Validation
+
+- Verifies `CookieConsent` global exists before initialization
+- Checks `CookieConsent.run` is a function (ensures v3.x API compatibility)
 
 ### Fail-Safe Behavior
 
