@@ -110,6 +110,14 @@
       host.endsWith('.kedro.org');
   }
 
+  /**
+   * Normalize hostname by removing www prefix.
+   */
+  function normalizeHostname(hostname) {
+    const host = hostname || window.location.hostname;
+    return host === 'www.kedro.org' ? 'kedro.org' : host;
+  }
+
   // ============================================
   // HEAP STUB (Queue calls before consent)
   // ============================================
@@ -158,19 +166,15 @@
   }
 
   function getHeapAppId() {
-    let hostname = window.location.hostname;
+    const rawHostname = window.location.hostname;
 
-    if (isLocalhost(hostname)) {
+    if (isLocalhost(rawHostname)) {
       return CONFIG.defaultHeapId;
     }
 
+    const hostname = normalizeHostname(rawHostname);
     const pathname = window.location.pathname;
     const env = getEnvironment();
-
-    // Handle www prefix
-    if (hostname === 'www.kedro.org') {
-      hostname = 'kedro.org';
-    }
 
     // Try path-specific match first (more specific)
     const pathKeys = Object.keys(HEAP_IDS).filter((key) => key.includes('/'));
@@ -207,7 +211,7 @@
   function getCookieDomain() {
     const hostname = window.location.hostname;
 
-    // Localhost - omit domain attribute (return null)
+    // Localhost - omit domain attribute
     if (isLocalhost(hostname)) {
       return null;
     }
@@ -606,6 +610,11 @@
   function initCookieConsent() {
     if (typeof CookieConsent === 'undefined') {
       logError('CookieConsent library not loaded');
+      return;
+    }
+
+    if (typeof CookieConsent.run !== 'function') {
+      logError('CookieConsent API mismatch - expected v3.x');
       return;
     }
 
