@@ -8,8 +8,8 @@ Centralized consent management script for the Kedro ecosystem.
 - GDPR-compliant opt-in cookie consent
 - Cross-subdomain consent sharing via `.kedro.org` cookie
 - Conditional Heap Analytics loading based on consent
-- Automatic cleanup of analytics cookies on consent withdrawal
-- Event queue for tracking calls made before consent
+- Full Heap disabling on consent withdrawal
+- Bounded event queue for pre-consent tracking calls
 
 ## File Structure
 
@@ -45,70 +45,17 @@ extra_javascript:
   - https://kedro.org/consent/kedro-consent.js
 ```
 
-## Heap App ID Configuration
+## Consent Withdrawal
 
-| Surface | Environment | Heap ID |
-|---------|-------------|---------|
-| kedro.org | Prod | 666783228 |
-| kedro.org | Dev | 801262615 |
-| demo.kedro.org | Prod | 2388822444 |
-| demo.kedro.org/kedro-builder | Prod | 4039408868 |
-| docs.kedro.org | Prod (stable) | 537308175 |
-| docs.kedro.org | Dev (latest) | 2164194004 |
-| docs.kedro.org/projects/kedro-viz | Prod | 522942930 |
-| docs.kedro.org/projects/kedro-viz | Dev | 2164194004 |
-| docs.kedro.org/projects/kedro-datasets | Prod | 1625763777 |
-| docs.kedro.org/projects/kedro-datasets | Dev | 2164194004 |
-| localhost / fallback | - | 4039408868 |
+When a user withdraws analytics consent:
+1. All `window.heap` methods are replaced with no-ops
+2. All `_hp*` cookies are cleared
+3. `kedro:analytics:disabled` event is dispatched
+4. Page reload is required to re-enable Heap
 
-## Event Queue
+## Domain Restrictions
 
-The script creates a stub for `window.heap` that queues all tracking calls made before consent. When the user accepts analytics and Heap loads, queued calls are replayed via `script.onload`.
-
-```javascript
-// This works even before consent is given
-heap.track('PAGE_VIEW', { page: '/home' });
-
-// Listen for analytics ready
-window.addEventListener('kedro:analytics:ready', function() {
-  console.log('Heap is ready');
-});
-
-// Listen for analytics failure (optional)
-window.addEventListener('kedro:analytics:failed', function() {
-  console.log('Heap failed to load');
-});
-
-// Check if already ready (synchronous)
-if (window.kedroAnalyticsReady) {
-  // Heap is loaded
-}
-```
-
-## Key Implementation Details
-
-### Cookie Domain Handling
-
-- **localhost**: No domain attribute (avoids invalid cookies)
-- **kedro.org domains**: `.kedro.org` for cross-subdomain sharing
-- **Other domains**: No domain attribute
-
-### Heap Loading Guards
-
-- Checks `window.heap.loaded` to prevent re-initialization
-- Uses `window.kedroHeapLoading` flag to prevent duplicate loads
-- Replays queued calls on `script.onload` (not setTimeout)
-
-### CookieConsent Validation
-
-- Verifies `CookieConsent` global exists before initialization
-- Checks `CookieConsent.run` is a function (ensures v3.x API compatibility)
-
-### Fail-Safe Behavior
-
-- CSS load failures don't block consent initialization
-- Script errors are caught and logged
-- If consent system fails, Heap is NOT loaded (privacy-safe default)
+Heap only loads on localhost and known Kedro domains (`*.kedro.org`). Unknown domains will not load analytics.
 
 ## Updating
 

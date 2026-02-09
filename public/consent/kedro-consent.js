@@ -1,5 +1,5 @@
 /**
- * Kedro Ecosystem Consent Management
+ * Kedro Consent Management
  * ===================================
  *
  * Manages cookie consent and analytics across all Kedro web properties:
@@ -8,7 +8,6 @@
  * Usage: <script src="https://kedro.org/consent/kedro-consent.js" defer></script>
  *
  * @version 1.0.0
- * @license Apache-2.0
  */
 
 (function () {
@@ -31,6 +30,8 @@
     'track',
     'unsetEventProperty'
   ];
+
+  const MAX_QUEUE_SIZE = 100;
 
   const CONFIG = {
     revision: 1,
@@ -139,10 +140,12 @@
     window.heap = queue;
     window.heap.stubbed = true;
 
-    // Stub all Heap methods to queue calls
+    // Stub all Heap methods to queue calls (bounded to prevent memory leaks)
     HEAP_METHODS.forEach((method) => {
       window.heap[method] = (...args) => {
-        queue.push([method, ...args]);
+        if (queue.length < MAX_QUEUE_SIZE) {
+          queue.push([method, ...args]);
+        }
       };
     });
   }
@@ -176,8 +179,10 @@
     const pathname = window.location.pathname;
     const env = getEnvironment();
 
-    // Try path-specific match first (more specific)
-    const pathKeys = Object.keys(HEAP_IDS).filter((key) => key.includes('/'));
+    // Try path-specific match first (most specific path wins)
+    const pathKeys = Object.keys(HEAP_IDS)
+      .filter((key) => key.includes('/'))
+      .sort((a, b) => b.length - a.length);
 
     for (const key of pathKeys) {
       const parts = key.split('/');
@@ -185,8 +190,12 @@
       const keyPath = `/${parts.slice(1).join('/')}`;
 
       if (hostname === keyHost && pathname.startsWith(keyPath)) {
-        const config = HEAP_IDS[key];
-        return config[env] || config.prod || CONFIG.defaultHeapId;
+        // Boundary check: next char must be '/', '?', '#', or end-of-string
+        const nextChar = pathname[keyPath.length];
+        if (nextChar === undefined || nextChar === '/' || nextChar === '?' || nextChar === '#') {
+          const config = HEAP_IDS[key];
+          return config[env] || config.prod || CONFIG.defaultHeapId;
+        }
       }
     }
 
@@ -194,6 +203,12 @@
     if (HEAP_IDS[hostname]) {
       const hostConfig = HEAP_IDS[hostname];
       return hostConfig[env] || hostConfig.prod || CONFIG.defaultHeapId;
+    }
+
+    // Unknown non-Kedro domain — do not load Heap to avoid polluting analytics
+    if (!isKedroDomain(hostname)) {
+      logWarn('Unknown non-Kedro domain: ' + hostname + '. Heap will not load.');
+      return null;
     }
 
     return CONFIG.defaultHeapId;
@@ -308,6 +323,12 @@
       return;
     }
 
+    // Disabled by consent withdrawal — require page reload to re-enable
+    if (window.kedroHeapDisabled) {
+      log('Heap disabled - page reload required to re-enable');
+      return;
+    }
+
     // Already loaded
     if (window.heap && window.heap.loaded) {
       log('Heap already loaded');
@@ -365,7 +386,7 @@
     script.onload = () => {
       replayQueuedCalls();
       window.kedroAnalyticsReady = true;
-      dispatchReadyEvent();
+      window.dispatchEvent(new CustomEvent('kedro:analytics:ready'));
       log('Heap loaded with App ID:', appId);
     };
 
@@ -373,27 +394,40 @@
       logError('Failed to load Heap script');
       window.kedroHeapLoading = false;
       
-      // Dispatch failure event so listeners know Heap won't load
-      dispatchAnalyticsFailedEvent();
+      window.dispatchEvent(new CustomEvent('kedro:analytics:failed'));
     };
 
     document.head.appendChild(script);
   }
 
-  function dispatchReadyEvent() {
-    try {
-      window.dispatchEvent(new CustomEvent('kedro:analytics:ready'));
-    } catch (e) {
-      logWarn('Could not dispatch analytics ready event');
-    }
-  }
+  /**
+   * Disable Heap after consent withdrawal.
+   * Replaces all methods with no-ops to stop tracking, clears cookies,
+   * and sets a flag requiring page reload to re-enable.
+   */
+  function disableHeap() {
+    log('Disabling Heap analytics (consent withdrawn)');
 
-  function dispatchAnalyticsFailedEvent() {
+    if (window.heap) {
+      HEAP_METHODS.forEach((method) => {
+        window.heap[method] = function () {};
+      });
+      window.heap.push = function () {};
+    }
+
+    clearHeapCookies();
+
+    window.kedroAnalyticsReady = false;
+    window.kedroHeapLoading = false;
+    window.kedroHeapDisabled = true;
+
     try {
-      window.dispatchEvent(new CustomEvent('kedro:analytics:failed'));
+      window.dispatchEvent(new CustomEvent('kedro:analytics:disabled'));
     } catch (e) {
       // Silently fail
     }
+
+    log('Heap disabled. Page reload required to re-enable.');
   }
 
   // ============================================
@@ -598,7 +632,7 @@
       if (CookieConsent.acceptedCategory('analytics')) {
         loadHeap();
       } else {
-        clearHeapCookies();
+        disableHeap();
       }
     }
   }
