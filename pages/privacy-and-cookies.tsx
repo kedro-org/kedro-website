@@ -359,6 +359,10 @@ export default function PrivacyAndCookies() {
       <style jsx global>{`
         body {
           background: #000;
+          color: #fff;
+        }
+        a {
+          color: #fff;
         }
       `}</style>
     </>
