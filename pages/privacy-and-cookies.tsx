@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Footer from '../modules/index/footer';
 import Header from '../modules/shared/header';
 import { siteMetadata } from '../modules/shared/config';
 
@@ -354,6 +355,12 @@ export default function PrivacyAndCookies() {
           </p>
         </article>
       </main>
+      <Footer />
+      <style jsx global>{`
+        body {
+          background: #000;
+        }
+      `}</style>
     </>
   );
 }
