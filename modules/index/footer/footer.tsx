@@ -48,15 +48,9 @@ export default function Footer() {
           </Link>
           <button
             className={style.link}
-            onClick={() => {
-              if (
-                typeof window !== 'undefined' &&
-                typeof (window as any).CookieConsent?.showPreferences ===
-                  'function'
-              ) {
-                (window as any).CookieConsent.showPreferences();
-              }
-            }}
+            onClick={() =>
+              (window as any).CookieConsent?.showPreferences?.()
+            }
             type="button"
           >
             Cookie Settings
