@@ -43,6 +43,24 @@ export default function Footer() {
           <Link href="/blog" className={style.link}>
             Blog
           </Link>
+          <Link href="/privacy-and-cookies" className={style.link}>
+            Privacy & Cookies
+          </Link>
+          <button
+            className={style.link}
+            onClick={() => {
+              if (
+                typeof window !== 'undefined' &&
+                typeof (window as any).CookieConsent?.showPreferences ===
+                  'function'
+              ) {
+                (window as any).CookieConsent.showPreferences();
+              }
+            }}
+            type="button"
+          >
+            Cookie Settings
+          </button>
           <div className={style.iconLinks}>
             <a
               className={style.link}

@@ -1,0 +1,106 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container {
+  background: $color-dark;
+  color: $color-font;
+  min-height: 100vh;
+  padding: $header-height + 40px 1.5rem 4rem;
+  margin: 0 -3.5rem;
+
+  @include breakpoint(small) {
+    margin: 0;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 720px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p,
+  li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $color-grey-200;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: $color-accent;
+    text-decoration: underline;
+
+    &:hover {
+      color: lighten($color-accent, 10%);
+    }
+  }
+
+  code {
+    background: $color-bg-grey;
+    border-radius: 3px;
+    font-size: 0.85em;
+    padding: 0.15em 0.4em;
+  }
+
+  strong {
+    color: $color-font;
+  }
+}
+
+.updated {
+  color: $color-font-grey;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th,
+  td {
+    border: 1px solid $color-grey-border;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+  }
+
+  th {
+    background: $color-bg-grey;
+    color: $color-font;
+    font-weight: 600;
+  }
+
+  td {
+    color: $color-grey-200;
+  }
+}
