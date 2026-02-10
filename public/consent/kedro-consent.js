@@ -550,62 +550,77 @@
   }
 
   function getEnglishTranslations() {
+    const POLICY_URL = 'https://kedro.org/privacy-and-cookies';
+
     return {
       consentModal: {
-        title: 'We value your privacy',
-        description: 'We use analytics cookies to understand how you use our website and improve your experience. You can accept or decline analytics cookies below.',
-        acceptAllBtn: 'Accept all',
-        acceptNecessaryBtn: 'Decline all',
-        showPreferencesBtn: 'Manage Preferences'
+        title: 'Your privacy choices',
+        description:
+          'We use a strictly necessary cookie to remember your cookie settings. ' +
+          'With your permission, we also use analytics cookies (Heap) to understand how our sites are used and improve them. ' +
+          'You can accept analytics, keep only necessary cookies, or manage your preferences. ' +
+          '<a href="' + POLICY_URL + '" target="_blank" rel="noopener noreferrer">Learn more</a>.',
+        acceptAllBtn: 'Accept analytics',
+        acceptNecessaryBtn: 'Only necessary',
+        showPreferencesBtn: 'Cookie settings'
       },
       preferencesModal: {
-        title: 'Cookie Preferences',
-        acceptAllBtn: 'Accept all',
-        acceptNecessaryBtn: 'Decline all',
-        savePreferencesBtn: 'Save Preferences',
+        title: 'Cookie settings',
+        acceptAllBtn: 'Accept analytics',
+        acceptNecessaryBtn: 'Only necessary',
+        savePreferencesBtn: 'Save settings',
         closeIconLabel: 'Close',
         sections: [
           {
-            title: 'Cookie Usage',
-            description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose to opt-in or opt-out of analytics cookies.'
+            title: 'How we use cookies',
+            description:
+              'You can choose whether to allow analytics cookies. ' +
+              'You can change your choice at any time by reopening these settings. ' +
+              'For details, see our <a href="' + POLICY_URL + '" target="_blank" rel="noopener noreferrer">Privacy & Cookies Notice</a>.'
           },
           {
-            title: 'Strictly Necessary Cookies',
-            description: 'This category includes only the consent preference cookie that remembers your choice. No other cookies are set without your permission.',
+            title: 'Strictly necessary cookie',
+            description:
+              'This cookie is required to store your cookie settings so we can respect your choices. ' +
+              'It does not track you for analytics.',
             linkedCategory: 'necessary',
             cookieTable: {
-              caption: 'Necessary cookies',
+              caption: 'Strictly necessary cookie',
               headers: {
                 name: 'Name',
                 domain: 'Domain',
-                description: 'Description',
-                expiration: 'Expiration'
+                description: 'Purpose',
+                expiration: 'Expiry'
               },
               body: [{
                 name: CONFIG.cookieName,
                 domain: '.kedro.org',
-                description: 'Stores your cookie consent preferences.',
+                description: 'Stores your cookie preference choices.',
                 expiration: '6 months'
               }]
             }
           },
           {
-            title: 'Analytics Cookies',
-            description: 'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.',
+            title: 'Analytics cookies (Heap)',
+            description:
+              'If you allow analytics, we use Heap to collect usage information (such as pages viewed and interactions) ' +
+              'to help us improve Kedro documentation and experiences. ' +
+              'Heap uses cookies and similar identifiers to recognize repeat visits. ' +
+              'You can turn analytics off at any time; we will stop loading Heap and remove Heap cookies from your browser where possible.',
             linkedCategory: 'analytics',
             cookieTable: {
               caption: 'Analytics cookies',
               headers: {
-                name: 'Name',
+                name: 'Name / pattern',
                 domain: 'Domain',
-                description: 'Description',
-                expiration: 'Expiration'
+                description: 'Purpose',
+                expiration: 'Expiry'
               },
               body: [{
                 name: '_hp2_*',
                 domain: '.kedro.org',
-                description: 'Heap Analytics - Used to track user interactions and improve our services.',
-                expiration: '1 year'
+                description: 'Heap analytics identifiers used to measure and improve our sites.',
+                expiration: 'Up to 1 year (may vary)'
               }]
             }
           }

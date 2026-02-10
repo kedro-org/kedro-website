@@ -92,6 +92,11 @@
   font-size: 0.875rem;
   margin: 1rem;
   transition: color $transition-time ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 
   &:hover {
     color: $color-accent;
