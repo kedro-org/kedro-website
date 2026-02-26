@@ -43,7 +43,7 @@ export default function FAQ() {
           <h3>FAQs</h3>
           <p>
             You can find the{' '}
-            <a href="https://slack.kedro.org/" target="_blank" rel="noreferrer">
+            <a href="https://kedro-org.slack.com/join/shared_invite/zt-3mloycxx0-8uXHeLkYOJgWSf5865WKTw#/shared-invite/email" target="_blank" rel="noreferrer">
               Kedro community on Slack
             </a>
             .

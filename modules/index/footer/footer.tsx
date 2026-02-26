@@ -46,7 +46,7 @@ export default function Footer() {
           <div className={style.iconLinks}>
             <a
               className={style.link}
-              href="https://slack.kedro.org"
+              href="https://kedro-org.slack.com/join/shared_invite/zt-3mloycxx0-8uXHeLkYOJgWSf5865WKTw#/shared-invite/email"
               rel="noopener noreferrer"
               target="_blank"
             >
