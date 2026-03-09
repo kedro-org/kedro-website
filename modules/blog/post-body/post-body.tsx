@@ -77,7 +77,12 @@ const headerTextToIdString = (
 };
 
 const isSameHost = (str: string) => {
-  return str.includes('kedro.org');
+  try {
+    const url = new URL(str);
+    return url.hostname === 'kedro.org' || url.hostname.endsWith('.kedro.org');
+  } catch {
+    return true; // relative URLs are same host
+  }
 };
 
 const renderOptions = (
