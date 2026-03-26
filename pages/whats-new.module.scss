@@ -33,10 +33,11 @@
 
 .heroTitle {
   @include display-md;
+  font-size: 2.86rem;
   font-weight: 500;
   letter-spacing: $letter-spacing;
   color: $color-font;
-  margin-bottom: 12px;
+  margin-bottom: 25px;
 
   @include breakpoint(small) {
     @include display-xs;
@@ -47,7 +48,7 @@
   @include text-xl;
   color: $color-font-grey;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
   @include breakpoint(small) {
     @include text-md;

@@ -44,64 +44,56 @@
 }
 
 .card {
-  padding: 28px;
-  border-radius: 16px;
-  background: $color-bg-grey;
-  border: 1px solid $color-grey-border;
+  padding: 30px 27px;
+  border-radius: 15px;
+  background: $color-bg-grey-light;
+  border: 1px solid $color-black-600;
   display: flex;
   flex-direction: column;
+  gap: 15px;
   transition:
     background $transition-time ease,
-    border-color $transition-time ease,
-    transform $transition-time ease;
+    border-color $transition-time ease;
 
   &:hover {
     background: $color-black-700;
-    border-color: $color-black-0;
-    transform: translateY(-3px);
+    border-color: $color-accent;
   }
 }
 
 .date {
-  @include text-xs;
+  font-size: 13px;
+  font-weight: 300;
   color: $color-accent;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
 }
 
 .cardTitle {
-  @include text-lg;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
   color: $color-font;
-  margin-bottom: 10px;
 }
 
 .cardTitleLink {
   color: inherit;
   text-decoration: none;
-
-  &:hover {
-    color: $color-accent;
-  }
 }
 
 .description {
-  @include text-sm;
-  color: $color-font-grey;
-  line-height: 1.65;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+  color: $color-font;
   flex: 1;
 }
 
 .watchLink {
-  @include text-sm;
-  color: $color-accent;
+  font-size: 13px;
   font-weight: 500;
+  color: $color-accent;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 16px;
   transition: gap $transition-time ease;
 
   &:hover {

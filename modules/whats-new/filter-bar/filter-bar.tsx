@@ -11,7 +11,7 @@ interface FilterBarProps {
 }
 
 const filters: { label: string; value: FilterValue }[] = [
-  { label: 'All', value: 'all' },
+  { label: 'All Posts', value: 'all' },
   { label: 'Coffee Chats', value: 'coffee-chats' },
   { label: 'Blogs', value: 'blogs' },
   { label: 'Demos', value: 'demos' },
