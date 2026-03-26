@@ -20,35 +20,20 @@ const ContentCard = ({
   linkText,
   isExternal = false,
 }: ContentCardProps) => {
-  const linkProps = isExternal
-    ? { target: '_blank' as const, rel: 'noopener noreferrer' }
-    : {};
+  const Wrapper = isExternal ? 'a' : Link;
+  const wrapperProps = isExternal
+    ? { href: linkUrl, target: '_blank' as const, rel: 'noopener noreferrer' }
+    : { href: linkUrl };
 
   return (
-    <div className={style.card}>
+    <Wrapper {...wrapperProps} className={style.card}>
       <p className={style.date}>{date}</p>
-      <h3 className={style.cardTitle}>
-        {isExternal ? (
-          <a href={linkUrl} {...linkProps} className={style.cardTitleLink}>
-            {title}
-          </a>
-        ) : (
-          <Link href={linkUrl} className={style.cardTitleLink}>
-            {title}
-          </Link>
-        )}
-      </h3>
+      <h3 className={style.cardTitle}>{title}</h3>
       <p className={style.description}>{description}</p>
-      {isExternal ? (
-        <a href={linkUrl} {...linkProps} className={style.actionLink}>
-          {linkText} &rarr;
-        </a>
-      ) : (
-        <Link href={linkUrl} className={style.actionLink}>
-          {linkText} &rarr;
-        </Link>
-      )}
-    </div>
+      <span className={style.actionLink}>
+        {linkText} &rarr;
+      </span>
+    </Wrapper>
   );
 };
 

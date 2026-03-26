@@ -1,14 +1,17 @@
 @import '../../../styles/variables';
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 30px 27px;
   height: 294px;
   border-radius: 15px;
   background: $color-bg-grey-light;
   border: 1px solid $color-black-600;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
   transition:
     background $transition-time ease,
     border-color $transition-time ease;
@@ -35,11 +38,6 @@
   font-weight: 700;
   line-height: 20px;
   color: $color-font;
-}
-
-.cardTitleLink {
-  color: inherit;
-  text-decoration: none;
 }
 
 .description {
