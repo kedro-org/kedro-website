@@ -26,6 +26,7 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
     <section className={style.section}>
       <div className={style.inner}>
         <h2 className={style.heading}>Blogs</h2>
+        <p className={style.subtitle}>Feature, release and other announcements from the Kedro team.</p>
         <div className={style.grid}>
           {featuredCards.map((post: PostSnippet) => (
             <div key={post.sys.id} className={style.card}>

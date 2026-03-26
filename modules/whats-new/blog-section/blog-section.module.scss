@@ -27,6 +27,11 @@
   margin: 0 0 8px;
 }
 
+.subtitle {
+  @include text-md;
+  color: $color-font-grey;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

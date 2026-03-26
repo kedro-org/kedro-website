@@ -9,6 +9,7 @@ const CoffeeChatSection = () => {
     <section className={style.section}>
       <div className={style.inner}>
         <h2 className={style.heading}>Coffee Chats</h2>
+        <p className={style.subtitle}>Biweekly live demos where the team showcases new features and answers your questions.</p>
         <div className={style.grid}>
           {coffeeChatData.map((chat: CoffeeChat) => (
             <div key={chat.youtubeUrl} className={style.card}>
