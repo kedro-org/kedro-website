@@ -127,22 +127,16 @@
   margin-top: 40px;
   background: $color-font;
   color: $color-font-dark;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 
   @include breakpoint(medium-up) {
-    margin-left: -75px;
-    margin-right: -75px;
-    padding: 5rem 3.5rem;
-  }
-
-  @include breakpoint(medium-only) {
-    margin-left: -48px;
-    margin-right: -48px;
     padding: 5rem 3.5rem;
   }
 
   @include breakpoint(small) {
-    margin-left: -16px;
-    margin-right: -16px;
     padding: 3rem 1rem 1rem;
   }
 }
