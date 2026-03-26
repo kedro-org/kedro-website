@@ -31,11 +31,6 @@ const FilterBar = ({ activeFilter, onFilterChange }: FilterBarProps) => {
             aria-pressed={isActive}
             onClick={() => onFilterChange(value)}
           >
-            <span
-              className={classNames(style.dot, {
-                [style.dotActive]: isActive,
-              })}
-            />
             {label}
           </button>
         );
