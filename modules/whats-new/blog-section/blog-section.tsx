@@ -61,20 +61,22 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
 
         {showAllPosts && remainingPosts.length > 0 && (
           <div className={style.allPostsSection}>
-            <h3 className={style.allPostsHeading}>All blog posts</h3>
-            {remainingPosts.slice(0, allPostsLength).map((post: PostSnippet) => (
-              <PostsList key={post.sys.id} post={post} />
-            ))}
-            {remainingPosts.length > allPostsLength && (
-              <div className={style.showMoreWrapper}>
-                <button
-                  className={style.showMoreButton}
-                  onClick={() => setAllPostsLength(allPostsLength + PAGE_SIZE)}
-                >
-                  Show more posts
-                </button>
-              </div>
-            )}
+            <div className={style.allPostsInner}>
+              <h3 className={style.allPostsHeading}>All blog posts</h3>
+              {remainingPosts.slice(0, allPostsLength).map((post: PostSnippet) => (
+                <PostsList key={post.sys.id} post={post} />
+              ))}
+              {remainingPosts.length > allPostsLength && (
+                <div className={style.showMoreWrapper}>
+                  <button
+                    className={style.showMoreButton}
+                    onClick={() => setAllPostsLength(allPostsLength + PAGE_SIZE)}
+                  >
+                    Show more posts
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
