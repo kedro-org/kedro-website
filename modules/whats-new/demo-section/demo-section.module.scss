@@ -30,7 +30,6 @@
 .subtitle {
   @include text-md;
   color: $color-font-grey;
-  margin-bottom: 32px;
 }
 
 .grid {
@@ -50,11 +49,12 @@
 }
 
 .emptyState {
+  margin-top: 32px;
   text-align: center;
   padding: 48px 24px;
-  border-radius: 16px;
+  border-radius: 15px;
   background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed $color-grey-border;
+  border: 1px dashed $color-black-600;
 }
 
 .emptyStateText {
@@ -63,68 +63,35 @@
 }
 
 .card {
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
-  background: $color-bg-grey;
-  border: 1px solid $color-grey-border;
-  cursor: pointer;
-  text-decoration: none;
-  display: block;
+  background: $color-bg-grey-light;
+  border: 1px solid $color-black-600;
   transition:
-    border-color $transition-time ease,
-    transform $transition-time ease;
+    background $transition-time ease,
+    border-color $transition-time ease;
 
   &:hover {
+    background: $color-black-700;
     border-color: $color-accent;
-    transform: translateY(-2px);
   }
 }
 
-.thumbnailWrapper {
-  height: 234px;
+.videoWrapper {
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding: 8px 11px 0;
 }
 
-.thumbnail {
+.video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.duration {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.75);
-  color: $color-font;
-  @include text-xs;
-  font-weight: 500;
+  border-radius: 8px;
 }
 
 .cardTitle {
-  @include text-sm;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
   color: $color-font;
-  padding: 12px 16px 16px;
-}
-
-.browseAll {
-  margin-top: 24px;
-}
-
-.browseAllLink {
-  @include text-sm;
-  color: $color-accent;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  display: inline-block;
-  transition: opacity $transition-time ease;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  padding: 12px 11px 16px;
 }
