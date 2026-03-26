@@ -2,6 +2,7 @@
 
 .card {
   padding: 30px 27px;
+  height: 294px;
   border-radius: 15px;
   background: $color-bg-grey-light;
   border: 1px solid $color-black-600;
@@ -46,7 +47,12 @@
   font-weight: 400;
   line-height: 23px;
   color: $color-font;
-  flex: 1;
+  max-height: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 .actionLink {
@@ -56,6 +62,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: auto;
   transition: gap $transition-time ease;
 
   &:hover {
