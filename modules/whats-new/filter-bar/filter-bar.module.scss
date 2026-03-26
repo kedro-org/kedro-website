@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.filterBar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @include breakpoint(small) {
+    gap: 8px;
+  }
+}
+
+.filterButton {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid $color-grey-border;
+  background: transparent;
+  color: $color-font-grey;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    border-color $transition-time ease,
+    color $transition-time ease,
+    background $transition-time ease;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+
+  &:hover {
+    border-color: $color-black-0;
+    color: $color-font;
+  }
+}
+
+.filterButtonActive {
+  border-color: $color-accent;
+  color: $color-font;
+  background: rgba(255, 201, 0, 0.08);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid $color-grey-border;
+  background: transparent;
+  transition:
+    border-color $transition-time ease,
+    background $transition-time ease;
+  flex-shrink: 0;
+}
+
+.dotActive {
+  border-color: $color-accent;
+  background: $color-accent;
+}
