@@ -16,6 +16,11 @@
     background: $color-black-700;
     border-color: $color-accent;
   }
+
+  p,
+  h3 {
+    margin: 0;
+  }
 }
 
 .date {
