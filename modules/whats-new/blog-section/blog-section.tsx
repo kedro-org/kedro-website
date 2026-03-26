@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import Link from 'next/link';
 
 import { PostSnippet } from '../../blog/post-snippet/post-snippet';
 import PostsList from '../../blog/posts-list';
 import { dateFormatting } from '../../../utils/blog';
+import { ContentCard } from '../content-card';
 
 import style from './blog-section.module.scss';
 
@@ -29,23 +29,14 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
         <p className={style.subtitle}>Feature, release and other announcements from the Kedro team.</p>
         <div className={style.grid}>
           {featuredCards.map((post: PostSnippet) => (
-            <div key={post.sys.id} className={style.card}>
-              <p className={style.date}>
-                {dateFormatting(post.sys.firstPublishedAt)}
-              </p>
-              <h3 className={style.cardTitle}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className={style.cardTitleLink}
-                >
-                  {post.title}
-                </Link>
-              </h3>
-              <p className={style.description}>{post.description}</p>
-              <Link href={`/blog/${post.slug}`} className={style.readLink}>
-                Read blog &rarr;
-              </Link>
-            </div>
+            <ContentCard
+              key={post.sys.id}
+              date={dateFormatting(post.sys.firstPublishedAt)}
+              title={post.title}
+              description={post.description}
+              linkUrl={`/blog/${post.slug}`}
+              linkText="Read blog"
+            />
           ))}
         </div>
 

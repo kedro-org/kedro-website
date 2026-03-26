@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { coffeeChatData, coffeeChatPlaylistUrl, CoffeeChat } from './coffee-chat-data';
+import { ContentCard } from '../content-card';
 
 import style from './coffee-chat-section.module.scss';
 
@@ -12,28 +13,15 @@ const CoffeeChatSection = () => {
         <p className={style.subtitle}>Biweekly live demos where the team showcases new features and answers your questions.</p>
         <div className={style.grid}>
           {coffeeChatData.map((chat: CoffeeChat) => (
-            <div key={chat.youtubeUrl} className={style.card}>
-              <p className={style.date}>{chat.date}</p>
-              <h3 className={style.cardTitle}>
-                <a
-                  href={chat.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={style.cardTitleLink}
-                >
-                  {chat.title}
-                </a>
-              </h3>
-              <p className={style.description}>{chat.description}</p>
-              <a
-                href={chat.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={style.watchLink}
-              >
-                Watch on YouTube &rarr;
-              </a>
-            </div>
+            <ContentCard
+              key={chat.youtubeUrl}
+              date={chat.date}
+              title={chat.title}
+              description={chat.description}
+              linkUrl={chat.youtubeUrl}
+              linkText="Watch on YouTube"
+              isExternal
+            />
           ))}
         </div>
         {coffeeChatPlaylistUrl && (
