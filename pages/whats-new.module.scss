@@ -45,7 +45,7 @@
 }
 
 .heroSubtitle {
-  @include text-xl;
+  @include text-lg;
   color: $color-font-grey;
   font-weight: 400;
   margin-bottom: 10px;
