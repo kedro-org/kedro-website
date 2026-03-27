@@ -40,17 +40,6 @@ const WhatsNew = ({ allPosts }: WhatsNewProps) => {
           content={"What's New | " + siteMetadata.socialDescription}
         />
         <meta property="og:site_name" content="Kedro" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image:alt"
-          content={siteMetadata.socialDescription}
-        />
-        <meta name="twitter:image" content={siteMetadata.socialImage} />
-        <meta name="twitter:title" content={"What's New | Kedro"} />
-        <meta
-          name="twitter:description"
-          content={"What's New | " + siteMetadata.socialDescription}
-        />
       </Head>
       <Header />
       <main className={style.page}>
