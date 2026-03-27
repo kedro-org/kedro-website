@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 import { demoData, Demo } from './demo-data';
 
 import style from './demo-section.module.scss';
 
 const DemoSection = () => {
+  const [activeVideos, setActiveVideos] = useState<string[]>([]);
+
+  const handlePlayVideo = (videoSrc: string) => {
+    setActiveVideos((currentVideos) =>
+      currentVideos.includes(videoSrc)
+        ? currentVideos
+        : [...currentVideos, videoSrc]
+    );
+  };
+
   return (
     <section className={style.section}>
       <div className={style.inner}>
@@ -21,20 +32,46 @@ const DemoSection = () => {
           </div>
         ) : (
           <div className={style.grid}>
-            {demoData.map((demo: Demo) => (
-              <div key={demo.videoSrc} className={style.card}>
-                <div className={style.videoWrapper}>
-                  <video
-                    controls
-                    className={style.video}
-                    poster={demo.posterSrc}
-                  >
-                    <source src={demo.videoSrc} type="video/mp4" />
-                  </video>
+            {demoData.map((demo: Demo) => {
+              const isVideoActive = activeVideos.includes(demo.videoSrc);
+
+              return (
+                <div key={demo.videoSrc} className={style.card}>
+                  <div className={style.videoWrapper}>
+                    {isVideoActive ? (
+                      <video
+                        autoPlay
+                        controls
+                        className={style.video}
+                        playsInline
+                      >
+                        <source src={demo.videoSrc} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <button
+                        type="button"
+                        className={style.videoPosterButton}
+                        onClick={() => handlePlayVideo(demo.videoSrc)}
+                        aria-label={`Play demo: ${demo.title}`}
+                      >
+                        <Image
+                          alt=""
+                          src={demo.posterSrc}
+                          fill
+                          sizes="(max-width: 819px) 100vw, (max-width: 1234px) 50vw, 33vw"
+                          className={style.posterImage}
+                        />
+                        <span className={style.durationBadge}>{demo.duration}</span>
+                        <span className={style.posterOverlay}>
+                          <span className={style.playIcon} aria-hidden="true" />
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                  <p className={style.cardTitle}>{demo.title}</p>
                 </div>
-                <p className={style.cardTitle}>{demo.title}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
