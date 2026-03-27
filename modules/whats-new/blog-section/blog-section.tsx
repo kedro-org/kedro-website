@@ -20,7 +20,6 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
   const [allPostsLength, setAllPostsLength] = useState(PAGE_SIZE);
 
   const featuredCards = posts.slice(0, INITIAL_CARDS);
-  const remainingPosts = posts.slice(INITIAL_CARDS);
 
   return (
     <section className={style.section}>
@@ -45,20 +44,23 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
             className={classNames(style.viewMoreButton, {
               [style.viewMoreButtonActive]: showAllPosts,
             })}
-            onClick={() => setShowAllPosts(true)}
+            onClick={() => {
+              setShowAllPosts(true);
+              setAllPostsLength(PAGE_SIZE);
+            }}
           >
-            View more blogs
+            View all blogs
           </button>
         </div>
 
-        {showAllPosts && remainingPosts.length > 0 && (
+        {showAllPosts && posts.length > 0 && (
           <div className={style.allPostsSection}>
             <div className={style.allPostsInner}>
               <h3 className={style.allPostsHeading}>All blog posts</h3>
-              {remainingPosts.slice(0, allPostsLength).map((post: PostSnippet) => (
+              {posts.slice(0, allPostsLength).map((post: PostSnippet) => (
                 <PostsList key={post.sys.id} post={post} />
               ))}
-              {remainingPosts.length > allPostsLength && (
+              {posts.length > allPostsLength && (
                 <div className={style.showMoreWrapper}>
                   <button
                     className={style.showMoreButton}
