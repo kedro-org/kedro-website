@@ -7,7 +7,7 @@ export interface Demo {
 
 export const demoData: Demo[] = [
   {
-    duration: 'mm:ss',
+    duration: '06:45',
     title: 'Building genAI with Kedro',                                                                                                    
     videoSrc: '/videos/building-genai-with-kedro-business.mp4',                                                                                                       
     posterSrc: '/images/genai-with-kedro-poster.jpeg',                                                                                                
