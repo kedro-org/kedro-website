@@ -10,7 +10,7 @@ export const coffeeChatData: CoffeeChat[] = [
     date: '13 Mar 2026',
     title: 'Databricks & SparkDatasetV2: Modern Workflows with Kedro',
     description:
-      'we’ll explore how SparkDatasetV2 dataset enables modern workflows when running Kedro on Databricks. We’ll walk through why the dataset was redesigned, what problems the new version solves, and how it simplifies working with Spark data in Kedro projects.',
+      'We’ll explore how SparkDatasetV2 dataset enables modern workflows when running Kedro on Databricks.',
     youtubeUrl: 'https://www.youtube.com/watch?v=kmWTReVDjRM',
   },
   {

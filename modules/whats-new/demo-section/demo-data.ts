@@ -6,12 +6,12 @@ export interface Demo {
 }
 
 export const demoData: Demo[] = [
-  // {
-  //   duration: 'mm:ss',
-  //   title: 'Building genAI with Kedro',                                                                                                    
-  //   videoSrc: '/videos/building-genai-with-kedro-business.mp4',                                                                                                       
-  //   posterSrc: '/images/genai-with-kedro-poster.jpeg',                                                                                                
-  // },
+  {
+    duration: 'mm:ss',
+    title: 'Building genAI with Kedro',                                                                                                    
+    videoSrc: '/videos/building-genai-with-kedro-business.mp4',                                                                                                       
+    posterSrc: '/images/genai-with-kedro-poster.jpeg',                                                                                                
+  },
   {
     duration: '03:15',
     title: 'Jupyter Notebook to Kedro Project Converter',                                                                                                    
