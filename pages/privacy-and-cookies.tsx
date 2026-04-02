@@ -35,7 +35,7 @@ export default function PrivacyAndCookies() {
       <main className={style.container}>
         <article className={style.content}>
           <h1>Privacy & Cookies Notice</h1>
-          <p className={style.updated}>Last updated: 9 February 2026</p>
+          <p className={style.updated}>Last updated: 2 April 2026</p>
           <p>
             This notice explains how cookies and personal data are handled on
             these Kedro web properties:
@@ -87,11 +87,10 @@ export default function PrivacyAndCookies() {
             improve these sites.
           </p>
           <p>
-            <strong>Controller (interim):</strong> Kedro Team (operators of the
-            Kedro web properties listed on this page)
+            <strong>Controller:</strong> Kedro Project a Series of LF Projects, LLC
             <br />
             <strong>Contact:</strong>{' '}
-            <a href="mailto:privacy@kedro.org">privacy@kedro.org</a>
+            <a href="mailto:legal@lfaidata.foundation">legal@lfaidata.foundation</a>
           </p>
           <p>
             We will update this notice if/when a specific legal entity is
@@ -313,8 +312,8 @@ export default function PrivacyAndCookies() {
           </ul>
           <p>
             To exercise rights, contact:{' '}
-            <a href="mailto:privacy@kedro.org">
-              <strong>privacy@kedro.org</strong>
+            <a href="mailto:legal@lfaidata.foundation">
+              <strong>legal@lfaidata.foundation</strong>
             </a>
             .
           </p>
@@ -346,11 +345,24 @@ export default function PrivacyAndCookies() {
             appropriate, re-prompt for consent.
           </p>
 
-          <h2>15. Contact</h2>
+          <h2>15. Terms of Use</h2>
+          <p>
+            Use of Kedro web properties is subject to the{' '}
+            <a
+              href="https://lfprojects.org/policies/hosted-project-tools-terms-of-use/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Hosted Project Tools Terms of Use</strong>
+            </a>
+            .
+          </p>
+
+          <h2>16. Contact</h2>
           <p>
             Questions about privacy or cookies:{' '}
-            <a href="mailto:privacy@kedro.org">
-              <strong>privacy@kedro.org</strong>
+            <a href="mailto:legal@lfaidata.foundation">
+              <strong>legal@lfaidata.foundation</strong>
             </a>
           </p>
         </article>

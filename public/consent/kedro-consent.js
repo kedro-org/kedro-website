@@ -551,6 +551,7 @@
 
   function getEnglishTranslations() {
     const POLICY_URL = 'https://kedro.org/privacy-and-cookies';
+    const TERMS_URL = 'https://lfprojects.org/policies/hosted-project-tools-terms-of-use/';
 
     return {
       consentModal: {
@@ -559,7 +560,8 @@
           'We use a strictly necessary cookie to remember your cookie settings. ' +
           'With your permission, we also use analytics cookies (Heap) to understand how our sites are used and improve them. ' +
           'You can accept analytics, keep only necessary cookies, or manage your preferences. ' +
-          '<a href="' + POLICY_URL + '" target="_blank" rel="noopener noreferrer">Learn more</a>.',
+          '<a href="' + POLICY_URL + '" target="_blank" rel="noopener noreferrer">Learn more</a> | ' +
+          '<a href="' + TERMS_URL + '" target="_blank" rel="noopener noreferrer">Terms of Use</a>.',
         acceptAllBtn: 'Accept analytics',
         acceptNecessaryBtn: 'Only necessary',
         showPreferencesBtn: 'Cookie settings'
