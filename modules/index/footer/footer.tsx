@@ -40,8 +40,8 @@ export default function Footer() {
           >
             Documentation
           </a>
-          <Link href="/blog" className={style.link}>
-            Blog
+          <Link href="/whats-new" className={style.link}>
+            What&apos;s New
           </Link>
           <Link href="/privacy-and-cookies" className={style.link}>
             Privacy & Cookies

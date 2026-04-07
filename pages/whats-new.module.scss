@@ -1,0 +1,57 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.page {
+  background: $color-dark;
+  color: $color-font;
+  min-height: 100vh;
+
+  @include breakpoint(medium-up) {
+    margin: 0 -3.5rem 0;
+  }
+}
+
+.hero {
+  padding-top: calc(#{$header-height} + 80px);
+  padding-bottom: 48px;
+  max-width: $blog-max-content;
+  margin: 0 auto;
+  padding-left: 75px;
+  padding-right: 75px;
+
+  @include breakpoint(medium-only) {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  @include breakpoint(small) {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: calc(#{$header-height} + 48px);
+  }
+}
+
+.heroTitle {
+  @include display-md;
+  font-size: 2.86rem;
+  font-weight: 500;
+  letter-spacing: $letter-spacing;
+  color: $color-font;
+  margin-bottom: 25px;
+
+  @include breakpoint(small) {
+    @include display-xs;
+  }
+}
+
+.heroSubtitle {
+  @include text-lg;
+  color: $color-font-grey;
+  font-weight: 400;
+  margin-bottom: 10px;
+
+  @include breakpoint(small) {
+    @include text-md;
+    margin-bottom: 24px;
+  }
+}
