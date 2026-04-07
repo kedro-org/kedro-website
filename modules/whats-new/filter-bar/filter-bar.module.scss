@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.filterBar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @include breakpoint(small) {
+    gap: 8px;
+  }
+}
+
+.filterButton {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background: $color-black-700;
+  color: #b2b2b2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    color $transition-time ease,
+    background $transition-time ease;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+
+  &:hover {
+    background: #ffe8a7;
+    color: #636363;
+  }
+}
+
+.filterButtonActive {
+  background: $color-accent;
+  color: $color-dark;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-dark;
+  }
+}
