@@ -378,6 +378,9 @@ export default function PrivacyAndCookies() {
         a {
           color: #fff;
         }
+        a[href^="mailto:"] {
+          text-decoration: none;
+        }
       `}</style>
     </>
   );
