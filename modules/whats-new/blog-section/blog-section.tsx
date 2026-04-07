@@ -13,7 +13,7 @@ interface BlogSectionProps {
 }
 
 const INITIAL_CARDS = 6;
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 3;
 
 const BlogSection = ({ posts }: BlogSectionProps) => {
   const [showAllPosts, setShowAllPosts] = useState(false);
@@ -49,7 +49,7 @@ const BlogSection = ({ posts }: BlogSectionProps) => {
               setAllPostsLength(PAGE_SIZE);
             }}
           >
-            View all blogs
+            Show more posts
           </button>
         </div>
 
