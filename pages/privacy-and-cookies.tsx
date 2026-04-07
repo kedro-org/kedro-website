@@ -90,7 +90,9 @@ export default function PrivacyAndCookies() {
             <strong>Controller:</strong> Kedro Project a Series of LF Projects, LLC
             <br />
             <strong>Contact:</strong>{' '}
-            <a href="mailto:legal@lfaidata.foundation">legal@lfaidata.foundation</a>
+            <a href="mailto:legal@lfaidata.foundation">
+              <strong>legal@lfaidata.foundation</strong>
+            </a>
           </p>
           <p>
             We will update this notice if/when a specific legal entity is
