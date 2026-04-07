@@ -90,7 +90,7 @@ export default function PrivacyAndCookies() {
             <strong>Controller:</strong> Kedro Project a Series of LF Projects, LLC
             <br />
             <strong>Contact:</strong>{' '}
-            <a href="mailto:legal@lfaidata.foundation">
+            <a href="mailto:legal@lfaidata.foundation" className={style.plainLink}>
               <strong>legal@lfaidata.foundation</strong>
             </a>
           </p>
@@ -314,7 +314,7 @@ export default function PrivacyAndCookies() {
           </ul>
           <p>
             To exercise rights, contact:{' '}
-            <a href="mailto:legal@lfaidata.foundation">
+            <a href="mailto:legal@lfaidata.foundation" className={style.plainLink}>
               <strong>legal@lfaidata.foundation</strong>
             </a>
             .
@@ -354,6 +354,7 @@ export default function PrivacyAndCookies() {
               href="https://lfprojects.org/policies/hosted-project-tools-terms-of-use/"
               target="_blank"
               rel="noopener noreferrer"
+              className={style.plainLink}
             >
               <strong>Hosted Project Tools Terms of Use</strong>
             </a>
@@ -363,7 +364,7 @@ export default function PrivacyAndCookies() {
           <h2>16. Contact</h2>
           <p>
             Questions about privacy or cookies:{' '}
-            <a href="mailto:legal@lfaidata.foundation">
+            <a href="mailto:legal@lfaidata.foundation" className={style.plainLink}>
               <strong>legal@lfaidata.foundation</strong>
             </a>
           </p>
@@ -377,9 +378,6 @@ export default function PrivacyAndCookies() {
         }
         a {
           color: #fff;
-        }
-        a[href^="mailto:"] {
-          text-decoration: none;
         }
       `}</style>
     </>

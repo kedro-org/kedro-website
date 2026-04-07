@@ -59,6 +59,15 @@
     }
   }
 
+  .plainLink {
+    color: $color-font;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-font;
+    }
+  }
+
   code {
     background: $color-bg-grey;
     border-radius: 3px;
