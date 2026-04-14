@@ -43,6 +43,18 @@ export default function Footer() {
           <Link href="/whats-new" className={style.link}>
             What&apos;s New
           </Link>
+          <Link href="/privacy-and-cookies" className={style.link}>
+            Privacy & Cookies
+          </Link>
+          <button
+            className={style.link}
+            onClick={() =>
+              (window as any).CookieConsent?.showPreferences?.()
+            }
+            type="button"
+          >
+            Cookie Settings
+          </button>
           <div className={style.iconLinks}>
             <a
               className={style.link}
