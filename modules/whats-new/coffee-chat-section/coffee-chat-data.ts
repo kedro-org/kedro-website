@@ -6,6 +6,20 @@ export interface CoffeeChat {
 }
 
 export const coffeeChatData: CoffeeChat[] = [
+   {
+    date: '10 Apr 2026',
+    title: 'Ship GenAI with Confidence: Evaluation Pipelines with Kedro and Langfuse',
+    description:
+      'We will introduce LangfuseEvaluationDataset, a new Kedro dataset that brings structured, reproducible evaluation into the same catalog-driven workflow you already use for prompts, models, and tracing.',
+    youtubeUrl: 'https://www.youtube.com/watch?v=7uZ-eiw43i0',
+  },
+  {
+    date: '27 Mar 2026',
+    title: 'Let AI Agents Manage Your ML and Data Pipelines with Kedro and MCP',
+    description:
+      'We will look at how Kedro pipelines can be exposed through an MCP server, enabling AI agents built with LangGraph or Claude Code to orchestrate workflows programmatically.',
+    youtubeUrl: 'https://www.youtube.com/watch?v=ZjZUMGPMQ0k&t=1565s',
+  },
   {
     date: '13 Mar 2026',
     title: 'Databricks & SparkDatasetV2: Modern Workflows with Kedro',
@@ -34,21 +48,8 @@ export const coffeeChatData: CoffeeChat[] = [
       'A live demo showing how Kedro powers an end-to-end GenAI workflow for slide generation, how AutoGen integrates with Kedro and how single-agent and multi-agent setups compare in practice.',
     youtubeUrl: 'https://www.youtube.com/watch?v=PkwFgQc5CqA',
   },
-  {
-    date: '19 Dec 2025',
-    title: "Kedro's GenAI Journey: Highlights from the Year",
-    description:
-      'A year-end recap of how the Kedro community embraced generative AI — from LangChain integrations to agentic pipelines and beyond.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=Id6b7aVyWyA',
-  },
-  {
-    date: '05 Dec 2025',
-    title:
-      'Building a Cyberpunk 2077 Knowledge Base with Kedro + LangChain',
-    description:
-      'A fun, hands-on session building a RAG-powered knowledge base for the Cyberpunk 2077 universe using Kedro pipelines and LangChain.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=L4NRorVTC5w',
-  }
+
+ 
 ];
 
 export const coffeeChatPlaylistUrl =
