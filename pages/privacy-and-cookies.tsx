@@ -81,7 +81,7 @@ export default function PrivacyAndCookies() {
 
           <h2>1. Who is responsible for this processing (Controller)</h2>
           <p>
-            For now, the <strong>Kedro Team</strong> acts as the point of
+            <strong>Kedro Project a Series of LF Projects, LLC</strong> is the point of
             contact and responsible group for the operation of the Kedro web
             properties listed above, including decisions about analytics used to
             improve these sites.
@@ -93,10 +93,6 @@ export default function PrivacyAndCookies() {
             <a href="mailto:legal@lfaidata.foundation" className={style.plainLink}>
               <strong>legal@lfaidata.foundation</strong>
             </a>
-          </p>
-          <p>
-            We will update this notice if/when a specific legal entity is
-            designated as the controller for these sites.
           </p>
 
           <h2>2. Quick summary</h2>
