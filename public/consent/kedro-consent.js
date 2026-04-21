@@ -7,6 +7,10 @@
  *
  * Usage: <script src="https://kedro.org/consent/kedro-consent.js" defer></script>
  *
+ * Optional per-site override — declare your own Heap App ID instead of using
+ * central HEAP_ROUTES:
+ *   <script src=".../kedro-consent.js" data-heap-id="123456789" defer></script>
+ *
  * @version 1.0.0
  */
 
@@ -57,15 +61,28 @@
     return 'https://kedro.org/consent/vendor';
   }
 
-  // Heap App IDs mapped by hostname/path pattern
+  // Shared across all docs.kedro.org dev environments (/latest/ pages)
+  const DOCS_DEV_SHARED = '2164194004';
+
   const HEAP_IDS = {
-    'kedro.org': { prod: '666783228', dev: '801262615' },
-    'demo.kedro.org': { prod: '2388822444' },
-    'demo.kedro.org/kedro-builder': { prod: '4039408868' },
-    'docs.kedro.org': { prod: '537308175', dev: '2164194004' },
-    'docs.kedro.org/projects/kedro-viz': { prod: '522942930', dev: '2164194004' },
-    'docs.kedro.org/projects/kedro-datasets': { prod: '1625763777', dev: '2164194004' }
+    KEDRO_ORG: { prod: '666783228', dev: '801262615' },
+    DEMO: { prod: '2388822444' },
+    DEMO_BUILDER: { prod: '4039408868' },
+    DOCS: { prod: '537308175', dev: DOCS_DEV_SHARED },
+    DOCS_VIZ: { prod: '522942930', dev: DOCS_DEV_SHARED },
+    DOCS_DATASETS: { prod: '1625763777', dev: DOCS_DEV_SHARED }
   };
+
+  // Ordered most-specific-first; first match wins.
+  // Path-specific routes MUST precede the hostname-only route for the same host.
+  const HEAP_ROUTES = [
+    { host: 'demo.kedro.org', path: '/kedro-builder', ids: HEAP_IDS.DEMO_BUILDER },
+    { host: 'docs.kedro.org', path: '/projects/kedro-viz', ids: HEAP_IDS.DOCS_VIZ },
+    { host: 'docs.kedro.org', path: '/projects/kedro-datasets', ids: HEAP_IDS.DOCS_DATASETS },
+    { host: 'docs.kedro.org', ids: HEAP_IDS.DOCS },
+    { host: 'demo.kedro.org', ids: HEAP_IDS.DEMO },
+    { host: 'kedro.org', ids: HEAP_IDS.KEDRO_ORG }
+  ];
 
   const COLORS = {
     accent: '#ffc900',
@@ -168,7 +185,40 @@
     return 'prod';
   }
 
+  /**
+   * Escape hatch: a site can opt out of central HEAP_ROUTES and declare its own
+   * Heap App ID via `data-heap-id` on the consent script tag.
+   */
+  function getScriptOverride() {
+    try {
+      const script = document.querySelector('script[src*="kedro-consent"][data-heap-id]');
+      return script ? script.dataset.heapId : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function matchesRoute(route, hostname, pathname) {
+    if (route.host !== hostname) {
+      return false;
+    }
+    if (!route.path) {
+      return true;
+    }
+    if (!pathname.startsWith(route.path)) {
+      return false;
+    }
+    // Boundary check: next char must be '/', '?', '#', or end-of-string
+    const nextChar = pathname[route.path.length];
+    return nextChar === undefined || nextChar === '/' || nextChar === '?' || nextChar === '#';
+  }
+
   function getHeapAppId() {
+    const override = getScriptOverride();
+    if (override) {
+      return override;
+    }
+
     const rawHostname = window.location.hostname;
 
     if (isLocalhost(rawHostname)) {
@@ -179,30 +229,10 @@
     const pathname = window.location.pathname;
     const env = getEnvironment();
 
-    // Try path-specific match first (most specific path wins)
-    const pathKeys = Object.keys(HEAP_IDS)
-      .filter((key) => key.includes('/'))
-      .sort((a, b) => b.length - a.length);
-
-    for (const key of pathKeys) {
-      const parts = key.split('/');
-      const keyHost = parts[0];
-      const keyPath = `/${parts.slice(1).join('/')}`;
-
-      if (hostname === keyHost && pathname.startsWith(keyPath)) {
-        // Boundary check: next char must be '/', '?', '#', or end-of-string
-        const nextChar = pathname[keyPath.length];
-        if (nextChar === undefined || nextChar === '/' || nextChar === '?' || nextChar === '#') {
-          const config = HEAP_IDS[key];
-          return config[env] || config.prod || CONFIG.defaultHeapId;
-        }
+    for (const route of HEAP_ROUTES) {
+      if (matchesRoute(route, hostname, pathname)) {
+        return route.ids[env] || route.ids.prod || CONFIG.defaultHeapId;
       }
-    }
-
-    // Try hostname-only match
-    if (HEAP_IDS[hostname]) {
-      const hostConfig = HEAP_IDS[hostname];
-      return hostConfig[env] || hostConfig.prod || CONFIG.defaultHeapId;
     }
 
     // Unknown non-Kedro domain — do not load Heap to avoid polluting analytics
