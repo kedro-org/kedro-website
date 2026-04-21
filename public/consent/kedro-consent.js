@@ -45,19 +45,21 @@
   };
 
   /**
-   * Get the base URL for vendor assets.
-   * - On localhost: use relative path (local files)
-   * - On production: use absolute kedro.org URL
+   * Derive the vendor folder URL from the consent script's own src.
+   * Vendor files live next to kedro-consent.js, so wherever the script
+   * was loaded from is where its vendor folder is.
    */
   function getVendorBaseUrl() {
-    const hostname = window.location.hostname;
-    
-    // Localhost - use relative path for local development
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      return '/consent/vendor';
+    try {
+      const scriptEl = document.querySelector('script[src*="kedro-consent"]');
+      if (scriptEl && scriptEl.src) {
+        const url = new URL(scriptEl.src);
+        const vendorPath = url.pathname.replace(/\/[^/]+$/, '/vendor');
+        return `${url.origin}${vendorPath}`;
+      }
+    } catch (e) {
+      // Fall through to fallback
     }
-    
-    // Production - always load from kedro.org (single source of truth)
     return 'https://kedro.org/consent/vendor';
   }
 
