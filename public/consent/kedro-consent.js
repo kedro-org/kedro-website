@@ -165,17 +165,196 @@
     return host === 'www.kedro.org' ? 'kedro.org' : host;
   }
 
+  // ============================================
+  // THEME DETECTION
+  // ============================================
+
+  function isValidTheme(value) {
+    return value === 'light' || value === 'dark';
+  }
+
   /**
-   * Resolve which theme variant the consent banner should render.
-   * Per-host detection (kedro.org / docs / viz / builder) is intentionally
-   * deferred — for now, returns 'dark' (matches kedro.org default) unless
-   * the host explicitly sets `window.kedroConsentTheme`.
+   * Read the kedro-viz / kedro-builder theme convention (`kui-theme--*` class).
    */
-  function getTheme() {
-    if (window.kedroConsentTheme === 'light' || window.kedroConsentTheme === 'dark') {
-      return window.kedroConsentTheme;
+  function readKuiThemeClass(el) {
+    if (!el) {return null;}
+    if (el.classList.contains('kui-theme--dark')) {return 'dark';}
+    if (el.classList.contains('kui-theme--light')) {return 'light';}
+    return null;
+  }
+
+  /**
+   * Probe known host DOM theme signals — host-agnostic by design, so this
+   * also works on localhost / preview URLs running any of the kedro apps.
+   * Returns 'light' | 'dark' | null.
+   */
+  function readDomSignal() {
+    // Builder: kui-theme--* on <html>
+    const htmlClass = readKuiThemeClass(document.documentElement);
+    if (htmlClass) {return htmlClass;}
+
+    // Viz: kui-theme--* on .kedro-pipeline (React-mounted)
+    const pipelineClass = readKuiThemeClass(document.querySelector('.kedro-pipeline'));
+    if (pipelineClass) {return pipelineClass;}
+
+    // Docs (MkDocs Material): data-md-color-scheme on <body>
+    if (document.body) {
+      const scheme = document.body.getAttribute('data-md-color-scheme');
+      if (isValidTheme(scheme)) {return scheme;}
     }
-    return 'dark';
+
+    return null;
+  }
+
+  /**
+   * Read the user's saved theme from each host's localStorage. Used as a
+   * pre-mount fallback for viz and builder so the banner doesn't flash the
+   * wrong theme before React applies its DOM signal.
+   */
+  function readLocalStorageSignal() {
+    try {
+      const builderTheme = localStorage.getItem('kedro_builder_theme');
+      if (isValidTheme(builderTheme)) {return builderTheme;}
+    } catch (e) {
+      // localStorage access can throw (Safari private mode); fall through
+    }
+
+    try {
+      const vizRaw = localStorage.getItem('KedroViz');
+      if (vizRaw) {
+        const vizState = JSON.parse(vizRaw);
+        if (vizState && isValidTheme(vizState.theme)) {return vizState.theme;}
+      }
+    } catch (e) {
+      // Malformed JSON or storage error; fall through
+    }
+
+    return null;
+  }
+
+  /**
+   * Per-host fallback used only when no DOM/localStorage signal is present.
+   * Returns null for localhost / unknown hosts (caller defaults to 'dark').
+   */
+  function getHostFallback() {
+    const hostname = normalizeHostname();
+    const pathname = window.location.pathname;
+
+    if (hostname === 'demo.kedro.org' && pathname.startsWith('/kedro-builder')) {
+      return 'light';
+    }
+    if (hostname === 'demo.kedro.org') {return 'dark';}
+    if (hostname === 'docs.kedro.org') {return 'light';}
+    if (hostname === 'kedro.org')      {return 'dark';}
+
+    return null;
+  }
+
+  /**
+   * Resolve the current theme.
+   *
+   *   1. Explicit override     (window.kedroConsentTheme)
+   *   2. Live DOM signal       (works on any host, including localhost)
+   *   3. Persisted localStorage (covers viz/builder pre-mount window)
+   *   4. Host fallback          (per-host default when nothing above hits)
+   *   5. 'dark'                 (final default)
+   */
+  function resolveTheme() {
+    if (isValidTheme(window.kedroConsentTheme)) {return window.kedroConsentTheme;}
+
+    const dom = readDomSignal();
+    if (dom) {return dom;}
+
+    const stored = readLocalStorageSignal();
+    if (stored) {return stored;}
+
+    return getHostFallback() || 'dark';
+  }
+
+  /**
+   * Write the theme to <html data-kedro-cc-theme>. No-op when unchanged.
+   */
+  function applyTheme(theme) {
+    if (!isValidTheme(theme)) {return;}
+    const root = document.documentElement;
+    if (root.getAttribute('data-kedro-cc-theme') === theme) {return;}
+    root.setAttribute('data-kedro-cc-theme', theme);
+    log('Theme applied: ' + theme);
+  }
+
+  /**
+   * Single resolve + apply pipeline. Called at bootstrap and from every
+   * observer below — observers carry no resolution logic of their own.
+   */
+  function syncConsentTheme() {
+    applyTheme(resolveTheme());
+  }
+
+  function observeAttribute(target, attr, callback) {
+    if (!target) {return null;}
+    const observer = new MutationObserver(callback);
+    observer.observe(target, { attributes: true, attributeFilter: [attr] });
+    return observer;
+  }
+
+  /**
+   * Observe `attr` on `selector`. If the element doesn't exist yet (e.g. a
+   * React-mounted div), watch the DOM tree until it appears, then transfer
+   * observation. Re-fires the callback once the target shows up so the
+   * pre-mount theme can be re-resolved against the now-present signal.
+   */
+  function observeWhenAvailable(selector, attr, callback) {
+    const existing = document.querySelector(selector);
+    if (existing) {
+      return observeAttribute(existing, attr, callback);
+    }
+    const treeObserver = new MutationObserver(() => {
+      const found = document.querySelector(selector);
+      if (found) {
+        treeObserver.disconnect();
+        observeAttribute(found, attr, callback);
+        callback();
+      }
+    });
+    treeObserver.observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+    return treeObserver;
+  }
+
+  /**
+   * Subscribe to mutations on every known theme-signal location. Each
+   * watcher just calls syncConsentTheme — no resolution logic lives here.
+   */
+  function watchHostTheme() {
+    if (isValidTheme(window.kedroConsentTheme)) {
+      return;
+    }
+
+    // <html> kui-theme--* class (builder). Element always exists — cheap.
+    observeAttribute(document.documentElement, 'class', syncConsentTheme);
+
+    // <body> data-md-color-scheme (MkDocs Material on docs). Cheap.
+    if (document.body) {
+      observeAttribute(document.body, 'data-md-color-scheme', syncConsentTheme);
+    }
+
+    // .kedro-pipeline (viz wrapper) is React-mounted, so it may not exist yet.
+    //   - If already mounted → cheap targeted observer.
+    //   - Otherwise → only install the subtree-wait observer where viz might
+    //     actually render (viz host, or localhost for local viz dev). This
+    //     avoids a forever subtree MutationObserver on hosts that will never
+    //     see .kedro-pipeline (kedro.org, docs, builder, etc.).
+    const pipeline = document.querySelector('.kedro-pipeline');
+    if (pipeline) {
+      observeAttribute(pipeline, 'class', syncConsentTheme);
+    } else if (
+      (normalizeHostname() === 'demo.kedro.org' && !window.location.pathname.startsWith('/kedro-builder'))
+      || isLocalhost()
+    ) {
+      observeWhenAvailable('.kedro-pipeline', 'class', syncConsentTheme);
+    }
   }
 
   // ============================================
@@ -819,10 +998,11 @@
   function bootstrap() {
     const vendorUrl = getVendorBaseUrl();
 
-    // Apply theme attribute to <html> before loading vendor CSS, so the
-    // CSS variables resolve to the right palette the moment cookieconsent.css
-    // mounts. Per-host detection is TODO.
-    document.documentElement.setAttribute('data-kedro-cc-theme', getTheme());
+    // Resolve and apply the host's current theme to <html> before vendor CSS
+    // loads, so the consent CSS variables hit the correct palette on first
+    // paint. watchHostTheme() then keeps the banner in sync with live toggles.
+    syncConsentTheme();
+    watchHostTheme();
 
     loadAsset('css', `${vendorUrl}/cookieconsent.css`)
       .then(() => {
