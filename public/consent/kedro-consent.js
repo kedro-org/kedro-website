@@ -86,16 +86,43 @@
     { host: 'kedro.org', ids: HEAP_IDS.KEDRO_ORG }
   ];
 
-  const COLORS = {
+  // Theme palettes — colours from Figma "Privacy-Banner_Light-Mode" / "Dark-Mode"
+  const LIGHT_COLORS = {
+    bg: '#ffffff',
+    title: '#242424',
+    body: '#747474',
     accent: '#ffc900',
     accentHover: '#e6b500',
-    bgGrey: '#1e1e1f',
-    bgGreyLight: '#151515',
-    bgGreyHover: '#2a2a2a',
-    fontDark: '#0b0b0b',
-    fontGrey: '#8e8e8e',
-    fontWhite: '#ffffff',
-    greyBorder: '#434343'
+    accentText: '#000000',
+    outlinedBorder: '#242424',
+    outlinedText: '#242424',
+    outlinedHoverBg: 'rgba(36, 36, 36, 0.05)',
+    blockBg: '#f5f5f5',
+    blockHover: '#ebebeb',
+    border: '#e0e0e0',
+    overlay: 'rgba(0, 0, 0, 0.45)',
+    closeBg: '#f5f5f5',
+    closeText: '#000',
+    closeHoverBg: '#ebebeb'
+  };
+
+  const DARK_COLORS = {
+    bg: '#1e1e1f',
+    title: '#d9dcde',
+    body: '#b2b2b2',
+    accent: '#ffc900',
+    accentHover: '#e6b500',
+    accentText: '#000000',
+    outlinedBorder: '#ffffff',
+    outlinedText: '#ffffff',
+    outlinedHoverBg: 'rgba(255, 255, 255, 0.1)',
+    blockBg: '#151515',
+    blockHover: '#2a2a2a',
+    border: '#434343',
+    overlay: 'rgba(0, 0, 0, 0.65)',
+    closeBg: '#151515',
+    closeText: '#ffffff',
+    closeHoverBg: '#2a2a2a'
   };
 
   // ============================================
@@ -136,6 +163,19 @@
   function normalizeHostname(hostname) {
     const host = hostname || window.location.hostname;
     return host === 'www.kedro.org' ? 'kedro.org' : host;
+  }
+
+  /**
+   * Resolve which theme variant the consent banner should render.
+   * Per-host detection (kedro.org / docs / viz / builder) is intentionally
+   * deferred — for now, returns 'dark' (matches kedro.org default) unless
+   * the host explicitly sets `window.kedroConsentTheme`.
+   */
+  function getTheme() {
+    if (window.kedroConsentTheme === 'light' || window.kedroConsentTheme === 'dark') {
+      return window.kedroConsentTheme;
+    }
+    return 'dark';
   }
 
   // ============================================
@@ -467,26 +507,71 @@
   // ============================================
 
   function injectCustomStyles() {
+    // CookieConsent variables — same shape for both palettes.
+    // Note: --cc-btn-secondary-* is intentionally set to the accent so that
+    // "Only necessary" matches "Accept analytics" (per Figma — equal weight
+    // consent choices). "Cookie settings" is overridden separately to outlined.
+    const themeVars = (palette) => [
+      `  --cc-bg: ${palette.bg};`,
+      `  --cc-primary-color: ${palette.title};`,
+      `  --cc-secondary-color: ${palette.body};`,
+      `  --cc-btn-primary-bg: ${palette.accent};`,
+      `  --cc-btn-primary-color: ${palette.accentText};`,
+      `  --cc-btn-primary-hover-bg: ${palette.accentHover};`,
+      `  --cc-btn-primary-hover-color: ${palette.accentText};`,
+      `  --cc-btn-secondary-bg: ${palette.accent};`,
+      `  --cc-btn-secondary-color: ${palette.accentText};`,
+      `  --cc-btn-secondary-hover-bg: ${palette.accentHover};`,
+      `  --cc-btn-secondary-hover-color: ${palette.accentText};`,
+      `  --cc-separator-border-color: ${palette.border};`,
+      `  --cc-cookie-category-block-bg: ${palette.blockBg};`,
+      `  --cc-cookie-category-block-hover-bg: ${palette.blockHover};`,
+      `  --cc-toggle-readonly-bg: ${palette.accent};`,
+      `  --cc-toggle-on-bg: ${palette.accent};`,
+      `  --cc-overlay-bg: ${palette.overlay};`
+    ];
+
+    // Outlined buttons — transparent bg + themed border + themed text:
+    //  - Banner "Cookie settings"           → .cm__btn[data-role="show"]
+    //  - Preferences popup "Save settings"  → .pm__btn[data-role="save"]
+    const outlinedRules = (selector, palette) => [
+      `${selector} #cc-main .cm__btn[data-role="show"],`,
+      `${selector} #cc-main .pm__btn[data-role="save"] {`,
+      '  background: transparent;',
+      `  border: 1px solid ${palette.outlinedBorder};`,
+      `  color: ${palette.outlinedText};`,
+      '}',
+      `${selector} #cc-main .cm__btn[data-role="show"]:hover,`,
+      `${selector} #cc-main .pm__btn[data-role="save"]:hover {`,
+      `  background: ${palette.outlinedHoverBg};`,
+      `  color: ${palette.outlinedText};`,
+      '}'
+    ];
+
+    // Close (X) button in the preferences popup — filled, no border.
+    // Light theme: dark grey fill + dark X. Dark theme: lighter grey fill + white X.
+    const closeButtonRules = (selector, palette) => [
+      `${selector} #cc-main .pm__close-btn {`,
+      `  background: ${palette.closeBg};`,
+      '  border: none;',
+      '}',
+      `${selector} #cc-main .pm__close-btn svg {`,
+      `  stroke: ${palette.closeText};`,
+      '}',
+      `${selector} #cc-main .pm__close-btn:hover {`,
+      `  background: ${palette.closeHoverBg};`,
+      `  color: ${palette.closeText};`,
+      '}'
+    ];
+
     const styles = [
       '/* Kedro Consent Branding */',
-      ':root {',
-      `  --cc-bg: ${COLORS.bgGrey};`,
-      `  --cc-primary-color: ${COLORS.fontWhite};`,
-      `  --cc-secondary-color: ${COLORS.fontGrey};`,
-      `  --cc-btn-primary-bg: ${COLORS.accent};`,
-      `  --cc-btn-primary-color: ${COLORS.fontDark};`,
-      `  --cc-btn-primary-hover-bg: ${COLORS.accentHover};`,
-      `  --cc-btn-primary-hover-color: ${COLORS.fontDark};`,
-      `  --cc-btn-secondary-bg: ${COLORS.bgGreyLight};`,
-      `  --cc-btn-secondary-color: ${COLORS.fontWhite};`,
-      `  --cc-btn-secondary-hover-bg: ${COLORS.bgGreyHover};`,
-      `  --cc-btn-secondary-hover-color: ${COLORS.fontWhite};`,
-      `  --cc-separator-border-color: ${COLORS.greyBorder};`,
-      `  --cc-cookie-category-block-bg: ${COLORS.bgGreyLight};`,
-      `  --cc-cookie-category-block-hover-bg: ${COLORS.bgGreyHover};`,
-      `  --cc-toggle-readonly-bg: ${COLORS.accent};`,
-      `  --cc-toggle-on-bg: ${COLORS.accent};`,
-      '  --cc-overlay-bg: rgba(0, 0, 0, 0.65);',
+      '[data-kedro-cc-theme="light"] {',
+      ...themeVars(LIGHT_COLORS),
+      '}',
+      '',
+      '[data-kedro-cc-theme="dark"] {',
+      ...themeVars(DARK_COLORS),
       '}',
       '',
       '#cc-main {',
@@ -495,13 +580,21 @@
       '',
       '#cc-main .cm__btn, #cc-main .pm__btn {',
       '  border-radius: 4px;',
-      '  font-weight: 500;',
+      '  font-weight: 600;',
       '  white-space: nowrap;',
       '}',
       '',
-      '.cm__title, .pm__title {',
+      '#cc-main .cm__title, #cc-main .pm__title {',
       '  font-weight: 600;',
-      '}'
+      '}',
+      '',
+      ...outlinedRules('[data-kedro-cc-theme="light"]', LIGHT_COLORS),
+      '',
+      ...outlinedRules('[data-kedro-cc-theme="dark"]', DARK_COLORS),
+      '',
+      ...closeButtonRules('[data-kedro-cc-theme="light"]', LIGHT_COLORS),
+      '',
+      ...closeButtonRules('[data-kedro-cc-theme="dark"]', DARK_COLORS)
     ];
 
     const styleEl = document.createElement('style');
@@ -601,8 +694,6 @@
       },
       preferencesModal: {
         title: 'Cookie settings',
-        acceptAllBtn: 'Accept analytics',
-        acceptNecessaryBtn: 'Only necessary',
         savePreferencesBtn: 'Save settings',
         closeIconLabel: 'Close',
         sections: [
@@ -727,6 +818,11 @@
 
   function bootstrap() {
     const vendorUrl = getVendorBaseUrl();
+
+    // Apply theme attribute to <html> before loading vendor CSS, so the
+    // CSS variables resolve to the right palette the moment cookieconsent.css
+    // mounts. Per-host detection is TODO.
+    document.documentElement.setAttribute('data-kedro-cc-theme', getTheme());
 
     loadAsset('css', `${vendorUrl}/cookieconsent.css`)
       .then(() => {
