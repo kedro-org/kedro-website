@@ -758,7 +758,7 @@
       '}',
       '',
       '#cc-main .cm__btn, #cc-main .pm__btn {',
-      '  border-radius: 4px;',
+      '  border-radius: 0;',
       '  font-weight: 600;',
       '  white-space: nowrap;',
       '}',
