@@ -21,7 +21,7 @@ const DemoSection = () => {
       <div className={style.inner}>
         <h2 className={style.heading}>Demos</h2>
         <p className={style.subtitle}>
-          In-depth walkthroughs and hands-on tutorials.
+          In-depth walkthroughs, hands-on tutorials and real-world examples.
         </p>
 
         {demoData.length === 0 ? (
