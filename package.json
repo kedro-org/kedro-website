@@ -12,7 +12,11 @@
     "test": "jest --watch",
     "test:ci": "npm test -- --watchAll=false --maxWorkers=2"
   },
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "dependencies": {
+    "@babel/runtime": "^7.26.10",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@netlify/edge-functions": "^2.11.0",
     "classnames": "^2.3.2",
