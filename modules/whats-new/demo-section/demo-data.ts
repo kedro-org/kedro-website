@@ -7,6 +7,12 @@ export interface Demo {
 
 export const demoData: Demo[] = [
   {
+    duration: '04:09',
+    title: 'Building a reusable reflection system with Kedro',                                                                                                    
+    videoSrc: '/videos/reflection_hub.mp4',                                                                                                       
+    posterSrc: '/images/reflection_hub_cover.png',                                                                                                
+  },
+  {
     duration: '06:45',
     title: 'Building genAI with Kedro',                                                                                                    
     videoSrc: '/videos/building-genai-with-kedro-business.mp4',                                                                                                       
