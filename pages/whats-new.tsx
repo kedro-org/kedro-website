@@ -68,7 +68,7 @@ const WhatsNew = ({ allPosts }: WhatsNewProps) => {
 };
 
 export async function getStaticProps({ preview = false }) {
-  const data = await getAllPostsForBlog(preview);
+  const data = (await getAllPostsForBlog(preview)) ?? [];
 
   return {
     props: {
