@@ -18,7 +18,7 @@ export interface FeatureProps {
   }[];
   imageSrc?: StaticImageData;
   index?: number;
-  posterSrc?: string;
+  posterSrc?: StaticImageData | string;
   subtitle: string;
   title: string;
   videoSrc?: string;

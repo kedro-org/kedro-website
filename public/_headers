@@ -1,0 +1,13 @@
+# Netlify Headers Configuration
+# https://docs.netlify.com/routing/headers/
+
+# Consent scripts - moderate caching (1 hour)
+# Ensures updates propagate within an hour while providing good performance
+/consent/*
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+# Vendor files can be cached longer (1 week) since they change less frequently
+/consent/vendor/*
+  Cache-Control: public, max-age=604800, immutable
+  X-Content-Type-Options: nosniff

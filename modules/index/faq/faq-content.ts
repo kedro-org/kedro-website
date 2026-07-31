@@ -1,19 +1,19 @@
 export const faqContent = [
   {
     question: 'What is Kedro?',
-    answer: `Kedro is an open-source Python framework hosted by the Linux Foundation ([LF AI & Data](https://lfaidata.foundation/)). Kedro uses software engineering best practices to help you build production-ready data science code.`,
+    answer: `Kedro is an open-source Python framework hosted by the Linux Foundation ([LF AI & Data](https://lfaidata.foundation/)). Kedro uses software engineering best practices to help you build production-ready data engineering and data science code.`,
   },
   {
     question: 'What does Kedro do?',
-    answer: `A Kedro project is scaffolding to help you build complex data and machine-learning pipelines. It uses best practices to help you create clean data science code with the result that you spend less time on the tedious "plumbing".\n\nKedro helps you version data, run incremental computations, and automate your pipeline running- order resolution. And, in combination with Kedro-Viz, it gives you a blueprint of your data and machine-learning workflows. It provides data lineage, surfaces detailed pipeline execution information such as execution time, node status, dataset statistics, and makes it easier to communicate with business stakeholders.`,
+    answer: `A Kedro project is scaffolding to help you build complex data and machine-learning pipelines. It uses best practices to help you create clean data engineering and data science code and spend less time on the tedious "plumbing".\n\nKedro helps you version data, run incremental computations, and automate your pipeline running-order resolution. And, in combination with Kedro-Viz, it gives you a blueprint of your data and machine-learning workflows. It provides data lineage, surfaces detailed pipeline execution information such as execution time, node status, dataset statistics, and makes it easier to communicate with business stakeholders.`,
   },
   {
     question: 'Is Kedro an orchestrator?',
-    answer: `You might be wondering if Kedro isn't just another orchestrator. It's not. If you don’t know what one of those is, it’s a way to automate running code as a set of tasks.\n\nOrchestrators like Airflow, Luigi, Prefect, Dagster, Flyte, and Kubeflow focus on running, scheduling, and monitoring pipelines. Meanwhile, Kedro is all about the process of authoring pipelines. So, if you're looking for a solution that takes care of questions like "What time will this task run?" or "How do I manage my compute?", Kedro might not be what you need.\n\nBut don't worry - we still have you covered. Kedro provides a set of deployment guidelines for using orchestrators as deployment targets. We even collaborate with the maintainers of some of those tools to make the deployment experience as smooth as possible. If you're looking for a partner to help you production-ready data science code, Kedro is the perfect solution for you.`,
+    answer: `You might be wondering if Kedro isn't just another orchestrator. It's not. If you don't know what one of those is, it's a way to automate running code as a set of tasks.\n\nOrchestrators like Airflow, Luigi, Prefect, Dagster, Flyte, and Kubeflow focus on running, scheduling, and monitoring pipelines. Meanwhile, Kedro is all about the process of authoring pipelines. So, if you're looking for a solution that takes care of questions like "What time will this task run?" or "How do I manage my compute?", Kedro might not be what you need.\n\nBut don't worry - we still have you covered. Kedro provides a set of deployment guidelines for using orchestrators as deployment targets. We even collaborate with the maintainers of some of those tools to make the deployment experience as smooth as possible. If you're looking for a partner to help you production-ready data engineering and data science code, Kedro is the perfect solution for you.`,
   },
   {
-    question: "I'm a data scientist. Why should I use Kedro?",
-    answer: `If you're a Data Scientist, then you should be interested in Kedro because it enables you to:\n- **Write cleaner code.** Kedro helps you apply software engineering best practices, making your Python code easy to maintain, share, and reuse.\n- **Make a seamless transition from development to production.** Use Kedro to write quick, throw-away exploratory code and expand it into maintainable easy-to-share code experiments.\n- **Stay current in machine learning operations (MLOps).** With Kedro, you can create data science code that lasts. You'll always be two steps in front of industry standards, which can help you stay relevant and competitive in your field.\n- **Use tools in the data science ecosystem.** Kedro supports integration with many standard data science tools, such as Tensorflow, SciKit-Learn, or Jupyter notebooks for experimentation. You can also use Sphinx for documentation, black, isort, and flake8 for code linting and formatting, and pytest for testing.
+    question: "I'm a Data Scientist. Why should I use Kedro?",
+    answer: `If you're a Data Scientist, then you should be interested in Kedro because it enables you to:\n- **Write cleaner code.** Kedro helps you apply software engineering best practices, making your Python code easy to maintain, share, and reuse.\n- **Make a seamless transition from development to production.** Use Kedro to write quick, throw-away exploratory code and expand it into maintainable easy-to-share code experiments.\n- **Stay current in machine learning operations (MLOps).** With Kedro, you can create data science code that lasts. You'll always be two steps in front of industry standards, which can help you stay relevant and competitive in your field.\n- **Use tools in the data science ecosystem.** Kedro supports integration with many standard data science tools, such as TensorFlow, scikit-learn, or Jupyter notebooks for experimentation. You can also use Sphinx for documentation, black, isort, and flake8 for code linting and formatting, and pytest for testing.
     `,
   },
   {
@@ -27,7 +27,7 @@ export const faqContent = [
   },
   {
     question: "What's Kedro's origin story?",
-    answer: `Kedro was born at QuantumBlack to reduce technical debt in data science experiments, making an easier transition from experimentation to production. The latest iteration of Kedro is an incubating project within [https://lfaidata.foundation/](https://lfaidata.foundation/).`,
+    answer: `Kedro was born at QuantumBlack to reduce technical debt in data science experiments, making an easier transition from experimentation to production. The latest iteration of Kedro is a graduate-stage project within [https://lfaidata.foundation/](https://lfaidata.foundation/).`,
   },
   {
     question: 'How can I find out more about Kedro?',

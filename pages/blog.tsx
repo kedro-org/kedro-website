@@ -146,9 +146,8 @@ export async function getStaticProps({ preview = false }) {
       featuredPost:
         data.filter((post: PostSnippetTypes) => post?.featuredPost)[0] || null,
       secondaryPosts:
-        data
-          .filter((post: PostSnippetTypes) => post?.secondaryPost)
-          .slice(0, 2) || null,
+        data.filter((post: PostSnippetTypes) => post?.secondaryPost).slice(0, 2) ||
+        [],
       allPosts: data,
       preview,
     },

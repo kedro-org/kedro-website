@@ -9,7 +9,7 @@ type Props = {
   alt?: string;
   image?: StaticImageData | any;
   placeholder?: 'blur' | 'empty';
-  poster?: string;
+  poster?: StaticImageData | string;
   priority?: boolean;
   video?: string;
 };
@@ -40,8 +40,9 @@ export default function Media({
   }
 
   if (!!video?.length) {
+    const posterSrc = typeof poster === 'string' ? poster : poster?.src;
     return (
-      <video className={style.video} controls poster={poster} src={video}>
+      <video className={style.video} controls poster={posterSrc} src={video}>
         Sorry, your browser doesn&#39;t support embedded videos.
       </video>
     );
