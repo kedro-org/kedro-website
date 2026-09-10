@@ -21,7 +21,7 @@
     "@netlify/edge-functions": "^2.11.0",
     "classnames": "^2.3.2",
     "framer-motion": "^6.2.7",
-    "next": "^15.5.22",
+    "next": "^15.5.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
