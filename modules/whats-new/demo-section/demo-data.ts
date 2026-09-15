@@ -13,6 +13,12 @@ export const demoData: Demo[] = [
     posterSrc: '/images/reflection_hub_cover.png',                                                                                                
   },
   {
+    duration: '03:57',
+    title: 'Healthcare GraphRAG with Kedro',                                                                                                    
+    videoSrc: '/videos/graphrag.mp4',                                                                                                       
+    posterSrc: '/images/graphrag_cover.png',                                                                                                
+  },
+  {
     duration: '06:45',
     title: 'Building genAI with Kedro',                                                                                                    
     videoSrc: '/videos/building-genai-with-kedro-business.mp4',                                                                                                       
