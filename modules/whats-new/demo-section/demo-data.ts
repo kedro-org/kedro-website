@@ -7,6 +7,12 @@ export interface Demo {
 
 export const demoData: Demo[] = [
   {
+    duration: '10:08',
+    title: 'Introducing the KedroServiceSession and HTTP Server',
+    videoSrc: '/videos/KedroServiceSession-and-HTTP-server.mp4',
+    posterSrc: '/images/KedroServiceSession_cover.png',
+  },
+  {
     duration: '04:09',
     title: 'Building a reusable reflection system with Kedro',                                                                                                    
     videoSrc: '/videos/reflection_hub.mp4',                                                                                                       
